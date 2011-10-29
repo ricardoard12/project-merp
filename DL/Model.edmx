@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_MERPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="db_MERPModelStoreContainer">
+          <EntitySet Name="tbl_Prd" EntityType="db_MERPModel.Store.tbl_Prd" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Prdcat" EntityType="db_MERPModel.Store.tbl_Prdcat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Usr" EntityType="db_MERPModel.Store.tbl_Usr" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__tbl_Prd__PrdPrdc__0519C6AF" Association="db_MERPModel.Store.FK__tbl_Prd__PrdPrdc__0519C6AF">
+            <End Role="tbl_Prdcat" EntitySet="tbl_Prdcat" />
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_Prd">
+          <Key>
+            <PropertyRef Name="Prd#" />
+          </Key>
+          <Property Name="Prd#" Type="int" Nullable="false" />
+          <Property Name="PrdName" Type="varchar" MaxLength="30" />
+          <Property Name="PrdEAN" Type="varchar" MaxLength="13" />
+          <Property Name="PrdPricePurchase" Type="float" />
+          <Property Name="PrdPriceSale" Type="float" />
+          <Property Name="PrdPrdcat#" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Prdcat">
+          <Key>
+            <PropertyRef Name="Prdcat#" />
+          </Key>
+          <Property Name="Prdcat#" Type="int" Nullable="false" />
+          <Property Name="PrdcatName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_Usr">
+          <Key>
+            <PropertyRef Name="usr#" />
+          </Key>
+          <Property Name="usr#" Type="int" Nullable="false" />
+          <Property Name="usrIdent" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="usrName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="usrPassword" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="usrLogedin" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tbl_Prd__PrdPrdc__0519C6AF">
+          <End Role="tbl_Prdcat" Type="db_MERPModel.Store.tbl_Prdcat" Multiplicity="0..1" />
+          <End Role="tbl_Prd" Type="db_MERPModel.Store.tbl_Prd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Prdcat">
+              <PropertyRef Name="Prdcat#" />
+            </Principal>
+            <Dependent Role="tbl_Prd">
+              <PropertyRef Name="PrdPrdcat#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_MERPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="db_MERPEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Prd" EntityType="db_MERPModel.tbl_Prd" />
+          <EntitySet Name="tbl_Prdcat" EntityType="db_MERPModel.tbl_Prdcat" />
+          <AssociationSet Name="FK__tbl_Prd__PrdPrdC__0519C6AF" Association="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF">
+            <End Role="tbl_Prdcat" EntitySet="tbl_Prdcat" />
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+          </AssociationSet>
+          <EntitySet Name="tbl_Usr" EntityType="db_MERPModel.tbl_Usr" />
+        </EntityContainer>
+        <EntityType Name="tbl_Prd">
+          <Key>
+            <PropertyRef Name="Prd_" />
+          </Key>
+          <Property Type="Int32" Name="Prd_" Nullable="false" />
+          <Property Type="String" Name="PrdName" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PrdEAN" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PrdPricePurchase" />
+          <Property Type="Double" Name="PrdPriceSale" />
+          <Property Type="Int32" Name="PrdPrdcat_" />
+          <NavigationProperty Name="tbl_Prdcat" Relationship="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF" FromRole="tbl_Prd" ToRole="tbl_Prdcat" />
+        </EntityType>
+        <EntityType Name="tbl_Prdcat">
+          <Key>
+            <PropertyRef Name="Prdcat_" />
+          </Key>
+          <Property Type="Int32" Name="Prdcat_" Nullable="false" />
+          <Property Type="String" Name="PrdcatName" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Prd" Relationship="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF" FromRole="tbl_Prdcat" ToRole="tbl_Prd" />
+        </EntityType>
+        <Association Name="FK__tbl_Prd__PrdPrdC__0519C6AF">
+          <End Type="db_MERPModel.tbl_Prdcat" Role="tbl_Prdcat" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Prd" Role="tbl_Prd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Prdcat">
+              <PropertyRef Name="Prdcat_" />
+            </Principal>
+            <Dependent Role="tbl_Prd">
+              <PropertyRef Name="PrdPrdcat_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_Usr">
+          <Key>
+            <PropertyRef Name="usr_" />
+          </Key>
+          <Property Type="Int32" Name="usr_" Nullable="false" />
+          <Property Type="String" Name="usrIdent" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="usrName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="usrPassword" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="usrLogedin" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_MERPModelStoreContainer" CdmEntityContainer="db_MERPEntities1">
+          <EntitySetMapping Name="tbl_Prd">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Prd">
+              <MappingFragment StoreEntitySet="tbl_Prd">
+                <ScalarProperty Name="PrdPrdcat_" ColumnName="PrdPrdcat#" />
+                <ScalarProperty Name="PrdPriceSale" ColumnName="PrdPriceSale" />
+                <ScalarProperty Name="PrdPricePurchase" ColumnName="PrdPricePurchase" />
+                <ScalarProperty Name="PrdEAN" ColumnName="PrdEAN" />
+                <ScalarProperty Name="PrdName" ColumnName="PrdName" />
+                <ScalarProperty Name="Prd_" ColumnName="Prd#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Prdcat">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Prdcat">
+              <MappingFragment StoreEntitySet="tbl_Prdcat">
+                <ScalarProperty Name="PrdcatName" ColumnName="PrdcatName" />
+                <ScalarProperty Name="Prdcat_" ColumnName="Prdcat#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Usr">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Usr">
+              <MappingFragment StoreEntitySet="tbl_Usr">
+                <ScalarProperty Name="usrLogedin" ColumnName="usrLogedin" />
+                <ScalarProperty Name="usrPassword" ColumnName="usrPassword" />
+                <ScalarProperty Name="usrName" ColumnName="usrName" />
+                <ScalarProperty Name="usrIdent" ColumnName="usrIdent" />
+                <ScalarProperty Name="usr_" ColumnName="usr#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model">
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Prd" Width="1.5" PointX="3" PointY="1" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Prdcat" Width="1.5" PointX="0.75" PointY="1.375" Height="1.5956835937499996" />
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF" >
+          <ConnectorPoint PointX="2.25" PointY="2.172841796875" />
+          <ConnectorPoint PointX="3" PointY="2.172841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Usr" Width="1.5" PointX="0.75" PointY="4.25" Height="1.9802864583333326" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
