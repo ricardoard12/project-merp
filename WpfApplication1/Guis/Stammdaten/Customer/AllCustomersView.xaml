@@ -51,12 +51,15 @@
       -->
         <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
         <Style.Triggers>
+            
             <MultiTrigger>
+                <!-- Zu überwachende Eigenschaften-->
                 <MultiTrigger.Conditions>
                     <Condition Property="ItemsControl.AlternationIndex" Value="1" />
                     <Condition Property="IsSelected" Value="False" />
                     <Condition Property="IsMouseOver" Value="False" />
                 </MultiTrigger.Conditions>
+                <!-- Wenn der Eigenschaftswert zutrifft zu setzende Eigenschaft-->
                 <Setter Property="Background" Value="#EEEEEEEE" />
             </MultiTrigger>
         </Style.Triggers>
@@ -71,9 +74,9 @@
             </StackPanel>
         </Grid>
 
-        <ListView  AlternationCount="2"   DataContext="{StaticResource CustomerGroups}"   ItemContainerStyle="{StaticResource CustomerItemStyle}"   ItemsSource="{Binding}"     >
+        <ListView  AlternationCount="2"   DataContext="{StaticResource CustomerGroups}"   ItemContainerStyle="{StaticResource CustomerItemStyle}"   ItemsSource="{Binding}">
             <ListView.GroupStyle>
-                <StaticResourceExtension ResourceKey="CustomerGroupStyle"   />
+                <StaticResourceExtension ResourceKey="CustomerGroupStyle"/>
             </ListView.GroupStyle>
             <ListView.View>
                 <GridView>
