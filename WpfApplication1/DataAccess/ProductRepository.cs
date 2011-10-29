@@ -7,7 +7,7 @@ using Views;
 using WpfApplication1.Data.Channel;
 
 namespace WpfApplication1.DataAccess {
-    class ProductRepository
+    public class ProductRepository
     {
         private PagedResult<Product> _products;
 

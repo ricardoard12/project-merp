@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Windows.Resources;
 using System.Windows;
-using WpfApplication1.Model;
+using WpfApplication1.Model.Stammdaten;
 
 namespace WpfApplication1.DataAccess {
     class CustomerRepository {

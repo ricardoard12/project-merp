@@ -6,7 +6,7 @@ using System.Windows.Input;
 namespace WpfApplication1.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {
         #region Fields
-        readonly Model.Customer _customer;
+        readonly Model.Stammdaten.Customer _customer;
         readonly CustomerRepository _customerRepository;
         string _customerType;
         string[] _customerTypeOptions;
@@ -16,7 +16,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         #endregion Fields
 
         #region Constructors
-        public CustomerViewModel(Model.Customer customer, CustomerRepository customerRepository) {
+        public CustomerViewModel(Model.Stammdaten.Customer customer, CustomerRepository customerRepository) {
             if (customer == null)
                 throw new ArgumentNullException("customer");
 

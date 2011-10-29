@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-
-namespace WpfApplication1.Model {
+namespace WpfApplication1.Model.Stammdaten {
     public class Customer : IDataErrorInfo {
         #region Creation 
         public static Customer CreateNewCustomer() {
@@ -16,7 +12,7 @@ namespace WpfApplication1.Model {
 
         public static Customer CreateCustomer(
             double totalSales,
-        string firstName,
+            string firstName,
             string lastName,
             bool isCompany,
             string email) {

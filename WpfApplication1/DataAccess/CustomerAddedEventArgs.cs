@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WpfApplication1.Model;
+using WpfApplication1.Model.Stammdaten;
 
 namespace WpfApplication1.DataAccess {
     public class CustomerAddedEventArgs : EventArgs {

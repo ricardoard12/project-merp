@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             xmlns:local="clr-namespace:WpfApplication1.Guis.Stammdaten.Product">
+             xmlns:local="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Product">
     <UserControl.DataContext>
-        <local:AllProductsView />
+        <local:AllProductsViewModel />
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="AllProducts" Source="{Binding AllProducts}"/>
+    </UserControl.Resources>
+
 </UserControl>

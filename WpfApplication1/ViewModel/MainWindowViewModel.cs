@@ -5,11 +5,11 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using WpfApplication1.DataAccess;
-using WpfApplication1.Model;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
+using WpfApplication1.Model.Stammdaten;
 using WpfApplication1.ViewModel.Stammdaten.Customer;
 
 
