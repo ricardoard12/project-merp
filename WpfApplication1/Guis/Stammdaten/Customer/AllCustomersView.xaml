@@ -5,10 +5,7 @@
   xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
   >
     <UserControl.Resources>
-        <CollectionViewSource
-      x:Key="CustomerGroups" 
-      Source="{Binding Path=AllCustomers}"
-      >
+        <CollectionViewSource x:Key="CustomerGroups"  Source="{Binding Path=AllCustomers}" >
         <CollectionViewSource.GroupDescriptions>
             <PropertyGroupDescription PropertyName="IsCompany" />
         </CollectionViewSource.GroupDescriptions>
@@ -25,17 +22,16 @@
     <GroupStyle x:Key="CustomerGroupStyle">
         <GroupStyle.HeaderTemplate>
             <DataTemplate>
-                <TextBlock 
-            x:Name="txt" 
-            Background="{StaticResource Brush_HeaderBackground}"
-            FontWeight="Bold"
-            Foreground="White"
-            Margin="1"
-            Padding="4,2,0,2"
-            Text="People" 
-            />
+                <TextBlock  x:Name="txt" 
+                        Background="{StaticResource Brush_HeaderBackground}"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Margin="1"
+                        Padding="4,2,0,2"
+                        Text="People" 
+                        />
                 <DataTemplate.Triggers>
-                    <DataTrigger Binding="{Binding Path=Name}" Value="True">
+                        <DataTrigger Binding="{Binding Path=IsCompany}" Value="True">
                         <Setter TargetName="txt" Property="Text" Value="Companies" />
                     </DataTrigger>
                 </DataTemplate.Triggers>
@@ -71,43 +67,22 @@
         <Grid DockPanel.Dock="Bottom" Margin="0,2,4,2">
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Total selected sales: " />
-                <ContentPresenter
-          Content="{Binding Path=TotalSelectedSales}"
-          ContentStringFormat="c"
-          />
+                <ContentPresenter  Content="{Binding Path=TotalSelectedSales}" ContentStringFormat="c"  />
             </StackPanel>
         </Grid>
 
-        <ListView 
-      AlternationCount="2" 
-      DataContext="{StaticResource CustomerGroups}" 
-      ItemContainerStyle="{StaticResource CustomerItemStyle}"
-      ItemsSource="{Binding}"
-      >
+        <ListView  AlternationCount="2"   DataContext="{StaticResource CustomerGroups}"   ItemContainerStyle="{StaticResource CustomerItemStyle}"   ItemsSource="{Binding}"     >
             <ListView.GroupStyle>
-                <StaticResourceExtension 
-          ResourceKey="CustomerGroupStyle" 
-          />
+                <StaticResourceExtension ResourceKey="CustomerGroupStyle"   />
             </ListView.GroupStyle>
-
             <ListView.View>
                 <GridView>
-                    <GridViewColumn 
-            Header="Name" 
-            DisplayMemberBinding="{Binding Path=DisplayName}" 
-            />
-                    <GridViewColumn 
-            Header="E-mail" 
-            DisplayMemberBinding="{Binding Path=Email}" 
-            />
+                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=DisplayName}"  />
+                    <GridViewColumn Header="E-mail" DisplayMemberBinding="{Binding Path=Email}" />
                     <GridViewColumn Header="Total Sales">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <ContentPresenter 
-                  Content="{Binding Path=TotalSales}" 
-                  ContentStringFormat="c"
-                  HorizontalAlignment="Right"
-                  />
+                                <ContentPresenter Content="{Binding Path=TotalSales}"  ContentStringFormat="c" HorizontalAlignment="Right" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

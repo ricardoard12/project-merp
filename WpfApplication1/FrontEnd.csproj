@@ -61,7 +61,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\CustomerRepository.cs" />
+    <Compile Include="DataAccess\ProductRepository.cs" />
     <Compile Include="Data\Channel\Channel.cs" />
+    <Compile Include="Guis\Stammdaten\Product\AllProductsView.xaml.cs">
+      <DependentUpon>AllProductsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Customer.cs" />
     <Compile Include="DataAccess\CustomerAddedEventArgs.cs" />
     <Compile Include="ViewModel\Stammdaten\Customer\AllCustomersViewModel.cs" />
@@ -78,6 +82,10 @@
     <Compile Include="Guis\Stammdaten\Customer\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Guis\Stammdaten\Product\AllProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,7 +148,12 @@
       <Project>{77153938-B0A6-4104-AB87-9627E18B95D2}</Project>
       <Name>BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Views\Views.csproj">
+      <Project>{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}</Project>
+      <Name>Views</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
