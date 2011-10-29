@@ -3,15 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="{Binding Path=DisplayName}" Height="350" Width="525"
         WindowStartupLocation="CenterScreen"
-        FontFamily="Verdana">
+        FontFamily="Verdana"
+        xmlns:vm="clr-namespace:WpfApplication1.ViewModel">
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml" />
     </Window.Resources>
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None" >
-            <Menu>
+            <Menu >
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Close" />
+                    <MenuItem Header="_Close" Command="{Binding CloseApplication}"/>
                 </MenuItem>
                 <MenuItem Header="_Edit" />
                 <MenuItem Header="_Options" />

@@ -9,7 +9,7 @@ namespace WpfApplication1.ViewModel {
     abstract class ViewModelBase : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
-
+        
         public virtual string DisplayName { get; protected set; }
 
         protected virtual void OnPropertyChanged(string propertyName) {
