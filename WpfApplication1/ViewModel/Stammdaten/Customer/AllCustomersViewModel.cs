@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using WpfApplication1.DataAccess;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 
-namespace WpfApplication1.ViewModel {
+namespace WpfApplication1.ViewModel.Stammdaten.Customer {
     class AllCustomersViewModel : WorkspaceViewModel {
 
         readonly CustomerRepository _customerRepository;
