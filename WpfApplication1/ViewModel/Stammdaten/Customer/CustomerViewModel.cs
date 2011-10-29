@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
-using WpfApplication1.Model;
 using WpfApplication1.DataAccess;
 using System.Windows.Input;
 
-namespace WpfApplication1.ViewModel {
+namespace WpfApplication1.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {
         #region Fields
-        readonly Customer _customer;
+        readonly Model.Customer _customer;
         readonly CustomerRepository _customerRepository;
         string _customerType;
         string[] _customerTypeOptions;
@@ -20,7 +16,7 @@ namespace WpfApplication1.ViewModel {
         #endregion Fields
 
         #region Constructors
-        public CustomerViewModel(Customer customer, CustomerRepository customerRepository) {
+        public CustomerViewModel(Model.Customer customer, CustomerRepository customerRepository) {
             if (customer == null)
                 throw new ArgumentNullException("customer");
 

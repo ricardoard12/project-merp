@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
+using WpfApplication1.ViewModel.Stammdaten.Customer;
 
 
 namespace WpfApplication1.ViewModel {
