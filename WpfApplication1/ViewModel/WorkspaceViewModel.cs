@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Input;
 
 namespace WpfApplication1.ViewModel {
-    class WorkspaceViewModel : ViewModelBase{
+    public class WorkspaceViewModel : ViewModelBase{
 
         RelayCommand _closeCommand;
         //Geht ab wenn der Workspace vom UI weg soll
