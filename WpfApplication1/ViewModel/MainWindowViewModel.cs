@@ -9,13 +9,20 @@ using WpfApplication1.Model;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Windows.Input;
+
 
 namespace WpfApplication1.ViewModel {
     class MainWindowViewModel : WorkspaceViewModel {
-        CustomerRepository _customerRepository;
+        readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
-       
+        private ICommand _closeApplication;
+  
+        public MainWindowViewModel()
+            : this("Data/customers.xml") {
+
+        }
 
         public MainWindowViewModel(string customerDataFile) {
             base.DisplayName = "MainWindowViewModel.Display Name";
@@ -24,7 +31,18 @@ namespace WpfApplication1.ViewModel {
             _workspaces = Workspaces;
         }
 
-        
+      
+        public ICommand CloseApplication
+        {
+            get { return _closeApplication ?? (_closeApplication = new RelayCommand(OnCloseApplication)); }
+
+        }
+
+        private void OnCloseApplication(object obj)
+        {
+            if (App.Current.MainWindow != null)
+                App.Current.MainWindow.Close();
+        }
 
         public ObservableCollection<WorkspaceViewModel> Workspaces {
             get {
@@ -42,7 +60,7 @@ namespace WpfApplication1.ViewModel {
         public ObservableCollection<CommandViewModel> Commands {
             get {
                 if (_commands == null) {
-                    List<CommandViewModel> cmnds = this.CreateCommands();
+                    List<CommandViewModel> cmnds = this.CreateCommandsForNav();
                     _commands = new ObservableCollection<CommandViewModel>(cmnds);
                   
                 }
@@ -50,7 +68,7 @@ namespace WpfApplication1.ViewModel {
             }
         }
 
-        List<CommandViewModel> CreateCommands() {
+        List<CommandViewModel> CreateCommandsForNav() {
             return new List<CommandViewModel> {
                 new CommandViewModel("Create New Customer" , new RelayCommand(param => this.CreateNewCustomer())),
                 new CommandViewModel("Show All Customers" , new RelayCommand(param => this.ShowAllCustomers()))
