@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace WpfApplication1.View.Stammdaten.Customer {
+namespace WpfApplication1.Guis.Stammdaten.Customer {
     /// <summary>
     /// Interaktionslogik für CustomersView.xaml
     /// </summary>

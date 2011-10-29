@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 using Views;
 
 namespace BL.Service
@@ -17,7 +13,7 @@ namespace BL.Service
         {
             PagedResult<Product> p = new PagedResult<Product>();
 
-            p.Rows = (from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start) select new Product { Id = r.Prd_, Ean = r.PrdEAN, Name = r.PrdName, PricePurchase = Convert.ToDouble(r.PrdPricePurchase.Value), PriceSale = Convert.ToDouble(r.PrdPriceSale.Value) }).ToList();
+            p.Rows = Enumerable.ToList<Product>((from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start) select new Product { Id = r.Prd_, Ean = r.PrdEAN, Name = r.PrdName, PricePurchase = Convert.ToDouble((double) r.PrdPricePurchase.Value), PriceSale = Convert.ToDouble((double) r.PrdPriceSale.Value) }));
             p.Total = BusinessLogic.GetProductCount(Prdcat, Anzahl, Start);
             return p;
             
@@ -26,7 +22,7 @@ namespace BL.Service
         public PagedResult<User> GetUserByIdent(string Userident, int Anzahl, int Start)
         {
             PagedResult<User> p = new PagedResult<User>();
-            p.Rows = (from u in BusinessLogic.GetUserByIdent(Userident, Anzahl, Start) select new User { UsrId = u.usr_, UsrIdent = u.usrIdent, UsrName = u.usrName, UsrPassword = u.usrPassword, UsrLogin = u.usrLogedin }).ToList();
+            p.Rows = Enumerable.ToList<User>((from u in BusinessLogic.GetUserByIdent(Userident, Anzahl, Start) select new User { UsrId = u.usr_, UsrIdent = u.usrIdent, UsrName = u.usrName, UsrPassword = u.usrPassword, UsrLogin = u.usrLogedin }));
             p.Total = BusinessLogic.GetUserCountByIdent(Userident);
             return p;
         }

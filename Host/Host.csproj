@@ -53,6 +53,10 @@
       <Project>{77153938-B0A6-4104-AB87-9627E18B95D2}</Project>
       <Name>BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Views\Views.csproj">
+      <Project>{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}</Project>
+      <Name>Views</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

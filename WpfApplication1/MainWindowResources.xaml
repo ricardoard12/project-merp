@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vmCustomer="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Customer"
-                    xmlns:vwCustomer="clr-namespace:WpfApplication1.View.Stammdaten.Customer">
+                    xmlns:Customer="clr-namespace:WpfApplication1.Guis.Stammdaten.Customer">
     
     
     <DataTemplate DataType="{x:Type vmCustomer:AllCustomersViewModel}" >
-        <vwCustomer:AllCustomersView />
+        <Customer:AllCustomersView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmCustomer:CustomerViewModel}" >
-        <vwCustomer:CustomersView />
+        <Customer:CustomersView />
     </DataTemplate>
     <!-- Template für die Befehle / Hyperlinks im Navigationsbereich -->
     <DataTemplate x:Key="CommandsTemplate" >
