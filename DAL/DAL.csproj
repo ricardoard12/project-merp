@@ -49,10 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controls\Controls.csproj">
-      <Project>{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}</Project>
-      <Name>Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DL\DL.csproj">
       <Project>{9E81901A-8B6D-408A-87C4-7494AA07E519}</Project>
       <Name>DL</Name>

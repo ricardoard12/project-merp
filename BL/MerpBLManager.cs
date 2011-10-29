@@ -1,54 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.Entity;
 using Views;
 
 
 namespace BL
 {
-    public class MerpBLManager : IMerpBLManager
+    public class MerpBLManager
     {
-        DAL.MerpDataManager DataLayerManager = new DAL.MerpDataManager();
+        readonly DAL.MerpDataManager _dataLayerManager = new DAL.MerpDataManager();
 
         public List<DL.tbl_Prd> GetProducts(int Prdcat, int Anzahl, int Start)
         {
-            return DataLayerManager.GetProducts(Prdcat, Anzahl, Start);
+            return _dataLayerManager.GetProducts(Prdcat, Anzahl, Start);
         }
 
         public Int32 GetProductCount(int Prdcat, int Anzahl, int Start)
         {
-            return DataLayerManager.GetProductCategorieCount(Prdcat);
+            return _dataLayerManager.GetProductCategorieCount(Prdcat);
         }
 
         public List<DL.tbl_Prdcat> GetAllProductCategories()
         {
-            return DataLayerManager.GetAllProductCategories();
+            return _dataLayerManager.GetAllProductCategories();
         }
 
         public Int32 GetProductCategorieCount()
         {
-            return DataLayerManager.GetProductCategorieCount();
+            return _dataLayerManager.GetProductCategorieCount();
         }
 
         public List<DL.tbl_Usr> GetUserByIdent(string Userident, int Anzahl, int Start)
         {
-            return DataLayerManager.GetUserByIdent(Userident, Anzahl, Start);
+            return _dataLayerManager.GetUserByIdent(Userident, Anzahl, Start);
         }
 
         public Int32 GetUserCountByIdent(string Userident)
         {
-            return DataLayerManager.GetUserCountByIdent(Userident);
+            return _dataLayerManager.GetUserCountByIdent(Userident);
         }
 
         public void UpdateUser(User usr) 
         {
-           DataLayerManager.UpdateUser(usr);
+           _dataLayerManager.UpdateUser(usr);
         }
         public void AddUser(User usr)
         {
-            DataLayerManager.AddUser(usr);
+            _dataLayerManager.AddUser(usr);
         }
     }
 }

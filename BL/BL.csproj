@@ -43,11 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMerpBLManager.cs" />
-    <Compile Include="Service\IMERPService.cs" />
     <Compile Include="MerpBLManager.cs" />
-    <Compile Include="Service\MERPService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IMERPService.cs" />
+    <Compile Include="Service\MERPService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

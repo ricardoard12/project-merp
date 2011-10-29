@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using DL;
 using Views;
-using Controls;
-using System.Xaml;
-
 
 
 namespace DAL
 {
     public class MerpDataManager
     {
-        readonly DL.db_MERPEntities1 _modell = new db_MERPEntities1();
+        readonly db_MERPEntities1 _modell = new db_MERPEntities1();
 
         public List<DL.tbl_Prd> GetProducts(int PrdCat, int Anzahl, int Start)
         {

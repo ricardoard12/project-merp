@@ -13,9 +13,9 @@ namespace Host
         static void Main(string[] args)
         {
             ServiceHost sh = new ServiceHost(typeof(MERPService));
-            Console.Write("Host wird gestartet...\n");   
+            Console.Write("Merp wird gestartet...  :D :D :D\n");   
             sh.Open();
-            Console.Write("Host wurde gestartet\n");
+            Console.Write("Host wurde gestartet buh buh buh\n");
             Console.Write("Drücken Sie eine Taste um zu beenden\n");
             Console.Read();
             sh.Close();
