@@ -25,7 +25,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
             {
                 if (_products == null || _products.Count == 0)
                 {
-                    _products = new ObservableCollection<ProductModel>();
+                    _products = new ObservableCollection<ProductModel>(_productRepository.ProductsModel);
                 }
                 return _products;
             }
