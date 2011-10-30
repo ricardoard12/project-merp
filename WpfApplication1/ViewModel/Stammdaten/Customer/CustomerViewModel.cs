@@ -6,7 +6,7 @@ using System.Windows.Input;
 namespace WpfApplication1.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {
         #region Fields
-        readonly Model.Stammdaten.Customer _customer;
+        readonly Model.Stammdaten.CustomerModel _customerModel;
         readonly CustomerRepository _customerRepository;
         string _customerType;
         string[] _customerTypeOptions;
@@ -16,14 +16,14 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         #endregion Fields
 
         #region Constructors
-        public CustomerViewModel(Model.Stammdaten.Customer customer, CustomerRepository customerRepository) {
-            if (customer == null)
-                throw new ArgumentNullException("customer");
+        public CustomerViewModel(Model.Stammdaten.CustomerModel customerModel, CustomerRepository customerRepository) {
+            if (customerModel == null)
+                throw new ArgumentNullException("customerModel");
 
             if (customerRepository == null)
                 throw new ArgumentNullException("customerRepository");
 
-            _customer = customer;
+            _customerModel = customerModel;
             _customerRepository = customerRepository;
             _customerType = "NotSpecified";
         }
@@ -32,46 +32,46 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
 
         #region Customer Properties
         public string Email {
-            get { return _customer.Email; }
+            get { return _customerModel.Email; }
             set {
-                if (value == _customer.Email)
+                if (value == _customerModel.Email)
                     return;
 
-                _customer.Email = value;
+                _customerModel.Email = value;
                 base.OnPropertyChanged("Email");
             }
         }
 
         public string FirstName {
-            get { return _customer.FirstName; }
+            get { return _customerModel.FirstName; }
             set {
-                if (value == _customer.FirstName)
+                if (value == _customerModel.FirstName)
                     return;
 
-                _customer.FirstName = value;
+                _customerModel.FirstName = value;
 
                 base.OnPropertyChanged("FirstName");
             }
         }
 
         public bool IsCompany {
-            get { return _customer.IsCompany; }
+            get { return _customerModel.IsCompany; }
         }
 
         public string LastName {
-            get { return _customer.LastName; }
+            get { return _customerModel.LastName; }
             set {
-                if (value == _customer.LastName)
+                if (value == _customerModel.LastName)
                     return;
 
-                _customer.LastName = value;
+                _customerModel.LastName = value;
 
                 base.OnPropertyChanged("LastName");
             }
         }
 
         public double TotalSales {
-            get { return _customer.TotalSales; }
+            get { return _customerModel.TotalSales; }
         }
 
         #endregion Customer Properties
@@ -87,9 +87,9 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
                 _customerType = value;
 
                 if (_customerType == "Company") {
-                    _customer.IsCompany = true;
+                    _customerModel.IsCompany = true;
                 } else if (_customerType == "Person") {
-                    _customer.IsCompany = false;
+                    _customerModel.IsCompany = false;
                 }
 
                 base.OnPropertyChanged("CustomerType");
@@ -120,10 +120,10 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
             get {
                 if (this.IsNewCustomer) {
                     return "Display Name";
-                } else if (_customer.IsCompany) {
-                    return _customer.FirstName;
+                } else if (_customerModel.IsCompany) {
+                    return _customerModel.FirstName;
                 } else {
-                    return String.Format("{0}, {1}", _customer.LastName, _customer.FirstName);
+                    return String.Format("{0}, {1}", _customerModel.LastName, _customerModel.FirstName);
                 }
             }
         }
@@ -141,14 +141,12 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         }
 
         public ICommand SaveCommand {
-            get {
-                if (_saveCommand == null) {
-                    _saveCommand = new RelayCommand(
-                        param => this.Save(),
-                        param => this.CanSave
-                        );
-                }
-                return _saveCommand;
+            get
+            {
+                return _saveCommand ?? (_saveCommand = new RelayCommand(
+                                                           param => this.Save(),
+                                                           param => this.CanSave
+                                                           ));
             }
         }
 
@@ -160,11 +158,11 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         /// Saves the customer to the repository.  This method is invoked by the SaveCommand.
         /// </summary>
         public void Save() {
-            if (!_customer.IsValid)
+            if (!_customerModel.IsValid)
                 throw new InvalidOperationException("Customer is not valid");
 
             if (this.IsNewCustomer)
-                _customerRepository.AddCustomer(_customer);
+                _customerRepository.AddCustomer(_customerModel);
 
             base.OnPropertyChanged("DisplayName");
         }
@@ -173,7 +171,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         /// Returns true if the customer is valid and can be saved.
         /// </summary>
         bool CanSave {
-            get { return String.IsNullOrEmpty(this.ValidateCustomerType()) && _customer.IsValid; }
+            get { return String.IsNullOrEmpty(this.ValidateCustomerType()) && _customerModel.IsValid; }
         }
 
         #endregion public methods
@@ -185,7 +183,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         /// been saved to the customer repository.
         /// </summary>
         bool IsNewCustomer {
-            get { return !_customerRepository.ContainsCustomer(_customer); }
+            get { return !_customerRepository.ContainsCustomer(_customerModel); }
         }
 
 
@@ -195,7 +193,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         #region IDataErrorInfo Members
 
         string IDataErrorInfo.Error {
-            get { return (_customer as IDataErrorInfo).Error; }
+            get { return (_customerModel as IDataErrorInfo).Error; }
         }
 
         string IDataErrorInfo.this[string propertyName] {
@@ -209,7 +207,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
                     // class handles this mapping and validation.
                     error = this.ValidateCustomerType();
                 } else {
-                    error = (_customer as IDataErrorInfo)[propertyName];
+                    error = (_customerModel as IDataErrorInfo)[propertyName];
                 }
 
                 // Dirty the commands registered with CommandManager,

@@ -9,17 +9,39 @@ using WpfApplication1.Data.Channel;
 namespace WpfApplication1.DataAccess {
     public class ProductRepository
     {
-        private PagedResult<Product> _products;
+        private PagedResult<Product> _productsView;
+        private readonly List<Model.Stammdaten.ProductModel> _productsModel;
 
-        public List<Product> Products
+        public ProductRepository()
+        {
+            _productsModel = new List<Model.Stammdaten.ProductModel>();
+        }
+
+
+        public List<Model.Stammdaten.ProductModel> ProductsModel
         {
             get
             {
-                if(_products == null)
-                    _products = Channel.ConnectionToBL.GetProducts(1, 1, 0);
-                return _products.Rows.ToList();
+                if (_productsModel.Count == 0)
+                {
+                    foreach (var p in ProductsView)
+                    {
+                        _productsModel.Add(Model.Stammdaten.ProductModel.CreateProduct(p.Name, p.Ean, p.PricePurchase,
+                                                                                  p.PriceSale));
+                    }
+                }
+
+                return _productsModel;
             }
         }
 
+        private IEnumerable<Product> ProductsView {
+            get {
+                if (_productsView == null)
+                    _productsView = Channel.ConnectionToBL.GetProducts(1, 1, 0);
+
+                return _productsView.Rows.ToList();
+            }
+        }
     }
 }

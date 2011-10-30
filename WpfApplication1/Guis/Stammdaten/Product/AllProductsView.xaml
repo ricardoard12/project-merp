@@ -10,7 +10,11 @@
         <local:AllProductsViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <CollectionViewSource x:Key="AllProducts" Source="{Binding AllProducts}"/>
+        <CollectionViewSource x:Key="AllProducts" Source="{Binding Products}"/>
     </UserControl.Resources>
+    <ItemsControl DataContext="{StaticResource AllProducts}" >
+        
+    </ItemsControl>
+    
 
 </UserControl>

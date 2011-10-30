@@ -79,7 +79,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Customer {
         }
 
         void OnCustomerAddedToRepository(object sender, CustomerAddedEventArgs e) {
-            var viewModel = new CustomerViewModel(e.NewCustomer, _customerRepository);
+            var viewModel = new CustomerViewModel(e.NewCustomerModel, _customerRepository);
             this.AllCustomers.Add(viewModel);
         }
     }

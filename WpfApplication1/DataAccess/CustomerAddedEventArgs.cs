@@ -7,10 +7,10 @@ using WpfApplication1.Model.Stammdaten;
 namespace WpfApplication1.DataAccess {
     public class CustomerAddedEventArgs : EventArgs {
 
-        public CustomerAddedEventArgs(Customer newCustomer) {
-            this.NewCustomer = newCustomer;
+        public CustomerAddedEventArgs(CustomerModel newCustomerModel) {
+            this.NewCustomerModel = newCustomerModel;
         }
 
-        public Customer NewCustomer { get; private set; }
+        public CustomerModel NewCustomerModel { get; private set; }
     }
 }

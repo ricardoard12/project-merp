@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using WpfApplication1.Model.Stammdaten;
 using WpfApplication1.ViewModel.Stammdaten.Customer;
+using WpfApplication1.ViewModel.Stammdaten.Product;
 
 
 namespace WpfApplication1.ViewModel {
@@ -72,8 +73,17 @@ namespace WpfApplication1.ViewModel {
         List<CommandViewModel> CreateCommandsForNav() {
             return new List<CommandViewModel> {
                 new CommandViewModel("Create New Customer" , new RelayCommand(param => this.CreateNewCustomer())),
-                new CommandViewModel("Show All Customers" , new RelayCommand(param => this.ShowAllCustomers()))
+                new CommandViewModel("Show All Customers" , new RelayCommand(param => this.ShowAllCustomers())),
+                new CommandViewModel("Show all Products", new RelayCommand(param =>this.ShowAllProducts()))
             };
+        }
+
+        void ShowAllProducts()
+        {
+            var workspace = new AllProductsViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+
         }
 
         // Can only be one open ShowCustomerWorkspace
@@ -91,8 +101,8 @@ namespace WpfApplication1.ViewModel {
         }
 
         void CreateNewCustomer() {
-            Customer newCustomer = Customer.CreateNewCustomer();
-            CustomerViewModel workspace = new CustomerViewModel(newCustomer, _customerRepository);
+            CustomerModel newCustomerModel = CustomerModel.CreateNewCustomer();
+            CustomerViewModel workspace = new CustomerViewModel(newCustomerModel, _customerRepository);
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }

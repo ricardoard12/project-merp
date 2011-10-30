@@ -13,7 +13,7 @@ namespace WpfApplication1.DataAccess {
     class CustomerRepository {
         #region Fields
 
-        readonly List<Customer> _customers;
+        readonly List<CustomerModel> _customers;
 
         #endregion
 
@@ -29,35 +29,35 @@ namespace WpfApplication1.DataAccess {
         //tritt auf wenn ein Customer in der Repo hinzugefügt wird
         public event EventHandler<CustomerAddedEventArgs> CustomerAdded;
 
-        public void AddCustomer(Customer customer) {
-            if (customer == null)
-                throw new ArgumentNullException("customer");
-            if (!_customers.Contains(customer)) {
-                _customers.Add(customer);
+        public void AddCustomer(CustomerModel customerModel) {
+            if (customerModel == null)
+                throw new ArgumentNullException("customerModel");
+            if (!_customers.Contains(customerModel)) {
+                _customers.Add(customerModel);
 
                 if (this.CustomerAdded != null)
-                    this.CustomerAdded(this, new CustomerAddedEventArgs(customer));
+                    this.CustomerAdded(this, new CustomerAddedEventArgs(customerModel));
             }
         }
 
-        public bool ContainsCustomer(Customer customer) {
-            if (customer == null)
-                throw new ArgumentNullException("customer");
-            return _customers.Contains(customer);
+        public bool ContainsCustomer(CustomerModel customerModel) {
+            if (customerModel == null)
+                throw new ArgumentNullException("customerModel");
+            return _customers.Contains(customerModel);
         }
 
-        public List<Customer> GetCustomers() {
-            return new List<Customer>(_customers);
+        public List<CustomerModel> GetCustomers() {
+            return new List<CustomerModel>(_customers);
         }
 
-        static List<Customer> LoadCustomers(string customerDataFile) {
+        static List<CustomerModel> LoadCustomers(string customerDataFile) {
             // In a real application, the data would come from an external source,
             // but for this demo let's keep things simple and use a resource file.
             using (Stream stream = GetResourceStream(customerDataFile))
             using (XmlReader xmlRdr = new XmlTextReader(stream))
                 return
                     (from customerElem in XDocument.Load(xmlRdr).Element("customers").Elements("customer")
-                     select Customer.CreateCustomer(
+                     select CustomerModel.CreateCustomer(
                         (double)customerElem.Attribute("totalSales"),
                         (string)customerElem.Attribute("firstName"),
                         (string)customerElem.Attribute("lastName"),
