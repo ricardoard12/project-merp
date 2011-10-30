@@ -4,19 +4,19 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace WpfApplication1.Model.Stammdaten {
-    public class Customer : IDataErrorInfo {
+    public class CustomerModel : IDataErrorInfo {
         #region Creation 
-        public static Customer CreateNewCustomer() {
-            return new Customer();
+        public static CustomerModel CreateNewCustomer() {
+            return new CustomerModel();
         }
 
-        public static Customer CreateCustomer(
+        public static CustomerModel CreateCustomer(
             double totalSales,
             string firstName,
             string lastName,
             bool isCompany,
             string email) {
-            return new Customer {
+            return new CustomerModel {
                 TotalSales = totalSales,
                 FirstName = firstName,
                 LastName = lastName,
@@ -24,7 +24,7 @@ namespace WpfApplication1.Model.Stammdaten {
             };
         }
 
-        protected Customer() {
+        protected CustomerModel() {
         }
 
         #endregion Creation

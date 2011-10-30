@@ -5,7 +5,7 @@ using  WpfApplication1.Model.Stammdaten;
 
 namespace WpfApplication1.ViewModel.Stammdaten.Product {
     public class ProductViewModel : WorkspaceViewModel {
-        readonly Model.Stammdaten.Product _product;
+        readonly ProductModel _productModel;
         private readonly ProductRepository _productRepository;
 
       //  string _productType;
@@ -14,62 +14,56 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
         RelayCommand _saveCommand;
        
 
-        public  ProductViewModel(Model.Stammdaten.Product product, ProductRepository productRepository)
+        public  ProductViewModel()
         {
-            if (product == null)
-                throw new ArgumentNullException("product");
-
-            if (productRepository == null)
-                throw new ArgumentNullException("productRepository");
-
-            _product = product;
-            _productRepository = productRepository;
+            _productModel = new ProductModel();
+            _productRepository = new ProductRepository();
 
         }
 
 
         public string Name {
-            get { return _product.Name; }
+            get { return _productModel.Name; }
             set {
-                if (value == _product.Name)
+                if (value == _productModel.Name)
                     return;
 
-                _product.Name = value;
+                _productModel.Name = value;
                 base.OnPropertyChanged("Name");
             }
         }
 
         public string Ean {
-            get { return _product.Ean; }
+            get { return _productModel.Ean; }
             set {
-                if (value == _product.Ean)
+                if (value == _productModel.Ean)
                     return;
 
-                _product.Ean = value;
+                _productModel.Ean = value;
 
                 base.OnPropertyChanged("Ean");
             }
         }
 
         public double PricePurchase {
-            get { return _product.PricePurchase; }
+            get { return _productModel.PricePurchase; }
             set {
-                if (value == _product.PricePurchase)
+                if (value == _productModel.PricePurchase)
                     return;
 
-                _product.PricePurchase = value;
+                _productModel.PricePurchase = value;
 
                 base.OnPropertyChanged("PricePurchase");
             }
         }
 
         public double PriceSale {
-            get { return _product.PriceSale; }
+            get { return _productModel.PriceSale; }
             set {
-                if (value == _product.PriceSale)
+                if (value == _productModel.PriceSale)
                     return;
 
-                _product.PriceSale = value;
+                _productModel.PriceSale = value;
 
                 base.OnPropertyChanged("PriceSale");
             }
@@ -83,7 +77,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
                 if (this.IsNewProduct) {
                     return "Display Name";
                 } else {
-                    return String.Format("{0}", _product.Name);
+                    return String.Format("{0}", _productModel.Name);
                 }
             }
         }
@@ -101,14 +95,12 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
         }
 
         public ICommand SaveCommand {
-            get {
-                if (_saveCommand == null) {
-                    _saveCommand = new RelayCommand(
-                        param => this.Save(),
-                        param => this.CanSave
-                        );
-                }
-                return _saveCommand;
+            get
+            {
+                return _saveCommand ?? (_saveCommand = new RelayCommand(
+                                                           param => this.Save(),
+                                                           param => this.CanSave
+                                                           ));
             }
         }
 
@@ -117,13 +109,18 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
             throw new NotImplementedException();
         }
 
+        private bool CanSave
+        {
+            get { return true; }
+        }
+
         #endregion
 
 #region Helpermethods
 
         private bool IsNewProduct
         {
-            get { return _productRepository. }
+            get { return !_productRepository.ProductsModel.Contains(_productModel); }
         }
 
         #endregion

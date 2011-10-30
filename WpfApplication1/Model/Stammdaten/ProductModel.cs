@@ -6,19 +6,19 @@ using System.Linq;
 using System.Text;
 
 namespace WpfApplication1.Model.Stammdaten {
-    public class Product : IDataErrorInfo
+    public class ProductModel : IDataErrorInfo
     {
 
 
 
-        public static Product CreateNewProduct()
+        public static ProductModel CreateNewProduct()
         {
-            return new Product();
+            return new ProductModel();
         }
 
-        public static Product CreateProduct(string name, string ean, double pricePurchase, double priceSale)
+        public static ProductModel CreateProduct(string name, string ean, double pricePurchase, double priceSale)
         {
-            return new Product
+            return new ProductModel
                        {
                            Name = name,
                            Ean = ean,
@@ -28,7 +28,8 @@ namespace WpfApplication1.Model.Stammdaten {
 
 
         }
-        protected Product() {
+
+        public ProductModel() {
             
         }
 
