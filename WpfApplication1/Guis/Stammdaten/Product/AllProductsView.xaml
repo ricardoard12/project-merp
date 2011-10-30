@@ -12,9 +12,16 @@
     <UserControl.Resources>
         <CollectionViewSource x:Key="AllProducts" Source="{Binding Products}"/>
     </UserControl.Resources>
-    <ItemsControl DataContext="{StaticResource AllProducts}" >
-        
-    </ItemsControl>
-    
+    <ListView DataContext="{StaticResource AllProducts}" ItemsSource="{Binding}">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Productname" DisplayMemberBinding="{Binding Path=Name}" />
+                <GridViewColumn Header="Ean" DisplayMemberBinding="{Binding Path=Ean}" />
+                <GridViewColumn Header="PricePurchase" DisplayMemberBinding="{Binding Path=PricePurchase}" />
+                <GridViewColumn Header="PriceSale" DisplayMemberBinding="{Binding Path=PriceSale}" />
+            </GridView>
+        </ListView.View>
+    </ListView>
+
 
 </UserControl>
