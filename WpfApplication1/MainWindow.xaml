@@ -4,7 +4,10 @@
         Title="{Binding Path=DisplayName}" Height="350" Width="525"
         WindowStartupLocation="CenterScreen"
         FontFamily="Verdana"
-        xmlns:vm="clr-namespace:WpfApplication1.ViewModel">
+        xmlns:vm="clr-namespace:WpfApplication1.ViewModel"
+        xmlns:nav="clr-namespace:WpfApplication1.ViewModel.NavCommands">
+        
+   
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml" />
     </Window.Resources>
@@ -34,6 +37,7 @@
         Style="{StaticResource MainBorderStyle}"
         Width="170" >
             <HeaderedContentControl  Style="{StaticResource MainHCCStyle}" Header="Verzeichnis" >
+                <ItemsControl>
                 <ItemsControl  ItemsSource="{Binding Path=Commands}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -43,7 +47,25 @@
                             </TextBlock>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-
+                </ItemsControl>
+                    <TreeView>
+                        <TreeView.DataContext>
+                            <nav:TreeViewCommands />
+                        </TreeView.DataContext>
+                        <TreeView.Resources>
+                            <DataTemplate x:Key="TreeViewItemTemplate" DataType="{x:Type vm:CommandViewModel}">
+                                <TextBlock Margin="2.1">
+                                            <Hyperlink Command="{Binding Path=Command}" >
+                                                    <TextBlock Text="{Binding Path=DisplayName}" />
+                                            </Hyperlink>
+                               </TextBlock>
+                            </DataTemplate>
+                        </TreeView.Resources>
+                         <TreeViewItem Header="Stammdaten">
+                            <TreeViewItem Header="Produkte" ItemTemplate="{StaticResource TreeViewItemTemplate}" ItemsSource="{Binding CommandsProducts}"  />
+                            <TreeViewItem Header="Kunden" ItemTemplate="{StaticResource TreeViewItemTemplate}" ItemsSource="{Binding CommandsCustomer}"  />
+                        </TreeViewItem>
+                    </TreeView>
                 </ItemsControl>
             </HeaderedContentControl>
                 
