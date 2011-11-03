@@ -10,7 +10,7 @@ using System.Windows;
 using WpfApplication1.Model.Stammdaten;
 
 namespace WpfApplication1.DataAccess {
-    class CustomerRepository {
+    public class CustomerRepository {
         #region Fields
 
         readonly List<CustomerModel> _customers;

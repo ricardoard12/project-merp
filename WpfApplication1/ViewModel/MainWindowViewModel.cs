@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 using WpfApplication1.DataAccess;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
 using WpfApplication1.Model.Stammdaten;
+using WpfApplication1.Properties;
+using WpfApplication1.ViewModel.NavCommands;
 using WpfApplication1.ViewModel.Stammdaten.Customer;
 using WpfApplication1.ViewModel.Stammdaten.Product;
 
 
 namespace WpfApplication1.ViewModel {
-    class MainWindowViewModel : WorkspaceViewModel {
-        readonly CustomerRepository _customerRepository;
+    public class MainWindowViewModel : WorkspaceViewModel {
+        protected readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
+   
         private ICommand _closeApplication;
   
         public MainWindowViewModel()
@@ -28,7 +30,7 @@ namespace WpfApplication1.ViewModel {
 
         public MainWindowViewModel(string customerDataFile) {
             base.DisplayName = "MainWindowViewModel.Display Name";
-            _customerRepository = new CustomerRepository(customerDataFile);
+            _customerRepository = new CustomerRepository(customerDataFile);     
             _commands = Commands;
             _workspaces = Workspaces;
         }
@@ -59,27 +61,27 @@ namespace WpfApplication1.ViewModel {
 
         #region Commands
 
+
+
         public ObservableCollection<CommandViewModel> Commands {
             get {
                 if (_commands == null) {
-                    List<CommandViewModel> cmnds = this.CreateCommandsForNav();
+                    List<CommandViewModel> cmnds = CreateCommandsForNav();
                     _commands = new ObservableCollection<CommandViewModel>(cmnds);
-                  
                 }
                 return _commands;
             }
         }
 
-        List<CommandViewModel> CreateCommandsForNav() {
+        protected List<CommandViewModel> CreateCommandsForNav() {
             return new List<CommandViewModel> {
-                new CommandViewModel("Create New Customer" , new RelayCommand(param => this.CreateNewCustomer())),
-                new CommandViewModel("Show All Customers" , new RelayCommand(param => this.ShowAllCustomers())),
-                new CommandViewModel("Show all Products", new RelayCommand(param =>this.ShowAllProducts()))
+                new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateNewCustomer()), Resources.StringStammdaten, Resources.StringCustomer),
+                new CommandViewModel("Show All Customers" , new RelayCommand(param => ShowAllCustomers()), Resources.StringStammdaten, Resources.StringCustomer),
+                new CommandViewModel("Show all Products", new RelayCommand(param =>ShowAllProducts()), Resources.StringStammdaten, Resources.StringProduct)
             };
         }
 
-        void ShowAllProducts()
-        {
+        protected void ShowAllProducts() {
             var workspace = new AllProductsViewModel();
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
@@ -87,8 +89,8 @@ namespace WpfApplication1.ViewModel {
         }
 
         // Can only be one open ShowCustomerWorkspace
-        void ShowAllCustomers() {
-            AllCustomersViewModel workspace = 
+        protected void ShowAllCustomers() {
+            AllCustomersViewModel workspace =
                 this.Workspaces.FirstOrDefault(vm => vm is AllCustomersViewModel)
                 as AllCustomersViewModel;
 
@@ -100,14 +102,14 @@ namespace WpfApplication1.ViewModel {
             this.SetActiveWorkspace(workspace);
         }
 
-        void CreateNewCustomer() {
+        protected void CreateNewCustomer() {
             CustomerModel newCustomerModel = CustomerModel.CreateNewCustomer();
             CustomerViewModel workspace = new CustomerViewModel(newCustomerModel, _customerRepository);
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
-        private void SetActiveWorkspace(WorkspaceViewModel workspace) {
+        protected void SetActiveWorkspace(WorkspaceViewModel workspace) {
             Debug.Assert(this.Workspaces.Contains(workspace));
 
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);

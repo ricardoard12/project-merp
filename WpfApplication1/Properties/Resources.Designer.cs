@@ -61,20 +61,29 @@ namespace WpfApplication1.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;Customer&quot; ähnelt.
         /// </summary>
-        internal static string S {
+        internal static string StringCustomer {
             get {
-                return ResourceManager.GetString("S", resourceCulture);
+                return ResourceManager.GetString("StringCustomer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;Create new Customer&quot; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;Product&quot; ähnelt.
         /// </summary>
-        internal static string String_Command1 {
+        internal static string StringProduct {
             get {
-                return ResourceManager.GetString("String_Command1", resourceCulture);
+                return ResourceManager.GetString("StringProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;Stammdaten&quot; ähnelt.
+        /// </summary>
+        internal static string StringStammdaten {
+            get {
+                return ResourceManager.GetString("StringStammdaten", resourceCulture);
             }
         }
     }
