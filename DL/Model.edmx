@@ -6,43 +6,166 @@
     <edmx:StorageModels>
     <Schema Namespace="db_MERPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="db_MERPModelStoreContainer">
+          <EntitySet Name="tbl_Cus" EntityType="db_MERPModel.Store.tbl_Cus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_Prd" EntityType="db_MERPModel.Store.tbl_Prd" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_Prdcat" EntityType="db_MERPModel.Store.tbl_Prdcat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Puh" EntityType="db_MERPModel.Store.tbl_Puh" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Pui" EntityType="db_MERPModel.Store.tbl_Pui" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Sah" EntityType="db_MERPModel.Store.tbl_Sah" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Sai" EntityType="db_MERPModel.Store.tbl_Sai" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Sup" EntityType="db_MERPModel.Store.tbl_Sup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_Usr" EntityType="db_MERPModel.Store.tbl_Usr" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__tbl_Prd__PrdPrdc__0519C6AF" Association="db_MERPModel.Store.FK__tbl_Prd__PrdPrdc__0519C6AF">
+          <AssociationSet Name="FK__tbl_Cus__CusUsr#__21B6055D" Association="db_MERPModel.Store.FK__tbl_Cus__CusUsr#__21B6055D">
+            <End Role="tbl_Usr" EntitySet="tbl_Usr" />
+            <End Role="tbl_Cus" EntitySet="tbl_Cus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Prd__PrdPrdc__1FCDBCEB" Association="db_MERPModel.Store.FK__tbl_Prd__PrdPrdc__1FCDBCEB">
             <End Role="tbl_Prdcat" EntitySet="tbl_Prdcat" />
             <End Role="tbl_Prd" EntitySet="tbl_Prd" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbl_Prd__PrdSup#__20C1E124" Association="db_MERPModel.Store.FK__tbl_Prd__PrdSup#__20C1E124">
+            <End Role="tbl_Sup" EntitySet="tbl_Sup" />
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Puh__PuhSup#__24927208" Association="db_MERPModel.Store.FK__tbl_Puh__PuhSup#__24927208">
+            <End Role="tbl_Sup" EntitySet="tbl_Sup" />
+            <End Role="tbl_Puh" EntitySet="tbl_Puh" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Pui__PuiPrd#__267ABA7A" Association="db_MERPModel.Store.FK__tbl_Pui__PuiPrd#__267ABA7A">
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+            <End Role="tbl_Pui" EntitySet="tbl_Pui" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Pui__PuiPuh#__25869641" Association="db_MERPModel.Store.FK__tbl_Pui__PuiPuh#__25869641">
+            <End Role="tbl_Puh" EntitySet="tbl_Puh" />
+            <End Role="tbl_Pui" EntitySet="tbl_Pui" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sah__SahCus#__239E4DCF" Association="db_MERPModel.Store.FK__tbl_Sah__SahCus#__239E4DCF">
+            <End Role="tbl_Cus" EntitySet="tbl_Cus" />
+            <End Role="tbl_Sah" EntitySet="tbl_Sah" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sai__SaiPrd#__286302EC" Association="db_MERPModel.Store.FK__tbl_Sai__SaiPrd#__286302EC">
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+            <End Role="tbl_Sai" EntitySet="tbl_Sai" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sai__SaiSah#__276EDEB3" Association="db_MERPModel.Store.FK__tbl_Sai__SaiSah#__276EDEB3">
+            <End Role="tbl_Sah" EntitySet="tbl_Sah" />
+            <End Role="tbl_Sai" EntitySet="tbl_Sai" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sup__SupUsr#__22AA2996" Association="db_MERPModel.Store.FK__tbl_Sup__SupUsr#__22AA2996">
+            <End Role="tbl_Usr" EntitySet="tbl_Usr" />
+            <End Role="tbl_Sup" EntitySet="tbl_Sup" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbl_Cus">
+          <Key>
+            <PropertyRef Name="Cus#" />
+          </Key>
+          <Property Name="Cus#" Type="int" Nullable="false" />
+          <Property Name="CusNumber" Type="int" />
+          <Property Name="CusFirstname" Type="varchar" MaxLength="75" />
+          <Property Name="CusLastname" Type="varchar" MaxLength="75" />
+          <Property Name="CusContactname" Type="varchar" MaxLength="75" />
+          <Property Name="CusUsr#" Type="int" />
+          <Property Name="CusIscompany" Type="bit" />
+        </EntityType>
         <EntityType Name="tbl_Prd">
           <Key>
             <PropertyRef Name="Prd#" />
           </Key>
           <Property Name="Prd#" Type="int" Nullable="false" />
+          <Property Name="PrdNumber" Type="int" />
           <Property Name="PrdName" Type="varchar" MaxLength="30" />
           <Property Name="PrdEAN" Type="varchar" MaxLength="13" />
           <Property Name="PrdPricePurchase" Type="float" />
           <Property Name="PrdPriceSale" Type="float" />
           <Property Name="PrdPrdcat#" Type="int" />
+          <Property Name="PrdSup#" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Prdcat">
           <Key>
             <PropertyRef Name="Prdcat#" />
           </Key>
           <Property Name="Prdcat#" Type="int" Nullable="false" />
+          <Property Name="PrdcatNumber" Type="int" />
           <Property Name="PrdcatName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_Puh">
+          <Key>
+            <PropertyRef Name="Puh#" />
+          </Key>
+          <Property Name="Puh#" Type="int" Nullable="false" />
+          <Property Name="PuhNumber" Type="int" />
+          <Property Name="PuhSup#" Type="int" />
+          <Property Name="PuhCreatedate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Pui">
+          <Key>
+            <PropertyRef Name="Pui#" />
+          </Key>
+          <Property Name="Pui#" Type="int" Nullable="false" />
+          <Property Name="PuiNumber" Type="int" />
+          <Property Name="PuiPuh#" Type="int" />
+          <Property Name="PuiPrd#" Type="int" />
+          <Property Name="Puivat" Type="float" />
+          <Property Name="Puidiscount" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Sah">
+          <Key>
+            <PropertyRef Name="Sah#" />
+          </Key>
+          <Property Name="Sah#" Type="int" Nullable="false" />
+          <Property Name="SahNumber" Type="int" />
+          <Property Name="SahCus#" Type="int" />
+          <Property Name="SahCreatedate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Sai">
+          <Key>
+            <PropertyRef Name="Sai#" />
+          </Key>
+          <Property Name="Sai#" Type="int" Nullable="false" />
+          <Property Name="SaiNumber" Type="int" />
+          <Property Name="SaiSah#" Type="int" />
+          <Property Name="SaiPrd#" Type="int" />
+          <Property Name="Saivat" Type="float" />
+          <Property Name="Saidiscount" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Sup">
+          <Key>
+            <PropertyRef Name="Sup#" />
+          </Key>
+          <Property Name="Sup#" Type="int" Nullable="false" />
+          <Property Name="SupNumber" Type="int" />
+          <Property Name="SupFirstname" Type="varchar" MaxLength="75" />
+          <Property Name="SupLastname" Type="varchar" MaxLength="75" />
+          <Property Name="SupContactname" Type="varchar" MaxLength="75" />
+          <Property Name="SupUsr#" Type="int" />
+          <Property Name="SupIscompany" Type="bit" />
         </EntityType>
         <EntityType Name="tbl_Usr">
           <Key>
-            <PropertyRef Name="usr#" />
+            <PropertyRef Name="Usr#" />
           </Key>
-          <Property Name="usr#" Type="int" Nullable="false" />
-          <Property Name="usrIdent" Type="varchar" Nullable="false" MaxLength="3" />
-          <Property Name="usrName" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="usrPassword" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="usrLogedin" Type="bit" Nullable="false" />
+          <Property Name="Usr#" Type="int" Nullable="false" />
+          <Property Name="UsrNumber" Type="int" Nullable="false" />
+          <Property Name="UsrIdent" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="UsrName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="UsrIsEmployer" Type="bit" />
+          <Property Name="UsrPassword" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UsrLogedin" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__tbl_Prd__PrdPrdc__0519C6AF">
+        <Association Name="FK__tbl_Cus__CusUsr#__21B6055D">
+          <End Role="tbl_Usr" Type="db_MERPModel.Store.tbl_Usr" Multiplicity="0..1" />
+          <End Role="tbl_Cus" Type="db_MERPModel.Store.tbl_Cus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Usr">
+              <PropertyRef Name="Usr#" />
+            </Principal>
+            <Dependent Role="tbl_Cus">
+              <PropertyRef Name="CusUsr#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Prd__PrdPrdc__1FCDBCEB">
           <End Role="tbl_Prdcat" Type="db_MERPModel.Store.tbl_Prdcat" Multiplicity="0..1" />
           <End Role="tbl_Prd" Type="db_MERPModel.Store.tbl_Prd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -54,40 +177,299 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_Prd__PrdSup#__20C1E124">
+          <End Role="tbl_Sup" Type="db_MERPModel.Store.tbl_Sup" Multiplicity="0..1" />
+          <End Role="tbl_Prd" Type="db_MERPModel.Store.tbl_Prd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Sup">
+              <PropertyRef Name="Sup#" />
+            </Principal>
+            <Dependent Role="tbl_Prd">
+              <PropertyRef Name="PrdSup#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Puh__PuhSup#__24927208">
+          <End Role="tbl_Sup" Type="db_MERPModel.Store.tbl_Sup" Multiplicity="0..1" />
+          <End Role="tbl_Puh" Type="db_MERPModel.Store.tbl_Puh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Sup">
+              <PropertyRef Name="Sup#" />
+            </Principal>
+            <Dependent Role="tbl_Puh">
+              <PropertyRef Name="PuhSup#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Pui__PuiPrd#__267ABA7A">
+          <End Role="tbl_Prd" Type="db_MERPModel.Store.tbl_Prd" Multiplicity="0..1" />
+          <End Role="tbl_Pui" Type="db_MERPModel.Store.tbl_Pui" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Prd">
+              <PropertyRef Name="Prd#" />
+            </Principal>
+            <Dependent Role="tbl_Pui">
+              <PropertyRef Name="PuiPrd#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Pui__PuiPuh#__25869641">
+          <End Role="tbl_Puh" Type="db_MERPModel.Store.tbl_Puh" Multiplicity="0..1" />
+          <End Role="tbl_Pui" Type="db_MERPModel.Store.tbl_Pui" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Puh">
+              <PropertyRef Name="Puh#" />
+            </Principal>
+            <Dependent Role="tbl_Pui">
+              <PropertyRef Name="PuiPuh#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sah__SahCus#__239E4DCF">
+          <End Role="tbl_Cus" Type="db_MERPModel.Store.tbl_Cus" Multiplicity="0..1" />
+          <End Role="tbl_Sah" Type="db_MERPModel.Store.tbl_Sah" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Cus">
+              <PropertyRef Name="Cus#" />
+            </Principal>
+            <Dependent Role="tbl_Sah">
+              <PropertyRef Name="SahCus#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sai__SaiPrd#__286302EC">
+          <End Role="tbl_Prd" Type="db_MERPModel.Store.tbl_Prd" Multiplicity="0..1" />
+          <End Role="tbl_Sai" Type="db_MERPModel.Store.tbl_Sai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Prd">
+              <PropertyRef Name="Prd#" />
+            </Principal>
+            <Dependent Role="tbl_Sai">
+              <PropertyRef Name="SaiPrd#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sai__SaiSah#__276EDEB3">
+          <End Role="tbl_Sah" Type="db_MERPModel.Store.tbl_Sah" Multiplicity="0..1" />
+          <End Role="tbl_Sai" Type="db_MERPModel.Store.tbl_Sai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Sah">
+              <PropertyRef Name="Sah#" />
+            </Principal>
+            <Dependent Role="tbl_Sai">
+              <PropertyRef Name="SaiSah#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sup__SupUsr#__22AA2996">
+          <End Role="tbl_Usr" Type="db_MERPModel.Store.tbl_Usr" Multiplicity="0..1" />
+          <End Role="tbl_Sup" Type="db_MERPModel.Store.tbl_Sup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Usr">
+              <PropertyRef Name="Usr#" />
+            </Principal>
+            <Dependent Role="tbl_Sup">
+              <PropertyRef Name="SupUsr#" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db_MERPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="db_MERPEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Cus" EntityType="db_MERPModel.tbl_Cus" />
           <EntitySet Name="tbl_Prd" EntityType="db_MERPModel.tbl_Prd" />
           <EntitySet Name="tbl_Prdcat" EntityType="db_MERPModel.tbl_Prdcat" />
-          <AssociationSet Name="FK__tbl_Prd__PrdPrdC__0519C6AF" Association="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF">
+          <EntitySet Name="tbl_Puh" EntityType="db_MERPModel.tbl_Puh" />
+          <EntitySet Name="tbl_Pui" EntityType="db_MERPModel.tbl_Pui" />
+          <EntitySet Name="tbl_Sah" EntityType="db_MERPModel.tbl_Sah" />
+          <EntitySet Name="tbl_Sai" EntityType="db_MERPModel.tbl_Sai" />
+          <EntitySet Name="tbl_Sup" EntityType="db_MERPModel.tbl_Sup" />
+          <EntitySet Name="tbl_Usr" EntityType="db_MERPModel.tbl_Usr" />
+          <AssociationSet Name="FK__tbl_Cus__CusUsr___21B6055D" Association="db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D">
+            <End Role="tbl_Usr" EntitySet="tbl_Usr" />
+            <End Role="tbl_Cus" EntitySet="tbl_Cus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sah__SahCus___239E4DCF" Association="db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF">
+            <End Role="tbl_Cus" EntitySet="tbl_Cus" />
+            <End Role="tbl_Sah" EntitySet="tbl_Sah" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Prd__PrdPrdc__1FCDBCEB" Association="db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB">
             <End Role="tbl_Prdcat" EntitySet="tbl_Prdcat" />
             <End Role="tbl_Prd" EntitySet="tbl_Prd" />
           </AssociationSet>
-          <EntitySet Name="tbl_Usr" EntityType="db_MERPModel.tbl_Usr" />
+          <AssociationSet Name="FK__tbl_Prd__PrdSup___20C1E124" Association="db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124">
+            <End Role="tbl_Sup" EntitySet="tbl_Sup" />
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Pui__PuiPrd___267ABA7A" Association="db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A">
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+            <End Role="tbl_Pui" EntitySet="tbl_Pui" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sai__SaiPrd___286302EC" Association="db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC">
+            <End Role="tbl_Prd" EntitySet="tbl_Prd" />
+            <End Role="tbl_Sai" EntitySet="tbl_Sai" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Puh__PuhSup___24927208" Association="db_MERPModel.FK__tbl_Puh__PuhSup___24927208">
+            <End Role="tbl_Sup" EntitySet="tbl_Sup" />
+            <End Role="tbl_Puh" EntitySet="tbl_Puh" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Pui__PuiPuh___25869641" Association="db_MERPModel.FK__tbl_Pui__PuiPuh___25869641">
+            <End Role="tbl_Puh" EntitySet="tbl_Puh" />
+            <End Role="tbl_Pui" EntitySet="tbl_Pui" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sai__SaiSah___276EDEB3" Association="db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3">
+            <End Role="tbl_Sah" EntitySet="tbl_Sah" />
+            <End Role="tbl_Sai" EntitySet="tbl_Sai" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sup__SupUsr___22AA2996" Association="db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996">
+            <End Role="tbl_Usr" EntitySet="tbl_Usr" />
+            <End Role="tbl_Sup" EntitySet="tbl_Sup" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbl_Cus">
+          <Key>
+            <PropertyRef Name="Cus_" />
+          </Key>
+          <Property Type="Int32" Name="Cus_" Nullable="false" />
+          <Property Type="Int32" Name="CusNumber" />
+          <Property Type="String" Name="CusFirstname" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CusLastname" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CusContactname" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CusUsr_" />
+          <Property Type="Boolean" Name="CusIscompany" />
+          <NavigationProperty Name="tbl_Usr" Relationship="db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D" FromRole="tbl_Cus" ToRole="tbl_Usr" />
+          <NavigationProperty Name="tbl_Sah" Relationship="db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF" FromRole="tbl_Cus" ToRole="tbl_Sah" />
+        </EntityType>
         <EntityType Name="tbl_Prd">
           <Key>
             <PropertyRef Name="Prd_" />
           </Key>
           <Property Type="Int32" Name="Prd_" Nullable="false" />
+          <Property Type="Int32" Name="PrdNumber" />
           <Property Type="String" Name="PrdName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="PrdEAN" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Type="Double" Name="PrdPricePurchase" />
           <Property Type="Double" Name="PrdPriceSale" />
           <Property Type="Int32" Name="PrdPrdcat_" />
-          <NavigationProperty Name="tbl_Prdcat" Relationship="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF" FromRole="tbl_Prd" ToRole="tbl_Prdcat" />
+          <Property Type="Int32" Name="PrdSup_" />
+          <NavigationProperty Name="tbl_Prdcat" Relationship="db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB" FromRole="tbl_Prd" ToRole="tbl_Prdcat" />
+          <NavigationProperty Name="tbl_Sup" Relationship="db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124" FromRole="tbl_Prd" ToRole="tbl_Sup" />
+          <NavigationProperty Name="tbl_Pui" Relationship="db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A" FromRole="tbl_Prd" ToRole="tbl_Pui" />
+          <NavigationProperty Name="tbl_Sai" Relationship="db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC" FromRole="tbl_Prd" ToRole="tbl_Sai" />
         </EntityType>
         <EntityType Name="tbl_Prdcat">
           <Key>
             <PropertyRef Name="Prdcat_" />
           </Key>
           <Property Type="Int32" Name="Prdcat_" Nullable="false" />
+          <Property Type="Int32" Name="PrdcatNumber" />
           <Property Type="String" Name="PrdcatName" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tbl_Prd" Relationship="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF" FromRole="tbl_Prdcat" ToRole="tbl_Prd" />
+          <NavigationProperty Name="tbl_Prd" Relationship="db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB" FromRole="tbl_Prdcat" ToRole="tbl_Prd" />
         </EntityType>
-        <Association Name="FK__tbl_Prd__PrdPrdC__0519C6AF">
+        <EntityType Name="tbl_Puh">
+          <Key>
+            <PropertyRef Name="Puh_" />
+          </Key>
+          <Property Type="Int32" Name="Puh_" Nullable="false" />
+          <Property Type="Int32" Name="PuhNumber" />
+          <Property Type="Int32" Name="PuhSup_" />
+          <Property Type="DateTime" Name="PuhCreatedate" />
+          <NavigationProperty Name="tbl_Sup" Relationship="db_MERPModel.FK__tbl_Puh__PuhSup___24927208" FromRole="tbl_Puh" ToRole="tbl_Sup" />
+          <NavigationProperty Name="tbl_Pui" Relationship="db_MERPModel.FK__tbl_Pui__PuiPuh___25869641" FromRole="tbl_Puh" ToRole="tbl_Pui" />
+        </EntityType>
+        <EntityType Name="tbl_Pui">
+          <Key>
+            <PropertyRef Name="Pui_" />
+          </Key>
+          <Property Type="Int32" Name="Pui_" Nullable="false" />
+          <Property Type="Int32" Name="PuiNumber" />
+          <Property Type="Int32" Name="PuiPuh_" />
+          <Property Type="Int32" Name="PuiPrd_" />
+          <Property Type="Double" Name="Puivat" />
+          <Property Type="Double" Name="Puidiscount" />
+          <NavigationProperty Name="tbl_Prd" Relationship="db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A" FromRole="tbl_Pui" ToRole="tbl_Prd" />
+          <NavigationProperty Name="tbl_Puh" Relationship="db_MERPModel.FK__tbl_Pui__PuiPuh___25869641" FromRole="tbl_Pui" ToRole="tbl_Puh" />
+        </EntityType>
+        <EntityType Name="tbl_Sah">
+          <Key>
+            <PropertyRef Name="Sah_" />
+          </Key>
+          <Property Type="Int32" Name="Sah_" Nullable="false" />
+          <Property Type="Int32" Name="SahNumber" />
+          <Property Type="Int32" Name="SahCus_" />
+          <Property Type="DateTime" Name="SahCreatedate" />
+          <NavigationProperty Name="tbl_Cus" Relationship="db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF" FromRole="tbl_Sah" ToRole="tbl_Cus" />
+          <NavigationProperty Name="tbl_Sai" Relationship="db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3" FromRole="tbl_Sah" ToRole="tbl_Sai" />
+        </EntityType>
+        <EntityType Name="tbl_Sai">
+          <Key>
+            <PropertyRef Name="Sai_" />
+          </Key>
+          <Property Type="Int32" Name="Sai_" Nullable="false" />
+          <Property Type="Int32" Name="SaiNumber" />
+          <Property Type="Int32" Name="SaiSah_" />
+          <Property Type="Int32" Name="SaiPrd_" />
+          <Property Type="Double" Name="Saivat" />
+          <Property Type="Double" Name="Saidiscount" />
+          <NavigationProperty Name="tbl_Prd" Relationship="db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC" FromRole="tbl_Sai" ToRole="tbl_Prd" />
+          <NavigationProperty Name="tbl_Sah" Relationship="db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3" FromRole="tbl_Sai" ToRole="tbl_Sah" />
+        </EntityType>
+        <EntityType Name="tbl_Sup">
+          <Key>
+            <PropertyRef Name="Sup_" />
+          </Key>
+          <Property Type="Int32" Name="Sup_" Nullable="false" />
+          <Property Type="Int32" Name="SupNumber" />
+          <Property Type="String" Name="SupFirstname" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SupLastname" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SupContactname" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SupUsr_" />
+          <Property Type="Boolean" Name="SupIscompany" />
+          <NavigationProperty Name="tbl_Prd" Relationship="db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124" FromRole="tbl_Sup" ToRole="tbl_Prd" />
+          <NavigationProperty Name="tbl_Puh" Relationship="db_MERPModel.FK__tbl_Puh__PuhSup___24927208" FromRole="tbl_Sup" ToRole="tbl_Puh" />
+          <NavigationProperty Name="tbl_Usr" Relationship="db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996" FromRole="tbl_Sup" ToRole="tbl_Usr" />
+        </EntityType>
+        <EntityType Name="tbl_Usr">
+          <Key>
+            <PropertyRef Name="Usr_" />
+          </Key>
+          <Property Type="Int32" Name="Usr_" Nullable="false" />
+          <Property Type="Int32" Name="UsrNumber" Nullable="false" />
+          <Property Type="String" Name="UsrIdent" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UsrName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="UsrIsEmployer" />
+          <Property Type="String" Name="UsrPassword" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="UsrLogedin" Nullable="false" />
+          <NavigationProperty Name="tbl_Cus" Relationship="db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D" FromRole="tbl_Usr" ToRole="tbl_Cus" />
+          <NavigationProperty Name="tbl_Sup" Relationship="db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996" FromRole="tbl_Usr" ToRole="tbl_Sup" />
+        </EntityType>
+        <Association Name="FK__tbl_Cus__CusUsr___21B6055D">
+          <End Type="db_MERPModel.tbl_Usr" Role="tbl_Usr" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Cus" Role="tbl_Cus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Usr">
+              <PropertyRef Name="Usr_" />
+            </Principal>
+            <Dependent Role="tbl_Cus">
+              <PropertyRef Name="CusUsr_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sah__SahCus___239E4DCF">
+          <End Type="db_MERPModel.tbl_Cus" Role="tbl_Cus" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Sah" Role="tbl_Sah" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Cus">
+              <PropertyRef Name="Cus_" />
+            </Principal>
+            <Dependent Role="tbl_Sah">
+              <PropertyRef Name="SahCus_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Prd__PrdPrdc__1FCDBCEB">
           <End Type="db_MERPModel.tbl_Prdcat" Role="tbl_Prdcat" Multiplicity="0..1" />
           <End Type="db_MERPModel.tbl_Prd" Role="tbl_Prd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -99,30 +481,119 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tbl_Usr">
-          <Key>
-            <PropertyRef Name="usr_" />
-          </Key>
-          <Property Type="Int32" Name="usr_" Nullable="false" />
-          <Property Type="String" Name="usrIdent" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="usrName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="usrPassword" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="usrLogedin" Nullable="false" />
-        </EntityType>
-      </Schema>
+        <Association Name="FK__tbl_Prd__PrdSup___20C1E124">
+          <End Type="db_MERPModel.tbl_Sup" Role="tbl_Sup" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Prd" Role="tbl_Prd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Sup">
+              <PropertyRef Name="Sup_" />
+            </Principal>
+            <Dependent Role="tbl_Prd">
+              <PropertyRef Name="PrdSup_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Pui__PuiPrd___267ABA7A">
+          <End Type="db_MERPModel.tbl_Prd" Role="tbl_Prd" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Pui" Role="tbl_Pui" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Prd">
+              <PropertyRef Name="Prd_" />
+            </Principal>
+            <Dependent Role="tbl_Pui">
+              <PropertyRef Name="PuiPrd_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sai__SaiPrd___286302EC">
+          <End Type="db_MERPModel.tbl_Prd" Role="tbl_Prd" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Sai" Role="tbl_Sai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Prd">
+              <PropertyRef Name="Prd_" />
+            </Principal>
+            <Dependent Role="tbl_Sai">
+              <PropertyRef Name="SaiPrd_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Puh__PuhSup___24927208">
+          <End Type="db_MERPModel.tbl_Sup" Role="tbl_Sup" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Puh" Role="tbl_Puh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Sup">
+              <PropertyRef Name="Sup_" />
+            </Principal>
+            <Dependent Role="tbl_Puh">
+              <PropertyRef Name="PuhSup_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Pui__PuiPuh___25869641">
+          <End Type="db_MERPModel.tbl_Puh" Role="tbl_Puh" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Pui" Role="tbl_Pui" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Puh">
+              <PropertyRef Name="Puh_" />
+            </Principal>
+            <Dependent Role="tbl_Pui">
+              <PropertyRef Name="PuiPuh_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sai__SaiSah___276EDEB3">
+          <End Type="db_MERPModel.tbl_Sah" Role="tbl_Sah" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Sai" Role="tbl_Sai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Sah">
+              <PropertyRef Name="Sah_" />
+            </Principal>
+            <Dependent Role="tbl_Sai">
+              <PropertyRef Name="SaiSah_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sup__SupUsr___22AA2996">
+          <End Type="db_MERPModel.tbl_Usr" Role="tbl_Usr" Multiplicity="0..1" />
+          <End Type="db_MERPModel.tbl_Sup" Role="tbl_Sup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Usr">
+              <PropertyRef Name="Usr_" />
+            </Principal>
+            <Dependent Role="tbl_Sup">
+              <PropertyRef Name="SupUsr_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="db_MERPModelStoreContainer" CdmEntityContainer="db_MERPEntities1">
+          <EntitySetMapping Name="tbl_Cus">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Cus">
+              <MappingFragment StoreEntitySet="tbl_Cus">
+                <ScalarProperty Name="CusIscompany" ColumnName="CusIscompany" />
+                <ScalarProperty Name="CusUsr_" ColumnName="CusUsr#" />
+                <ScalarProperty Name="CusContactname" ColumnName="CusContactname" />
+                <ScalarProperty Name="CusLastname" ColumnName="CusLastname" />
+                <ScalarProperty Name="CusFirstname" ColumnName="CusFirstname" />
+                <ScalarProperty Name="CusNumber" ColumnName="CusNumber" />
+                <ScalarProperty Name="Cus_" ColumnName="Cus#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Prd">
             <EntityTypeMapping TypeName="db_MERPModel.tbl_Prd">
               <MappingFragment StoreEntitySet="tbl_Prd">
+                <ScalarProperty Name="PrdSup_" ColumnName="PrdSup#" />
                 <ScalarProperty Name="PrdPrdcat_" ColumnName="PrdPrdcat#" />
                 <ScalarProperty Name="PrdPriceSale" ColumnName="PrdPriceSale" />
                 <ScalarProperty Name="PrdPricePurchase" ColumnName="PrdPricePurchase" />
                 <ScalarProperty Name="PrdEAN" ColumnName="PrdEAN" />
                 <ScalarProperty Name="PrdName" ColumnName="PrdName" />
+                <ScalarProperty Name="PrdNumber" ColumnName="PrdNumber" />
                 <ScalarProperty Name="Prd_" ColumnName="Prd#" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -131,18 +602,78 @@
             <EntityTypeMapping TypeName="db_MERPModel.tbl_Prdcat">
               <MappingFragment StoreEntitySet="tbl_Prdcat">
                 <ScalarProperty Name="PrdcatName" ColumnName="PrdcatName" />
+                <ScalarProperty Name="PrdcatNumber" ColumnName="PrdcatNumber" />
                 <ScalarProperty Name="Prdcat_" ColumnName="Prdcat#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Puh">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Puh">
+              <MappingFragment StoreEntitySet="tbl_Puh">
+                <ScalarProperty Name="PuhCreatedate" ColumnName="PuhCreatedate" />
+                <ScalarProperty Name="PuhSup_" ColumnName="PuhSup#" />
+                <ScalarProperty Name="PuhNumber" ColumnName="PuhNumber" />
+                <ScalarProperty Name="Puh_" ColumnName="Puh#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Pui">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Pui">
+              <MappingFragment StoreEntitySet="tbl_Pui">
+                <ScalarProperty Name="Puidiscount" ColumnName="Puidiscount" />
+                <ScalarProperty Name="Puivat" ColumnName="Puivat" />
+                <ScalarProperty Name="PuiPrd_" ColumnName="PuiPrd#" />
+                <ScalarProperty Name="PuiPuh_" ColumnName="PuiPuh#" />
+                <ScalarProperty Name="PuiNumber" ColumnName="PuiNumber" />
+                <ScalarProperty Name="Pui_" ColumnName="Pui#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Sah">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Sah">
+              <MappingFragment StoreEntitySet="tbl_Sah">
+                <ScalarProperty Name="SahCreatedate" ColumnName="SahCreatedate" />
+                <ScalarProperty Name="SahCus_" ColumnName="SahCus#" />
+                <ScalarProperty Name="SahNumber" ColumnName="SahNumber" />
+                <ScalarProperty Name="Sah_" ColumnName="Sah#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Sai">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Sai">
+              <MappingFragment StoreEntitySet="tbl_Sai">
+                <ScalarProperty Name="Saidiscount" ColumnName="Saidiscount" />
+                <ScalarProperty Name="Saivat" ColumnName="Saivat" />
+                <ScalarProperty Name="SaiPrd_" ColumnName="SaiPrd#" />
+                <ScalarProperty Name="SaiSah_" ColumnName="SaiSah#" />
+                <ScalarProperty Name="SaiNumber" ColumnName="SaiNumber" />
+                <ScalarProperty Name="Sai_" ColumnName="Sai#" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Sup">
+            <EntityTypeMapping TypeName="db_MERPModel.tbl_Sup">
+              <MappingFragment StoreEntitySet="tbl_Sup">
+                <ScalarProperty Name="SupIscompany" ColumnName="SupIscompany" />
+                <ScalarProperty Name="SupUsr_" ColumnName="SupUsr#" />
+                <ScalarProperty Name="SupContactname" ColumnName="SupContactname" />
+                <ScalarProperty Name="SupLastname" ColumnName="SupLastname" />
+                <ScalarProperty Name="SupFirstname" ColumnName="SupFirstname" />
+                <ScalarProperty Name="SupNumber" ColumnName="SupNumber" />
+                <ScalarProperty Name="Sup_" ColumnName="Sup#" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tbl_Usr">
             <EntityTypeMapping TypeName="db_MERPModel.tbl_Usr">
               <MappingFragment StoreEntitySet="tbl_Usr">
-                <ScalarProperty Name="usrLogedin" ColumnName="usrLogedin" />
-                <ScalarProperty Name="usrPassword" ColumnName="usrPassword" />
-                <ScalarProperty Name="usrName" ColumnName="usrName" />
-                <ScalarProperty Name="usrIdent" ColumnName="usrIdent" />
-                <ScalarProperty Name="usr_" ColumnName="usr#" />
+                <ScalarProperty Name="UsrLogedin" ColumnName="UsrLogedin" />
+                <ScalarProperty Name="UsrPassword" ColumnName="UsrPassword" />
+                <ScalarProperty Name="UsrIsEmployer" ColumnName="UsrIsEmployer" />
+                <ScalarProperty Name="UsrName" ColumnName="UsrName" />
+                <ScalarProperty Name="UsrIdent" ColumnName="UsrIdent" />
+                <ScalarProperty Name="UsrNumber" ColumnName="UsrNumber" />
+                <ScalarProperty Name="Usr_" ColumnName="Usr#" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -167,13 +698,60 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model">
-        <EntityTypeShape EntityType="db_MERPModel.tbl_Prd" Width="1.5" PointX="3" PointY="1" Height="2.3648893229166656" />
-        <EntityTypeShape EntityType="db_MERPModel.tbl_Prdcat" Width="1.5" PointX="0.75" PointY="1.375" Height="1.5956835937499996" />
-        <AssociationConnector Association="db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF" >
-          <ConnectorPoint PointX="2.25" PointY="2.172841796875" />
-          <ConnectorPoint PointX="3" PointY="2.172841796875" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Cus" Width="1.5" PointX="3" PointY="3" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Prd" Width="1.5" PointX="5.25" PointY="6.25" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Prdcat" Width="1.5" PointX="8.125" PointY="6.125" Height="1.7879850260416745" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Puh" Width="1.5" PointX="5.25" PointY="10.875" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Pui" Width="1.5" PointX="7.5" PointY="8.375" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Sah" Width="1.5" PointX="5.25" PointY="3.25" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Sai" Width="1.5" PointX="7.5" PointY="3" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Sup" Width="1.5" PointX="3" PointY="6.5" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="db_MERPModel.tbl_Usr" Width="1.5" PointX="0.75" PointY="4.75" Height="2.749492187499996" />
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D" >
+          <ConnectorPoint PointX="2.25" PointY="5.24974609375" />
+          <ConnectorPoint PointX="3" PointY="5.24974609375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="db_MERPModel.tbl_Usr" Width="1.5" PointX="0.75" PointY="4.25" Height="1.9802864583333326" />
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF" >
+          <ConnectorPoint PointX="4.5" PointY="4.336293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="4.336293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB" >
+          <ConnectorPoint PointX="8.125" PointY="7.0814925130208373" />
+          <ConnectorPoint PointX="6.75" PointY="7.0814925130208373" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124" >
+          <ConnectorPoint PointX="4.5" PointY="8.7399959309895845" />
+          <ConnectorPoint PointX="5.25" PointY="8.7399959309895845" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A" >
+          <ConnectorPoint PointX="6.75" PointY="8.9756982421875016" />
+          <ConnectorPoint PointX="7.5" PointY="8.9756982421875016" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC" >
+          <ConnectorPoint PointX="6.75" PointY="6.25" />
+          <ConnectorPoint PointX="7.125" PointY="5.875" />
+          <ConnectorPoint PointX="7.125" PointY="5.9321907552083388" />
+          <ConnectorPoint PointX="7.5" PointY="5.5571907552083388" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Puh__PuhSup___24927208" >
+          <ConnectorPoint PointX="4.5" PointY="9.3794849274839756" />
+          <ConnectorPoint PointX="5.0625" PointY="9.9419849274839756" />
+          <ConnectorPoint PointX="5.0625" PointY="11.961293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="11.961293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Pui__PuiPuh___25869641" >
+          <ConnectorPoint PointX="6.75" PointY="11.989889822916666" />
+          <ConnectorPoint PointX="8.25" PointY="11.989889822916666" />
+          <ConnectorPoint PointX="8.25" PointY="10.932190755208339" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3" >
+          <ConnectorPoint PointX="6.75" PointY="4.336293945312498" />
+          <ConnectorPoint PointX="7.5" PointY="4.336293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996" >
+          <ConnectorPoint PointX="2.25" PointY="6.999746093749998" />
+          <ConnectorPoint PointX="3" PointY="6.999746093749998" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

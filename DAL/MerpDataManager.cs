@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Database;
 using Views;
+using Views.Stammdaten.User;
 
 
 namespace DAL
@@ -31,30 +32,30 @@ namespace DAL
 
 
         public List<Database.tbl_Usr> GetUserByIdent(string usrident, int Anzahl, int Start) {
-            return (from u in _modell.tbl_Usr where u.usrIdent == usrident select u).Skip(Start).Take(Anzahl).ToList();
+            return (from u in _modell.tbl_Usr where u.UsrIdent == usrident select u).Skip(Start).Take(Anzahl).ToList();
         }
 
         public Int32 GetUserCountByIdent(string usrident) {
-            return (from u in _modell.tbl_Usr where u.usrIdent == usrident select u).Count();
+            return (from u in _modell.tbl_Usr where u.UsrIdent == usrident select u).Count();
         }
 
-        public void UpdateUser(User usr) {
-            tbl_Usr User = (from u in _modell.tbl_Usr where u.usr_ == usr.UsrId select u).Single();
-            User.usr_ = usr.UsrId;
-            User.usrName = usr.UsrName;
-            User.usrLogedin = usr.UsrLogin;
-            User.usrPassword = usr.UsrPassword;
-            User.usrIdent = usr.UsrIdent;
+        public void UpdateUser(UserView usr) {
+            tbl_Usr User = (from u in _modell.tbl_Usr where u.Usr_ == usr.UsrId select u).Single();
+            User.Usr_ = usr.UsrId;
+            User.UsrName = usr.UsrName;
+            User.UsrLogedin = usr.UsrLogedIn;
+            User.UsrPassword = usr.UsrPassword;
+            User.UsrIdent = usr.UsrIdent;
             _modell.SaveChanges();
         }
 
-        public void AddUser(User usr) {
+        public void AddUser(UserView usr) {
             tbl_Usr User = new tbl_Usr();
-            User.usr_ = usr.UsrId;
-            User.usrName = usr.UsrName;
-            User.usrLogedin = usr.UsrLogin;
-            User.usrPassword = usr.UsrPassword;
-            User.usrIdent = usr.UsrIdent;
+            User.Usr_ = usr.UsrId;
+            User.UsrName = usr.UsrName;
+            User.UsrLogedin = usr.UsrLogedIn;
+            User.UsrPassword = usr.UsrPassword;
+            User.UsrIdent = usr.UsrIdent;
 
             _modell.tbl_Usr.AddObject(User);
             try {

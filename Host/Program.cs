@@ -12,7 +12,7 @@ namespace Host
     {
         static void Main(string[] args)
         {
-            ServiceHost sh = new ServiceHost(typeof(MERPService));
+            ServiceHost sh = new ServiceHost(typeof(MerpService), new Uri("net.tcp://localhost:2526/Service/"));
             Console.Write("Merp wird gestartet...  :D :D :D\n");   
             sh.Open();
             Console.Write("Host wurde gestartet buh buh buh\n");

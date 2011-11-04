@@ -1,38 +1,40 @@
 using System;
 using System.Linq;
 using Views;
+using Views.Stammdaten.Product;
+using Views.Stammdaten.User;
 
 namespace BL.Service
 {
-    public class MERPService : IMERPService
+    public class MerpService : IMERPService
     {
         BL.MerpBLManager BusinessLogic = new BL.MerpBLManager();
 
 
-        public PagedResult<Product> GetProducts(int Prdcat, int Anzahl, int Start)
+        public PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start)
         {
-            PagedResult<Product> p = new PagedResult<Product>();
+            PagedResult<ProductView> p = new PagedResult<ProductView>();
 
-            p.Rows = Enumerable.ToList<Product>((from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start) select new Product { Id = r.Prd_, Ean = r.PrdEAN, Name = r.PrdName, PricePurchase = Convert.ToDouble((double) r.PrdPricePurchase.Value), PriceSale = Convert.ToDouble((double) r.PrdPriceSale.Value) }));
+            p.Rows = Enumerable.ToList<ProductView>((from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start) select new ProductView { Id = r.Prd_, Ean = r.PrdEAN, Name = r.PrdName, PricePurchase = Convert.ToDouble((double) r.PrdPricePurchase.Value), PriceSale = Convert.ToDouble((double) r.PrdPriceSale.Value) }));
             p.Total = BusinessLogic.GetProductCount(Prdcat, Anzahl, Start);
             return p;
             
         }
 
-        public PagedResult<User> GetUserByIdent(string Userident, int Anzahl, int Start)
+        public PagedResult<UserView> GetUserByIdent(string Userident, int Anzahl, int Start)
         {
-            PagedResult<User> p = new PagedResult<User>();
-            p.Rows = Enumerable.ToList<User>((from u in BusinessLogic.GetUserByIdent(Userident, Anzahl, Start) select new User { UsrId = u.usr_, UsrIdent = u.usrIdent, UsrName = u.usrName, UsrPassword = u.usrPassword, UsrLogin = u.usrLogedin }));
+            PagedResult<UserView> p = new PagedResult<UserView>();
+            p.Rows = Enumerable.ToList<UserView>((from u in BusinessLogic.GetUserByIdent(Userident, Anzahl, Start) select new UserView { UsrId = u.Usr_, UsrIdent = u.UsrIdent, UsrName = u.UsrName, UsrPassword = u.UsrPassword, UsrLogedIn = u.UsrLogedin }));
             p.Total = BusinessLogic.GetUserCountByIdent(Userident);
             return p;
         }
 
-        public void UpdateUser(User usr)
+        public void UpdateUser(UserView usr)
         {
             BusinessLogic.UpdateUser(usr);
         }
         
-        public void AddUser(User usr)
+        public void AddUser(UserView usr)
         {
             
             BusinessLogic.AddUser(usr);

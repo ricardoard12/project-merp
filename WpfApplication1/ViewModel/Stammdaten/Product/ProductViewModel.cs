@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Input;
 using WpfApplication1.DataAccess;
+using WpfApplication1.DataAccess.Stammdaten.Product;
 using  WpfApplication1.Model.Stammdaten;
+using Views.Stammdaten.Product;
 
 namespace WpfApplication1.ViewModel.Stammdaten.Product {
     public class ProductViewModel : WorkspaceViewModel {
-        readonly ProductFactory _productFactory;
+        readonly ProductView _productView;
         private readonly ProductRepository _productRepository;
 
       //  string _productType;
@@ -16,54 +18,54 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
 
         public  ProductViewModel()
         {
-            _productFactory = new ProductFactory();
+            _productView = ProductFactory.CreateNewProduct();
             _productRepository = new ProductRepository();
 
         }
 
 
         public string Name {
-            get { return _productFactory.Name; }
+            get { return _productView.Name; }
             set {
-                if (value == _productFactory.Name)
+                if (value == _productView.Name)
                     return;
 
-                _productFactory.Name = value;
+                _productView.Name = value;
                 base.OnPropertyChanged("Name");
             }
         }
 
         public string Ean {
-            get { return _productFactory.Ean; }
+            get { return _productView.Ean; }
             set {
-                if (value == _productFactory.Ean)
+                if (value == _productView.Ean)
                     return;
 
-                _productFactory.Ean = value;
+                _productView.Ean = value;
 
                 base.OnPropertyChanged("Ean");
             }
         }
 
         public double PricePurchase {
-            get { return _productFactory.PricePurchase; }
+            get { return _productView.PricePurchase; }
             set {
-                if (value == _productFactory.PricePurchase)
+                if (value == _productView.PricePurchase)
                     return;
 
-                _productFactory.PricePurchase = value;
+                _productView.PricePurchase = value;
 
                 base.OnPropertyChanged("PricePurchase");
             }
         }
 
         public double PriceSale {
-            get { return _productFactory.PriceSale; }
+            get { return _productView.PriceSale; }
             set {
-                if (value == _productFactory.PriceSale)
+                if (value == _productView.PriceSale)
                     return;
 
-                _productFactory.PriceSale = value;
+                _productView.PriceSale = value;
 
                 base.OnPropertyChanged("PriceSale");
             }
@@ -77,7 +79,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
                 if (this.IsNewProduct) {
                     return "Display Name";
                 } else {
-                    return String.Format("{0}", _productFactory.Name);
+                    return String.Format("{0}", _productView.Name);
                 }
             }
         }
@@ -120,7 +122,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
 
         private bool IsNewProduct
         {
-            get { return !_productRepository.ProductsModel.Contains(_productFactory); }
+            get { return !_productRepository.ProductsList.Contains(_productView); }
         }
 
         #endregion

@@ -1,5 +1,7 @@
 using System.ServiceModel;
 using Views;
+using Views.Stammdaten.Product;
+using Views.Stammdaten.User;
 
 namespace BL.Service
 {
@@ -8,15 +10,15 @@ namespace BL.Service
     public interface IMERPService
     {
         [OperationContract]
-        PagedResult<Product> GetProducts(int Prdcat, int Anzahl, int Start);
+        PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start);
 
         [OperationContract]
-        PagedResult<User> GetUserByIdent(string ident, int Anzahl, int Start);
+        PagedResult<UserView> GetUserByIdent(string ident, int Anzahl, int Start);
 
         [OperationContract]
-        void UpdateUser(User usr);
+        void UpdateUser(UserView usr);
 
         [OperationContract]
-        void AddUser(User usr);
+        void AddUser(UserView usr);
     }
 }
