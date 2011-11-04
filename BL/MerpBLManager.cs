@@ -9,7 +9,7 @@ namespace BL
     {
         readonly DAL.MerpDataManager _dataLayerManager = new DAL.MerpDataManager();
 
-        public List<DL.tbl_Prd> GetProducts(int Prdcat, int Anzahl, int Start)
+        public List<Database.tbl_Prd> GetProducts(int Prdcat, int Anzahl, int Start)
         {
             return _dataLayerManager.GetProducts(Prdcat, Anzahl, Start);
         }
@@ -19,7 +19,7 @@ namespace BL
             return _dataLayerManager.GetProductCategorieCount(Prdcat);
         }
 
-        public List<DL.tbl_Prdcat> GetAllProductCategories()
+        public List<Database.tbl_Prdcat> GetAllProductCategories()
         {
             return _dataLayerManager.GetAllProductCategories();
         }
@@ -29,7 +29,7 @@ namespace BL
             return _dataLayerManager.GetProductCategorieCount();
         }
 
-        public List<DL.tbl_Usr> GetUserByIdent(string Userident, int Anzahl, int Start)
+        public List<Database.tbl_Usr> GetUserByIdent(string Userident, int Anzahl, int Start)
         {
             return _dataLayerManager.GetUserByIdent(Userident, Anzahl, Start);
         }

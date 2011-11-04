@@ -10,15 +10,15 @@ namespace WpfApplication1.DataAccess {
     public class ProductRepository
     {
         private PagedResult<Product> _productsView;
-        private readonly List<Model.Stammdaten.ProductModel> _productsModel;
+        private readonly List<Model.Stammdaten.ProductFactory> _productsModel;
 
         public ProductRepository()
         {
-            _productsModel = new List<Model.Stammdaten.ProductModel>();
+            _productsModel = new List<Model.Stammdaten.ProductFactory>();
         }
 
 
-        public List<Model.Stammdaten.ProductModel> ProductsModel
+        public List<Model.Stammdaten.ProductFactory> ProductsModel
         {
             get
             {
@@ -26,7 +26,7 @@ namespace WpfApplication1.DataAccess {
                 {
                     foreach (var p in ProductsView)
                     {
-                        _productsModel.Add(Model.Stammdaten.ProductModel.CreateProduct(p.Name, p.Ean, p.PricePurchase,
+                        _productsModel.Add(Model.Stammdaten.ProductFactory.CreateProduct(p.Name, p.Ean, p.PricePurchase,
                                                                                   p.PriceSale));
                     }
                 }

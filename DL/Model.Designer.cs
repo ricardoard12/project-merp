@@ -18,11 +18,11 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM-Beziehungsmetadaten
 
-[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DL.tbl_Prdcat), "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DL.tbl_Prd), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Prdcat), "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Prd), true)]
 
 #endregion
 
-namespace DL
+namespace Database
 {
     #region Kontexte
     

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DL;
+using Database;
 using Views;
 
 
@@ -11,7 +11,7 @@ namespace DAL
     {
         readonly db_MERPEntities1 _modell = new db_MERPEntities1();
 
-        public List<DL.tbl_Prd> GetProducts(int PrdCat, int Anzahl, int Start)
+        public List<Database.tbl_Prd> GetProducts(int PrdCat, int Anzahl, int Start)
         {
             return (from P in _modell.tbl_Prd where P.PrdPrdcat_ == PrdCat orderby P.Prd_ select P).Skip(Start).Take(Anzahl).ToList();
         }
@@ -21,7 +21,7 @@ namespace DAL
             return (from P in _modell.tbl_Prd where P.PrdPrdcat_ == PrdCat orderby P.Prd_ select P).Count();
         }
 
-        public List<DL.tbl_Prdcat> GetAllProductCategories() {
+        public List<Database.tbl_Prdcat> GetAllProductCategories() {
             return (from P in _modell.tbl_Prdcat orderby P.Prdcat_ select P).ToList();
         }
 
@@ -30,7 +30,7 @@ namespace DAL
         }
 
 
-        public List<DL.tbl_Usr> GetUserByIdent(string usrident, int Anzahl, int Start) {
+        public List<Database.tbl_Usr> GetUserByIdent(string usrident, int Anzahl, int Start) {
             return (from u in _modell.tbl_Usr where u.usrIdent == usrident select u).Skip(Start).Take(Anzahl).ToList();
         }
 

@@ -68,7 +68,7 @@
     </Compile>
     <Compile Include="DataAccess\CustomerAddedEventArgs.cs" />
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
-    <Compile Include="Model\Stammdaten\ProductModel.cs" />
+    <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="ViewModel\NavCommands\TreeViewCommands.cs" />
     <Compile Include="ViewModel\Stammdaten\Customer\AllCustomersViewModel.cs" />
     <Compile Include="ViewModel\CommandViewModel.cs" />
