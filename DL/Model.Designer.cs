@@ -18,7 +18,16 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM-Beziehungsmetadaten
 
-[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Prdcat), "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Prd), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Cus__CusUsr___21B6055D", "tbl_Usr", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Usr), "tbl_Cus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Cus), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Sah__SahCus___239E4DCF", "tbl_Cus", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Cus), "tbl_Sah", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Sah), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prdcat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Prdcat), "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Prd), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Prd__PrdSup___20C1E124", "tbl_Sup", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Sup), "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Prd), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Prd), "tbl_Pui", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Pui), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Sai__SaiPrd___286302EC", "tbl_Prd", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Prd), "tbl_Sai", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Sai), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Puh__PuhSup___24927208", "tbl_Sup", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Sup), "tbl_Puh", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Puh), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Pui__PuiPuh___25869641", "tbl_Puh", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Puh), "tbl_Pui", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Pui), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sah", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Sah), "tbl_Sai", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Sai), true)]
+[assembly: EdmRelationshipAttribute("db_MERPModel", "FK__tbl_Sup__SupUsr___22AA2996", "tbl_Usr", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Database.tbl_Usr), "tbl_Sup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Database.tbl_Sup), true)]
 
 #endregion
 
@@ -73,6 +82,22 @@ namespace Database
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
         /// </summary>
+        public ObjectSet<tbl_Cus> tbl_Cus
+        {
+            get
+            {
+                if ((_tbl_Cus == null))
+                {
+                    _tbl_Cus = base.CreateObjectSet<tbl_Cus>("tbl_Cus");
+                }
+                return _tbl_Cus;
+            }
+        }
+        private ObjectSet<tbl_Cus> _tbl_Cus;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
         public ObjectSet<tbl_Prd> tbl_Prd
         {
             get
@@ -105,6 +130,86 @@ namespace Database
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
         /// </summary>
+        public ObjectSet<tbl_Puh> tbl_Puh
+        {
+            get
+            {
+                if ((_tbl_Puh == null))
+                {
+                    _tbl_Puh = base.CreateObjectSet<tbl_Puh>("tbl_Puh");
+                }
+                return _tbl_Puh;
+            }
+        }
+        private ObjectSet<tbl_Puh> _tbl_Puh;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        public ObjectSet<tbl_Pui> tbl_Pui
+        {
+            get
+            {
+                if ((_tbl_Pui == null))
+                {
+                    _tbl_Pui = base.CreateObjectSet<tbl_Pui>("tbl_Pui");
+                }
+                return _tbl_Pui;
+            }
+        }
+        private ObjectSet<tbl_Pui> _tbl_Pui;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        public ObjectSet<tbl_Sah> tbl_Sah
+        {
+            get
+            {
+                if ((_tbl_Sah == null))
+                {
+                    _tbl_Sah = base.CreateObjectSet<tbl_Sah>("tbl_Sah");
+                }
+                return _tbl_Sah;
+            }
+        }
+        private ObjectSet<tbl_Sah> _tbl_Sah;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        public ObjectSet<tbl_Sai> tbl_Sai
+        {
+            get
+            {
+                if ((_tbl_Sai == null))
+                {
+                    _tbl_Sai = base.CreateObjectSet<tbl_Sai>("tbl_Sai");
+                }
+                return _tbl_Sai;
+            }
+        }
+        private ObjectSet<tbl_Sai> _tbl_Sai;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        public ObjectSet<tbl_Sup> tbl_Sup
+        {
+            get
+            {
+                if ((_tbl_Sup == null))
+                {
+                    _tbl_Sup = base.CreateObjectSet<tbl_Sup>("tbl_Sup");
+                }
+                return _tbl_Sup;
+            }
+        }
+        private ObjectSet<tbl_Sup> _tbl_Sup;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
         public ObjectSet<tbl_Usr> tbl_Usr
         {
             get
@@ -120,6 +225,14 @@ namespace Database
 
         #endregion
         #region AddTo-Methoden
+    
+        /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Cus'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddTotbl_Cus(tbl_Cus tbl_Cus)
+        {
+            base.AddObject("tbl_Cus", tbl_Cus);
+        }
     
         /// <summary>
         /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Prd'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
@@ -138,6 +251,46 @@ namespace Database
         }
     
         /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Puh'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddTotbl_Puh(tbl_Puh tbl_Puh)
+        {
+            base.AddObject("tbl_Puh", tbl_Puh);
+        }
+    
+        /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Pui'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddTotbl_Pui(tbl_Pui tbl_Pui)
+        {
+            base.AddObject("tbl_Pui", tbl_Pui);
+        }
+    
+        /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Sah'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddTotbl_Sah(tbl_Sah tbl_Sah)
+        {
+            base.AddObject("tbl_Sah", tbl_Sah);
+        }
+    
+        /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Sai'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddTotbl_Sai(tbl_Sai tbl_Sai)
+        {
+            base.AddObject("tbl_Sai", tbl_Sai);
+        }
+    
+        /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Sup'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddTotbl_Sup(tbl_Sup tbl_Sup)
+        {
+            base.AddObject("tbl_Sup", tbl_Sup);
+        }
+    
+        /// <summary>
         /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'tbl_Usr'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
         /// </summary>
         public void AddTotbl_Usr(tbl_Usr tbl_Usr)
@@ -152,6 +305,268 @@ namespace Database
     #endregion
     
     #region Entitäten
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_MERPModel", Name="tbl_Cus")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Cus : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues tbl_Cus-Objekt.
+        /// </summary>
+        /// <param name="cus_">Anfangswert der Eigenschaft Cus_.</param>
+        public static tbl_Cus Createtbl_Cus(global::System.Int32 cus_)
+        {
+            tbl_Cus tbl_Cus = new tbl_Cus();
+            tbl_Cus.Cus_ = cus_;
+            return tbl_Cus;
+        }
+
+        #endregion
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Cus_
+        {
+            get
+            {
+                return _Cus_;
+            }
+            set
+            {
+                if (_Cus_ != value)
+                {
+                    OnCus_Changing(value);
+                    ReportPropertyChanging("Cus_");
+                    _Cus_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Cus_");
+                    OnCus_Changed();
+                }
+            }
+        }
+        private global::System.Int32 _Cus_;
+        partial void OnCus_Changing(global::System.Int32 value);
+        partial void OnCus_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CusNumber
+        {
+            get
+            {
+                return _CusNumber;
+            }
+            set
+            {
+                OnCusNumberChanging(value);
+                ReportPropertyChanging("CusNumber");
+                _CusNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CusNumber");
+                OnCusNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CusNumber;
+        partial void OnCusNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnCusNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CusFirstname
+        {
+            get
+            {
+                return _CusFirstname;
+            }
+            set
+            {
+                OnCusFirstnameChanging(value);
+                ReportPropertyChanging("CusFirstname");
+                _CusFirstname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CusFirstname");
+                OnCusFirstnameChanged();
+            }
+        }
+        private global::System.String _CusFirstname;
+        partial void OnCusFirstnameChanging(global::System.String value);
+        partial void OnCusFirstnameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CusLastname
+        {
+            get
+            {
+                return _CusLastname;
+            }
+            set
+            {
+                OnCusLastnameChanging(value);
+                ReportPropertyChanging("CusLastname");
+                _CusLastname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CusLastname");
+                OnCusLastnameChanged();
+            }
+        }
+        private global::System.String _CusLastname;
+        partial void OnCusLastnameChanging(global::System.String value);
+        partial void OnCusLastnameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CusContactname
+        {
+            get
+            {
+                return _CusContactname;
+            }
+            set
+            {
+                OnCusContactnameChanging(value);
+                ReportPropertyChanging("CusContactname");
+                _CusContactname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CusContactname");
+                OnCusContactnameChanged();
+            }
+        }
+        private global::System.String _CusContactname;
+        partial void OnCusContactnameChanging(global::System.String value);
+        partial void OnCusContactnameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CusUsr_
+        {
+            get
+            {
+                return _CusUsr_;
+            }
+            set
+            {
+                OnCusUsr_Changing(value);
+                ReportPropertyChanging("CusUsr_");
+                _CusUsr_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CusUsr_");
+                OnCusUsr_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _CusUsr_;
+        partial void OnCusUsr_Changing(Nullable<global::System.Int32> value);
+        partial void OnCusUsr_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CusIscompany
+        {
+            get
+            {
+                return _CusIscompany;
+            }
+            set
+            {
+                OnCusIscompanyChanging(value);
+                ReportPropertyChanging("CusIscompany");
+                _CusIscompany = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CusIscompany");
+                OnCusIscompanyChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CusIscompany;
+        partial void OnCusIscompanyChanging(Nullable<global::System.Boolean> value);
+        partial void OnCusIscompanyChanged();
+
+        #endregion
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Cus__CusUsr___21B6055D", "tbl_Usr")]
+        public tbl_Usr tbl_Usr
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D", "tbl_Usr").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D", "tbl_Usr").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Usr> tbl_UsrReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D", "tbl_Usr");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D", "tbl_Usr", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sah__SahCus___239E4DCF", "tbl_Sah")]
+        public EntityCollection<tbl_Sah> tbl_Sah
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Sah>("db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF", "tbl_Sah");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Sah>("db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF", "tbl_Sah", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
@@ -203,6 +618,30 @@ namespace Database
         private global::System.Int32 _Prd_;
         partial void OnPrd_Changing(global::System.Int32 value);
         partial void OnPrd_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PrdNumber
+        {
+            get
+            {
+                return _PrdNumber;
+            }
+            set
+            {
+                OnPrdNumberChanging(value);
+                ReportPropertyChanging("PrdNumber");
+                _PrdNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PrdNumber");
+                OnPrdNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PrdNumber;
+        partial void OnPrdNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnPrdNumberChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -323,6 +762,30 @@ namespace Database
         private Nullable<global::System.Int32> _PrdPrdcat_;
         partial void OnPrdPrdcat_Changing(Nullable<global::System.Int32> value);
         partial void OnPrdPrdcat_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PrdSup_
+        {
+            get
+            {
+                return _PrdSup_;
+            }
+            set
+            {
+                OnPrdSup_Changing(value);
+                ReportPropertyChanging("PrdSup_");
+                _PrdSup_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PrdSup_");
+                OnPrdSup_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _PrdSup_;
+        partial void OnPrdSup_Changing(Nullable<global::System.Int32> value);
+        partial void OnPrdSup_Changed();
 
         #endregion
     
@@ -334,16 +797,16 @@ namespace Database
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat")]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prdcat")]
         public tbl_Prdcat tbl_Prdcat
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prdcat").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prdcat").Value = value;
             }
         }
         /// <summary>
@@ -355,13 +818,95 @@ namespace Database
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prdcat");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prdcat", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Prdcat>("db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prdcat", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Prd__PrdSup___20C1E124", "tbl_Sup")]
+        public tbl_Sup tbl_Sup
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124", "tbl_Sup").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124", "tbl_Sup").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Sup> tbl_SupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124", "tbl_Sup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124", "tbl_Sup", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Pui")]
+        public EntityCollection<tbl_Pui> tbl_Pui
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Pui>("db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Pui");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Pui>("db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Pui", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sai__SaiPrd___286302EC", "tbl_Sai")]
+        public EntityCollection<tbl_Sai> tbl_Sai
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Sai>("db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC", "tbl_Sai");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Sai>("db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC", "tbl_Sai", value);
                 }
             }
         }
@@ -425,6 +970,30 @@ namespace Database
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PrdcatNumber
+        {
+            get
+            {
+                return _PrdcatNumber;
+            }
+            set
+            {
+                OnPrdcatNumberChanging(value);
+                ReportPropertyChanging("PrdcatNumber");
+                _PrdcatNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PrdcatNumber");
+                OnPrdcatNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PrdcatNumber;
+        partial void OnPrdcatNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnPrdcatNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public global::System.String PrdcatName
         {
             get
@@ -454,18 +1023,1190 @@ namespace Database
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prd")]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prd")]
         public EntityCollection<tbl_Prd> tbl_Prd
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Prd>("db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prd");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Prd>("db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prd");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Prd>("db_MERPModel.FK__tbl_Prd__PrdPrdC__0519C6AF", "tbl_Prd", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Prd>("db_MERPModel.FK__tbl_Prd__PrdPrdc__1FCDBCEB", "tbl_Prd", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_MERPModel", Name="tbl_Puh")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Puh : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues tbl_Puh-Objekt.
+        /// </summary>
+        /// <param name="puh_">Anfangswert der Eigenschaft Puh_.</param>
+        public static tbl_Puh Createtbl_Puh(global::System.Int32 puh_)
+        {
+            tbl_Puh tbl_Puh = new tbl_Puh();
+            tbl_Puh.Puh_ = puh_;
+            return tbl_Puh;
+        }
+
+        #endregion
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Puh_
+        {
+            get
+            {
+                return _Puh_;
+            }
+            set
+            {
+                if (_Puh_ != value)
+                {
+                    OnPuh_Changing(value);
+                    ReportPropertyChanging("Puh_");
+                    _Puh_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Puh_");
+                    OnPuh_Changed();
+                }
+            }
+        }
+        private global::System.Int32 _Puh_;
+        partial void OnPuh_Changing(global::System.Int32 value);
+        partial void OnPuh_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PuhNumber
+        {
+            get
+            {
+                return _PuhNumber;
+            }
+            set
+            {
+                OnPuhNumberChanging(value);
+                ReportPropertyChanging("PuhNumber");
+                _PuhNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuhNumber");
+                OnPuhNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PuhNumber;
+        partial void OnPuhNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnPuhNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PuhSup_
+        {
+            get
+            {
+                return _PuhSup_;
+            }
+            set
+            {
+                OnPuhSup_Changing(value);
+                ReportPropertyChanging("PuhSup_");
+                _PuhSup_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuhSup_");
+                OnPuhSup_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _PuhSup_;
+        partial void OnPuhSup_Changing(Nullable<global::System.Int32> value);
+        partial void OnPuhSup_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> PuhCreatedate
+        {
+            get
+            {
+                return _PuhCreatedate;
+            }
+            set
+            {
+                OnPuhCreatedateChanging(value);
+                ReportPropertyChanging("PuhCreatedate");
+                _PuhCreatedate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuhCreatedate");
+                OnPuhCreatedateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _PuhCreatedate;
+        partial void OnPuhCreatedateChanging(Nullable<global::System.DateTime> value);
+        partial void OnPuhCreatedateChanged();
+
+        #endregion
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Puh__PuhSup___24927208", "tbl_Sup")]
+        public tbl_Sup tbl_Sup
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Puh__PuhSup___24927208", "tbl_Sup").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Puh__PuhSup___24927208", "tbl_Sup").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Sup> tbl_SupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Puh__PuhSup___24927208", "tbl_Sup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Sup>("db_MERPModel.FK__tbl_Puh__PuhSup___24927208", "tbl_Sup", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Pui__PuiPuh___25869641", "tbl_Pui")]
+        public EntityCollection<tbl_Pui> tbl_Pui
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Pui>("db_MERPModel.FK__tbl_Pui__PuiPuh___25869641", "tbl_Pui");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Pui>("db_MERPModel.FK__tbl_Pui__PuiPuh___25869641", "tbl_Pui", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_MERPModel", Name="tbl_Pui")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Pui : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues tbl_Pui-Objekt.
+        /// </summary>
+        /// <param name="pui_">Anfangswert der Eigenschaft Pui_.</param>
+        public static tbl_Pui Createtbl_Pui(global::System.Int32 pui_)
+        {
+            tbl_Pui tbl_Pui = new tbl_Pui();
+            tbl_Pui.Pui_ = pui_;
+            return tbl_Pui;
+        }
+
+        #endregion
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Pui_
+        {
+            get
+            {
+                return _Pui_;
+            }
+            set
+            {
+                if (_Pui_ != value)
+                {
+                    OnPui_Changing(value);
+                    ReportPropertyChanging("Pui_");
+                    _Pui_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Pui_");
+                    OnPui_Changed();
+                }
+            }
+        }
+        private global::System.Int32 _Pui_;
+        partial void OnPui_Changing(global::System.Int32 value);
+        partial void OnPui_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PuiNumber
+        {
+            get
+            {
+                return _PuiNumber;
+            }
+            set
+            {
+                OnPuiNumberChanging(value);
+                ReportPropertyChanging("PuiNumber");
+                _PuiNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuiNumber");
+                OnPuiNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PuiNumber;
+        partial void OnPuiNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnPuiNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PuiPuh_
+        {
+            get
+            {
+                return _PuiPuh_;
+            }
+            set
+            {
+                OnPuiPuh_Changing(value);
+                ReportPropertyChanging("PuiPuh_");
+                _PuiPuh_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuiPuh_");
+                OnPuiPuh_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _PuiPuh_;
+        partial void OnPuiPuh_Changing(Nullable<global::System.Int32> value);
+        partial void OnPuiPuh_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PuiPrd_
+        {
+            get
+            {
+                return _PuiPrd_;
+            }
+            set
+            {
+                OnPuiPrd_Changing(value);
+                ReportPropertyChanging("PuiPrd_");
+                _PuiPrd_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuiPrd_");
+                OnPuiPrd_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _PuiPrd_;
+        partial void OnPuiPrd_Changing(Nullable<global::System.Int32> value);
+        partial void OnPuiPrd_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Puivat
+        {
+            get
+            {
+                return _Puivat;
+            }
+            set
+            {
+                OnPuivatChanging(value);
+                ReportPropertyChanging("Puivat");
+                _Puivat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Puivat");
+                OnPuivatChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Puivat;
+        partial void OnPuivatChanging(Nullable<global::System.Double> value);
+        partial void OnPuivatChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Puidiscount
+        {
+            get
+            {
+                return _Puidiscount;
+            }
+            set
+            {
+                OnPuidiscountChanging(value);
+                ReportPropertyChanging("Puidiscount");
+                _Puidiscount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Puidiscount");
+                OnPuidiscountChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Puidiscount;
+        partial void OnPuidiscountChanging(Nullable<global::System.Double> value);
+        partial void OnPuidiscountChanged();
+
+        #endregion
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Prd")]
+        public tbl_Prd tbl_Prd
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Prd").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Prd").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Prd> tbl_PrdReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Prd");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Pui__PuiPrd___267ABA7A", "tbl_Prd", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Pui__PuiPuh___25869641", "tbl_Puh")]
+        public tbl_Puh tbl_Puh
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Puh>("db_MERPModel.FK__tbl_Pui__PuiPuh___25869641", "tbl_Puh").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Puh>("db_MERPModel.FK__tbl_Pui__PuiPuh___25869641", "tbl_Puh").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Puh> tbl_PuhReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Puh>("db_MERPModel.FK__tbl_Pui__PuiPuh___25869641", "tbl_Puh");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Puh>("db_MERPModel.FK__tbl_Pui__PuiPuh___25869641", "tbl_Puh", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_MERPModel", Name="tbl_Sah")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Sah : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues tbl_Sah-Objekt.
+        /// </summary>
+        /// <param name="sah_">Anfangswert der Eigenschaft Sah_.</param>
+        public static tbl_Sah Createtbl_Sah(global::System.Int32 sah_)
+        {
+            tbl_Sah tbl_Sah = new tbl_Sah();
+            tbl_Sah.Sah_ = sah_;
+            return tbl_Sah;
+        }
+
+        #endregion
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sah_
+        {
+            get
+            {
+                return _Sah_;
+            }
+            set
+            {
+                if (_Sah_ != value)
+                {
+                    OnSah_Changing(value);
+                    ReportPropertyChanging("Sah_");
+                    _Sah_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Sah_");
+                    OnSah_Changed();
+                }
+            }
+        }
+        private global::System.Int32 _Sah_;
+        partial void OnSah_Changing(global::System.Int32 value);
+        partial void OnSah_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SahNumber
+        {
+            get
+            {
+                return _SahNumber;
+            }
+            set
+            {
+                OnSahNumberChanging(value);
+                ReportPropertyChanging("SahNumber");
+                _SahNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SahNumber");
+                OnSahNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SahNumber;
+        partial void OnSahNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnSahNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SahCus_
+        {
+            get
+            {
+                return _SahCus_;
+            }
+            set
+            {
+                OnSahCus_Changing(value);
+                ReportPropertyChanging("SahCus_");
+                _SahCus_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SahCus_");
+                OnSahCus_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _SahCus_;
+        partial void OnSahCus_Changing(Nullable<global::System.Int32> value);
+        partial void OnSahCus_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> SahCreatedate
+        {
+            get
+            {
+                return _SahCreatedate;
+            }
+            set
+            {
+                OnSahCreatedateChanging(value);
+                ReportPropertyChanging("SahCreatedate");
+                _SahCreatedate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SahCreatedate");
+                OnSahCreatedateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _SahCreatedate;
+        partial void OnSahCreatedateChanging(Nullable<global::System.DateTime> value);
+        partial void OnSahCreatedateChanged();
+
+        #endregion
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sah__SahCus___239E4DCF", "tbl_Cus")]
+        public tbl_Cus tbl_Cus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Cus>("db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF", "tbl_Cus").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Cus>("db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF", "tbl_Cus").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Cus> tbl_CusReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Cus>("db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF", "tbl_Cus");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Cus>("db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF", "tbl_Cus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sai")]
+        public EntityCollection<tbl_Sai> tbl_Sai
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Sai>("db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sai");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Sai>("db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sai", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_MERPModel", Name="tbl_Sai")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Sai : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues tbl_Sai-Objekt.
+        /// </summary>
+        /// <param name="sai_">Anfangswert der Eigenschaft Sai_.</param>
+        public static tbl_Sai Createtbl_Sai(global::System.Int32 sai_)
+        {
+            tbl_Sai tbl_Sai = new tbl_Sai();
+            tbl_Sai.Sai_ = sai_;
+            return tbl_Sai;
+        }
+
+        #endregion
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sai_
+        {
+            get
+            {
+                return _Sai_;
+            }
+            set
+            {
+                if (_Sai_ != value)
+                {
+                    OnSai_Changing(value);
+                    ReportPropertyChanging("Sai_");
+                    _Sai_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Sai_");
+                    OnSai_Changed();
+                }
+            }
+        }
+        private global::System.Int32 _Sai_;
+        partial void OnSai_Changing(global::System.Int32 value);
+        partial void OnSai_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SaiNumber
+        {
+            get
+            {
+                return _SaiNumber;
+            }
+            set
+            {
+                OnSaiNumberChanging(value);
+                ReportPropertyChanging("SaiNumber");
+                _SaiNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SaiNumber");
+                OnSaiNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SaiNumber;
+        partial void OnSaiNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnSaiNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SaiSah_
+        {
+            get
+            {
+                return _SaiSah_;
+            }
+            set
+            {
+                OnSaiSah_Changing(value);
+                ReportPropertyChanging("SaiSah_");
+                _SaiSah_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SaiSah_");
+                OnSaiSah_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _SaiSah_;
+        partial void OnSaiSah_Changing(Nullable<global::System.Int32> value);
+        partial void OnSaiSah_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SaiPrd_
+        {
+            get
+            {
+                return _SaiPrd_;
+            }
+            set
+            {
+                OnSaiPrd_Changing(value);
+                ReportPropertyChanging("SaiPrd_");
+                _SaiPrd_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SaiPrd_");
+                OnSaiPrd_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _SaiPrd_;
+        partial void OnSaiPrd_Changing(Nullable<global::System.Int32> value);
+        partial void OnSaiPrd_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Saivat
+        {
+            get
+            {
+                return _Saivat;
+            }
+            set
+            {
+                OnSaivatChanging(value);
+                ReportPropertyChanging("Saivat");
+                _Saivat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Saivat");
+                OnSaivatChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Saivat;
+        partial void OnSaivatChanging(Nullable<global::System.Double> value);
+        partial void OnSaivatChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Saidiscount
+        {
+            get
+            {
+                return _Saidiscount;
+            }
+            set
+            {
+                OnSaidiscountChanging(value);
+                ReportPropertyChanging("Saidiscount");
+                _Saidiscount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Saidiscount");
+                OnSaidiscountChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Saidiscount;
+        partial void OnSaidiscountChanging(Nullable<global::System.Double> value);
+        partial void OnSaidiscountChanged();
+
+        #endregion
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sai__SaiPrd___286302EC", "tbl_Prd")]
+        public tbl_Prd tbl_Prd
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC", "tbl_Prd").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC", "tbl_Prd").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Prd> tbl_PrdReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC", "tbl_Prd");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Prd>("db_MERPModel.FK__tbl_Sai__SaiPrd___286302EC", "tbl_Prd", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sah")]
+        public tbl_Sah tbl_Sah
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sah>("db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sah").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sah>("db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sah").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Sah> tbl_SahReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Sah>("db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sah");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Sah>("db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3", "tbl_Sah", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_MERPModel", Name="tbl_Sup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Sup : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues tbl_Sup-Objekt.
+        /// </summary>
+        /// <param name="sup_">Anfangswert der Eigenschaft Sup_.</param>
+        public static tbl_Sup Createtbl_Sup(global::System.Int32 sup_)
+        {
+            tbl_Sup tbl_Sup = new tbl_Sup();
+            tbl_Sup.Sup_ = sup_;
+            return tbl_Sup;
+        }
+
+        #endregion
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sup_
+        {
+            get
+            {
+                return _Sup_;
+            }
+            set
+            {
+                if (_Sup_ != value)
+                {
+                    OnSup_Changing(value);
+                    ReportPropertyChanging("Sup_");
+                    _Sup_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Sup_");
+                    OnSup_Changed();
+                }
+            }
+        }
+        private global::System.Int32 _Sup_;
+        partial void OnSup_Changing(global::System.Int32 value);
+        partial void OnSup_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SupNumber
+        {
+            get
+            {
+                return _SupNumber;
+            }
+            set
+            {
+                OnSupNumberChanging(value);
+                ReportPropertyChanging("SupNumber");
+                _SupNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SupNumber");
+                OnSupNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SupNumber;
+        partial void OnSupNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnSupNumberChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SupFirstname
+        {
+            get
+            {
+                return _SupFirstname;
+            }
+            set
+            {
+                OnSupFirstnameChanging(value);
+                ReportPropertyChanging("SupFirstname");
+                _SupFirstname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SupFirstname");
+                OnSupFirstnameChanged();
+            }
+        }
+        private global::System.String _SupFirstname;
+        partial void OnSupFirstnameChanging(global::System.String value);
+        partial void OnSupFirstnameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SupLastname
+        {
+            get
+            {
+                return _SupLastname;
+            }
+            set
+            {
+                OnSupLastnameChanging(value);
+                ReportPropertyChanging("SupLastname");
+                _SupLastname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SupLastname");
+                OnSupLastnameChanged();
+            }
+        }
+        private global::System.String _SupLastname;
+        partial void OnSupLastnameChanging(global::System.String value);
+        partial void OnSupLastnameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SupContactname
+        {
+            get
+            {
+                return _SupContactname;
+            }
+            set
+            {
+                OnSupContactnameChanging(value);
+                ReportPropertyChanging("SupContactname");
+                _SupContactname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SupContactname");
+                OnSupContactnameChanged();
+            }
+        }
+        private global::System.String _SupContactname;
+        partial void OnSupContactnameChanging(global::System.String value);
+        partial void OnSupContactnameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SupUsr_
+        {
+            get
+            {
+                return _SupUsr_;
+            }
+            set
+            {
+                OnSupUsr_Changing(value);
+                ReportPropertyChanging("SupUsr_");
+                _SupUsr_ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SupUsr_");
+                OnSupUsr_Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _SupUsr_;
+        partial void OnSupUsr_Changing(Nullable<global::System.Int32> value);
+        partial void OnSupUsr_Changed();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> SupIscompany
+        {
+            get
+            {
+                return _SupIscompany;
+            }
+            set
+            {
+                OnSupIscompanyChanging(value);
+                ReportPropertyChanging("SupIscompany");
+                _SupIscompany = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SupIscompany");
+                OnSupIscompanyChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _SupIscompany;
+        partial void OnSupIscompanyChanging(Nullable<global::System.Boolean> value);
+        partial void OnSupIscompanyChanged();
+
+        #endregion
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Prd__PrdSup___20C1E124", "tbl_Prd")]
+        public EntityCollection<tbl_Prd> tbl_Prd
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Prd>("db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124", "tbl_Prd");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Prd>("db_MERPModel.FK__tbl_Prd__PrdSup___20C1E124", "tbl_Prd", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Puh__PuhSup___24927208", "tbl_Puh")]
+        public EntityCollection<tbl_Puh> tbl_Puh
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Puh>("db_MERPModel.FK__tbl_Puh__PuhSup___24927208", "tbl_Puh");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Puh>("db_MERPModel.FK__tbl_Puh__PuhSup___24927208", "tbl_Puh", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sup__SupUsr___22AA2996", "tbl_Usr")]
+        public tbl_Usr tbl_Usr
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996", "tbl_Usr").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996", "tbl_Usr").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Usr> tbl_UsrReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996", "tbl_Usr");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Usr>("db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996", "tbl_Usr", value);
                 }
             }
         }
@@ -486,19 +2227,21 @@ namespace Database
         /// <summary>
         /// Erstellt ein neues tbl_Usr-Objekt.
         /// </summary>
-        /// <param name="usr_">Anfangswert der Eigenschaft usr_.</param>
-        /// <param name="usrIdent">Anfangswert der Eigenschaft usrIdent.</param>
-        /// <param name="usrName">Anfangswert der Eigenschaft usrName.</param>
-        /// <param name="usrPassword">Anfangswert der Eigenschaft usrPassword.</param>
-        /// <param name="usrLogedin">Anfangswert der Eigenschaft usrLogedin.</param>
-        public static tbl_Usr Createtbl_Usr(global::System.Int32 usr_, global::System.String usrIdent, global::System.String usrName, global::System.String usrPassword, global::System.Boolean usrLogedin)
+        /// <param name="usr_">Anfangswert der Eigenschaft Usr_.</param>
+        /// <param name="usrNumber">Anfangswert der Eigenschaft UsrNumber.</param>
+        /// <param name="usrIdent">Anfangswert der Eigenschaft UsrIdent.</param>
+        /// <param name="usrName">Anfangswert der Eigenschaft UsrName.</param>
+        /// <param name="usrPassword">Anfangswert der Eigenschaft UsrPassword.</param>
+        /// <param name="usrLogedin">Anfangswert der Eigenschaft UsrLogedin.</param>
+        public static tbl_Usr Createtbl_Usr(global::System.Int32 usr_, global::System.Int32 usrNumber, global::System.String usrIdent, global::System.String usrName, global::System.String usrPassword, global::System.Boolean usrLogedin)
         {
             tbl_Usr tbl_Usr = new tbl_Usr();
-            tbl_Usr.usr_ = usr_;
-            tbl_Usr.usrIdent = usrIdent;
-            tbl_Usr.usrName = usrName;
-            tbl_Usr.usrPassword = usrPassword;
-            tbl_Usr.usrLogedin = usrLogedin;
+            tbl_Usr.Usr_ = usr_;
+            tbl_Usr.UsrNumber = usrNumber;
+            tbl_Usr.UsrIdent = usrIdent;
+            tbl_Usr.UsrName = usrName;
+            tbl_Usr.UsrPassword = usrPassword;
+            tbl_Usr.UsrLogedin = usrLogedin;
             return tbl_Usr;
         }
 
@@ -510,126 +2253,221 @@ namespace Database
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 usr_
+        public global::System.Int32 Usr_
         {
             get
             {
-                return _usr_;
+                return _Usr_;
             }
             set
             {
-                if (_usr_ != value)
+                if (_Usr_ != value)
                 {
-                    Onusr_Changing(value);
-                    ReportPropertyChanging("usr_");
-                    _usr_ = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("usr_");
-                    Onusr_Changed();
+                    OnUsr_Changing(value);
+                    ReportPropertyChanging("Usr_");
+                    _Usr_ = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Usr_");
+                    OnUsr_Changed();
                 }
             }
         }
-        private global::System.Int32 _usr_;
-        partial void Onusr_Changing(global::System.Int32 value);
-        partial void Onusr_Changed();
+        private global::System.Int32 _Usr_;
+        partial void OnUsr_Changing(global::System.Int32 value);
+        partial void OnUsr_Changed();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String usrIdent
+        public global::System.Int32 UsrNumber
         {
             get
             {
-                return _usrIdent;
+                return _UsrNumber;
             }
             set
             {
-                OnusrIdentChanging(value);
-                ReportPropertyChanging("usrIdent");
-                _usrIdent = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("usrIdent");
-                OnusrIdentChanged();
+                OnUsrNumberChanging(value);
+                ReportPropertyChanging("UsrNumber");
+                _UsrNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UsrNumber");
+                OnUsrNumberChanged();
             }
         }
-        private global::System.String _usrIdent;
-        partial void OnusrIdentChanging(global::System.String value);
-        partial void OnusrIdentChanged();
+        private global::System.Int32 _UsrNumber;
+        partial void OnUsrNumberChanging(global::System.Int32 value);
+        partial void OnUsrNumberChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String usrName
+        public global::System.String UsrIdent
         {
             get
             {
-                return _usrName;
+                return _UsrIdent;
             }
             set
             {
-                OnusrNameChanging(value);
-                ReportPropertyChanging("usrName");
-                _usrName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("usrName");
-                OnusrNameChanged();
+                OnUsrIdentChanging(value);
+                ReportPropertyChanging("UsrIdent");
+                _UsrIdent = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UsrIdent");
+                OnUsrIdentChanged();
             }
         }
-        private global::System.String _usrName;
-        partial void OnusrNameChanging(global::System.String value);
-        partial void OnusrNameChanged();
+        private global::System.String _UsrIdent;
+        partial void OnUsrIdentChanging(global::System.String value);
+        partial void OnUsrIdentChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String usrPassword
+        public global::System.String UsrName
         {
             get
             {
-                return _usrPassword;
+                return _UsrName;
             }
             set
             {
-                OnusrPasswordChanging(value);
-                ReportPropertyChanging("usrPassword");
-                _usrPassword = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("usrPassword");
-                OnusrPasswordChanged();
+                OnUsrNameChanging(value);
+                ReportPropertyChanging("UsrName");
+                _UsrName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UsrName");
+                OnUsrNameChanged();
             }
         }
-        private global::System.String _usrPassword;
-        partial void OnusrPasswordChanging(global::System.String value);
-        partial void OnusrPasswordChanged();
+        private global::System.String _UsrName;
+        partial void OnUsrNameChanging(global::System.String value);
+        partial void OnUsrNameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> UsrIsEmployer
+        {
+            get
+            {
+                return _UsrIsEmployer;
+            }
+            set
+            {
+                OnUsrIsEmployerChanging(value);
+                ReportPropertyChanging("UsrIsEmployer");
+                _UsrIsEmployer = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UsrIsEmployer");
+                OnUsrIsEmployerChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _UsrIsEmployer;
+        partial void OnUsrIsEmployerChanging(Nullable<global::System.Boolean> value);
+        partial void OnUsrIsEmployerChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Boolean usrLogedin
+        public global::System.String UsrPassword
         {
             get
             {
-                return _usrLogedin;
+                return _UsrPassword;
             }
             set
             {
-                OnusrLogedinChanging(value);
-                ReportPropertyChanging("usrLogedin");
-                _usrLogedin = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("usrLogedin");
-                OnusrLogedinChanged();
+                OnUsrPasswordChanging(value);
+                ReportPropertyChanging("UsrPassword");
+                _UsrPassword = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UsrPassword");
+                OnUsrPasswordChanged();
             }
         }
-        private global::System.Boolean _usrLogedin;
-        partial void OnusrLogedinChanging(global::System.Boolean value);
-        partial void OnusrLogedinChanged();
+        private global::System.String _UsrPassword;
+        partial void OnUsrPasswordChanging(global::System.String value);
+        partial void OnUsrPasswordChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UsrLogedin
+        {
+            get
+            {
+                return _UsrLogedin;
+            }
+            set
+            {
+                OnUsrLogedinChanging(value);
+                ReportPropertyChanging("UsrLogedin");
+                _UsrLogedin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UsrLogedin");
+                OnUsrLogedinChanged();
+            }
+        }
+        private global::System.Boolean _UsrLogedin;
+        partial void OnUsrLogedinChanging(global::System.Boolean value);
+        partial void OnUsrLogedinChanged();
 
         #endregion
     
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Cus__CusUsr___21B6055D", "tbl_Cus")]
+        public EntityCollection<tbl_Cus> tbl_Cus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Cus>("db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D", "tbl_Cus");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Cus>("db_MERPModel.FK__tbl_Cus__CusUsr___21B6055D", "tbl_Cus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MERPModel", "FK__tbl_Sup__SupUsr___22AA2996", "tbl_Sup")]
+        public EntityCollection<tbl_Sup> tbl_Sup
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Sup>("db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996", "tbl_Sup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Sup>("db_MERPModel.FK__tbl_Sup__SupUsr___22AA2996", "tbl_Sup", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion

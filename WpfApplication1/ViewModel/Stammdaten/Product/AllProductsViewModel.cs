@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Views.Stammdaten.Product;
 using WpfApplication1.DataAccess;
+using WpfApplication1.DataAccess.Stammdaten.Product;
 using WpfApplication1.Model.Stammdaten;
 
 namespace WpfApplication1.ViewModel.Stammdaten.Product {
@@ -11,7 +13,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
     {
         private ProductRepository _productRepository;
         private ProductViewModel _productViewModel;
-        private ObservableCollection<ProductFactory> _products;
+        private ObservableCollection<ProductView> _products;
 
         public AllProductsViewModel()
         {
@@ -19,13 +21,13 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
             _productViewModel = new ProductViewModel();
         }
 
-        public ObservableCollection<ProductFactory> Products
+        public ObservableCollection<ProductView> Products
         {
             get
             {
                 if (_products == null || _products.Count == 0)
                 {
-                    _products = new ObservableCollection<ProductFactory>(_productRepository.ProductsModel);
+                    _products = new ObservableCollection<ProductView>(_productRepository.ProductsList);
                 }
                 return _products;
             }

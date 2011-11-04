@@ -7,7 +7,7 @@ namespace WpfApplication1.Data.Channel {
         private static IMERPService _serviceConnection;
         private static ChannelFactory<IMERPService> _channelFactory;
 
-        public static ChannelFactory<IMERPService> ChannelFactoryTunnelToBLService
+        public static ChannelFactory<IMERPService> ChannelFactoryTunnelToBlService
         {
             get
             {
@@ -17,9 +17,9 @@ namespace WpfApplication1.Data.Channel {
             }
         }
 
-        public static IMERPService ConnectionToBL
+        public static IMERPService ConnectionToBl
         {
-            get { return _serviceConnection ?? (_serviceConnection = ChannelFactoryTunnelToBLService.CreateChannel()); }
+            get { return _serviceConnection ?? (_serviceConnection = ChannelFactoryTunnelToBlService.CreateChannel()); }
         }
 
      

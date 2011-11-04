@@ -1,15 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
+using System.Windows;
+using System.Windows.Resources;
 using System.Xml;
 using System.Xml.Linq;
-using System.Windows.Resources;
-using System.Windows;
 using WpfApplication1.Model.Stammdaten;
 
-namespace WpfApplication1.DataAccess {
+namespace WpfApplication1.DataAccess.Stammdaten.Customer {
     public class CustomerRepository {
         #region Fields
 
@@ -26,7 +25,7 @@ namespace WpfApplication1.DataAccess {
         #endregion constructors
 
         #region Public Interface
-        //tritt auf wenn ein Customer in der Repo hinzugefügt wird
+        //tritt auf wenn ein Customer in der Repo hinzugef�gt wird
         public event EventHandler<CustomerAddedEventArgs> CustomerAdded;
 
         public void AddCustomer(CustomerModel customerModel) {

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using WpfApplication1.DataAccess;
 using System.Windows.Input;
+using WpfApplication1.DataAccess.Stammdaten.Customer;
 
 namespace WpfApplication1.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {

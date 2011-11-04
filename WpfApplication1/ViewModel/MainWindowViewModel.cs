@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
+using WpfApplication1.DataAccess.Stammdaten.Customer;
 using WpfApplication1.Model.Stammdaten;
 using WpfApplication1.Properties;
 using WpfApplication1.ViewModel.NavCommands;

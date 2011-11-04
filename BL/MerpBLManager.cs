@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Views;
+using Views.Stammdaten.User;
 
 
 namespace BL
@@ -39,11 +40,11 @@ namespace BL
             return _dataLayerManager.GetUserCountByIdent(Userident);
         }
 
-        public void UpdateUser(User usr) 
+        public void UpdateUser(UserView usr) 
         {
            _dataLayerManager.UpdateUser(usr);
         }
-        public void AddUser(User usr)
+        public void AddUser(UserView usr)
         {
             _dataLayerManager.AddUser(usr);
         }
