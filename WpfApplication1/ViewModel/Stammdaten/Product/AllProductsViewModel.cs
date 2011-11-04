@@ -11,7 +11,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
     {
         private ProductRepository _productRepository;
         private ProductViewModel _productViewModel;
-        private ObservableCollection<ProductModel> _products;
+        private ObservableCollection<ProductFactory> _products;
 
         public AllProductsViewModel()
         {
@@ -19,13 +19,13 @@ namespace WpfApplication1.ViewModel.Stammdaten.Product {
             _productViewModel = new ProductViewModel();
         }
 
-        public ObservableCollection<ProductModel> Products
+        public ObservableCollection<ProductFactory> Products
         {
             get
             {
                 if (_products == null || _products.Count == 0)
                 {
-                    _products = new ObservableCollection<ProductModel>(_productRepository.ProductsModel);
+                    _products = new ObservableCollection<ProductFactory>(_productRepository.ProductsModel);
                 }
                 return _products;
             }

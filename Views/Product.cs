@@ -13,8 +13,7 @@ namespace Views
         private Double pricePurchase;
         private Double priceSale;
 
-        public Int32 Id
-        {
+        public Int32 Id {
             get { return _id; }
             set { _id = value; }
         }
@@ -26,6 +25,7 @@ namespace Views
             set { name = value; }
         }
 
+ 
 
         public string Ean
         {

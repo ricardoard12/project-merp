@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "WpfApplication1\FrontEnd.csproj", "{1C66C3EB-005A-41B6-8B33-9E0F81171344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DL", "DL\DL.csproj", "{9E81901A-8B6D-408A-87C4-7494AA07E519}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datenbank", "DL\Datenbank.csproj", "{9E81901A-8B6D-408A-87C4-7494AA07E519}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{77153938-B0A6-4104-AB87-9627E18B95D2}"
 EndProject

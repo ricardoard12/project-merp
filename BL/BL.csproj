@@ -53,9 +53,9 @@
       <Project>{9B7DD3F9-6650-4DFC-B972-86C5344AD609}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DL\DL.csproj">
+    <ProjectReference Include="..\DL\Datenbank.csproj">
       <Project>{9E81901A-8B6D-408A-87C4-7494AA07E519}</Project>
-      <Name>DL</Name>
+      <Name>Datenbank</Name>
     </ProjectReference>
     <ProjectReference Include="..\Views\Views.csproj">
       <Project>{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}</Project>
