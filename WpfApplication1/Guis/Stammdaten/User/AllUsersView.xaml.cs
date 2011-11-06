@@ -16,8 +16,8 @@ namespace WpfApplication1.Guis.Stammdaten.User {
     /// <summary>
     /// Interaktionslogik für UserView.xaml
     /// </summary>
-    public partial class UserView : UserControl {
-        public UserView() {
+    public partial class AllUsersView : UserControl {
+        public AllUsersView() {
             InitializeComponent();
         }
     }

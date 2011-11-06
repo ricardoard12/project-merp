@@ -126,4 +126,7 @@
   <data name="StringStammdaten" xml:space="preserve">
     <value>"Stammdaten"</value>
   </data>
+  <data name="StringUsers" xml:space="preserve">
+    <value>"Users"</value>
+  </data>
 </root>

@@ -14,6 +14,7 @@ using WpfApplication1.Properties;
 using WpfApplication1.ViewModel.NavCommands;
 using WpfApplication1.ViewModel.Stammdaten.Customer;
 using WpfApplication1.ViewModel.Stammdaten.Product;
+using WpfApplication1.ViewModel.Stammdaten.User;
 
 
 namespace WpfApplication1.ViewModel {
@@ -43,7 +44,7 @@ namespace WpfApplication1.ViewModel {
 
         }
 
-        private void OnCloseApplication(object obj)
+        private static void OnCloseApplication(object obj)
         {
             if (App.Current.MainWindow != null)
                 App.Current.MainWindow.Close();
@@ -78,8 +79,15 @@ namespace WpfApplication1.ViewModel {
             return new List<CommandViewModel> {
                 new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateNewCustomer()), Resources.StringStammdaten, Resources.StringCustomer),
                 new CommandViewModel("Show All Customers" , new RelayCommand(param => ShowAllCustomers()), Resources.StringStammdaten, Resources.StringCustomer),
-                new CommandViewModel("Show all Products", new RelayCommand(param =>ShowAllProducts()), Resources.StringStammdaten, Resources.StringProduct)
+                new CommandViewModel("Show all Products", new RelayCommand(param =>ShowAllProducts()), Resources.StringStammdaten, Resources.StringProduct),
+                new CommandViewModel("Show all Users", new RelayCommand(param => ShowAllUsers()), Resources.StringStammdaten, Resources.StringUsers )
             };
+        }
+
+        protected void ShowAllUsers() {
+            var workspace = new AllUsersViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
         }
 
         protected void ShowAllProducts() {

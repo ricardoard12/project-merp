@@ -86,5 +86,14 @@ namespace WpfApplication1.Properties {
                 return ResourceManager.GetString("StringStammdaten", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;Users&quot; ähnelt.
+        /// </summary>
+        internal static string StringUsers {
+            get {
+                return ResourceManager.GetString("StringUsers", resourceCulture);
+            }
+        }
     }
 }

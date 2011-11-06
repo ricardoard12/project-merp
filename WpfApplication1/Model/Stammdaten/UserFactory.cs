@@ -3,7 +3,7 @@
 using Views.Stammdaten.User;
 
 namespace WpfApplication1.Model.Stammdaten {
-    class UserFactory {
+    public class UserFactory {
 
 
       public static UserView CreateNewUser() {
@@ -24,10 +24,6 @@ namespace WpfApplication1.Model.Stammdaten {
                           };
 
       }
-
-
-
-
 
     }
 }

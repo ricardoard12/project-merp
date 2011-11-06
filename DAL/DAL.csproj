@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="MerpDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selections\Stammdaten\User\UserDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DL\Datenbank.csproj">
