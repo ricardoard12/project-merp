@@ -2,8 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vmCustomer="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Customer"
                     xmlns:vmProduct="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Product"
+                    xmlns:vmUser="clr-namespace:WpfApplication1.ViewModel.Stammdaten.User"
                     xmlns:CustomerGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Customer"
-                    xmlns:ProductGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Product">
+                    xmlns:ProductGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Product"
+                    xmlns:UserGui="clr-namespace:WpfApplication1.Guis.Stammdaten.User">
     
     
     <DataTemplate DataType="{x:Type vmCustomer:AllCustomersViewModel}" >
@@ -14,6 +16,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmProduct:AllProductsViewModel}">
         <ProductGui:AllProductsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmUser:AllUsersViewModel}">
+        <UserGui:AllUsersView />
     </DataTemplate>
                   
     <!-- Template für die Befehle / Hyperlinks im Navigationsbereich -->

@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
@@ -62,13 +63,14 @@
     </ApplicationDefinition>
     <Compile Include="DataAccess\Stammdaten\Customer\CustomerRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\Product\ProductRepository.cs" />
-    <Compile Include="Data\Channel\Channel.cs" />
+    <Compile Include="DataAccess\Stammdaten\User\UserRepository.cs" />
+    <Compile Include="Data\Channel\ConnectionFactory.cs" />
     <Compile Include="Guis\Stammdaten\Product\AllProductsView.xaml.cs">
       <DependentUpon>AllProductsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\Stammdaten\Customer\CustomerAddedEventArgs.cs" />
-    <Compile Include="Guis\Stammdaten\User\UserView.xaml.cs">
-      <DependentUpon>UserView.xaml</DependentUpon>
+    <Compile Include="Guis\Stammdaten\User\AllUsersView.xaml.cs">
+      <DependentUpon>AllUsersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\AllProductsViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\ProductViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\User\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="RelayCommand.cs" />
@@ -94,7 +97,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Guis\Stammdaten\User\UserView.xaml">
+    <Page Include="Guis\Stammdaten\User\AllUsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +149,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,14 +164,16 @@
       <Project>{77153938-B0A6-4104-AB87-9627E18B95D2}</Project>
       <Name>BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Controls\Controls.csproj">
+      <Project>{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Views\Views.csproj">
       <Project>{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}</Project>
       <Name>Views</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\Stammdaten\User\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

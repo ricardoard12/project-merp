@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WpfApplication1.App" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.MainWindow" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApplication1.DataAccess.CustomerAddedEventArgs" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\Stammdaten\Customer\CustomerAddedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.DataAccess.Stammdaten.Customer.CustomerRepository" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAEAAAAAAACAAAEAAAAAAABABAAE=</HashCode>
+      <FileName>DataAccess\Stammdaten\Customer\CustomerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.DataAccess.Stammdaten.Product.ProductRepository" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAACAAQAAAAAkAAIAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\Stammdaten\Product\ProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Guis.Stammdaten.Customer.AllCustomersView" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Guis\Stammdaten\Customer\AllCustomersView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Guis.Stammdaten.Customer.CustomersView" Collapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Guis\Stammdaten\Customer\CustomersView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Guis.Stammdaten.Product.AllProductsView" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Guis\Stammdaten\Product\AllProductsView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Guis.Stammdaten.User.AllUsersView" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Guis\Stammdaten\User\AllUsersView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Model.Stammdaten.CustomerModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAwACAgAAAAAAkQIAAAAAAiAAAAAAIAAAAMEAg=</HashCode>
+      <FileName>Model\Stammdaten\CustomerModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApplication1.Model.Stammdaten.ProductFactory" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Stammdaten\ProductFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Model.Stammdaten.UserFactory" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Stammdaten\UserFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Properties.Resources" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQEBAIAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.Properties.Settings" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.CommandViewModel" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\CommandViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.MainWindowViewModel" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECAAAgAAEBgAAEAAAAAgIAAAAAECAAAQAAAABBAAAEA=</HashCode>
+      <FileName>ViewModel\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.ViewModelBase" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAAIAAAAQAQgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.WorkspaceViewModel" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\WorkspaceViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.NavCommands.TreeViewCommands" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAJAAADAAAAIAAQgAACAAAAAAAAAAAABCAAAAAAAA=</HashCode>
+      <FileName>ViewModel\NavCommands\TreeViewCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.Stammdaten.Customer.AllCustomersViewModel" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABIAAACgAAAAAAAIQAAAAAAAAABAAAAAABAAAAAA=</HashCode>
+      <FileName>ViewModel\Stammdaten\Customer\AllCustomersViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.Stammdaten.Customer.CustomerViewModel" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgABEcAAACAAFAAAAAEQCACCAAAwAAAAAEAABAAMAAg=</HashCode>
+      <FileName>ViewModel\Stammdaten\Customer\CustomerViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.Stammdaten.Product.AllProductsViewModel" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAIAAAAAAAAQ=</HashCode>
+      <FileName>ViewModel\Stammdaten\Product\AllProductsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.Stammdaten.Product.ProductViewModel" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEIAAOAAAEAAAAAAIAASCAAAAAACAAEACAAAEAAA=</HashCode>
+      <FileName>ViewModel\Stammdaten\Product\ProductViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApplication1.ViewModel.Stammdaten.User.UserViewModel" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAgAAgAAAAAAAAAAAAAAAAAAIAgAAAEAAEAAAA=</HashCode>
+      <FileName>ViewModel\Stammdaten\User\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

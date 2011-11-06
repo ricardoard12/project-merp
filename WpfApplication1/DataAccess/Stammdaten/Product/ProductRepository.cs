@@ -4,15 +4,21 @@ using Views;
 using Views.Stammdaten.Product;
 using WpfApplication1.Data.Channel;
 using WpfApplication1.Model.Stammdaten;
+using BL.Service;
 
 namespace WpfApplication1.DataAccess.Stammdaten.Product {
     public class ProductRepository
     {
+        private ConnectionFactory<IMERPService> _connectionFactory;
+        private IMERPService _merpService;
         private PagedResult<ProductView> _productsView;
         private readonly List<ProductView> _products;
+        
 
         public ProductRepository()
         {
+            _connectionFactory = new ConnectionFactory<IMERPService>("net.tcp://localhost:2526/Service/");
+            _merpService = _connectionFactory.GetConnectionToService();
             _products = new List<ProductView>();
         }
 
@@ -37,7 +43,7 @@ namespace WpfApplication1.DataAccess.Stammdaten.Product {
         private IEnumerable<ProductView> ProductsView {
             get {
                 if (_productsView == null)
-                    _productsView = Channel.ConnectionToBl.GetProducts(1, 1, 0);
+                    _productsView = _merpService.GetProducts(1, 1, 0);
 
                 return _productsView.Rows.ToList();
             }

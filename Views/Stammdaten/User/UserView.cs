@@ -1,5 +1,6 @@
 using System;
 
+
 namespace Views.Stammdaten.User
 {
     public class UserView
@@ -12,7 +13,7 @@ namespace Views.Stammdaten.User
 
         public string UsrName { get; set; }
 
-        public bool UsrIsEmployer { get; set; }
+        public bool? UsrIsEmployer { get; set; }
 
         public string UsrPassword { get; set; }
 
