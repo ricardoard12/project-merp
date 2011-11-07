@@ -20,14 +20,9 @@ namespace WpfApplication1.DataAccess.Stammdaten.User {
         }
 
         public List<UserView> GetAllUsers() {
-            try {
+          
                 return _usrServiceConnection.AllUsers().Rows;
-            }
-            catch (Exception e) {
-                MerpMessageBox.Show(e.Message, e.InnerException.ToString(), e.StackTrace, MerpMessageBoxButtons.Ok, MerpMessageBoxImage.Error);
-            }
-
-            return null;
+            
         }
 
         public UserView AddUser {

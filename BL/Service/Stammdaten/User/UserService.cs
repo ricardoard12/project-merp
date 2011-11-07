@@ -9,7 +9,7 @@ using Views.Stammdaten.User;
 
 
 namespace BL.Service.Stammdaten.User {
-    class UserService : IUserService {
+   public class UserService : IUserService {
 
         PagedResult<UserView> result = new PagedResult<UserView>();
             

@@ -7,7 +7,7 @@ namespace BL.Service
 {
    
     [ServiceContract]
-    public interface IMERPService
+    public interface IMERPService : IRootInterface
     {
         [OperationContract]
         PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start);
