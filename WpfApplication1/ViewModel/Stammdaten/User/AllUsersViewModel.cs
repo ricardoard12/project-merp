@@ -13,7 +13,11 @@ namespace WpfApplication1.ViewModel.Stammdaten.User {
         private ObservableCollection<UserView> _users;
 
         public ObservableCollection<UserView> Users {
-            get { return _users ?? (_users = _userModel.GetAllUsers); }
+            get {
+                if (_users == null || _users.Count == 0)
+                    _users = new ObservableCollection<UserView>(_userModel.GetAllUsers);
+                return _users;
+            }
         } 
 
     }

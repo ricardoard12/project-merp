@@ -11,7 +11,7 @@
         <AllUsers:AllUsersViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <CollectionViewSource x:Key="AllUsers" Source="{Binding Products}"/>
+        <CollectionViewSource x:Key="AllUsers" Source="{Binding Users}"/>
     </UserControl.Resources>
     <ListView DataContext="{StaticResource AllUsers}" ItemsSource="{Binding}">
         <ListView.View>
