@@ -6,11 +6,11 @@ namespace WpfApplication1.Model.Stammdaten {
     public class UserFactory {
 
 
-      public static UserView CreateNewUser() {
+      public static IUserView CreateNewUser() {
           return new UserView();
       }
 
-      public static UserView CreateUser(
+      public static IUserView CreateUser(
           int usrNumber, string usrName, string usrIdent, bool usrIsEmployer, string usrPassword) {
 
           return new UserView {

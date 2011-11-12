@@ -18,7 +18,7 @@ namespace WpfApplication1.DataAccess.Stammdaten.Product {
         public ProductRepository()
         {
             _connectionFactory = new ConnectionFactory<IMERPService>("net.tcp://localhost:2526/Service/");
-            _merpService = _connectionFactory.GetConnectionToService();
+            _merpService = _connectionFactory.GetConnectionToService;
             _products = new List<ProductView>();
         }
 

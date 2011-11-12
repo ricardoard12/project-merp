@@ -14,7 +14,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.User {
     {
         private UserRepository _userRepository;
         private RelayCommand _saveUser;
-        private ObservableCollection<UserView> _users;
+        private ObservableCollection<IUserView> _users;
 
         public UserViewModel() {
             _userRepository = new UserRepository();
@@ -28,16 +28,16 @@ namespace WpfApplication1.ViewModel.Stammdaten.User {
             if (param == null) throw new ArgumentNullException("param");
         }
 
-        public ObservableCollection<UserView> GetAllUsers {
+        public ObservableCollection<IUserView> GetAllUsers {
             get {
                 if ( _users == null || _users.Count == 0)
-                    _users = new ObservableCollection<UserView>(_userRepository.GetAllUsers());
+                    _users = new ObservableCollection<IUserView>(_userRepository.GetAllUsers());
                 return _users;
 
             }
         }
 
-        public UserView AddUser {
+        public IUserView AddUser {
             set { _userRepository.AddUser = value; }
         }
     }

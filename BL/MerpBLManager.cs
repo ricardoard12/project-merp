@@ -40,11 +40,11 @@ namespace BL
             return _dataLayerManager.GetUserCountByIdent(Userident);
         }
 
-        public void UpdateUser(UserView usr) 
+        public void UpdateUser(IUserView usr) 
         {
            _dataLayerManager.UpdateUser(usr);
         }
-        public void AddUser(UserView usr)
+        public void AddUser(IUserView usr)
         {
             _dataLayerManager.AddUser(usr);
         }

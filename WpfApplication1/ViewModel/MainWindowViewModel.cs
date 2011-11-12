@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Windows;
 using WpfApplication1.DataAccess;
 using System.Diagnostics;
 using System.ComponentModel;
@@ -12,6 +13,7 @@ using WpfApplication1.DataAccess.Stammdaten.Customer;
 using WpfApplication1.Model.Stammdaten;
 using WpfApplication1.Properties;
 using WpfApplication1.ViewModel.NavCommands;
+using WpfApplication1.ViewModel.Security;
 using WpfApplication1.ViewModel.Stammdaten.Customer;
 using WpfApplication1.ViewModel.Stammdaten.Product;
 using WpfApplication1.ViewModel.Stammdaten.User;
@@ -22,12 +24,20 @@ namespace WpfApplication1.ViewModel {
         protected readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
-   
+        LoginViewModel login = new LoginViewModel();
+        public Visibility _dockVisibility;
         private ICommand _closeApplication;
   
         public MainWindowViewModel()
             : this("Data/customers.xml") {
+            _dockVisibility = Visibility.Collapsed;
+            login.OnLoginExecuted += login_OnLoginExecuted;
+            _workspaces.Add(login);
 
+        }
+
+        void login_OnLoginExecuted() {
+            DockVisibility = Visibility.Visible;
         }
 
         public MainWindowViewModel(string customerDataFile) {
@@ -41,6 +51,12 @@ namespace WpfApplication1.ViewModel {
         public ICommand CloseApplication
         {
             get { return _closeApplication ?? (_closeApplication = new RelayCommand(OnCloseApplication)); }
+
+        }
+
+        public Visibility DockVisibility {
+            get { return _dockVisibility; }
+            set { _dockVisibility = value; }
 
         }
 

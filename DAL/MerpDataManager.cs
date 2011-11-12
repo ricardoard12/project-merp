@@ -39,7 +39,7 @@ namespace DAL
             return (from u in _modell.tbl_Usr where u.UsrIdent == usrident select u).Count();
         }
 
-        public void UpdateUser(UserView usr) {
+        public void UpdateUser(IUserView usr) {
             tbl_Usr User = (from u in _modell.tbl_Usr where u.Usr_ == usr.UsrId select u).Single();
             User.Usr_ = usr.UsrId;
             User.UsrName = usr.UsrName;
@@ -49,7 +49,7 @@ namespace DAL
             _modell.SaveChanges();
         }
 
-        public void AddUser(UserView usr) {
+        public void AddUser(IUserView usr) {
             tbl_Usr User = new tbl_Usr();
             User.Usr_ = usr.UsrId;
             User.UsrName = usr.UsrName;

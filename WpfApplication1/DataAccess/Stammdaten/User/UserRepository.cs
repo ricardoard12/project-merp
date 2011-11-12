@@ -12,33 +12,40 @@ using  BL.Service;
 namespace WpfApplication1.DataAccess.Stammdaten.User {
     public class UserRepository
     {
-        private delegate TResult FuncUser<out TResult>();
-
-        private FuncUser<List<UserView>> UserFunction; 
        
+        /*
+        private FuncUser<List<IUserView>> UserFunction; 
+        */     
         private ConnectionFactory<IUserService> _usrServiceFactory;
         private IUserService _usrServiceConnection;
-        private List<UserView> _userList;
+        private List<IUserView> _userList;
 
 
         public  UserRepository() {
             _usrServiceFactory = new ConnectionFactory<IUserService>("net.tcp://localhost:2526/Service/Stammdaten/User");
-            _usrServiceConnection = _usrServiceFactory.GetConnectionToService();
-    _userList = new List<UserView>();
+            _usrServiceConnection = _usrServiceFactory.GetConnectionToService;
+    _userList = new List<IUserView>();
         }
 
         // Funktioniert noch nicht. Bin gerade am Versuch Async umzusetzen. 
-        public List<UserView> GetAllUsers() {
-             UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
+        public List<IUserView> GetAllUsers() {
 
-            AsyncCallback GetUserEndedAsyncEnd = (result) => MessageBox.Show(result.ToString());
+            return _usrServiceConnection.AllUsers().Rows;
+            /*    UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
 
-            UserFunction.BeginInvoke(GetUserEndedAsyncEnd, null);
-            return _userList;
+            AsyncCallback getUserEndedAsyncEnd = (result) => {
+                                                     if (result != null && !result.IsCompleted)
+                                                         throw new Exception("getUserEndedAsyncEnd" + result.ToString());
+                                                     
+                                                 };
+
+           UserFunction.BeginInvoke(getUserEndedAsyncEnd, null);
+            
+            return _userList;*/
 
         }
 
-        public UserView AddUser {
+        public IUserView AddUser {
             set { _usrServiceConnection.AddUser(value); }
         }
 
@@ -48,6 +55,19 @@ namespace WpfApplication1.DataAccess.Stammdaten.User {
         public void OnGetAllUsers() {
              
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

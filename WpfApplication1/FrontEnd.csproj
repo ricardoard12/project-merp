@@ -65,6 +65,9 @@
     <Compile Include="DataAccess\Stammdaten\Product\ProductRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\User\UserRepository.cs" />
     <Compile Include="Data\Channel\ConnectionFactory.cs" />
+    <Compile Include="Guis\Security\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guis\Stammdaten\Product\AllProductsView.xaml.cs">
       <DependentUpon>AllProductsView.xaml</DependentUpon>
     </Compile>
@@ -75,7 +78,9 @@
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="ViewModel\NavCommands\TreeViewCommands.cs" />
+    <Compile Include="ViewModel\Security\LoginViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Customer\AllCustomersViewModel.cs" />
     <Compile Include="ViewModel\CommandViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Customer\CustomerViewModel.cs" />
@@ -93,6 +98,10 @@
     <Compile Include="Guis\Stammdaten\Customer\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Guis\Security\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Guis\Stammdaten\Product\AllProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

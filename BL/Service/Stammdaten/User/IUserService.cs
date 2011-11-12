@@ -12,12 +12,21 @@ namespace BL.Service.Stammdaten.User {
     public interface IUserService : IRootInterface
     {
         [OperationContract]
-        void AddUser(UserView usr);
+        void AddUser(IUserView usr);
 
         [OperationContract]
-        PagedResult<UserView> AllUsers();
+        PagedResult<IUserView> AllUsers();
 
         [OperationContract]
-        PagedResult<UserView> UsersByIdent();
+        PagedResult<IUserView> UsersByIdent();
+
+        /*
+        [OperationContract(AsyncPattern = true)]
+        IAsyncResult BeginGetAllUsers(AsyncCallback callback, AsyncState s);
+
+        [OperationContract]
+        PagedResult<UserView> EndGetAllUsers(IAsyncResult r);
+         */
+
     }
 }

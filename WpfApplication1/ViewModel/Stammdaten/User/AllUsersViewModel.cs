@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using Views.Stammdaten.User;
@@ -8,17 +9,29 @@ using Views.Stammdaten.User;
 namespace WpfApplication1.ViewModel.Stammdaten.User {
     class AllUsersViewModel : WorkspaceViewModel
     {
-        private readonly UserViewModel _userModel = new UserViewModel();
+        private readonly UserViewModel _userModel;
+        
+        public AllUsersViewModel() {
+            _userModel = new UserViewModel();
+            _userModel.GetAllUsers.CollectionChanged += GetAllUsers_CollectionChanged;
+        }
 
-        private ObservableCollection<UserView> _users;
+        private ObservableCollection<IUserView> _users;
+ 
 
-        public ObservableCollection<UserView> Users {
+        public ObservableCollection<IUserView> Users {
             get {
                 if (_users == null || _users.Count == 0)
-                    _users = new ObservableCollection<UserView>(_userModel.GetAllUsers);
+                    _users = new ObservableCollection<IUserView>(_userModel.GetAllUsers);
                 return _users;
             }
-        } 
+        }
 
+       public void GetAllUsers_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+           _users = Users;
+       }
+
+
+       
     }
 }

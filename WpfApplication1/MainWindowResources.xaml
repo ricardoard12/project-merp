@@ -5,7 +5,9 @@
                     xmlns:vmUser="clr-namespace:WpfApplication1.ViewModel.Stammdaten.User"
                     xmlns:CustomerGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Customer"
                     xmlns:ProductGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Product"
-                    xmlns:UserGui="clr-namespace:WpfApplication1.Guis.Stammdaten.User">
+                    xmlns:UserGui="clr-namespace:WpfApplication1.Guis.Stammdaten.User"
+                    xmlns:loginVm="clr-namespace:WpfApplication1.ViewModel.Security"
+                    xmlns:loginGui="clr-namespace:WpfApplication1.Guis.Security">
     
     
     <DataTemplate DataType="{x:Type vmCustomer:AllCustomersViewModel}" >
@@ -19,6 +21,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmUser:AllUsersViewModel}">
         <UserGui:AllUsersView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type loginVm:LoginViewModel}">
+        <loginGui:Login />
     </DataTemplate>
                   
     <!-- Template für die Befehle / Hyperlinks im Navigationsbereich -->
