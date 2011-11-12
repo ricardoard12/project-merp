@@ -17,6 +17,7 @@ namespace Host
             ServiceHost shMerpService = new ServiceHost(typeof(MerpService), new Uri("net.tcp://localhost:2526/Service/"));
             ServiceHost shUserService = new ServiceHost(typeof (UserService),
                                                         new Uri("net.tcp://localhost:2527/Service/Stammdaten/User"));
+            
 
 
             Console.Write("MerpService wird gestartet...  :D :D :D\n");

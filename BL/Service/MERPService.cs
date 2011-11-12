@@ -20,21 +20,22 @@ namespace BL.Service
             return p;
             
         }
+        /* Zur löschung vorgemerkt
 
-        public PagedResult<UserView> GetUserByIdent(string Userident, int Anzahl, int Start)
+        public PagedResult<IUserView> GetUserByIdent(string Userident, int Anzahl, int Start)
         {
-            PagedResult<UserView> p = new PagedResult<UserView>();
-            p.Rows = Enumerable.ToList<UserView>((from u in BusinessLogic.GetUserByIdent(Userident, Anzahl, Start) select new UserView { UsrId = u.Usr_, UsrIdent = u.UsrIdent, UsrName = u.UsrName, UsrPassword = u.UsrPassword, UsrLogedIn = u.UsrLogedin }));
+            PagedResult<IUserView> p = new PagedResult<IUserView>();
+            p.Rows = Enumerable.ToList<IUserView>((from u in BusinessLogic.GetUserByIdent(Userident, Anzahl, Start) select new IUserView { UsrId = u.Usr_, UsrIdent = u.UsrIdent, UsrName = u.UsrName, UsrPassword = u.UsrPassword, UsrLogedIn = u.UsrLogedin }));
             p.Total = BusinessLogic.GetUserCountByIdent(Userident);
             return p;
         }
-
-        public void UpdateUser(UserView usr)
+        */
+        public void UpdateUser(IUserView usr)
         {
             BusinessLogic.UpdateUser(usr);
         }
         
-        public void AddUser(UserView usr)
+        public void AddUser(IUserView usr)
         {
             
             BusinessLogic.AddUser(usr);

@@ -10,22 +10,20 @@ using Views.Stammdaten.User;
 
 namespace BL.Service.Stammdaten.User {
    public class UserService : IUserService {
-
-        PagedResult<UserView> result = new PagedResult<UserView>();
-            
-        readonly UserDataManager _dataLayerAccess = new UserDataManager();
-
-        public void AddUser(UserView usr) {
-            _dataLayerAccess.AddUser(usr);
+      
+        readonly PagedResult<IUserView> _result = new PagedResult<IUserView>();
+        
+         public void AddUser(IUserView usr) {
+            UserDataFactory.AddUser(usr);
         }
 
-        public PagedResult<UserView> AllUsers() {
-            result.Rows = _dataLayerAccess.AllUsers();
-            result.Total = _dataLayerAccess.AllUsers().Count;
-            return result;
+        public PagedResult<IUserView> AllUsers() {
+            _result.Rows = UserDataFactory.AllUsers().ToList();
+            _result.Total = UserDataFactory.AllUsers().Count();
+            return _result;
         }
 
-        public PagedResult<UserView> UsersByIdent() {
+        public PagedResult<IUserView> UsersByIdent() {
             throw new NotImplementedException();
         }
     }

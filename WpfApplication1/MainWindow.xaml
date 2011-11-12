@@ -14,7 +14,7 @@
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    <DockPanel>
+    <DockPanel Visibility="{Binding DockVisibility}">
         <DockPanel DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None" >
             <Menu >
                 <MenuItem Header="_File">
@@ -68,19 +68,14 @@
                     </TreeView>
                 </ItemsControl>
             </HeaderedContentControl>
-                
         </Border>
 
-        <Border
-        Grid.Column="2" 
-        Style="{StaticResource MainBorderStyle}"
-        >
-            <HeaderedContentControl 
+        <Border Grid.Column="2"  Style="{StaticResource MainBorderStyle}" >
+         <HeaderedContentControl 
           Content="{Binding Path=Workspaces}"
           ContentTemplate="{StaticResource WorkspacesTemplate}"
           Header="Workspaces"
-          Style="{StaticResource MainHCCStyle}"
-          />
+          Style="{StaticResource MainHCCStyle}"    />
         </Border>
     </DockPanel>
 </Window>

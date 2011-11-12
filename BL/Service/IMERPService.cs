@@ -12,13 +12,15 @@ namespace BL.Service
         [OperationContract]
         PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start);
 
+        /* Zur löschung vorgemerkt 
         [OperationContract]
-        PagedResult<UserView> GetUserByIdent(string ident, int Anzahl, int Start);
+        PagedResult<IUserView> GetUserByIdent(string ident, int Anzahl, int Start);
+
+         */
+        [OperationContract]
+        void UpdateUser(IUserView usr);
 
         [OperationContract]
-        void UpdateUser(UserView usr);
-
-        [OperationContract]
-        void AddUser(UserView usr);
+        void AddUser(IUserView usr);
     }
 }
