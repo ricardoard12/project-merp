@@ -30,7 +30,7 @@ namespace WpfApplication1.ViewModel {
   
         public MainWindowViewModel()
             : this("Data/customers.xml") {
-            _dockVisibility = Visibility.Collapsed;
+            _dockVisibility = Visibility.Visible;
             login.OnLoginExecuted += login_OnLoginExecuted;
             _workspaces.Add(login);
 

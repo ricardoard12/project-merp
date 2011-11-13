@@ -7,7 +7,8 @@
                     xmlns:ProductGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Product"
                     xmlns:UserGui="clr-namespace:WpfApplication1.Guis.Stammdaten.User"
                     xmlns:loginVm="clr-namespace:WpfApplication1.ViewModel.Security"
-                    xmlns:loginGui="clr-namespace:WpfApplication1.Guis.Security">
+                    xmlns:loginGui="clr-namespace:WpfApplication1.Guis.Security"
+                    x:Class="WpfApplication1.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
     
     
     <DataTemplate DataType="{x:Type vmCustomer:AllCustomersViewModel}" >

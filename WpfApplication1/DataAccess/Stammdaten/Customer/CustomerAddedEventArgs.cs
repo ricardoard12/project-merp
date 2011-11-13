@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using WpfApplication1.Model.Stammdaten;
 
-namespace WpfApplication1.DataAccess {
+namespace WpfApplication1.DataAccess.Stammdaten.Customer {
     public class CustomerAddedEventArgs : EventArgs {
 
         public CustomerAddedEventArgs(CustomerModel newCustomerModel) {
