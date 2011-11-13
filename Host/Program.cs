@@ -8,27 +8,36 @@ using BL;
 using BL.Service;
 using BL.Service.Stammdaten.User;
 
+
 namespace Host
 {
     class Program
     {
         static void Main(string[] args)
         {
-            ServiceHost shMerpService = new ServiceHost(typeof(MerpService), new Uri("net.tcp://localhost:2526/Service/"));
-            ServiceHost shUserService = new ServiceHost(typeof (UserService),
-                                                        new Uri("net.tcp://localhost:2527/Service/Stammdaten/User"));
+  
+
+            ServiceHost MERPService = new ServiceHost(typeof(MerpService));
+           /* MERPService.AddServiceEndpoint(
+                typeof(IMERPService),
+                new NetTcpBinding(),
+                "MERPService");
+   */
+
+
+            ServiceHost shUserService = new ServiceHost(typeof (UserService));
             
 
 
             Console.Write("MerpService wird gestartet...  :D :D :D\n");
-            shMerpService.Open();
+            MERPService.Open();
             Console.Write("MerpService wurde gestartet buh buh buh\n");
             Console.Write("UserService wurde gestartet\n");
             shUserService.Open();
             Console.Write("UserService wurde gestartet\n");
             Console.Write("Drücken Sie eine Taste um zu beenden\n");
             Console.Read();
-            shMerpService.Close();
+            MERPService.Close();
             shUserService.Close();
                        
         }
