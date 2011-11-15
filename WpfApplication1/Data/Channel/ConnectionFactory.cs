@@ -1,4 +1,7 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel;
+using System.ServiceModel.Security;
 using BL.Service;
 using BL.Service.Stammdaten.User;
 using WpfApplication1.ViewModel.Security;
@@ -17,7 +20,8 @@ namespace WpfApplication1.Data.Channel
         
 
         public ConnectionFactory(string endpointAddress) {
-            _endpointAddress = new EndpointAddress(endpointAddress);
+            _endpointAddress = new EndpointAddress(new Uri(endpointAddress),
+                                                   EndpointIdentity.CreateDnsIdentity("SimiPro2"));
             _loginViewModel.OnLoginExecuted += LoginExecuted;
         }
 
@@ -25,8 +29,15 @@ namespace WpfApplication1.Data.Channel
 
         public ChannelFactory<T> Factory {
             get {
-                return _connectionFactory ??
-                       (_connectionFactory = new ChannelFactory<T>(new NetTcpBinding(), _endpointAddress));
+                if ( _connectionFactory == null) {
+
+                    _connectionFactory.Credentials.ServiceCertificate.Authentication.CertificateValidationMode =
+                        X509CertificateValidationMode.None;
+                    _connectionFactory.Credentials.ServiceCertificate.Authentication.RevocationMode =
+                        X509RevocationMode.NoCheck;
+                    _connectionFactory = new ChannelFactory<T>(new NetTcpBinding(), _endpointAddress);
+                }
+                return _connectionFactory;
             }
         }
 

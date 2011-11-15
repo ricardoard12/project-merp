@@ -51,14 +51,16 @@ namespace DAL.Selections.Stammdaten.User
         }
 
         public static IUserView UserByIdent(string usrident) {
-            var Userli = _database.tbl_Usr.Single(usr => usr.UsrIdent == usrident);
-            IUserView Userli2 = UserFactory.CreateUser(Userli.UsrNumber, Userli.UsrName, Userli.UsrIdent,
-                                                       Userli.UsrIsEmployer,
-                                                       Userli.UsrPassword);
-            return Userli2;
+            var query = (from usr in _database.tbl_Usr where usr.UsrIdent == usrident select usr);
+            tbl_Usr usre = query.FirstOrDefault();
+
+            if (usre != null) {
+                IUserView Userli2 = UserFactory.CreateUser(usre.Usr_, usre.UsrName, usre.UsrIdent, usre.UsrIsEmployer,
+                                                           usre.UsrPassword);
+                return Userli2;
+            }
+            return null;
         }
-
-
     }
 
 
