@@ -15,7 +15,7 @@ namespace BL.Service.Stammdaten.User {
         void AddUser(IUserView usr);
 
         [OperationContract]
-        PagedResult<IUserView> AllUsers();
+        PagedResult<UserView> AllUsers();
 
         [OperationContract]
         PagedResult<IUserView> UsersByIdent();

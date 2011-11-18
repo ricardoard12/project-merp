@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel;
 using System.ServiceModel.Security;
 using System.Text;
 using System.Windows;
@@ -45,9 +46,12 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
         }
 
         // Funktioniert noch nicht. Bin gerade am Versuch Async umzusetzen. 
-        public List<IUserView> GetAllUsers() {
-             
-            return _usrService.AllUsers().Rows;
+        public List<UserView> GetAllUsers() {
+            PagedResult<UserView> AllUsers = new PagedResult<UserView>();
+            if (_usrServiceConnection.ChannelFactory.State != CommunicationState.Opened)
+                _usrServiceConnection.ChannelFactory.Open();
+            AllUsers = _usrService.AllUsers();
+            return AllUsers.Rows;
             /*    UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
 
             AsyncCallback getUserEndedAsyncEnd = (result) => {

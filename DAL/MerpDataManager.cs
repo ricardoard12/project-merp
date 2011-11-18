@@ -50,6 +50,7 @@ namespace DAL
         }
 
         public void AddUser(IUserView usr) {
+
             tbl_Usr User = new tbl_Usr();
             User.Usr_ = usr.UsrId;
             User.UsrName = usr.UsrName;
