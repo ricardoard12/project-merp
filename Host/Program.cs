@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel.Description;
 using System.Text;
@@ -13,17 +14,18 @@ namespace Host
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-  
+        static void Main(string[] args) {
 
+            Process.Start(@"C:\Projekte\ProjectMerp\Host\CertifikatDelete.bat");
+            Process.Start(@"C:\Projekte\ProjectMerp\Host\CertifikatCreate.bat");
+            
+            
             ServiceHost MERPService = new ServiceHost(typeof(MerpService));
            /* MERPService.AddServiceEndpoint(
                 typeof(IMERPService),
                 new NetTcpBinding(),
                 "MERPService");
    */
-
 
             ServiceHost shUserService = new ServiceHost(typeof (UserService));
             

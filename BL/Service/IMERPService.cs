@@ -22,5 +22,8 @@ namespace BL.Service
 
         [OperationContract]
         void AddUser(IUserView usr);
+
+        [OperationContract]
+        bool TestConnection();
     }
 }

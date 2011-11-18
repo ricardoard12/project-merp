@@ -3,16 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:secVm="clr-namespace:WpfApplication1.ViewModel.Security"
              mc:Ignorable="d" >
+    <UserControl.DataContext>
+        <secVm:LoginViewModel />
+    </UserControl.DataContext>
     <StackPanel>
         <TextBlock>
             <Label Content="Ident:" Margin="5,5" Width="75"/>
-            <TextBox Name="txtUsername" Margin="5,5 " Width="200"/>
+            <TextBox Name="txtUsername" Text="{Binding Path=Username, Mode=TwoWay}" Margin="5,5 " Width="200"/>
         </TextBlock>
+        <StackPanel>
         <TextBlock>
-             <Label Content="Passwort:" Margin="5,5" Width="75"/>
-            <PasswordBox Name="txtPassword" Margin="5,5 " Width="200"/>
+                  <Label Content="Passwort:" Margin="5,5" Width="75"/>
+            <PasswordBox  PasswordChar="*"   Name="txtPassword" Margin="5,5 " Width="200" />      
         </TextBlock>
-        <Button Content="Login"  /> 
+        </StackPanel>
+        <Button Content="Login" Command="{Binding Path=Login}" CommandParameter="{Binding ElementName=txtPassword}"  /> 
     </StackPanel>
 </UserControl>

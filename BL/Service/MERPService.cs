@@ -20,6 +20,10 @@ namespace BL.Service
             return p;
             
         }
+
+        public bool TestConnection() {
+            return true;
+        }
         /* Zur löschung vorgemerkt
 
         public PagedResult<IUserView> GetUserByIdent(string Userident, int Anzahl, int Start)
