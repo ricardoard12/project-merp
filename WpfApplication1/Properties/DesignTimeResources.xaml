@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	x:Class="WpfApplication1.Properties.c__projekte_projectmerp_wpfapplication1_properties_designtimeresources_xaml">
+	x:Class="FrontEnd.Properties.c__projekte_projectmerp_wpfapplication1_properties_designtimeresources_xaml">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/WpfApplication1;component/MainWindowResources.xaml"/>
 	</ResourceDictionary.MergedDictionaries>

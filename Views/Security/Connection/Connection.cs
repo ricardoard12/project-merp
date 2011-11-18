@@ -9,6 +9,8 @@ using System.Text;
 using System.IdentityModel.Claims;
 
 
+
+
 namespace Views.Security.Connection {
     public class Connection<T> : IConnection<T>
     {
@@ -17,9 +19,13 @@ namespace Views.Security.Connection {
        public ChannelFactory<T> ChannelFactory {
            get { return _channelFactory; }
            set {
-                if (value != null)
+                if (value != null && value != _channelFactory)
                     _channelFactory = value;
+               if (Session.Password == null || Session.Username == null)
+                   throw new Exception("Kein Username oder Passwort angegeben");
                 if (_channelFactory.Credentials != null) {
+                    _channelFactory.Credentials.UserName.UserName = Session.Username;
+                    _channelFactory.Credentials.UserName.Password = Session.Password;
                     _channelFactory.Credentials.ServiceCertificate.Authentication.CertificateValidationMode =
                         X509CertificateValidationMode.None;
                     _channelFactory.Credentials.ServiceCertificate.Authentication.RevocationMode =

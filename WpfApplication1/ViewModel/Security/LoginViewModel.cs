@@ -8,10 +8,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using BL.Service;
+using Views;
 using Views.Security.Connection;
-using WpfApplication1.Data.Channel;
+using FrontEnd.Data.Channel;
 
-namespace WpfApplication1.ViewModel.Security {
+namespace FrontEnd.ViewModel.Security {
     public class LoginViewModel : WorkspaceViewModel
     {
 

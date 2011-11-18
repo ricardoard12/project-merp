@@ -6,9 +6,9 @@ using System.ServiceModel.Security;
 using BL.Service;
 using BL.Service.Stammdaten.User;
 using Views.Security.Connection;
-using WpfApplication1.ViewModel.Security;
+using FrontEnd.ViewModel.Security;
 
-namespace WpfApplication1.Data.Channel
+namespace FrontEnd.Data.Channel
 {
     public class ConnectionFactory<T>
     {

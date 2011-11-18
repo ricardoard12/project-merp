@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
-namespace WpfApplication1.ViewModel
+namespace FrontEnd.ViewModel
 {
     // Sie implementiert das Property "Command" 
     // Der Navigationsbereich, zeigt für jedes CommandViewModel das von MainWindowViewModel verfügbar gemacht, wird einen Link an

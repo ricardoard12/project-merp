@@ -2,7 +2,7 @@
 
 using Views.Stammdaten.User;
 
-namespace WpfApplication1.Model.Stammdaten {
+namespace FrontEnd.Model.Stammdaten {
     public class UserFactory {
 
 

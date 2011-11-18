@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Views.Stammdaten.User;
 
-namespace WpfApplication1.ViewModel.Stammdaten.User {
+namespace FrontEnd.ViewModel.Stammdaten.User {
     class AllUsersViewModel : WorkspaceViewModel
     {
         private readonly UserViewModel _userModel;

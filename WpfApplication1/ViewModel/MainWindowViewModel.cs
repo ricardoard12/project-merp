@@ -4,22 +4,22 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
-using WpfApplication1.DataAccess;
+using FrontEnd.DataAccess.Stammdaten.Customer;
+using FrontEnd.Model.Stammdaten;
+using FrontEnd.Properties;
+using FrontEnd.ViewModel.Security;
+using FrontEnd.ViewModel.Stammdaten.Customer;
+using FrontEnd.ViewModel.Stammdaten.Product;
+using FrontEnd.ViewModel.Stammdaten.User;
+using FrontEnd.DataAccess;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
-using WpfApplication1.DataAccess.Stammdaten.Customer;
-using WpfApplication1.Model.Stammdaten;
-using WpfApplication1.Properties;
-using WpfApplication1.ViewModel.NavCommands;
-using WpfApplication1.ViewModel.Security;
-using WpfApplication1.ViewModel.Stammdaten.Customer;
-using WpfApplication1.ViewModel.Stammdaten.Product;
-using WpfApplication1.ViewModel.Stammdaten.User;
+using FrontEnd.ViewModel.NavCommands;
 
 
-namespace WpfApplication1.ViewModel {
+namespace FrontEnd.ViewModel {
 
 
     public class MainWindowViewModel : WorkspaceViewModel {

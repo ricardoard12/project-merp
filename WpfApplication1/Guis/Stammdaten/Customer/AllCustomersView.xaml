@@ -1,5 +1,5 @@
 <UserControl 
-  x:Class="WpfApplication1.Guis.Stammdaten.Customer.AllCustomersView"
+  x:Class="FrontEnd.Guis.Stammdaten.Customer.AllCustomersView"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"

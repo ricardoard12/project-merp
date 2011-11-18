@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Guis.Stammdaten.User {
+namespace FrontEnd.Guis.Stammdaten.User {
     /// <summary>
     /// Interaktionslogik für UserView.xaml
     /// </summary>

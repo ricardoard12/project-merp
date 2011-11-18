@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace WpfApplication1.ViewModel {
+namespace FrontEnd.ViewModel {
     public abstract class ViewModelBase : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool ThrowOnInvalidPropertyName { get; private set; }

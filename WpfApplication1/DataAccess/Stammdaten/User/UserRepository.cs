@@ -7,12 +7,13 @@ using System.Text;
 using System.Windows;
 using BL.Service.Stammdaten.User;
 using Controls;
+using FrontEnd.Data.Channel;
+using Views;
 using Views.Security.Connection;
 using Views.Stammdaten.User;
-using WpfApplication1.Data.Channel;
 using  BL.Service;
 
-namespace WpfApplication1.DataAccess.Stammdaten.User {
+namespace FrontEnd.DataAccess.Stammdaten.User {
     public class UserRepository
     {
        
@@ -45,7 +46,7 @@ namespace WpfApplication1.DataAccess.Stammdaten.User {
 
         // Funktioniert noch nicht. Bin gerade am Versuch Async umzusetzen. 
         public List<IUserView> GetAllUsers() {
-
+             
             return _usrService.AllUsers().Rows;
             /*    UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
 

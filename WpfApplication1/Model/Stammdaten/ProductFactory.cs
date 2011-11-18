@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Views.Stammdaten.Product;
 
-namespace WpfApplication1.Model.Stammdaten {
+namespace FrontEnd.Model.Stammdaten {
     public class ProductFactory 
     {
 

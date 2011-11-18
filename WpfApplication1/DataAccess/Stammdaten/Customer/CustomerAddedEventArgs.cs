@@ -1,7 +1,7 @@
 ﻿using System;
-using WpfApplication1.Model.Stammdaten;
+using FrontEnd.Model.Stammdaten;
 
-namespace WpfApplication1.DataAccess.Stammdaten.Customer {
+namespace FrontEnd.DataAccess.Stammdaten.Customer {
     public class CustomerAddedEventArgs : EventArgs {
 
         public CustomerAddedEventArgs(CustomerModel newCustomerModel) {

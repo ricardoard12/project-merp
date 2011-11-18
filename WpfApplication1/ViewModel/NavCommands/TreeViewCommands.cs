@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using WpfApplication1.Model.Stammdaten;
-using WpfApplication1.Properties;
-using WpfApplication1.ViewModel.Stammdaten.Customer;
-using WpfApplication1.ViewModel.Stammdaten.Product;
+using FrontEnd.Properties;
+using FrontEnd.Model.Stammdaten;
+using FrontEnd.ViewModel.Stammdaten.Customer;
+using FrontEnd.ViewModel.Stammdaten.Product;
 
-namespace WpfApplication1.ViewModel.NavCommands {
+namespace FrontEnd.ViewModel.NavCommands {
     public class TreeViewCommands : MainWindowViewModel
     {
    

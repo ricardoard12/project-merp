@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
-using WpfApplication1.DataAccess;
+using FrontEnd.DataAccess.Stammdaten.Customer;
+using FrontEnd.DataAccess;
 using System.Windows.Input;
-using WpfApplication1.DataAccess.Stammdaten.Customer;
 
-namespace WpfApplication1.ViewModel.Stammdaten.Customer {
+namespace FrontEnd.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {
         #region Fields
         readonly Model.Stammdaten.CustomerModel _customerModel;

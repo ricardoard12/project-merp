@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
+using FrontEnd.Data.Channel;
+using FrontEnd.Model.Stammdaten;
 using Views;
 using Views.Security.Connection;
 using Views.Stammdaten.Product;
-using WpfApplication1.Data.Channel;
-using WpfApplication1.Model.Stammdaten;
 using BL.Service;
 
-namespace WpfApplication1.DataAccess.Stammdaten.Product {
+namespace FrontEnd.DataAccess.Stammdaten.Product {
     public class ProductRepository
     {
         private IConnection<IMERPService> _connection;
@@ -44,7 +45,10 @@ namespace WpfApplication1.DataAccess.Stammdaten.Product {
         private IEnumerable<ProductView> ProductsView {
             get {
                 if (_productsView == null)
+                    if(_connection.ChannelFactory.State != CommunicationState.Opened)
+                            _connection.ChannelFactory.Open();
                     _productsView = _merpService.GetProducts(1, 1, 0);
+                    
 
                 return _productsView.Rows.ToList();
             }

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Guis.Security {
+namespace FrontEnd.Guis.Security {
     /// <summary>
     /// Interaktionslogik für Login.xaml
     /// </summary>
