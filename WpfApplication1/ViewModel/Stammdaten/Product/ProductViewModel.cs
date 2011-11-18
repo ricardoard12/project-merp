@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
-using WpfApplication1.DataAccess;
-using WpfApplication1.DataAccess.Stammdaten.Product;
-using  WpfApplication1.Model.Stammdaten;
+using FrontEnd.DataAccess.Stammdaten.Product;
+using FrontEnd.Model.Stammdaten;
+using FrontEnd.DataAccess;
 using Views.Stammdaten.Product;
 
-namespace WpfApplication1.ViewModel.Stammdaten.Product {
+namespace FrontEnd.ViewModel.Stammdaten.Product {
     public class ProductViewModel : WorkspaceViewModel {
         readonly ProductView _productView;
         private readonly ProductRepository _productRepository;

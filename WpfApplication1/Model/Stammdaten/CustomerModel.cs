@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace WpfApplication1.Model.Stammdaten {
+namespace FrontEnd.Model.Stammdaten {
     public class CustomerModel : IDataErrorInfo {
         #region Creation 
         public static CustomerModel CreateNewCustomer() {

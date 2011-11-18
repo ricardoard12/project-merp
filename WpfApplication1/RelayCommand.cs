@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using System.Diagnostics;
 
-namespace WpfApplication1 {
+namespace FrontEnd {
     class RelayCommand : ICommand {
         #region fields
 

@@ -19,7 +19,7 @@ namespace BL.Service.Stammdaten.User {
 
         public PagedResult<IUserView> AllUsers() {
             _result.Rows = UserDataFactory.AllUsers().ToList();
-            _result.Total = UserDataFactory.AllUsers().Count();
+            _result.Total = _result.Rows.Count();
             return _result;
         }
 

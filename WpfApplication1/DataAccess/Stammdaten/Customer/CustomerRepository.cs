@@ -6,9 +6,9 @@ using System.Windows;
 using System.Windows.Resources;
 using System.Xml;
 using System.Xml.Linq;
-using WpfApplication1.Model.Stammdaten;
+using FrontEnd.Model.Stammdaten;
 
-namespace WpfApplication1.DataAccess.Stammdaten.Customer {
+namespace FrontEnd.DataAccess.Stammdaten.Customer {
     public class CustomerRepository {
         #region Fields
 

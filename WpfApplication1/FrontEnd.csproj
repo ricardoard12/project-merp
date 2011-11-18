@@ -78,7 +78,6 @@
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
-    <Compile Include="Session.cs" />
     <Compile Include="ViewModel\NavCommands\TreeViewCommands.cs" />
     <Compile Include="ViewModel\Security\LoginViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Customer\AllCustomersViewModel.cs" />

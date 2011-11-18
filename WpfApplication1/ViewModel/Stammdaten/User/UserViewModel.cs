@@ -5,11 +5,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using FrontEnd.DataAccess.Stammdaten.User;
 using Views.Stammdaten.User;
-using WpfApplication1.DataAccess.Stammdaten.User;
-using WpfApplication1.Model.Stammdaten;
+using FrontEnd.Model.Stammdaten;
 
-namespace WpfApplication1.ViewModel.Stammdaten.User {
+namespace FrontEnd.ViewModel.Stammdaten.User {
     class UserViewModel
     {
         private UserRepository _userRepository;

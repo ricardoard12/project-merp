@@ -1,4 +1,4 @@
-namespace WpfApplication1.Guis.Stammdaten.Customer {
+namespace FrontEnd.Guis.Stammdaten.Customer {
     /// <summary>
     /// Interaktionslogik für AllCustomerView.xaml
     /// </summary>

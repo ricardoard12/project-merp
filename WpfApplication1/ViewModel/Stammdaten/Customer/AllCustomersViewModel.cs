@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
-using WpfApplication1.DataAccess;
+using FrontEnd.DataAccess.Stammdaten.Customer;
+using FrontEnd.DataAccess;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using WpfApplication1.DataAccess.Stammdaten.Customer;
 
-namespace WpfApplication1.ViewModel.Stammdaten.Customer {
+namespace FrontEnd.ViewModel.Stammdaten.Customer {
     class AllCustomersViewModel : WorkspaceViewModel {
 
         readonly CustomerRepository _customerRepository;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
-namespace WpfApplication1.ViewModel {
+namespace FrontEnd.ViewModel {
     public class WorkspaceViewModel : ViewModelBase{
 
         RelayCommand _closeCommand;

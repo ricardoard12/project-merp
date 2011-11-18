@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:vmCustomer="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Customer"
-                    xmlns:vmProduct="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Product"
-                    xmlns:vmUser="clr-namespace:WpfApplication1.ViewModel.Stammdaten.User"
-                    xmlns:CustomerGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Customer"
-                    xmlns:ProductGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Product"
-                    xmlns:UserGui="clr-namespace:WpfApplication1.Guis.Stammdaten.User"
-                    xmlns:loginVm="clr-namespace:WpfApplication1.ViewModel.Security"
-                    xmlns:loginGui="clr-namespace:WpfApplication1.Guis.Security"
-                    x:Class="WpfApplication1.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
+                    xmlns:vmCustomer="clr-namespace:FrontEnd.ViewModel.Stammdaten.Customer"
+                    xmlns:vmProduct="clr-namespace:FrontEnd.ViewModel.Stammdaten.Product"
+                    xmlns:vmUser="clr-namespace:FrontEnd.ViewModel.Stammdaten.User"
+                    xmlns:CustomerGui="clr-namespace:FrontEnd.Guis.Stammdaten.Customer"
+                    xmlns:ProductGui="clr-namespace:FrontEnd.Guis.Stammdaten.Product"
+                    xmlns:UserGui="clr-namespace:FrontEnd.Guis.Stammdaten.User"
+                    xmlns:loginVm="clr-namespace:FrontEnd.ViewModel.Security"
+                    xmlns:loginGui="clr-namespace:FrontEnd.Guis.Security"
+                    x:Class="FrontEnd.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
     
     
     <DataTemplate DataType="{x:Type vmCustomer:AllCustomersViewModel}" >

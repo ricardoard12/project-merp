@@ -18,16 +18,17 @@ namespace Host
 
             Process.Start(@"C:\Projekte\ProjectMerp\Host\CertifikatDelete.bat");
             Process.Start(@"C:\Projekte\ProjectMerp\Host\CertifikatCreate.bat");
-            
-            
+
+
             ServiceHost MERPService = new ServiceHost(typeof(MerpService));
+            
            /* MERPService.AddServiceEndpoint(
                 typeof(IMERPService),
                 new NetTcpBinding(),
                 "MERPService");
    */
 
-            ServiceHost shUserService = new ServiceHost(typeof (UserService));
+            ServiceHost shUserService = new ServiceHost(typeof(UserService));
             
 
 

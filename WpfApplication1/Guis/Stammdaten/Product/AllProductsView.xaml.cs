@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Guis.Stammdaten.Product {
+namespace FrontEnd.Guis.Stammdaten.Product {
     /// <summary>
     /// Interaktionslogik für AllProductsView.xaml
     /// </summary>

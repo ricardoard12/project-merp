@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1 {
+namespace FrontEnd {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>

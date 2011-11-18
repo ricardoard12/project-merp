@@ -4,9 +4,9 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
-using WpfApplication1.ViewModel;
+using FrontEnd.ViewModel;
 
-namespace WpfApplication1 {
+namespace FrontEnd {
     /// <summary>
     /// Interaktionslogik für "App.xaml"
     /// </summary>
