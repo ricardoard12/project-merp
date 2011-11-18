@@ -17,10 +17,24 @@ namespace BL.Service.Stammdaten.User {
             UserDataFactory.AddUser(usr);
         }
 
-        public PagedResult<IUserView> AllUsers() {
-            _result.Rows = UserDataFactory.AllUsers().ToList();
-            _result.Total = _result.Rows.Count();
-            return _result;
+        public PagedResult<UserView> AllUsers() {
+            PagedResult<UserView> p = new PagedResult<UserView>();
+            p.Rows = Enumerable.ToList<UserView>((from u in UserDataFactory.AllUsers().ToList()
+                                                  select new UserView {
+                                                                          UsrId = u.UsrId,
+                                                                          UsrIdent = u.UsrIdent,
+                                                                          UsrIsEmployer = u.UsrIsEmployer,
+                                                                          UsrName = u.UsrName,
+                                                                          UsrPassword = u.UsrPassword,
+                                                                          UsrNumber = u.UsrNumber,
+                                                                          UsrLogedIn = false
+                                                                      }));
+
+
+   
+
+            p.Total = p.Rows.Count;
+            return p;
         }
 
         public PagedResult<IUserView> UsersByIdent() {
