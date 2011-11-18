@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Views;
+using Views.Security.Connection;
 using Views.Stammdaten.Product;
 using WpfApplication1.Data.Channel;
 using WpfApplication1.Model.Stammdaten;
@@ -9,7 +10,7 @@ using BL.Service;
 namespace WpfApplication1.DataAccess.Stammdaten.Product {
     public class ProductRepository
     {
-        private ConnectionFactory<IMERPService> _connectionFactory;
+        private IConnection<IMERPService> _connection;
         private IMERPService _merpService;
         private PagedResult<ProductView> _productsView;
         private readonly List<ProductView> _products;
@@ -17,8 +18,8 @@ namespace WpfApplication1.DataAccess.Stammdaten.Product {
 
         public ProductRepository()
         {
-            _connectionFactory = new ConnectionFactory<IMERPService>("net.tcp://localhost:2526/Service/");
-            _merpService = _connectionFactory.GetConnectionToService;
+            _connection = ConnectionFactory<IMERPService>.CreateConnection("MerpService","net.tcp://localhost:2526/Service/");
+            _merpService = _connection.CreateService;
             _products = new List<ProductView>();
         }
 

@@ -20,18 +20,23 @@ using WpfApplication1.ViewModel.Stammdaten.User;
 
 
 namespace WpfApplication1.ViewModel {
+
+
     public class MainWindowViewModel : WorkspaceViewModel {
+
         protected readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
         LoginViewModel login = new LoginViewModel();
+        
+
         public Visibility _dockVisibility;
         private ICommand _closeApplication;
   
         public MainWindowViewModel()
             : this("Data/customers.xml") {
             _dockVisibility = Visibility.Visible;
-            login.OnLoginExecuted += login_OnLoginExecuted;
+     
             _workspaces.Add(login);
 
         }
