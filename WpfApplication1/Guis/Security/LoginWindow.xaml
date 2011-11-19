@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApplication1.Guis.Security.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LoginWindow" Height="300" Width="300"
+             xmlns:secVm="clr-namespace:FrontEnd.ViewModel.Security"
+             >
+    <Window.DataContext>
+        <secVm:LoginViewModel />
+    </Window.DataContext>
+    <StackPanel>
+        <TextBlock>
+            <Label Content="Ident:" Margin="5,5" Width="75"/>
+            <TextBox Name="txtUsername" Text="{Binding Path=Username, Mode=TwoWay}" Margin="5,5 " Width="200"/>
+        </TextBlock>
+        <StackPanel>
+            <TextBlock>
+                  <Label Content="Passwort:" Margin="5,5" Width="75"/>
+            <PasswordBox  PasswordChar="*"   Name="txtPassword" Margin="5,5 " Width="200" />
+            </TextBlock>
+        </StackPanel>
+        <Button Content="Login" Command="{Binding Path=Login}" Click="Button_Click" CommandParameter="{Binding ElementName=txtPassword}"  />
+    </StackPanel>
+</Window>

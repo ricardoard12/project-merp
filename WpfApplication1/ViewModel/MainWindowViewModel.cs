@@ -17,6 +17,7 @@ using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
 using FrontEnd.ViewModel.NavCommands;
+using WpfApplication1.Guis.Security;
 
 
 namespace FrontEnd.ViewModel {
@@ -27,29 +28,27 @@ namespace FrontEnd.ViewModel {
         protected readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
-        LoginViewModel login = new LoginViewModel();
+  
         
 
-        public Visibility _dockVisibility;
+      
         private ICommand _closeApplication;
   
         public MainWindowViewModel()
             : this("Data/customers.xml") {
-            _dockVisibility = Visibility.Visible;
-     
-            _workspaces.Add(login);
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
 
         }
-
-        void login_OnLoginExecuted() {
-            DockVisibility = Visibility.Visible;
-        }
-
+       
+       
         public MainWindowViewModel(string customerDataFile) {
             base.DisplayName = "MainWindowViewModel.Display Name";
             _customerRepository = new CustomerRepository(customerDataFile);     
             _commands = Commands;
             _workspaces = Workspaces;
+            DockVisibility = Visibility.Collapsed;
+            LoginVisibility = Visibility.Visible;
         }
 
       
@@ -59,10 +58,28 @@ namespace FrontEnd.ViewModel {
 
         }
 
+        private Visibility _guiVisibilety;
+        private Visibility _dockVisibility;
+
         public Visibility DockVisibility {
             get { return _dockVisibility; }
-            set { _dockVisibility = value; }
+            set {
+                if (value != _dockVisibility) {
+                    _dockVisibility = value;
+                    OnPropertyChanged("DockVisibility");
+                }
+            }
+        }
 
+        public Visibility LoginVisibility {
+            get { return _guiVisibilety; }
+            set {
+                if (value != _guiVisibilety) {
+                    _guiVisibilety = value;
+                    OnPropertyChanged("LoginVisibility");
+                }
+
+            }
         }
 
         private static void OnCloseApplication(object obj)

@@ -27,30 +27,33 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
 
 
         public  UserRepository() {
-            _usrServiceConnection = GetConnection();
-            if (_usrServiceConnection.ChannelFactory.Credentials != null) {
+               _userList = new List<IUserView>();
+        }
+
+       public IConnection<IUserService> Connection {
+            get {
+                if (_usrServiceConnection == null) {
+                    _usrServiceConnection =
+                    ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://localhost:2526/Service/Stammdaten/User");
+                }
+                if (_usrServiceConnection.ChannelFactory.Credentials != null) {
                     _usrServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
                     _usrServiceConnection.ChannelFactory.Credentials.UserName.Password = Session.Password;
                 }
-            
-            if (_usrService == null)
-                _usrService = _usrServiceConnection.CreateService;
-            
-            _userList = new List<IUserView>();
+                if (_usrServiceConnection.ChannelFactory.State != CommunicationState.Opened)
+                    _usrServiceConnection.ChannelFactory.Open();
+                return _usrServiceConnection;
+            }
         }
 
-        private IConnection<IUserService> GetConnection() {
-            return _usrServiceConnection ??
-                   (_usrServiceConnection =
-                    ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://localhost:2526/Service/Stammdaten/User"));
+        public IUserService Service {
+            get { return _usrService ?? (_usrService = Connection.ChannelFactory.CreateChannel()); }
         }
 
         // Funktioniert noch nicht. Bin gerade am Versuch Async umzusetzen. 
         public List<UserView> GetAllUsers() {
             PagedResult<UserView> AllUsers = new PagedResult<UserView>();
-            if (_usrServiceConnection.ChannelFactory.State != CommunicationState.Opened)
-                _usrServiceConnection.ChannelFactory.Open();
-            AllUsers = _usrService.AllUsers();
+            AllUsers = Service.AllUsers();
             return AllUsers.Rows;
             /*    UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
 
@@ -67,11 +70,13 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
         }
 
         public IUserView AddUser {
-            set { _usrService.AddUser(value); }
+            set { Service.AddUser(value); }
         }
 
-        
 
+        public Boolean TestConnection {
+            get { return Service != null && Service.TestConnection(); }
+        }
 
         public void OnGetAllUsers() {
              

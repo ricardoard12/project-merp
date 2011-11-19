@@ -40,5 +40,10 @@ namespace BL.Service.Stammdaten.User {
         public PagedResult<IUserView> UsersByIdent() {
             throw new NotImplementedException();
         }
+
+
+        public Boolean TestConnection() {
+            return true;
+        }
     }
 }
