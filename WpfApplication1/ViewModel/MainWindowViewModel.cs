@@ -28,6 +28,7 @@ namespace FrontEnd.ViewModel {
         protected readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
+        private ObservableCollection<TreeViewCommandCategory> _commandsTreeView;
   
         
 
@@ -36,6 +37,7 @@ namespace FrontEnd.ViewModel {
   
         public MainWindowViewModel()
             : this("Data/customers.xml") {
+          
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
 
@@ -45,10 +47,11 @@ namespace FrontEnd.ViewModel {
         public MainWindowViewModel(string customerDataFile) {
             base.DisplayName = "MainWindowViewModel.Display Name";
             _customerRepository = new CustomerRepository(customerDataFile);     
-            _commands = Commands;
+            _commands = CommandsForNav;
             _workspaces = Workspaces;
             DockVisibility = Visibility.Collapsed;
             LoginVisibility = Visibility.Visible;
+           
         }
 
       
@@ -100,10 +103,47 @@ namespace FrontEnd.ViewModel {
         }
 
         #region Commands
+        public ObservableCollection<TreeViewCommandCategory> CommandsTreeView {
+            get {
+                if (_commandsTreeView == null)
+                     _commandsTreeView = new ObservableCollection<TreeViewCommandCategory>();
+                     CreateCommandsForTree();
+                return _commandsTreeView;
+
+            }
+        }
+
+        private void CreateCommandsForTree() {
+            TreeViewCommandCategory Customers = new TreeViewCommandCategory(Resources.StringCustomer) {
+                                                        Commands =
+                                                                                                              new List
+                                                                                                              <
+                                                                                                              CommandViewModel
+                                                                                                              >(
+                                                                                                              CommandsForNav
+                                                                                                                  .Where
+                                                                                                                  (c =>
+                                                                                                                   c.
+                                                                                                                       Hirarchi2 ==
+                                                                                                                   Resources
+                                                                                                                       .
+                                                                                                                       StringCustomer))
+                                                                                                      };
+            TreeViewCommandCategory Products = new TreeViewCommandCategory(Resources.StringProduct) {
+                    Commands = new List<CommandViewModel>(CommandsForNav.Where(c => c.Hirarchi2 == Resources.StringProduct))
+                                                                                                    };
+            TreeViewCommandCategory Users = new TreeViewCommandCategory(Resources.StringUsers) {
+                Commands = new List<CommandViewModel>(CommandsForNav.Where(c => c.Hirarchi2 == Resources.StringUsers))
+            };
+
+            _commandsTreeView.Add(Customers);
+            _commandsTreeView.Add(Products);
+            _commandsTreeView.Add(Users);
+        
+        }
 
 
-
-        public ObservableCollection<CommandViewModel> Commands {
+        public ObservableCollection<CommandViewModel> CommandsForNav {
             get {
                 if (_commands == null) {
                     List<CommandViewModel> cmnds = CreateCommandsForNav();

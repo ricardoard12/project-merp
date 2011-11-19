@@ -36,10 +36,10 @@
 			<Border 
 				Grid.Column="0" 
 				Style="{StaticResource MainBorderStyle}"
-				Width="170" >
+				Width="250" >
 				<HeaderedContentControl  Style="{StaticResource MainHCCStyle}" Header="Verzeichnis" >
 					<ItemsControl>
-						<ItemsControl  ItemsSource="{Binding Commands}" >
+						<ItemsControl  ItemsSource="{Binding CommandsForNav}" >
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>
 									<TextBlock Margin="2,6"><InlineUIContainer>
@@ -50,22 +50,21 @@
 								</DataTemplate>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
-						<TreeView>
+                    <TreeView ItemsSource="{Binding CommandsTreeView}">
 							<TreeView.Resources>
-								<DataTemplate x:Key="TreeViewItemTemplate" DataType="{x:Type vm:CommandViewModel}">
-									<TextBlock Margin="2.1"><Hyperlink Command="{Binding Command}" ><InlineUIContainer>
-												<TextBlock Text="{Binding DisplayName}" />
-											</InlineUIContainer></Hyperlink></TextBlock>
-								</DataTemplate>
-							</TreeView.Resources>
-							<TreeView.DataContext>
-								<nav:TreeViewCommands />
-							</TreeView.DataContext>
-							<TreeViewItem Header="Stammdaten">
-								<TreeViewItem Header="Produkte" ItemTemplate="{StaticResource TreeViewItemTemplate}" ItemsSource="{Binding CommandsProducts}"  />
-								<TreeViewItem Header="Kunden" ItemTemplate="{StaticResource TreeViewItemTemplate}" ItemsSource="{Binding CommandsCustomer}"  />
-							</TreeViewItem>
-						</TreeView>
+						    <HierarchicalDataTemplate DataType="{x:Type nav:TreeViewCommandCategory}" ItemsSource="{Binding Path=Commands}">
+									<TextBlock Margin="2.1">
+                                            <TextBlock Text="{Binding Path=Name}" />
+                                     </TextBlock>
+                            </HierarchicalDataTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type vm:CommandViewModel}">
+                                <TextBlock>
+                                    <Button Command="{Binding Path=Command}" />
+                                    <TextBlock Text="{Binding Path=DisplayName, Mode=OneTime}" />
+                                </TextBlock>
+                            </HierarchicalDataTemplate>
+							</TreeView.Resources>                    
+                    </TreeView>
 					</ItemsControl>
 				</HeaderedContentControl>
 			</Border>
