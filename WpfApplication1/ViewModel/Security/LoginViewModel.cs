@@ -8,31 +8,30 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using BL.Service;
+using FrontEnd.DataAccess.Stammdaten.User;
 using Views;
 using Views.Security.Connection;
 using FrontEnd.Data.Channel;
 
 namespace FrontEnd.ViewModel.Security {
+    public delegate void LoginExecute();
+
     public class LoginViewModel : WorkspaceViewModel
     {
+        public event EventHandler OnLoginExecuted;
+        private UserRepository _userRepository;
+        //private MainWindowViewModel _mainWindowViewModel = new MainWindowViewModel();
 
-        private IMERPService _merpService;
 
         public LoginViewModel() {
-         
-            
-            GuiVisibilety = Visibility.Visible;
+            _userRepository = new UserRepository();
         }
 
         private ICommand _login;
    
         private string _username;
-        private Visibility _guivisibilety;
 
-        public Visibility GuiVisibilety {
-            get { return _guivisibilety; }
-            set { _guivisibilety = value; }
-        }
+        
 
         public ICommand Login {
             get {
@@ -51,13 +50,19 @@ namespace FrontEnd.ViewModel.Security {
             if (passwordbox != null)
             Session.Password = passwordbox.Password;
             Session.Username = Username;
-            
-         
-           
-            GuiVisibilety = Visibility.Collapsed;
+            if (_userRepository.TestConnection) {
+                //_mainWindowViewModel.LoginVisibility = Visibility.Collapsed;
+                //_mainWindowViewModel.DockVisibility = Visibility.Visible;
+           }
+            else {
+                MessageBox.Show("ääääh Wrong Password");
+
+            }
+                
+
         }
 
-        public string Username {
+        public string Username{ 
             get { return _username; }
             set {
                 if (_username != value)

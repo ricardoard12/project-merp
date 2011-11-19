@@ -20,6 +20,9 @@ namespace BL.Service.Stammdaten.User {
         [OperationContract]
         PagedResult<IUserView> UsersByIdent();
 
+        [OperationContract]
+        Boolean TestConnection();
+
         /*
         [OperationContract(AsyncPattern = true)]
         IAsyncResult BeginGetAllUsers(AsyncCallback callback, AsyncState s);
