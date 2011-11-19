@@ -21,9 +21,11 @@ namespace Views.Security.Connection {
            set {
                 if (value != null && value != _channelFactory)
                     _channelFactory = value;
-               if (Session.Password == null || Session.Username == null)
-                   throw new Exception("Kein Username oder Passwort angegeben");
-                if (_channelFactory.Credentials != null) {
+                if (Session.Password == null || Session.Username == null) {
+                    Message.CreateMessage(MessageVersion.Default, "Kein Username oder Password angegeben");//throw new Exception("Kein Username oder Passwort angegeben");
+                    return;
+                }
+               if (_channelFactory.Credentials != null) {
                     _channelFactory.Credentials.UserName.UserName = Session.Username;
                     _channelFactory.Credentials.UserName.Password = Session.Password;
                     _channelFactory.Credentials.ServiceCertificate.Authentication.CertificateValidationMode =

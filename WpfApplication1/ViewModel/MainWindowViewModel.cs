@@ -37,10 +37,6 @@ namespace FrontEnd.ViewModel {
   
         public MainWindowViewModel()
             : this("Data/customers.xml") {
-          
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-
         }
        
        
