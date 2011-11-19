@@ -10,6 +10,10 @@ namespace FrontEnd {
     /// <summary>
     /// Interaktionslogik für "App.xaml"
     /// </summary>
-    public partial class App : Application {
+    public partial class App : Application
+    {
+        private MainWindowViewModel mm = new MainWindowViewModel();
+      
+        
     }
 }
