@@ -23,12 +23,7 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
         */     
         private IConnection<IUserService> _usrServiceConnection;
         private IUserService _usrService;
-        private List<IUserView> _userList;
-
-
-        public  UserRepository() {
-               _userList = new List<IUserView>();
-        }
+        private List<UserView> _userList;
 
        public IConnection<IUserService> Connection {
             get {
@@ -51,10 +46,9 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
         }
 
         // Funktioniert noch nicht. Bin gerade am Versuch Async umzusetzen. 
-        public List<UserView> GetAllUsers() {
-            PagedResult<UserView> AllUsers = new PagedResult<UserView>();
-            AllUsers = Service.AllUsers();
-            return AllUsers.Rows;
+        public List<UserView> GetAllUsers {
+            get { return Service.AllUsers().Rows; }
+        }
             /*    UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
 
             AsyncCallback getUserEndedAsyncEnd = (result) => {
@@ -67,7 +61,7 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
             
             return _userList;*/
 
-        }
+        
 
         public IUserView AddUser {
             set { Service.AddUser(value); }
