@@ -31,7 +31,7 @@ namespace FrontEnd.ViewModel.Stammdaten.User {
         public ObservableCollection<IUserView> GetAllUsers {
             get {
                 if ( _users == null || _users.Count == 0)
-                    _users = new ObservableCollection<IUserView>(_userRepository.GetAllUsers());
+                    _users = new ObservableCollection<IUserView>(_userRepository.GetAllUsers);
                 return _users;
 
             }
