@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Selectors;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -21,6 +22,7 @@ namespace BL.Service.Stammdaten.User {
         PagedResult<IUserView> UsersByIdent();
 
         [OperationContract]
+        [FaultContract(typeof(SecurityTokenAuthenticator))]
         Boolean TestConnection();
 
         /*

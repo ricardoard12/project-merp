@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginFault.cs" />
     <Compile Include="MerpBLManager.cs" />
     <Compile Include="PasswordValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
