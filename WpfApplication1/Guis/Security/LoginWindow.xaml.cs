@@ -16,16 +16,20 @@ namespace WpfApplication1.Guis.Security {
     /// <summary>
     /// Interaktionslogik für LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window {
-        MainWindow mm = new MainWindow();
+    public partial class LoginWindow : Window
+    {
+        private MainWindow _mm;
+
         public LoginWindow() {
             InitializeComponent();
+            _mm = new MainWindow();
+            Application.Current.MainWindow = _mm;
+        
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
             this.Close();
-            Application.Current.MainWindow = mm;
-            mm.Show();
+            Application.Current.MainWindow.Activate();
         }
     }
 }

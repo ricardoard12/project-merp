@@ -12,8 +12,11 @@ namespace FrontEnd {
     /// </summary>
     public partial class App : Application
     {
-        private MainWindowViewModel mm = new MainWindowViewModel();
-      
+        public void InitializeComonents() {
+            MainWindowViewModel mm = new MainWindowViewModel();
+            this.StartupUri = new Uri("Guis/Security/LoginWindow.xaml", UriKind.Relative);
+            
+        }
         
     }
 }

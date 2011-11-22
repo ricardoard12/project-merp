@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Security;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,11 +22,16 @@ namespace FrontEnd.ViewModel.Security {
     {
         public event EventHandler OnLoginExecuted;
         private UserRepository _userRepository;
+        private MainWindow _mainWindow;
         //private MainWindowViewModel _mainWindowViewModel = new MainWindowViewModel();
 
 
         public LoginViewModel() {
             _userRepository = new UserRepository();
+            _mainWindow = new MainWindow();
+            Application.Current.MainWindow = _mainWindow;
+            Application.Current.MainWindow.Activate();
+
         }
 
         private ICommand _login;
@@ -36,8 +43,8 @@ namespace FrontEnd.ViewModel.Security {
         public ICommand Login {
             get {
                 return _login ??
-                       new RelayCommand((passwordBox) => OnLoginExecute(passwordBox),
-                                        (passwordBox) => CanLoginExecute());
+                       (_login = new RelayCommand((passwordBox) => OnLoginExecute(passwordBox),
+                                        (passwordBox) => CanLoginExecute()));
             }
         }
 
@@ -50,16 +57,18 @@ namespace FrontEnd.ViewModel.Security {
             if (passwordbox != null)
             Session.Password = passwordbox.Password;
             Session.Username = Username;
-            if (_userRepository.TestConnection) {
-                //_mainWindowViewModel.LoginVisibility = Visibility.Collapsed;
-                //_mainWindowViewModel.DockVisibility = Visibility.Visible;
+           try {
+               if (_userRepository.TestConnection) {
+                   Application.Current.MainWindow.Show();
+                   //_mainWindowViewModel.LoginVisibility = Visibility.Collapsed;
+                   //_mainWindowViewModel.DockVisibility = Visibility.Visible;
+               }
            }
-            else {
-                MessageBox.Show("ääääh Wrong Password");
-
-            }
+        catch(MessageSecurityException fe) {
+            
+            MessageBox.Show((fe.InnerException as FaultException).Reason.ToString());
+        }
                 
-
         }
 
         public string Username{ 

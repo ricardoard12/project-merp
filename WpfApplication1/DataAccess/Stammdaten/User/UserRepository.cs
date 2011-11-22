@@ -23,7 +23,7 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
         */     
         private IConnection<IUserService> _usrServiceConnection;
         private IUserService _usrService;
-        private List<UserView> _userList;
+  
 
        public IConnection<IUserService> Connection {
             get {

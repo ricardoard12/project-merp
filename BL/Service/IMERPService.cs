@@ -7,6 +7,7 @@ namespace BL.Service
 {
    
     [ServiceContract]
+    
     public interface IMERPService : IRootInterface
     {
         [OperationContract]
