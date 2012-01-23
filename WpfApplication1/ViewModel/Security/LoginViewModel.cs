@@ -1,43 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
 using System.ServiceModel.Security;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using BL.Service;
 using FrontEnd.DataAccess.Stammdaten.User;
 using Views;
-using Views.Security.Connection;
-using FrontEnd.Data.Channel;
+using WpfApplication1.Events;
 
 namespace FrontEnd.ViewModel.Security {
-    public delegate void LoginExecute();
+  
 
     public class LoginViewModel : WorkspaceViewModel
     {
-        public event EventHandler OnLoginExecuted;
+        public static event EventHandler<BooleanEventArg> OnLoginExecuted;
         private UserRepository _userRepository;
-        private MainWindow _mainWindow;
-        //private MainWindowViewModel _mainWindowViewModel = new MainWindowViewModel();
+        private ICommand _login;
+        private string _username;
+
 
 
         public LoginViewModel() {
             _userRepository = new UserRepository();
-            _mainWindow = new MainWindow();
-            Application.Current.MainWindow = _mainWindow;
-            Application.Current.MainWindow.Activate();
-
         }
 
-        private ICommand _login;
-   
-        private string _username;
-
+        
         
 
         public ICommand Login {
@@ -57,18 +44,23 @@ namespace FrontEnd.ViewModel.Security {
             if (passwordbox != null)
             Session.Password = passwordbox.Password;
             Session.Username = Username;
-           try {
-               if (_userRepository.TestConnection) {
-                   Application.Current.MainWindow.Show();
-                   //_mainWindowViewModel.LoginVisibility = Visibility.Collapsed;
-                   //_mainWindowViewModel.DockVisibility = Visibility.Visible;
-               }
-           }
-        catch(MessageSecurityException fe) {
-            
-            MessageBox.Show((fe.InnerException as FaultException).Reason.ToString());
-        }
-                
+            try {
+                if (_userRepository.TestConnection) {
+                    if (OnLoginExecuted != null) {
+                        OnLoginExecuted(this, new BooleanEventArg(true));
+                    }
+                }
+                else {
+                    if (OnLoginExecuted != null) {
+                        OnLoginExecuted(this, new BooleanEventArg(false));
+                    }
+                }
+
+            } catch (MessageSecurityException fe) {
+
+                MessageBox.Show((fe.InnerException as FaultException).Reason.ToString());
+            }
+
         }
 
         public string Username{ 

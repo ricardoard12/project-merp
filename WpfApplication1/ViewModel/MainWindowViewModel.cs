@@ -29,7 +29,7 @@ namespace FrontEnd.ViewModel {
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<WorkspaceViewModel> _workspaces;
         private ObservableCollection<TreeViewCommandCategory> _commandsTreeView;
-  
+        private LoginViewModel _loginViewModel;
         
 
       
@@ -42,12 +42,33 @@ namespace FrontEnd.ViewModel {
        
         public MainWindowViewModel(string customerDataFile) {
             base.DisplayName = "MainWindowViewModel.Display Name";
-            _customerRepository = new CustomerRepository(customerDataFile);     
+            if (customerDataFile != null) {
+                _customerRepository = new CustomerRepository(customerDataFile);                       
+            }
             _commands = CommandsForNav;
             _workspaces = Workspaces;
+        /*
             DockVisibility = Visibility.Collapsed;
             LoginVisibility = Visibility.Visible;
-           
+         */
+            InitializeLogin();
+            InitializeEvents();
+
+        }
+
+        private void InitializeLogin() {
+            _loginViewModel = new LoginViewModel();
+            this.Workspaces.Add(_loginViewModel);
+            this.SetActiveWorkspace(_loginViewModel);
+        }
+
+        void InitializeEvents() {
+                LoginViewModel.OnLoginExecuted += OnLoginExecuted;                
+            
+        }
+
+        void OnLoginExecuted(object sender, EventArgs e) {
+            MessageBox.Show("hello");
         }
 
       
@@ -56,7 +77,7 @@ namespace FrontEnd.ViewModel {
             get { return _closeApplication ?? (_closeApplication = new RelayCommand(OnCloseApplication)); }
 
         }
-
+/*
         private Visibility _guiVisibilety;
         private Visibility _dockVisibility;
 
@@ -80,6 +101,7 @@ namespace FrontEnd.ViewModel {
 
             }
         }
+ */
 
         private static void OnCloseApplication(object obj)
         {
@@ -111,20 +133,20 @@ namespace FrontEnd.ViewModel {
 
         private void CreateCommandsForTree() {
             TreeViewCommandCategory Customers = new TreeViewCommandCategory(Resources.StringCustomer) {
-                                                        Commands =
-                                                                                                              new List
-                                                                                                              <
-                                                                                                              CommandViewModel
-                                                                                                              >(
-                                                                                                              CommandsForNav
-                                                                                                                  .Where
-                                                                                                                  (c =>
-                                                                                                                   c.
-                                                                                                                       Hirarchi2 ==
-                                                                                                                   Resources
-                                                                                                                       .
-                                                                                                                       StringCustomer))
-                                                                                                      };
+                Commands =
+                                                                      new List
+                                                                      <
+                                                                      CommandViewModel
+                                                                      >(
+                                                                      CommandsForNav
+                                                                          .Where
+                                                                          (c =>
+                                                                           c.
+                                                                               Hirarchi2 ==
+                                                                           Resources
+                                                                               .
+                                                                               StringCustomer))
+            };
             TreeViewCommandCategory Products = new TreeViewCommandCategory(Resources.StringProduct) {
                     Commands = new List<CommandViewModel>(CommandsForNav.Where(c => c.Hirarchi2 == Resources.StringProduct))
                                                                                                     };

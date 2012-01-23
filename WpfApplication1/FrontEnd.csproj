@@ -65,6 +65,7 @@
     <Compile Include="DataAccess\Stammdaten\Product\ProductRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\User\UserRepository.cs" />
     <Compile Include="Data\Channel\ConnectionFactory.cs" />
+    <Compile Include="Events\BooleanEventArg.cs" />
     <Compile Include="Guis\Security\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
