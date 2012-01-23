@@ -43,7 +43,9 @@ namespace BL.Service.Stammdaten.User {
 
 
         public Boolean TestConnection() {
-            return true;
+            var auth = new Boolean();
+            auth = true;
+            return auth;
         }
     }
 }
