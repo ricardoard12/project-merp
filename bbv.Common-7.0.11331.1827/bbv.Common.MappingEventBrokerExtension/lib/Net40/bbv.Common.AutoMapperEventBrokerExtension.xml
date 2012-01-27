@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>bbv.Common.AutoMapperEventBrokerExtension</name>
+    </assembly>
+    <members>
+        <member name="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperMapper">
+            <summary>
+            Delegates the mapping to automapper.
+            </summary>
+        </member>
+        <member name="M:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperMapper.HasMapping(System.Type,System.Type)">
+            <summary>
+            Determines whether there exists a mapping from the provided
+            <paramref name="sourceEventArgsType"/> to the
+            <paramref name="destinationEventArgsType"/>.
+            </summary>
+            <param name="sourceEventArgsType">The source event argument type.</param>
+            <param name="destinationEventArgsType">The destination event argument type.</param>
+            <returns>
+              <see langword="true"/> if there is a mapping; otherwise <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperMapper.Map(System.Type,System.Type,System.EventArgs)">
+            <summary>
+            Maps the provided event argument from the
+            <paramref name="sourceEventArgsType"/> to the
+            <paramref name="destinationEventArgsType"/>.
+            </summary>
+            <param name="sourceEventArgsType">The source event argument type.</param>
+            <param name="destinationEventArgsType">The destination event argument type.</param>
+            <param name="eventArgs">The source event argument.</param>
+            <returns>
+            The mapped event argument.
+            </returns>
+        </member>
+        <member name="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension">
+            <summary>
+            This extension allows to dynamically remap topics based on a convention
+            from one event argument type to another event argument type using 
+            <see cref="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperMapper"/>.
+            <code>
+               public class Publisher
+               {
+                   [EventPublication(@"topic://Original")]
+                   public event EventHandler Event;
+                   private void InvokeEvent(EventArgs e)
+                   {
+                       EventHandler handler = Event;
+                       if (handler != null) handler(this, e);
+                   }
+                   public void Publish()
+                   {
+                       this.InvokeEvent(EventArgs.Empty);
+                   }
+               }
+               public class SubscriberOriginal
+               {
+                   [EventSubscription(@"topic://Original", typeof(bbv.Common.EventBroker.Handlers.Publisher))]
+                   public void HandleOriginal(object sender, EventArgs e)
+                   {
+                   }
+               }
+               public class SubscriberMapped
+               {
+                   [EventSubscription(@"mapped://Original", typeof(bbv.Common.EventBroker.Handlers.Publisher))]
+                   public void HandleOriginal(object sender, CancelEventArgs e)
+                   {
+                   }
+               }
+            </code>
+            </summary>
+        </member>
+        <member name="M:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension.#ctor(bbv.Common.MappingEventBrokerExtension.IDestinationEventArgsTypeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension"/> class.
+            </summary>
+            <param name="typeProvider">The destination event argument type provider.</param>
+            <remarks>
+            Uses the <see cref="T:bbv.Common.MappingEventBrokerExtension.Conventions.DefaultTopicConvention"/>.
+            </remarks>
+        </member>
+        <member name="M:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension.#ctor(bbv.Common.MappingEventBrokerExtension.IMapper,bbv.Common.MappingEventBrokerExtension.IDestinationEventArgsTypeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension"/> class.
+            </summary>
+            <param name="mapper">The mapper.</param>
+            <param name="typeProvider">The destination event argument type provider.</param>
+        </member>
+        <member name="M:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension.#ctor(bbv.Common.MappingEventBrokerExtension.ITopicConvention,bbv.Common.MappingEventBrokerExtension.IDestinationEventArgsTypeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension"/> class.
+            </summary>
+            <param name="topicConvention">The topic convention which overrides the default behavior.</param>
+            <param name="typeProvider">The destination event argument type provider.</param>
+        </member>
+        <member name="M:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension.#ctor(bbv.Common.MappingEventBrokerExtension.IMapper,bbv.Common.MappingEventBrokerExtension.ITopicConvention,bbv.Common.MappingEventBrokerExtension.IDestinationEventArgsTypeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:bbv.Common.AutoMapperEventBrokerExtension.AutoMapperEventBrokerExtension"/> class.
+            </summary>
+            <param name="mapper">The mapper.</param>
+            <param name="topicConvention">The topic convention which overrides the default behavior.</param>
+            <param name="typeProvider">The destination event argument type provider.</param>
+        </member>
+    </members>
+</doc>
