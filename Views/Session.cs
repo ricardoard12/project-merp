@@ -1,7 +1,11 @@
+using bbv.Common.EventBroker;
+
 namespace Views
 {
     public static class Session
     {
+        private static EventBroker _eventBroker;
+
         private static string _username;
         private static string _password;
 
@@ -15,6 +19,9 @@ namespace Views
             set { _password = value; }
         }
 
+        public static EventBroker EventBroker() {
+            return _eventBroker ?? (_eventBroker = new EventBroker());
+        }
     }
 }
 

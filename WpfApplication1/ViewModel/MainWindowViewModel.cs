@@ -17,7 +17,11 @@ using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
 using FrontEnd.ViewModel.NavCommands;
+using Views;
+using WpfApplication1.Events;
 using WpfApplication1.Guis.Security;
+using bbv.Common.EventBroker;
+using bbv.Common.EventBroker.Handlers;
 
 
 namespace FrontEnd.ViewModel {
@@ -30,11 +34,11 @@ namespace FrontEnd.ViewModel {
         ObservableCollection<WorkspaceViewModel> _workspaces;
         private ObservableCollection<TreeViewCommandCategory> _commandsTreeView;
         private LoginViewModel _loginViewModel;
-        
-
-      
+        private Visibility _vsbDirectory;
+        private EventBroker _eventBroker;
         private ICommand _closeApplication;
   
+
         public MainWindowViewModel()
             : this("Data/customers.xml") {
         }
@@ -42,33 +46,34 @@ namespace FrontEnd.ViewModel {
        
         public MainWindowViewModel(string customerDataFile) {
             base.DisplayName = "MainWindowViewModel.Display Name";
-            if (customerDataFile != null) {
-                _customerRepository = new CustomerRepository(customerDataFile);                       
-            }
+            VsbDirectory = Visibility.Hidden;
+            _eventBroker = Session.EventBroker();
+            _eventBroker.Register(this);
+   
             _commands = CommandsForNav;
             _workspaces = Workspaces;
-        /*
-            DockVisibility = Visibility.Collapsed;
-            LoginVisibility = Visibility.Visible;
-         */
             InitializeLogin();
-            InitializeEvents();
+     
 
         }
 
         private void InitializeLogin() {
-            _loginViewModel = new LoginViewModel();
+            _loginViewModel = new LoginViewModel(false);
             this.Workspaces.Add(_loginViewModel);
             this.SetActiveWorkspace(_loginViewModel);
         }
 
-        void InitializeEvents() {
-                LoginViewModel.OnLoginExecuted += OnLoginExecuted;                
-            
-        }
 
-        void OnLoginExecuted(object sender, EventArgs e) {
-            MessageBox.Show("hello");
+        [EventSubscription("topic://OnLoginExecuted", typeof(Publisher))]
+        public void OnLoginExecuted(object sender, BooleanEventArg e) {
+            if (e.BooleanValue) {
+                Workspaces.Remove(_loginViewModel);
+                VsbDirectory = Visibility.Visible;
+                
+            }
+            else {
+                MessageBox.Show("Wrong password");
+            }
         }
 
       
@@ -77,36 +82,11 @@ namespace FrontEnd.ViewModel {
             get { return _closeApplication ?? (_closeApplication = new RelayCommand(OnCloseApplication)); }
 
         }
-/*
-        private Visibility _guiVisibilety;
-        private Visibility _dockVisibility;
-
-        public Visibility DockVisibility {
-            get { return _dockVisibility; }
-            set {
-                if (value != _dockVisibility) {
-                    _dockVisibility = value;
-                    OnPropertyChanged("DockVisibility");
-                }
-            }
-        }
-
-        public Visibility LoginVisibility {
-            get { return _guiVisibilety; }
-            set {
-                if (value != _guiVisibilety) {
-                    _guiVisibilety = value;
-                    OnPropertyChanged("LoginVisibility");
-                }
-
-            }
-        }
- */
 
         private static void OnCloseApplication(object obj)
         {
-            if (App.Current.MainWindow != null)
-                App.Current.MainWindow.Close();
+            if (Application.Current.MainWindow != null)
+                Application.Current.MainWindow.Close();
         }
 
         public ObservableCollection<WorkspaceViewModel> Workspaces {
@@ -168,6 +148,14 @@ namespace FrontEnd.ViewModel {
                     _commands = new ObservableCollection<CommandViewModel>(cmnds);
                 }
                 return _commands;
+            }
+        }
+
+        public Visibility VsbDirectory {
+            get { return _vsbDirectory; }
+            set {
+                _vsbDirectory = value;
+                OnPropertyChanged("VsbDirectory");
             }
         }
 

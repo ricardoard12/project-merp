@@ -38,7 +38,7 @@
 				Style="{StaticResource MainBorderStyle}"
 				Width="250" >
 				<HeaderedContentControl  Style="{StaticResource MainHCCStyle}" Header="Verzeichnis" >
-					<ItemsControl>
+					<ItemsControl Visibility="{Binding VsbDirectory}">
 						<ItemsControl  ItemsSource="{Binding CommandsForNav}" >
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>

@@ -6,10 +6,10 @@ using System.Text;
 namespace WpfApplication1.Events {
     public class BooleanEventArg : EventArgs
     {
-        public bool Value { get; set; }
+        public bool BooleanValue { get; set; }
         
-        public BooleanEventArg(bool Value) {
-            this.Value = Value;
+        public BooleanEventArg(bool booleanValue) {
+            this.BooleanValue = booleanValue;
         }
     }
 }
