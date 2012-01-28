@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using FrontEnd.ViewModel;
+using WpfApplication1;
 
 namespace FrontEnd {
     /// <summary>
@@ -12,10 +13,10 @@ namespace FrontEnd {
     /// </summary>
     public partial class App : Application
     {
-        public void InitializeComonents() {
-            MainWindowViewModel mm = new MainWindowViewModel();
-            this.StartupUri = new Uri("Guis/Security/LoginWindow.xaml", UriKind.Relative);
+        
+        public App() {
             
+
         }
         
     }

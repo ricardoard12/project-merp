@@ -7,14 +7,20 @@ using System.Windows.Input;
 using FrontEnd.DataAccess.Stammdaten.User;
 using Views;
 using WpfApplication1.Events;
+using bbv.Common.EventBroker;
+using bbv.Common.EventBroker.Handlers;
 
 namespace FrontEnd.ViewModel.Security {
   
 
     public class LoginViewModel : WorkspaceViewModel
     {
-        public static event EventHandler<BooleanEventArg> OnLoginExecuted;
-        private UserRepository _userRepository;
+        private readonly EventBroker _eventBroker;
+
+        [EventPublication("topic://OnLoginExecuted")]
+        public event EventHandler<BooleanEventArg> OnLoginExecuted;
+        
+        private readonly UserRepository _userRepository;
         private ICommand _login;
         private string _username;
 
@@ -22,10 +28,15 @@ namespace FrontEnd.ViewModel.Security {
 
         public LoginViewModel() {
             _userRepository = new UserRepository();
+            _eventBroker = Session.EventBroker();
+            _eventBroker.Register(this);
         }
 
-        
-        
+
+        public LoginViewModel(bool isGui) {
+            _userRepository = new UserRepository();
+
+        }
 
         public ICommand Login {
             get {
@@ -44,23 +55,22 @@ namespace FrontEnd.ViewModel.Security {
             if (passwordbox != null)
             Session.Password = passwordbox.Password;
             Session.Username = Username;
+            var handler = this.OnLoginExecuted;
             try {
                 if (_userRepository.TestConnection) {
-                    if (OnLoginExecuted != null) {
-                        OnLoginExecuted(this, new BooleanEventArg(true));
-                    }
+                    if (handler != null)
+                        handler(this, new BooleanEventArg(true));
                 }
                 else {
-                    if (OnLoginExecuted != null) {
-                        OnLoginExecuted(this, new BooleanEventArg(false));
-                    }
+                    if (OnLoginExecuted != null)
+                    OnLoginExecuted(this, new BooleanEventArg(false));
                 }
 
             } catch (MessageSecurityException fe) {
-
-                MessageBox.Show((fe.InnerException as FaultException).Reason.ToString());
+                var faultException = fe.InnerException as FaultException;
+                if (faultException != null)
+                    MessageBox.Show(faultException.Reason.ToString());
             }
-
         }
 
         public string Username{ 

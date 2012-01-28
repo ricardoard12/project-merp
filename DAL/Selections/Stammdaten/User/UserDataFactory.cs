@@ -52,6 +52,7 @@ namespace DAL.Selections.Stammdaten.User
 
         public static IUserView UserByIdent(string usrident) {
             var query = (from usr in _database.tbl_Usr where usr.UsrIdent == usrident select usr);
+
             tbl_Usr usre = query.FirstOrDefault();
 
             if (usre != null) {

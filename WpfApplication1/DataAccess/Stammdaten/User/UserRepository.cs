@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IdentityModel.Selectors;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -11,6 +13,7 @@ using Controls;
 using FrontEnd.Data.Channel;
 using Views;
 using Views.Security.Connection;
+using Views.Security.ErrorException;
 using Views.Stammdaten.User;
 using  BL.Service;
 
@@ -69,7 +72,14 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
 
 
         public Boolean TestConnection {
-            get { return Service != null && Service.TestConnection(); }
+            get {
+                try {
+                    return Service != null && Service.TestConnection();
+                } catch (FaultException<LoginError> e) {
+                    Debug.Print(e.StackTrace);
+                    return false;
+                }
+            }
         }
 
         public void OnGetAllUsers() {

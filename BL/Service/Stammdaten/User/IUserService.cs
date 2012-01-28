@@ -5,6 +5,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using Views;
+using Views.Security.ErrorException;
 using Views.Stammdaten.User;
 
 namespace BL.Service.Stammdaten.User {
@@ -22,7 +23,7 @@ namespace BL.Service.Stammdaten.User {
         PagedResult<IUserView> UsersByIdent();
 
         [OperationContract]
-        [FaultContract(typeof(SecurityTokenAuthenticator))]
+        [FaultContract(typeof(LoginError))]
         Boolean TestConnection();
 
         /*
