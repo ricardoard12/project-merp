@@ -161,12 +161,20 @@ namespace FrontEnd.ViewModel {
 
         protected List<CommandViewModel> CreateCommandsForNav() {
             return new List<CommandViewModel> {
-                new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateNewCustomer()), Resources.StringStammdaten, Resources.StringCustomer),
-                new CommandViewModel("Show All Customers" , new RelayCommand(param => ShowAllCustomers()), Resources.StringStammdaten, Resources.StringCustomer),
-                new CommandViewModel("Show all Products", new RelayCommand(param =>ShowAllProducts()), Resources.StringStammdaten, Resources.StringProduct),
-                new CommandViewModel("Show all Users", new RelayCommand(param => ShowAllUsers()), Resources.StringStammdaten, Resources.StringUsers )
+                new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateGuiByOnce(new CustomerViewModel(CustomerModel.CreateNewCustomer(), _customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
+                new CommandViewModel("Show All Customers" , new RelayCommand(param => CreateGuiByOnce(new AllCustomersViewModel(_customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
+                new CommandViewModel("Show all Products", new RelayCommand(param => CreateGui(new AllProductsViewModel())), Resources.StringStammdaten, Resources.StringProduct),
+                new CommandViewModel("Show all Users", new RelayCommand(param => CreateGui(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
+                new CommandViewModel("Create New Product", new RelayCommand(param => CreateGui(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct )
             };
         }
+
+        private void CreateGui(WorkspaceViewModel viewModel) {
+            Workspaces.Add(viewModel);
+            SetActiveWorkspace(viewModel);
+        }
+
+
 
         protected void ShowAllUsers() {
             var workspace = new AllUsersViewModel();
@@ -193,6 +201,20 @@ namespace FrontEnd.ViewModel {
             }
 
             this.SetActiveWorkspace(workspace);
+        }
+
+        void CreateGuiByOnce(WorkspaceViewModel workspace) {
+            //  WorkspaceViewModel viewModel = Workspaces.FirstOrDefault(vm => vm is workspace)
+            WorkspaceViewModel viewModelExists = null;
+
+            foreach (var eachWorkspace in Workspaces.Where(eachWorkspace => eachWorkspace.GetType() == workspace.GetType())) {
+                viewModelExists = eachWorkspace;
+            }
+
+            if (viewModelExists == null) {
+                CreateGui(workspace);
+            }
+
         }
 
         protected void CreateNewCustomer() {

@@ -84,6 +84,9 @@
       <DependentUpon>AllProductsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\Stammdaten\Customer\CustomerAddedEventArgs.cs" />
+    <Compile Include="Guis\Stammdaten\Product\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guis\Stammdaten\User\AllUsersView.xaml.cs">
       <DependentUpon>AllUsersView.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Guis\Stammdaten\Product\AllProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guis\Stammdaten\Product\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
