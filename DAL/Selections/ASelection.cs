@@ -7,14 +7,9 @@ using Database;
 namespace DAL.Selections {
    public abstract class ASelection
    {
-       private readonly db_MERPEntities1 _database;
-
-       protected ASelection() {
-           _database = DatabaseFactory.getDatabase();
-       }
-
-       protected db_MERPEntities1 Database {
-           get { return _database; }
+       
+       public static db_MERPEntities1 MerpDatabase() {
+          return DatabaseFactory.getDatabase();     
        }
    }
 }

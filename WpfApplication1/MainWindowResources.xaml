@@ -8,6 +8,7 @@
                     xmlns:UserGui="clr-namespace:FrontEnd.Guis.Stammdaten.User"
                     xmlns:loginVm="clr-namespace:FrontEnd.ViewModel.Security"
                     xmlns:loginGui="clr-namespace:FrontEnd.Guis.Security"
+             
                     x:Class="FrontEnd.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
     
     
@@ -26,7 +27,8 @@
     <DataTemplate DataType="{x:Type loginVm:LoginViewModel}">
         <loginGui:Login />
     </DataTemplate>
-                  
+<!---->
+   
     <!-- Template für die Befehle / Hyperlinks im Navigationsbereich -->
     <DataTemplate x:Key="CommandsTemplate" >
         <ItemsControl ItemsSource="{Binding Path=Commands}">

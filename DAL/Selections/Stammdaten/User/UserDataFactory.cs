@@ -7,9 +7,9 @@ using Views.Stammdaten.User;
 
 namespace DAL.Selections.Stammdaten.User
 {
-    public class UserDataFactory
+    public class UserDataFactory : ASelection
     {
-        private static readonly db_MERPEntities1 _database = new db_MERPEntities1();
+       
 
         public static void AddUser(IUserView usr) {
             tbl_Usr User = new tbl_Usr {
@@ -20,9 +20,9 @@ namespace DAL.Selections.Stammdaten.User
                                            UsrIdent = usr.UsrIdent
                                        };
 
-            _database.tbl_Usr.AddObject(User);
+            MerpDatabase().tbl_Usr.AddObject(User);
             try {
-                _database.SaveChanges();
+                MerpDatabase().SaveChanges();
             }
             catch (Exception e) {
 
@@ -31,7 +31,7 @@ namespace DAL.Selections.Stammdaten.User
         }
 
         public static List<IUserView> AllUsers() {
-            var query = from usr in _database.tbl_Usr select usr;
+            var query = from usr in MerpDatabase().tbl_Usr select usr;
             List<IUserView> usrs = new List<IUserView>();
             IUserView Usrli = UserFactory.CreateNewUser();
 
@@ -51,7 +51,7 @@ namespace DAL.Selections.Stammdaten.User
         }
 
         public static IUserView UserByIdent(string usrident) {
-            var query = (from usr in _database.tbl_Usr where usr.UsrIdent == usrident select usr);
+            var query = (from usr in MerpDatabase().tbl_Usr where usr.UsrIdent == usrident select usr);
 
             tbl_Usr usre = query.FirstOrDefault();
 
