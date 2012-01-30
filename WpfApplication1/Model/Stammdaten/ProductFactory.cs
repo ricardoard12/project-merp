@@ -19,7 +19,7 @@ namespace FrontEnd.Model.Stammdaten {
         {
             return new ProductView
                        {
-                           Name = name,
+                           ProductName = name,
                            Ean = ean,
                            PricePurchase = pricePurchase,
                            PriceSale = priceSale

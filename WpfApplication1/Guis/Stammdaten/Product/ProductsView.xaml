@@ -4,9 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="600">
     <Grid Margin="4">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="6" />
+            <ColumnDefinition Width="250" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="6" />
             <ColumnDefinition Width="*" />
@@ -127,6 +130,24 @@
         <ContentPresenter 
       Grid.Row="9" Grid.Column="2"
       Content="{Binding ElementName=salePriceTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- Sale Price-->
+        <Label 
+      Grid.Row="0" Grid.Column="4" 
+      Content="Price Sale" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=numberTxt}" 
+      />
+        <TextBox 
+      x:Name="numberTxt"
+      Grid.Row="0" Grid.Column="5" 
+      Text="{Binding Path=ProductNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="1" Grid.Column="5"
+      Content="{Binding ElementName=numberTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
         <!-- SAVE BUTTON -->

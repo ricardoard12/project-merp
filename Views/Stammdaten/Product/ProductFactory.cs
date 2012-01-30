@@ -11,6 +11,11 @@ namespace Views.Stammdaten.Product {
             return new ProductView();
         }
 
+        public static IProductView createProduct(int id, int? ProductNumber, string ProductName, string Ean, double? PricePurchase,
+                                                 double? PriceSsale, int? produktCategory, int? ProductSup) {
+            return  new ProductView(id, ProductNumber, ProductName, Ean, PricePurchase, PriceSsale,produktCategory, ProductSup);
+        }
+
 
     }
 }

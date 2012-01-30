@@ -59,9 +59,6 @@
     <Compile Include="Stammdaten\Product\IProductView.cs" />
     <Compile Include="Stammdaten\Product\ProductFactory.cs" />
     <Compile Include="Stammdaten\Product\ProductView.cs" />
-    <Compile Include="Stammdaten\test\User\UserFactory.cs" />
-    <Compile Include="Stammdaten\test\User\IUserView.cs" />
-    <Compile Include="Stammdaten\test\User\UserView.cs" />
     <Compile Include="Stammdaten\User\IUserView.cs" />
     <Compile Include="Stammdaten\User\UserFactory.cs" />
     <Compile Include="Stammdaten\User\UserView.cs" />

@@ -53,6 +53,7 @@
     <Compile Include="Service\MERPService.cs" />
     <Compile Include="Service\RootInterface.cs" />
     <Compile Include="Service\Stammdaten\Product\IProductService.cs" />
+    <Compile Include="Service\Stammdaten\Product\ProductService.cs" />
     <Compile Include="Service\Stammdaten\User\IUserService.cs" />
     <Compile Include="Service\Stammdaten\User\UserService.cs" />
   </ItemGroup>
