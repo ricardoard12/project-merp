@@ -11,6 +11,6 @@ namespace Views
     public class PagedResult<T>
     {
         public int Total;
-        public List<T> Rows;
+        public List<T> Rows; 
     }
 }

@@ -4,10 +4,11 @@ using FrontEnd.DataAccess.Stammdaten.Product;
 using FrontEnd.Model.Stammdaten;
 using FrontEnd.DataAccess;
 using Views.Stammdaten.Product;
+using ProductFactory = Views.Stammdaten.Product.ProductFactory;
 
 namespace FrontEnd.ViewModel.Stammdaten.Product {
     public class ProductViewModel : WorkspaceViewModel {
-        readonly ProductView _productView;
+        readonly IProductView _productView;
         private readonly ProductRepository _productRepository;
 
       //  string _productType;
@@ -16,21 +17,32 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
         RelayCommand _saveCommand;
        
 
-        public  ProductViewModel()
-        {
-            _productView = ProductFactory.CreateNewProduct();
+        public  ProductViewModel() {
+            _productView = ProductFactory.createNewProduct();
             _productRepository = new ProductRepository();
 
         }
 
 
-        public string ProductName {
-            get { return _productView.Name; }
+
+        public int? ProductNumber {
+            get { return _productView.ProductNumber; }
             set {
-                if (value == _productView.Name)
+                if (value == _productView.ProductNumber)
                     return;
 
-                _productView.Name = value;
+                _productView.ProductNumber = value;
+                base.OnPropertyChanged("ProductNumber");
+            }
+        }
+
+        public string ProductName {
+            get { return _productView.ProductName; }
+            set {
+                if (value == _productView.ProductName)
+                    return;
+
+                _productView.ProductName = value;
                 base.OnPropertyChanged("ProductName");
             }
         }
@@ -47,7 +59,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
             }
         }
 
-        public double PricePurchase {
+        public double? PricePurchase {
             get { return _productView.PricePurchase; }
             set {
                 if (value == _productView.PricePurchase)
@@ -59,7 +71,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
             }
         }
 
-        public double PriceSale {
+        public double? PriceSale {
             get { return _productView.PriceSale; }
             set {
                 if (value == _productView.PriceSale)
@@ -79,7 +91,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
                 if (this.IsNewProduct) {
                     return "Display Name";
                 } else {
-                    return String.Format("{0}", _productView.Name);
+                    return String.Format("{0}", _productView.ProductName);
                 }
             }
         }
@@ -108,7 +120,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
 
         private void Save()
         {
-            _productRepository.
+            _productRepository.AddProduct(ProductFactory.createProduct(1234,  ProductNumber, ProductName, Ean, PricePurchase, PriceSale, 1, 1 ));
         }
 
         private bool CanSave

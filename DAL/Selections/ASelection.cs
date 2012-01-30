@@ -8,7 +8,7 @@ namespace DAL.Selections {
    public abstract class ASelection
    {
        
-       public static db_MERPEntities1 MerpDatabase() {
+       protected static db_MERPEntities1 MerpDatabase() {
           return DatabaseFactory.getDatabase();     
        }
    }

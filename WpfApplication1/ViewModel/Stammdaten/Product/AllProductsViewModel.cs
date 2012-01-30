@@ -13,7 +13,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
     {
         private ProductRepository _productRepository;
         private ProductViewModel _productViewModel;
-        private ObservableCollection<ProductView> _products;
+        private ObservableCollection<IProductView> _products;
 
         public AllProductsViewModel()
         {
@@ -21,13 +21,13 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
             _productViewModel = new ProductViewModel();
         }
 
-        public ObservableCollection<ProductView> Products
+        public ObservableCollection<IProductView> Products
         {
             get
             {
                 if (_products == null || _products.Count == 0)
                 {
-                    _products = new ObservableCollection<ProductView>(_productRepository.ProductsList);
+                    _products = new ObservableCollection<IProductView>(_productRepository.ProductsList);
                 }
                 return _products;
             }

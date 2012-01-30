@@ -11,14 +11,24 @@ namespace BL.Service
         BL.MerpBLManager BusinessLogic = new BL.MerpBLManager();
 
 
-        public PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start)
-        {
-            PagedResult<ProductView> p = new PagedResult<ProductView>();
-
-            p.Rows = Enumerable.ToList<ProductView>((from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start) select new ProductView { Id = r.Prd_, Ean = r.PrdEAN, Name = r.PrdName, PricePurchase = Convert.ToDouble((double) r.PrdPricePurchase.Value), PriceSale = Convert.ToDouble((double) r.PrdPriceSale.Value) }));
-            p.Total = BusinessLogic.GetProductCount(Prdcat, Anzahl, Start);
+        public PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start) {
+         PagedResult<ProductView> p = new PagedResult<ProductView>();
+         /* 
+                   p.Rows = Enumerable.ToList<ProductView>((from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start)
+                                                            select
+                                                                new ProductView {
+                                                                                    Id = r.Prd_,
+                                                                                    Ean = r.PrdEAN,
+                                                                                    Name = r.PrdName,
+                                                                                    PricePurchase =
+                                                                                        Convert.ToDouble((double) r.PrdPricePurchase.Value),
+                                                                                    PriceSale = Convert.ToDouble((double) r.PrdPriceSale.Value)
+                                                                                }));
+                   p.Total = BusinessLogic.GetProductCount(Prdcat, Anzahl, Start);
+        
+              */
             return p;
-            
+
         }
 
 
