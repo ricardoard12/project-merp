@@ -8,7 +8,7 @@
                     xmlns:UserGui="clr-namespace:FrontEnd.Guis.Stammdaten.User"
                     xmlns:loginVm="clr-namespace:FrontEnd.ViewModel.Security"
                     xmlns:loginGui="clr-namespace:FrontEnd.Guis.Security"
-             
+                    xmlns:Product="clr-namespace:WpfApplication1.Guis.Stammdaten.Product"
                     x:Class="FrontEnd.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
     
     
@@ -26,6 +26,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type loginVm:LoginViewModel}">
         <loginGui:Login />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmProduct:ProductViewModel}">
+        <Product:ProductsView />
     </DataTemplate>
 <!---->
    

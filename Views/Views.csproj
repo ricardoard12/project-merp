@@ -56,10 +56,15 @@
     <Compile Include="Security\Connection\IConnection.cs" />
     <Compile Include="Security\ErrorException\LoginError.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="Stammdaten\Product\IProductView.cs" />
+    <Compile Include="Stammdaten\Product\ProductFactory.cs" />
     <Compile Include="Stammdaten\Product\ProductView.cs" />
-    <Compile Include="Stammdaten\Product\User\UserFactory.cs" />
-    <Compile Include="Stammdaten\Product\User\IUserView.cs" />
-    <Compile Include="Stammdaten\Product\User\UserView.cs" />
+    <Compile Include="Stammdaten\test\User\UserFactory.cs" />
+    <Compile Include="Stammdaten\test\User\IUserView.cs" />
+    <Compile Include="Stammdaten\test\User\UserView.cs" />
+    <Compile Include="Stammdaten\User\IUserView.cs" />
+    <Compile Include="Stammdaten\User\UserFactory.cs" />
+    <Compile Include="Stammdaten\User\UserView.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -49,6 +49,7 @@
     <Compile Include="MerpDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selections\ASelection.cs" />
+    <Compile Include="Selections\Stammdaten\Product\ProductDataFactory.cs" />
     <Compile Include="Selections\Stammdaten\Quattro\QuattroDataFactory.cs" />
     <Compile Include="Selections\Stammdaten\User\UserDataFactory.cs" />
   </ItemGroup>
