@@ -24,14 +24,14 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
         }
 
 
-        public string Name {
+        public string ProductName {
             get { return _productView.Name; }
             set {
                 if (value == _productView.Name)
                     return;
 
                 _productView.Name = value;
-                base.OnPropertyChanged("Name");
+                base.OnPropertyChanged("ProductName");
             }
         }
 
@@ -108,7 +108,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
 
         private void Save()
         {
-            throw new NotImplementedException();
+            _productRepository.
         }
 
         private bool CanSave

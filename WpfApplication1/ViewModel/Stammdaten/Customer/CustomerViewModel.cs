@@ -27,7 +27,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
             _customerModel = customerModel;
             _customerRepository = customerRepository;
             _customerType = "NotSpecified";
-        }
+        }  
 
         #endregion Constructors
 
