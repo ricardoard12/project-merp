@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BL.Service.Stammdaten.User;
 using DAL;
 using DAL.Selections.Stammdaten.User;
 using Views;
 using Views.Stammdaten.User;
 
 
-namespace BL.Service.Stammdaten.User {
-   public class UserService : IUserService {
+namespace BL.Service {
+    public partial class RootService : IUserService
+    {
       
         readonly PagedResult<IUserView> _result = new PagedResult<IUserView>();
         

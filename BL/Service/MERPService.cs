@@ -6,14 +6,14 @@ using Views.Stammdaten.User;
 
 namespace BL.Service
 {
-    public class MerpService : IMERPService
+    public partial class MerpService : IMERPService
     {
         BL.MerpBLManager BusinessLogic = new BL.MerpBLManager();
 
-
+        /* 
         public PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start) {
          PagedResult<ProductView> p = new PagedResult<ProductView>();
-         /* 
+         
                    p.Rows = Enumerable.ToList<ProductView>((from r in BusinessLogic.GetProducts(Prdcat, Anzahl, Start)
                                                             select
                                                                 new ProductView {
@@ -26,16 +26,18 @@ namespace BL.Service
                                                                                 }));
                    p.Total = BusinessLogic.GetProductCount(Prdcat, Anzahl, Start);
         
-              */
             return p;
+         
 
         }
+         
+              */
 
-
+        /* Zur löschung vorgemerkt
         public bool TestConnection() {
             return true;
         }
-        /* Zur löschung vorgemerkt
+        
 
         public PagedResult<IUserView> GetUserByIdent(string Userident, int Anzahl, int Start)
         {
@@ -44,7 +46,7 @@ namespace BL.Service
             p.Total = BusinessLogic.GetUserCountByIdent(Userident);
             return p;
         }
-        */
+     
         public void UpdateUser(IUserView usr)
         {
             BusinessLogic.UpdateUser(usr);
@@ -55,6 +57,11 @@ namespace BL.Service
             
             BusinessLogic.AddUser(usr);
 
+        }
+            */
+        public bool TestConnection(bool test)
+        {
+            return test;
         }
     }
 }

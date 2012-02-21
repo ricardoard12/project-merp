@@ -17,6 +17,10 @@
     <WarningLevel>4</WarningLevel>
     <Utf8Output>true</Utf8Output>
     <ExpressionBlendVersion>4.0.20621.0</ExpressionBlendVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -39,11 +43,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="bbv.Common">
-      <HintPath>..\BBVCommon_bySelf\bbv.Common.dll</HintPath>
+      <HintPath>..\bbv.Common-7.0.1244.2228\bbv.Common\lib\Net40\bbv.Common.dll</HintPath>
     </Reference>
     <Reference Include="bbv.Common.EventBroker, Version=7.1.0.0, Culture=neutral, PublicKeyToken=917bca444d1f2b4c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BBVCommon_bySelf\BBVCommon.Eventbroker\bbv.Common.EventBroker.dll</HintPath>
+      <HintPath>..\bbv.Common-7.0.1244.2228\bbv.Common.EventBroker\lib\Net40\bbv.Common.EventBroker.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore">
+      <HintPath>..\LightCore-1.4.1-net-4.0\LightCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
@@ -69,6 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\IRepository.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
     <Compile Include="DataAccess\Stammdaten\Customer\CustomerRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\Product\ProductRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\User\UserRepository.cs" />
@@ -94,6 +103,7 @@
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
     <Compile Include="ViewModel\NavCommands\TreeViewCommandCategory.cs" />
+    <Compile Include="ViewModel\Security\ILoginViewModel.cs" />
     <Compile Include="ViewModel\Security\LoginViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Customer\AllCustomersViewModel.cs" />
     <Compile Include="ViewModel\CommandViewModel.cs" />
@@ -180,7 +190,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">

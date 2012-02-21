@@ -12,6 +12,10 @@
     <AssemblyName>BL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +56,7 @@
     <Compile Include="Service\IRootInterface.cs" />
     <Compile Include="Service\MERPService.cs" />
     <Compile Include="Service\RootInterface.cs" />
+    <Compile Include="Service\RootService.cs" />
     <Compile Include="Service\Stammdaten\Product\IProductService.cs" />
     <Compile Include="Service\Stammdaten\Product\ProductService.cs" />
     <Compile Include="Service\Stammdaten\User\IUserService.cs" />
