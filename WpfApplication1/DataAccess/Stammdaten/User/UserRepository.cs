@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IdentityModel.Selectors;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
-using System.ServiceModel.Security;
-using System.Text;
-using System.Windows;
 using BL.Service.Stammdaten.User;
-using Controls;
 using FrontEnd.Data.Channel;
 using Views;
 using Views.Security.Connection;
 using Views.Security.ErrorException;
 using Views.Stammdaten.User;
-using  BL.Service;
 
 namespace FrontEnd.DataAccess.Stammdaten.User {
     public class UserRepository
@@ -32,7 +24,7 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
             get {
                 if (_usrServiceConnection == null) {
                     _usrServiceConnection =
-                    ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://localhost:2526/Service/Stammdaten/User");
+                    ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://localhost:2526/Service/UserService");
                 }
                 if (_usrServiceConnection.ChannelFactory.Credentials != null) {
                     _usrServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;

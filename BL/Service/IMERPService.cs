@@ -10,21 +10,25 @@ namespace BL.Service
     
     public interface IMERPService : IRootInterface
     {
-        [OperationContract]
-        PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start);
-
         /* Zur löschung vorgemerkt 
-        [OperationContract]
-        PagedResult<IUserView> GetUserByIdent(string ident, int Anzahl, int Start);
+       [OperationContract]
+       PagedResult<ProductView> GetProducts(int Prdcat, int Anzahl, int Start);
 
-         */
-        [OperationContract]
-        void UpdateUser(IUserView usr);
+       
+       [OperationContract]
+       PagedResult<IUserView> GetUserByIdent(string ident, int Anzahl, int Start);
 
-        [OperationContract]
-        void AddUser(IUserView usr);
+         
+       [OperationContract]
+       void UpdateUser(IUserView usr);
 
+       
+       [OperationContract]
+       void AddUser(IUserView usr);
+    
+        */
         [OperationContract]
-        bool TestConnection();
+        bool TestConnection(bool test);
+         
     }
 }

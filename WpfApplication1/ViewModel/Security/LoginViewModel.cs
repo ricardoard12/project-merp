@@ -7,13 +7,14 @@ using System.Windows.Input;
 using FrontEnd.DataAccess.Stammdaten.User;
 using Views;
 using WpfApplication1.Events;
+using WpfApplication1.ViewModel.Security;
 using bbv.Common.EventBroker;
 using bbv.Common.EventBroker.Handlers;
 
 namespace FrontEnd.ViewModel.Security {
-  
 
-    public class LoginViewModel : WorkspaceViewModel
+
+    public class LoginViewModel : WorkspaceViewModel , ILoginViewModel
     {
         private readonly EventBroker _eventBroker;
 
@@ -46,7 +47,7 @@ namespace FrontEnd.ViewModel.Security {
             }
         }
 
-        private bool CanLoginExecute() {
+        public bool CanLoginExecute() {
             return Username != null;
         }
 
