@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Views.Stammdaten.User;
+using WpfApplication1.ViewModel.Stammdaten.User;
 
 namespace FrontEnd.ViewModel.Stammdaten.User {
-    class AllUsersViewModel : WorkspaceViewModel
+    public class AllUsersViewModel : WorkspaceViewModel, IAllUsersViewModel 
     {
         private readonly UserViewModel _userModel;
         
@@ -24,7 +25,7 @@ namespace FrontEnd.ViewModel.Stammdaten.User {
         }
 
       
-       public void GetAllUsers_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+       private void GetAllUsers_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
            _users = Users;
        }
 
