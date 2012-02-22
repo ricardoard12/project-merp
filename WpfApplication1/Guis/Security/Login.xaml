@@ -5,9 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:secVm="clr-namespace:FrontEnd.ViewModel.Security"
              mc:Ignorable="d" >
-    <UserControl.DataContext>
-        <secVm:LoginViewModel />
-    </UserControl.DataContext>
+
     <StackPanel>
         <TextBlock>
             <Label Content="Ident:" Margin="5,5" Width="75"/>

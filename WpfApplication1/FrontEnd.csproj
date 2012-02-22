@@ -82,6 +82,7 @@
     <Compile Include="DataAccess\Stammdaten\Product\ProductRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\User\UserRepository.cs" />
     <Compile Include="Data\Channel\ConnectionFactory.cs" />
+    <Compile Include="DI\DIContainer.cs" />
     <Compile Include="Events\BooleanEventArg.cs" />
     <Compile Include="Guis\Security\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -99,6 +100,7 @@
     <Compile Include="Guis\Stammdaten\User\AllUsersView.xaml.cs">
       <DependentUpon>AllUsersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IWorkspaceViewModel.cs" />
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />

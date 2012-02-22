@@ -35,40 +35,42 @@ namespace Host
             ServiceDebugBehavior serviceDebug = new ServiceDebugBehavior();
             serviceDebug.IncludeExceptionDetailInFaults = true;
 
-            ServiceHost MERPService = new ServiceHost(typeof(RootService));
-          
-            // MERPService.Description.Behaviors.Add(serviceDebug);
-            MERPService.Description.Behaviors.Add(metadataBehavior);
-            foreach (ServiceDebugBehavior behavior in MERPService.Description.Behaviors.Where(s => s.GetType() == typeof(ServiceDebugBehavior)).Cast<ServiceDebugBehavior>())
+            using (ServiceHost MERPService = new ServiceHost(typeof(RootService)))
             {
-                behavior.IncludeExceptionDetailInFaults = true;
+                // MERPService.Description.Behaviors.Add(serviceDebug);
+                MERPService.Description.Behaviors.Add(metadataBehavior);
+                foreach (
+                    ServiceDebugBehavior behavior in
+                        MERPService.Description.Behaviors.Where(s => s.GetType() == typeof(ServiceDebugBehavior)).Cast
+                            <ServiceDebugBehavior>())
+                {
+                    behavior.IncludeExceptionDetailInFaults = true;
+                }
+
+
+                MERPService.Credentials.UserNameAuthentication.UserNamePasswordValidationMode =
+                    UserNamePasswordValidationMode.Custom;
+                MERPService.Credentials.UserNameAuthentication.CustomUserNamePasswordValidator = new PasswordValidator();
+
+                MERPService.Credentials.ClientCertificate.Authentication.CertificateValidationMode =
+                    X509CertificateValidationMode.None;
+                MERPService.Credentials.ServiceCertificate.Certificate = GetCertificate();
+
+
+                /*MERPService.AddServiceEndpoint(typeof (IMERPService), bindingConfiguration,
+                                               "net.tcp://localhost:2526/Service/MerpService");*/
+                MERPService.AddServiceEndpoint(typeof (IUserService), bindingConfiguration,
+                                               "net.tcp://localhost:2526/Service/UserService");
+                MERPService.AddServiceEndpoint(typeof (IProductService), bindingConfiguration,
+                                               "net.tcp://localhost:2526/Service/ProductService");
+
+                Console.Write("MerpService wird gestartet...  :D :D :D\n");
+                MERPService.Open();
+                Console.Write("MerpService wurde gestartet buh buh buh\n");
+                Console.Write("Drücken Sie eine Taste um zu beenden\n");
+                Console.Read();
+                MERPService.Close();
             }
-
-
-            MERPService.Credentials.UserNameAuthentication.UserNamePasswordValidationMode =
-                UserNamePasswordValidationMode.Custom;
-            MERPService.Credentials.UserNameAuthentication.CustomUserNamePasswordValidator = new PasswordValidator();
-
-            MERPService.Credentials.ClientCertificate.Authentication.CertificateValidationMode =
-                X509CertificateValidationMode.None;
-            MERPService.Credentials.ServiceCertificate.Certificate = GetCertificate();
-
-
-            /*MERPService.AddServiceEndpoint(typeof (IMERPService), bindingConfiguration,
-                                           "net.tcp://localhost:2526/Service/MerpService");*/
-            MERPService.AddServiceEndpoint(typeof (IUserService), bindingConfiguration,
-                                           "net.tcp://localhost:2526/Service/UserService");
-            MERPService.AddServiceEndpoint(typeof (IProductService), bindingConfiguration,
-                                           "net.tcp://localhost:2526/Service/ProductService");
-
-            Console.Write("MerpService wird gestartet...  :D :D :D\n");
-            MERPService.Open();
-            Console.Write("MerpService wurde gestartet buh buh buh\n");
-            Console.Write("Drücken Sie eine Taste um zu beenden\n");
-            Console.Read();
-            MERPService.Close();
-
-
         }
 
         private static X509Certificate2 GetCertificate()

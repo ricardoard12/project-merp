@@ -26,10 +26,7 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
                     _usrServiceConnection =
                     ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://localhost:2526/Service/UserService");
                 }
-                if (_usrServiceConnection.ChannelFactory.Credentials != null) {
-                    _usrServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
-                    _usrServiceConnection.ChannelFactory.Credentials.UserName.Password = Session.Password;
-                }
+
                 if (_usrServiceConnection.ChannelFactory.State != CommunicationState.Opened)
                     _usrServiceConnection.ChannelFactory.Open();
                 return _usrServiceConnection;

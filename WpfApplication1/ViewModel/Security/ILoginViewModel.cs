@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace WpfApplication1.ViewModel.Security
 {
-    public interface ILoginViewModel
+    public interface ILoginViewModel : IWorkspaceViewModel 
     {
 
         void OnLoginExecute(object password);
@@ -17,5 +17,5 @@ namespace WpfApplication1.ViewModel.Security
 
         ICommand Login { get; }
     }
-    
+
 }
