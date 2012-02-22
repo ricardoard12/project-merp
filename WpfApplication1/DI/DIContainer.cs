@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FrontEnd.ViewModel.Security;
+using FrontEnd.ViewModel.Stammdaten.Product;
 using LightCore;
 using LightCore.Lifecycle;
 using WpfApplication1.ViewModel.Security;
+using WpfApplication1.ViewModel.Stammdaten.Product;
 
 namespace WpfApplication1.DI
 {
@@ -18,6 +20,7 @@ namespace WpfApplication1.DI
         {
             _builder = new ContainerBuilder();
             _builder.Register<ILoginViewModel>(new LoginViewModel()).ControlledBy<SingletonLifecycle>();
+            _builder.Register<IProductViewModel>(new ProductViewModel());
             _container = _builder.Build();
         }
 

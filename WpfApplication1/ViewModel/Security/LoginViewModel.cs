@@ -14,7 +14,7 @@ using bbv.Common.EventBroker.Handlers;
 namespace FrontEnd.ViewModel.Security {
 
 
-    public class LoginViewModel : WorkspaceViewModel , ILoginViewModel
+    public class LoginViewModel : WorkspaceViewModel, ILoginViewModel
     {
         private readonly EventBroker _eventBroker;
 

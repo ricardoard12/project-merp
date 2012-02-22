@@ -16,9 +16,16 @@ namespace FrontEnd {
     {
         private DIContainer _container; 
         
-        public App() {
-            _container = new DIContainer(true);
 
+        public App() {
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            _container = new DIContainer(true);
+            MainWindow mainWindow = DIContainer.GetClientLibrarie<MainWindow>();
+            mainWindow.Show();
         }
         
     }
