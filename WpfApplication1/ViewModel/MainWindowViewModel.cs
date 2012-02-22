@@ -18,8 +18,11 @@ using System.Windows.Data;
 using System.Windows.Input;
 using FrontEnd.ViewModel.NavCommands;
 using Views;
+using WpfApplication1;
+using WpfApplication1.DI;
 using WpfApplication1.Events;
 using WpfApplication1.Guis.Security;
+using WpfApplication1.ViewModel.Security;
 using bbv.Common.EventBroker;
 using bbv.Common.EventBroker.Handlers;
 
@@ -31,9 +34,9 @@ namespace FrontEnd.ViewModel {
 
         protected readonly CustomerRepository _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
-        ObservableCollection<WorkspaceViewModel> _workspaces;
+        ObservableCollection<IWorkspaceViewModel> _workspaces;
         private ObservableCollection<TreeViewCommandCategory> _commandsTreeView;
-        private LoginViewModel _loginViewModel;
+        private ILoginViewModel _loginViewModel;
         private Visibility _vsbDirectory;
         private EventBroker _eventBroker;
         private ICommand _closeApplication;
@@ -52,13 +55,14 @@ namespace FrontEnd.ViewModel {
    
             _commands = CommandsForNav;
             _workspaces = Workspaces;
-            InitializeLogin();
-     
+          //  InitializeLogin();
+            VsbDirectory = Visibility.Visible;
 
         }
 
-        private void InitializeLogin() {
-            _loginViewModel = new LoginViewModel(false);
+        private void InitializeLogin()
+        {
+            _loginViewModel = DIContainer.GetClientLibrarie<ILoginViewModel>();
             this.Workspaces.Add(_loginViewModel);
             this.SetActiveWorkspace(_loginViewModel);
         }
@@ -89,10 +93,10 @@ namespace FrontEnd.ViewModel {
                 Application.Current.MainWindow.Close();
         }
 
-        public ObservableCollection<WorkspaceViewModel> Workspaces {
+        public ObservableCollection<IWorkspaceViewModel> Workspaces {
             get {
                 if (_workspaces == null) {
-                    _workspaces = new ObservableCollection<WorkspaceViewModel>();
+                    _workspaces = new ObservableCollection<IWorkspaceViewModel>();
                     _workspaces.CollectionChanged += this.OnWorkspaceChanged;
                 }
                 return _workspaces;
@@ -163,13 +167,14 @@ namespace FrontEnd.ViewModel {
             return new List<CommandViewModel> {
                 new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateGuiByOnce(new CustomerViewModel(CustomerModel.CreateNewCustomer(), _customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
                 new CommandViewModel("Show All Customers" , new RelayCommand(param => CreateGuiByOnce(new AllCustomersViewModel(_customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
-                new CommandViewModel("Show all Products", new RelayCommand(param => CreateGui(new AllProductsViewModel())), Resources.StringStammdaten, Resources.StringProduct),
-                new CommandViewModel("Show all Users", new RelayCommand(param => CreateGui(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
-                new CommandViewModel("Create New Product", new RelayCommand(param => CreateGui(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct )
+                new CommandViewModel("Show all Products", new RelayCommand(param => CreateGuiAndSetActive(new AllProductsViewModel())), Resources.StringStammdaten, Resources.StringProduct),
+                new CommandViewModel("Show all Users", new RelayCommand(param => CreateGuiAndSetActive(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
+                new CommandViewModel("Create New Product", new RelayCommand(param => CreateGuiAndSetActive(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct )
             };
         }
 
-        private void CreateGui(WorkspaceViewModel viewModel) {
+        private void CreateGuiAndSetActive(IWorkspaceViewModel viewModel)
+        {
             Workspaces.Add(viewModel);
             SetActiveWorkspace(viewModel);
         }
@@ -203,16 +208,17 @@ namespace FrontEnd.ViewModel {
             this.SetActiveWorkspace(workspace);
         }
 
-        void CreateGuiByOnce(WorkspaceViewModel workspace) {
+        void CreateGuiByOnce(IWorkspaceViewModel workspace)
+        {
             //  WorkspaceViewModel viewModel = Workspaces.FirstOrDefault(vm => vm is workspace)
-            WorkspaceViewModel viewModelExists = null;
+            IWorkspaceViewModel viewModelExists = null;
 
             foreach (var eachWorkspace in Workspaces.Where(eachWorkspace => eachWorkspace.GetType() == workspace.GetType())) {
                 viewModelExists = eachWorkspace;
             }
 
             if (viewModelExists == null) {
-                CreateGui(workspace);
+                CreateGuiAndSetActive(workspace);
             }
 
         }
@@ -224,7 +230,8 @@ namespace FrontEnd.ViewModel {
             this.SetActiveWorkspace(workspace);
         }
 
-        protected void SetActiveWorkspace(WorkspaceViewModel workspace) {
+        protected void SetActiveWorkspace(IWorkspaceViewModel workspace)
+        {
             Debug.Assert(this.Workspaces.Contains(workspace));
 
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);

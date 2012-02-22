@@ -33,12 +33,6 @@ namespace FrontEnd.ViewModel.Security {
             _eventBroker.Register(this);
         }
 
-
-        public LoginViewModel(bool isGui) {
-            _userRepository = new UserRepository();
-
-        }
-
         public ICommand Login {
             get {
                 return _login ??

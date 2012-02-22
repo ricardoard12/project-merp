@@ -11,13 +11,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication1.DI;
+using WpfApplication1.ViewModel.Security;
 
 namespace FrontEnd.Guis.Security {
     /// <summary>
     /// Interaktionslogik für Login.xaml
     /// </summary>
     public partial class Login : UserControl {
-        public Login() {
+        public Login()
+        {
+            this.DataContext = DIContainer.GetClientLibrarie<ILoginViewModel>();
             InitializeComponent();
         }
     }
