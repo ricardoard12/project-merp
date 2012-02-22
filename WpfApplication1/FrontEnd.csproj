@@ -112,6 +112,8 @@
     <Compile Include="ViewModel\Stammdaten\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\AllProductsViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\Product\IAllProductsViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\Product\IProductViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\ProductViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\UserViewModel.cs" />

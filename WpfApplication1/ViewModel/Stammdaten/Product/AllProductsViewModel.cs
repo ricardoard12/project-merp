@@ -7,9 +7,10 @@ using FrontEnd.DataAccess.Stammdaten.Product;
 using Views.Stammdaten.Product;
 using FrontEnd.DataAccess;
 using FrontEnd.Model.Stammdaten;
+using WpfApplication1.ViewModel.Stammdaten.Product;
 
 namespace FrontEnd.ViewModel.Stammdaten.Product {
-    public class AllProductsViewModel : WorkspaceViewModel
+    public class AllProductsViewModel : WorkspaceViewModel, IAllProductsViewModel
     {
         private ProductRepository _productRepository;
         private ProductViewModel _productViewModel;

@@ -4,10 +4,12 @@ using FrontEnd.DataAccess.Stammdaten.Product;
 using FrontEnd.Model.Stammdaten;
 using FrontEnd.DataAccess;
 using Views.Stammdaten.Product;
+using WpfApplication1.ViewModel.Stammdaten.Product;
 using ProductFactory = Views.Stammdaten.Product.ProductFactory;
 
 namespace FrontEnd.ViewModel.Stammdaten.Product {
-    public class ProductViewModel : WorkspaceViewModel {
+    public class ProductViewModel : WorkspaceViewModel, IProductViewModel
+    {
         readonly IProductView _productView;
         private readonly ProductRepository _productRepository;
 
@@ -118,16 +120,6 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
             }
         }
 
-        private void Save()
-        {
-            _productRepository.AddProduct(ProductFactory.createProduct(1234,  ProductNumber, ProductName, Ean, PricePurchase, PriceSale, 1, 1 ));
-        }
-
-        private bool CanSave
-        {
-            get { return true; }
-        }
-
         #endregion
 
 #region Helpermethods
@@ -137,7 +129,20 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
             get { return !_productRepository.ProductsList.Contains(_productView); }
         }
 
-        #endregion
+
+        private void Save()
+        {
+            _productRepository.AddProduct(ProductFactory.createProduct(1234, ProductNumber, ProductName, Ean, PricePurchase, PriceSale, 1, 1));
+        }
+
+        private bool CanSave
+        {
+            get { return true; }
+        }
+        
+
+#endregion
+
 
 
     }
