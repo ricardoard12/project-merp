@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Diagnostics;
 
 namespace FrontEnd {
-    class RelayCommand : ICommand {
+   public class RelayCommand : ICommand {
         #region fields
 
         readonly Action<object> _execute;

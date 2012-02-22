@@ -116,6 +116,8 @@
     <Compile Include="ViewModel\Stammdaten\Product\IProductViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\ProductViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\AllUsersViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\User\IAllUsersViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\User\IUserViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="RelayCommand.cs" />

@@ -8,9 +8,10 @@ using System.Windows.Input;
 using FrontEnd.DataAccess.Stammdaten.User;
 using Views.Stammdaten.User;
 using FrontEnd.Model.Stammdaten;
+using WpfApplication1.ViewModel.Stammdaten.User;
 
 namespace FrontEnd.ViewModel.Stammdaten.User {
-    class UserViewModel
+    public class UserViewModel : WorkspaceViewModel, IUserViewModel
     {
         private UserRepository _userRepository;
         private RelayCommand _saveUser;
@@ -20,7 +21,7 @@ namespace FrontEnd.ViewModel.Stammdaten.User {
             _userRepository = new UserRepository();
         }
 
-        RelayCommand SaveUser {
+        private RelayCommand SaveUser {
             get { return _saveUser ?? (_saveUser = new RelayCommand(OnSaveUser)); }
         }
 
