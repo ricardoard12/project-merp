@@ -17,6 +17,8 @@ namespace Views.Stammdaten.Supplier
 
 
         ISupplierView SupplierByPrimaryKey(int primaryKey);
+
+        void UpdateSupplier(ISupplierView supplier);
     }
 }
 

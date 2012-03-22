@@ -23,5 +23,8 @@ namespace BL.Service.Stammdaten.Supplier
 
         [OperationContract]
         ISupplierView SupplierByPrimaryKey(int primaryKey);
+
+        [OperationContract]
+        void UpdateSupplier(ISupplierView supplier);
     }
 }
