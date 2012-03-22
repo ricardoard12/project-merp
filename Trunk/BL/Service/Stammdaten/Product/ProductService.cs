@@ -22,5 +22,11 @@ namespace BL.Service {
             return resultSet;
         }
 
+        public PagedResult<IProductView> AllProducts()
+        {
+            PagedResult<IProductView> resultSet = new PagedResult<IProductView>();
+            resultSet.Rows = ProductDataFactory.AllProducts().ToList();
+            resultSet.Total = resultSet.Rows.Count;
+        }
     }
 }
