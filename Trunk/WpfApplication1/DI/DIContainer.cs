@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using FrontEnd.ViewModel.Security;
@@ -8,6 +9,8 @@ using LightCore;
 using LightCore.Lifecycle;
 using WpfApplication1.ViewModel.Security;
 using WpfApplication1.ViewModel.Stammdaten.Product;
+using IContainer = LightCore.IContainer;
+
 
 namespace WpfApplication1.DI
 {
