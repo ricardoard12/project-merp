@@ -43,14 +43,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="bbv.Common">
-      <HintPath>..\bbv.Common-7.0.1244.2228\bbv.Common\lib\Net40\bbv.Common.dll</HintPath>
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common\lib\Net40\bbv.Common.dll</HintPath>
     </Reference>
     <Reference Include="bbv.Common.EventBroker, Version=7.1.0.0, Culture=neutral, PublicKeyToken=917bca444d1f2b4c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bbv.Common-7.0.1244.2228\bbv.Common.EventBroker\lib\Net40\bbv.Common.EventBroker.dll</HintPath>
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common.EventBroker\lib\Net40\bbv.Common.EventBroker.dll</HintPath>
     </Reference>
     <Reference Include="LightCore">
-      <HintPath>..\LightCore-1.4.1-net-4.0\LightCore.dll</HintPath>
+      <HintPath>..\ExternalDLLs\LightCore-1.4.1-net-4.0\LightCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />

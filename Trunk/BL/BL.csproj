@@ -35,6 +35,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="bbv.Common.AsyncModule.Silverlight">
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common.AsyncModule.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="bbv.Common.RuleEngine">
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common.RuleEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="bbv.Common.Security">
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="bbv.Common.Silverlight">
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="bbv.Common.StateMachine.Silverlight">
+      <HintPath>..\ExternalDLLs\bbv.Common-7.0.11331.1827\bbv.Common.StateMachine.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore">
+      <HintPath>..\ExternalDLLs\LightCore-1.4.1-net-4.0\LightCore.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore.CommonServiceLocator">
+      <HintPath>..\ExternalDLLs\LightCore-1.4.1-net-4.0\LightCore.CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore.Configuration">
+      <HintPath>..\ExternalDLLs\LightCore-1.4.1-net-4.0\LightCore.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore.Integration.Web">
+      <HintPath>..\ExternalDLLs\LightCore-1.4.1-net-4.0\LightCore.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\ExternalDLLs\LightCore-1.4.1-net-4.0\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
