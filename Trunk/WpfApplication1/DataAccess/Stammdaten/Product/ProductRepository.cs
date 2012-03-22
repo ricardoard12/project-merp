@@ -40,7 +40,7 @@ namespace FrontEnd.DataAccess.Stammdaten.Product
                 if (_productServiceConnection == null) {
                     _productServiceConnection =
                     ConnectionFactory<IProductService>.CreateConnection("ProductService",
-                                                                           "net.tcp://localhost:2526/Service/Stammdaten/Product");
+                                                                           "net.tcp://10.12.10.150:2526/Service/Stammdaten/Product");
                 }
                 if (_productServiceConnection.ChannelFactory.Credentials != null) {
                     _productServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
