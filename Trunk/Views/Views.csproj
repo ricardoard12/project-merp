@@ -66,6 +66,9 @@
     <Compile Include="Stammdaten\Product\ProductFactory.cs" />
     <Compile Include="Stammdaten\Product\ProductView.cs" />
     <Compile Include="Stammdaten\Customer\CustomerView.cs" />
+    <Compile Include="Stammdaten\Supplier\ISupplierView.cs" />
+    <Compile Include="Stammdaten\Supplier\SupplierFactory.cs" />
+    <Compile Include="Stammdaten\Supplier\SupplierView.cs" />
     <Compile Include="Stammdaten\User\IUserView.cs" />
     <Compile Include="Stammdaten\User\UserFactory.cs" />
     <Compile Include="Stammdaten\User\UserView.cs" />
