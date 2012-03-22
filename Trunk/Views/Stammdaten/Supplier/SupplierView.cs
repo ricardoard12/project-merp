@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Views.Stammdaten.Supplier
 {
+    [Serializable]
     class SupplierView : ISupplierView
     {
         public int SupId { get; set; }

@@ -91,6 +91,8 @@
     <Compile Include="Service\Stammdaten\Customer\ICustomerService.cs" />
     <Compile Include="Service\Stammdaten\Product\IProductService.cs" />
     <Compile Include="Service\Stammdaten\Product\ProductService.cs" />
+    <Compile Include="Service\Stammdaten\Supplier\ISupplierService.cs" />
+    <Compile Include="Service\Stammdaten\Supplier\SupplierService.cs" />
     <Compile Include="Service\Stammdaten\User\IUserService.cs" />
     <Compile Include="Service\Stammdaten\User\UserService.cs" />
   </ItemGroup>
@@ -114,6 +116,7 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
