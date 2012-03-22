@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Database;
 using Views.Stammdaten.Product;
 
@@ -38,5 +37,13 @@ namespace DAL.Selections.Stammdaten.Product {
                                                        P.PrdPriceSale, P.PrdPrdcat_, P.PrdSup_)).Skip(Start).Take(Anzahl).ToList();
         
                       }
+
+        public  static  IList<IProductView> AllProducts()
+        {
+            return (from c in MerpDatabase().tbl_Prd
+                    select
+                        ProductFactory.createProduct(c.Prd_, c.PrdNumber, c.PrdName, c.PrdEAN, c.PrdPricePurchase,
+                                                  c.PrdPriceSale, c.PrdPrdcat_, c.PrdSup_)).ToList();
+        } 
     }
 }

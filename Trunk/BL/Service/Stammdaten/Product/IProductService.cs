@@ -17,5 +17,9 @@ namespace BL.Service.Stammdaten.Product {
 
        [OperationContract]
        PagedResult<IProductView> GetProducts(int Prdcat, int Anzahl, int Start);
+
+        [OperationContract]
+        PagedResult<IProductView> AllProducts();
+
     }
 }

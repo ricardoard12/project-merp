@@ -8,14 +8,11 @@ namespace Views.Stammdaten.Supplier
     public interface ISupplierService
     {
         void DeleteSupplier(ISupplierView supplier);
-
-
+        
         void AddSupplier(ISupplierView supplier);
-
-
+        
         PagedResult<ISupplierView> AllSupplier();
-
-
+        
         ISupplierView SupplierByPrimaryKey(int primaryKey);
 
         void UpdateSupplier(ISupplierView supplier);
