@@ -7,6 +7,7 @@ using BL.Service.Stammdaten.Supplier;
 using DAL.Selections.Stammdaten.Supplier;
 using Views;
 using Views.Stammdaten.Supplier;
+using ISupplierService = BL.Service.Stammdaten.Supplier.ISupplierService;
 
 namespace BL.Service
 {
@@ -35,6 +36,11 @@ namespace BL.Service
        {
            ISupplierView result = SupplierDataFactory.ByPrimaryKey(primaryKey);
             return result;
+       }
+
+       public void UpdateSupplier(ISupplierView supplier)
+       {
+           SupplierDataFactory.UpdateSupplier(supplier);
        }
     }
 }
