@@ -6,8 +6,7 @@
             xmlns:vw="clr-namespace:FrontEnd.Guis.Stammdaten.Customer"
   HorizontalAlignment="Center"
   VerticalAlignment="Center"  
-  Width="400"
-  >
+  Width="400">
     <Grid Margin="4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
