@@ -97,7 +97,6 @@
     </None>
     <None Include="CertifikatCreate.bat" />
     <None Include="CertifikatDelete.bat" />
-    <None Include="Host_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
