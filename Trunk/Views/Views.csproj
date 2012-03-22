@@ -60,9 +60,12 @@
     <Compile Include="Security\Connection\IConnection.cs" />
     <Compile Include="Security\ErrorException\LoginError.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="Stammdaten\Customer\CustomerFactory.cs" />
+    <Compile Include="Stammdaten\Customer\ICustomerView.cs" />
     <Compile Include="Stammdaten\Product\IProductView.cs" />
     <Compile Include="Stammdaten\Product\ProductFactory.cs" />
     <Compile Include="Stammdaten\Product\ProductView.cs" />
+    <Compile Include="Stammdaten\Customer\CustomerView.cs" />
     <Compile Include="Stammdaten\User\IUserView.cs" />
     <Compile Include="Stammdaten\User\UserFactory.cs" />
     <Compile Include="Stammdaten\User\UserView.cs" />
