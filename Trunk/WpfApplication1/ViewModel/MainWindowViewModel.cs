@@ -40,7 +40,7 @@ namespace FrontEnd.ViewModel {
         private Visibility _vsbDirectory;
         private EventBroker _eventBroker;
         private ICommand _closeApplication;
-  
+
 
         public MainWindowViewModel()
             : this("Data/customers.xml") {
@@ -52,7 +52,8 @@ namespace FrontEnd.ViewModel {
             VsbDirectory = Visibility.Hidden;
             _eventBroker = Session.EventBroker();
             _eventBroker.Register(this);
-   
+     this._customerRepository = new CustomerRepository(customerDataFile);
+          
             _commands = CommandsForNav;
             _workspaces = Workspaces;
             InitializeLogin();
