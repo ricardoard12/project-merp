@@ -10,6 +10,7 @@ using System.ServiceModel;
 using BL;
 using BL.Service;
 using BL.Service.Stammdaten.Product;
+using BL.Service.Stammdaten.Supplier;
 using BL.Service.Stammdaten.User;
 
 
@@ -63,8 +64,19 @@ namespace Host
                                                "net.tcp://localhost:2526/Service/UserService");
                 MERPService.AddServiceEndpoint(typeof (IProductService), bindingConfiguration,
                                                "net.tcp://localhost:2526/Service/ProductService");
+                MERPService.AddServiceEndpoint(typeof (ISupplierService), bindingConfiguration,
+                                               "net.tcp://localhost:2526/Service/SupplierService");
 
                 Console.Write("MerpService wird gestartet...  :D :D :D\n");
+                Console.WriteLine("--------------------------------Endpoints--------------------------------\n\n");
+                foreach (var s in MERPService.Description.Endpoints)
+                {
+                    Console.WriteLine(String.Format("Endpoint Name:  {0}", s.Name));
+                    Console.WriteLine(String.Format("Addresse: {0}", s.Address ));
+                }
+                Console.WriteLine("------------------------------------------------------------------------- \n\n");
+                
+
                 MERPService.Open();
                 Console.Write("MerpService wurde gestartet buh buh buh\n");
                 Console.Write("Drücken Sie eine Taste um zu beenden\n");

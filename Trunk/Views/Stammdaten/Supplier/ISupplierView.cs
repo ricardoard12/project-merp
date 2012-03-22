@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Views.Stammdaten.Supplier
 {
+   
     public interface ISupplierView
     {
         int SupId { get; set; }
