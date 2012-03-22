@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600">
+             d:DesignHeight="257" d:DesignWidth="679">
     <Grid Margin="4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -12,7 +12,8 @@
             <ColumnDefinition Width="250" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="6" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="93*" />
+            <ColumnDefinition Width="235" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -26,6 +27,7 @@
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="31*" />
         </Grid.RowDefinitions>
 
         <Grid.Resources>
@@ -42,38 +44,38 @@
 
         <!-- Product TYPE -->
         <Label 
-      Grid.Row="0" Grid.Column="0" 
+      Grid.Row="2" Grid.Column="0" 
       Content="Product _type:" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=productTypeCmb}" 
       />
         <ComboBox 
       x:Name="customerTypeCmb"
-      Grid.Row="0" Grid.Column="2" 
+      Grid.Row="2" Grid.Column="2" 
       ItemsSource="{Binding Path=ProductTypeOptions, Mode=OneTime}"
       SelectedItem="{Binding Path=ProductType, ValidatesOnDataErrors=True}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="1" Grid.Column="2"
+      Grid.Row="3" Grid.Column="2"
       Content="{Binding ElementName=productTypeCmb, Path=(Validation.Errors).CurrentItem}"
       />
 
         <!-- Product NAME-->
         <Label 
-      Grid.Row="2" Grid.Column="0" 
+      Grid.Row="0" Grid.Column="5" 
       Content="Product Name" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=productNameTxt}"
       />
         <TextBox 
       x:Name="productNameTxt"
-      Grid.Row="2" Grid.Column="2" 
+      Grid.Row="0" Grid.Column="6" 
       Text="{Binding Path=ProductName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="3" Grid.Column="2"
+      Grid.Row="1" Grid.Column="6"
       Content="{Binding ElementName=productNameTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
@@ -113,51 +115,49 @@
       Content="{Binding ElementName=purchasePriceTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
-
         <!-- Sale Price-->
         <Label 
-      Grid.Row="8" Grid.Column="0" 
+      Grid.Row="6" Grid.Column="5" 
       Content="Price Sale" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=salePriceTxt}" 
       />
         <TextBox 
       x:Name="salePriceTxt"
-      Grid.Row="8" Grid.Column="2" 
+      Grid.Row="6" Grid.Column="6" 
       Text="{Binding Path=SalePrice, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="9" Grid.Column="2"
+      Grid.Row="7" Grid.Column="6"
       Content="{Binding ElementName=salePriceTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
-        <!-- Sale Price-->
+        <!-- Product Number-->
         <Label 
-      Grid.Row="0" Grid.Column="4" 
-      Content="Price Sale" 
+      Grid.Row="0" Grid.Column="0" 
+      Content="Product Number" 
       HorizontalAlignment="Right"
-      Target="{Binding ElementName=numberTxt}" 
+      Target="{Binding ElementName=prdNumberTxt}" 
       />
         <TextBox 
-      x:Name="numberTxt"
-      Grid.Row="0" Grid.Column="5" 
-      Text="{Binding Path=ProductNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      x:Name="productNumber"
+      Grid.Row="0" Grid.Column="2" 
+      Text="{Binding Path=numberTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="1" Grid.Column="5"
-      Content="{Binding ElementName=numberTxt, Path=(Validation.Errors).CurrentItem}"
+      Grid.Row="1" Grid.Column="2" 
+      Content="{Binding ElementName=salePriceTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
         <!-- SAVE BUTTON -->
         <Button 
-      Grid.Row="10" Grid.Column="2"
+      Grid.Row="10" Grid.Column="6"
       Command="{Binding Path=SaveCommand}"
       Content="_Save"
       HorizontalAlignment="Right"
-      Margin="4,2" 
-      MinWidth="60" 
-      />
+      Margin="0,3,0,0" 
+      MinWidth="60" Width="126" />
     </Grid>
 </UserControl>
