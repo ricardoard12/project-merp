@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 
 namespace Views.Stammdaten.Product
 {
-    public interface IProductService
-    {
-        PagedResult<IProductView> GetProducts(int Prdcat, int Anzahl, int Start);
-        PagedResult<IProductView> AllProducts();
-        void AddProduct(IProductView product);
+   
+        [ServiceContract]
+        public interface IProductService
+        {
+            [OperationContract]
+            void AddProduct(IProductView product);
+
+            [OperationContract]
+            PagedResult<IProductView> GetProducts(int Prdcat, int Anzahl, int Start);
+
+            [OperationContract]
+            PagedResult<IProductView> AllProducts();
+
+        
     }
 }

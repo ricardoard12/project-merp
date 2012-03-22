@@ -8,6 +8,7 @@ using Views;
 using Views.Security.Connection;
 using Views.Stammdaten.Product;
 using BL.Service;
+using IProductService = Views.Stammdaten.Product.IProductService;
 
 namespace FrontEnd.DataAccess.Stammdaten.Product
 {
