@@ -24,7 +24,7 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
             get {
                 if (_usrServiceConnection == null) {
                     _usrServiceConnection =
-                    ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://localhost:2526/Service/UserService");
+                    ConnectionFactory<IUserService>.CreateConnection("UserService", "net.tcp://10.12.10.150:2526/Service/UserService");
                 }
 
                 if (_usrServiceConnection.ChannelFactory.State != CommunicationState.Opened)
