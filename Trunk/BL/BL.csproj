@@ -90,7 +90,6 @@
     <Compile Include="Service\Stammdaten\Customer\CustomerService.cs" />
     <Compile Include="Service\Stammdaten\Customer\ICustomerService.cs" />
     <Compile Include="Service\Stammdaten\Product\ProductService.cs" />
-    <Compile Include="Service\Stammdaten\Supplier\ISupplierService.cs" />
     <Compile Include="Service\Stammdaten\Supplier\SupplierService.cs" />
     <Compile Include="Service\Stammdaten\User\IUserService.cs" />
     <Compile Include="Service\Stammdaten\User\UserService.cs" />

@@ -7,7 +7,7 @@ using System.Text;
 namespace Views.Stammdaten.Supplier
 {
    
-    public interface ISupplierView
+    public interface ISupplierView : ISerializable
     {
         int SupId { get; set; }
         int? SupNumber { get; set; }

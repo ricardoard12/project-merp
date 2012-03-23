@@ -6,9 +6,9 @@ using System.ServiceModel.Security;
 using System.ServiceModel;
 using BL;
 using BL.Service;
-using BL.Service.Stammdaten.Supplier;
 using BL.Service.Stammdaten.User;
 using Views.Stammdaten.Product;
+using Views.Stammdaten.Supplier;
 
 
 namespace Host

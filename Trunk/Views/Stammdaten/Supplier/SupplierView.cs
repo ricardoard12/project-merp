@@ -36,6 +36,17 @@ namespace Views.Stammdaten.Supplier
             this.SupIsCompany = supIsCompany;
         }
 
+        protected SupplierView(SerializationInfo info, StreamingContext context)
+        {
+            this.SupId = (int)info.GetValue("SupId", typeof(int));
+            this.SupNumber = (int)info.GetValue("SupId", typeof(int));
+            this.SupFirstname = (string)info.GetValue("SupId", typeof(string));
+            this.SupLastname = (string)info.GetValue("SupId", typeof(string));
+            this.SupContactname = (string)info.GetValue("SupId", typeof(string));
+            this.SupUsrId = (int)info.GetValue("SupId", typeof(int));
+            this.SupIsCompany = (bool)info.GetValue("SupId", typeof(bool));
+        }
+
         string IDataErrorInfo.Error { get { return null; } }
 
         string IDataErrorInfo.this[string propertyName]
@@ -170,5 +181,16 @@ namespace Views.Stammdaten.Supplier
             }
         }
 
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("SupId", SupId);
+            info.AddValue("SupNumber" , SupNumber);
+            info.AddValue("SupFirstname", SupFirstname);
+            info.AddValue("SupLastname", SupLastname);
+            info.AddValue("Supcontactname", SupContactname);
+            info.AddValue("supUserId", SupUsrId);
+            info.AddValue("SupIsCompany", SupIsCompany);
+
+        }
     }
 }
