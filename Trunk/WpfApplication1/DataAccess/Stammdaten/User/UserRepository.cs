@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
-using BL.Service.Stammdaten.User;
 using FrontEnd.Data.Channel;
-using Views;
 using Views.Security.Connection;
 using Views.Security.ErrorException;
 using Views.Stammdaten.User;

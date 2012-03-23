@@ -16,5 +16,6 @@ namespace Views.Stammdaten.Supplier
         string SupContactname { get; set; }
         int?  SupUsrId{ get; set; }
         bool? SupIsCompany { get; set; }
+        bool IsValid { get; }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using FrontEnd;
 using FrontEnd.ViewModel;
 using Views.Stammdaten.Supplier;
 using WpfApplication1.DataAccess.Stammdaten.Supplier;
@@ -13,6 +15,8 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
     {
         private ISupplierRepository supplierRepository;
         private ISupplierView supplierView;
+        private ICommand saveCommand;
+        private string supplierType;
         private string[] typeOptions;
         private bool isSelected;
 
@@ -23,6 +27,7 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
         {
             this.supplierRepository = new SupplierRepository();
             this.supplierView = SupplierFactory.createNew();
+       
             
         }
 
@@ -107,23 +112,42 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
         }
         #endregion Supplier Properties
 
+        #region Commands
+
+        public ICommand SaveCommand
+        {
+            get { return saveCommand ?? (saveCommand = new RelayCommand(param => Save(), param=>  CanSave)); } }
+
+        private void Save()
+        {
+            this.supplierRepository.AddSupplier(supplierView);
+        }
+
+        private bool CanSave
+        {
+            get { return supplierView.IsValid; }     
+        }
+
+        #endregion 
+
+
         #region Presentation Properties
 
         public string SupplierType
         {
-            get { return SupplierType; }
+            get { return supplierType; }
             set
             {
-                if (value == SupplierType || String.IsNullOrEmpty(value))
+                if (value == supplierType || String.IsNullOrEmpty(value))
                     return;
 
-                SupplierType = value;
-                
-                if (SupplierType == "Company")
+                supplierType = value;
+
+                if (supplierType == "Company")
                 {
                     supplierView.SupIsCompany = true;
                 }
-                else if (SupplierType == "Person")
+                else if (supplierType == "Person")
                 {
                     supplierView.SupIsCompany = false;
                 }
@@ -168,18 +192,46 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
 
         #region IDataErrors
 
-        public string this[string columnName]
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         string IDataErrorInfo.Error
         {
             get { return (supplierView as IDataErrorInfo).Error; }
         }
-        public string Error
+
+        string IDataErrorInfo.this[string propertyName]
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                string error = null;
+
+                if (propertyName == "SupplierType")
+                {
+                    // The IsCompany property of the Customer class 
+                    // is Boolean, so it has no concept of being in
+                    // an "unselected" state.  The CustomerViewModel
+                    // class handles this mapping and validation.
+                    error = this.ValidateSupplierType();
+                }
+                else
+                {
+                    error = (supplierView as IDataErrorInfo)[propertyName];
+                }
+
+                // Dirty the commands registered with CommandManager,
+                // such as our Save command, so that they are queried
+                // to see if they can execute now.
+                CommandManager.InvalidateRequerySuggested();
+
+                return error;
+            }
+        }
+
+        string ValidateSupplierType()
+        {
+            if (this.SupplierType == "Company" ||
+               this.SupplierType == "Person")
+                return null;
+
+            return "Supplier type must be selected";
         }
 
         #endregion 
