@@ -6,7 +6,7 @@ using Views.Stammdaten.Supplier;
 
 namespace Views.BusinessProcesses.Sales.Offer
 {
-    public class OfferFactory
+    public class SalesFactory
     {
         public static ISalesHeaderView createNew()
         {
