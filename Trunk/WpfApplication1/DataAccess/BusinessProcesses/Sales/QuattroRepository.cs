@@ -6,8 +6,10 @@ using Views.BusinessProcesses.Sales;
 using System.ServiceModel;
 using FrontEnd.Data.Channel;
 using Views;
+using Views.BusinessProcesses.Sales.Offer;
 using Views.Security.Connection;
 using Views.BusinessProcesses.Sales.Order;
+using Views.Stammdaten.Supplier;
 
 
 namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
@@ -20,7 +22,7 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
         
         public QuattroRepository()
         {
-            order = OrderFactory.createNew();
+            orderpublic = OrderFactory.createNew();
         }
 
         public IConnection<IQuattroService> Connection
@@ -29,22 +31,22 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             {
                 if (quattroServiceConnection == null)
                 {
-                    supplierServiceConnection =
+                    quattroServiceConnection =
                     ConnectionFactory<ISupplierService>.CreateConnection("SupplierService",
                                                                            "net.tcp://10.12.10.150:2526/Service/Stammdaten/Supplier");
                 }
-                if (supplierServiceConnection.ChannelFactory.Credentials != null)
+                if (quattroServiceConnection.ChannelFactory.Credentials != null)
                 {
-                    supplierServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
-                    supplierServiceConnection.ChannelFactory.Credentials.UserName.Password = Session.Password;
+                    quattroServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
+                    quattroServiceConnection.ChannelFactory.Credentials.UserName.Password = Session.Password;
                 }
-                if (supplierServiceConnection.ChannelFactory.State != CommunicationState.Opened)
-                    supplierServiceConnection.ChannelFactory.Open();
-                return supplierServiceConnection;
+                if (quattroServiceConnection.ChannelFactory.State != CommunicationState.Opened)
+                    quattroServiceConnection.ChannelFactory.Open();
+                return quattroServiceConnection;
             }
         }
 
-        public ISupplierService Service
+        public IOrderService Service
         {
             get { return quattroService ?? (quattroService = Connection.ChannelFactory.CreateChannel()); }
         }
@@ -76,5 +78,24 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
           return Service.SupplierByPrimaryKey(primaryKey);
         }
 
+        public IOfferView ByPrimaryKey()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<IOfferView> AllQuattros()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddQuattro(IOfferView view)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddPosition(ISalesItem item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
