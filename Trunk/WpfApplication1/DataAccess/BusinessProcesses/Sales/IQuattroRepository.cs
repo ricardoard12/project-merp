@@ -6,7 +6,7 @@ using Views.BusinessProcesses.Sales.Offer;
 
 namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 {
-    interface IQuattroRepository
+    public interface IQuattroRepository
     {
         IOfferView ByPrimaryKey();
 

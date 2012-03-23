@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Views.BusinessProcesses.Sales.Order
 {
-    public class IOrderView
+    public interface IOrderView
     {
     }
 }

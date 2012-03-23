@@ -18,11 +18,11 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
     {
         private IConnection<IQuattroService> quattroServiceConnection;
         private IQuattroService quattroService;
-        private IOrderView orderpublic; 
+        private IOrderView order; 
         
         public QuattroRepository()
         {
-            orderpublic = OrderFactory.createNew();
+            order = OrderFactory.createNew();
         }
 
         public IConnection<IQuattroService> Connection
@@ -32,8 +32,8 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
                 if (quattroServiceConnection == null)
                 {
                     quattroServiceConnection =
-                    ConnectionFactory<ISupplierService>.CreateConnection("SupplierService",
-                                                                           "net.tcp://10.12.10.150:2526/Service/Stammdaten/Supplier");
+                    ConnectionFactory<IQuattroService>.CreateConnection("QuattroService",
+                                                                           "net.tcp://10.12.10.150:2526/Service/BusinessProcesses/Sales");
                 }
                 if (quattroServiceConnection.ChannelFactory.Credentials != null)
                 {
@@ -46,56 +46,67 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             }
         }
 
-        public IOrderService Service
+        public IQuattroService Service
         {
             get { return quattroService ?? (quattroService = Connection.ChannelFactory.CreateChannel()); }
         }
 
 
-        public void AddSupplier(ISupplierView supplier)
+        public void AddOrder(IOrderView order)
         {
-            Service.AddSupplier(supplier);
-        }
-
-        public IList<ISupplierView> GetAllSuppliers()
-        {
-            PagedResult<ISupplierView> resultSet = Service.AllSupplier();
-             return resultSet.Rows.ToList();
-        }
-
-        public void DeleteSupplier(ISupplierView supplier)
-        {
-            Service.DeleteSupplier(supplier);
-        }
-
-        public void UpdateSupplier(ISupplierView supplier)
-        {
-            Service.UpdateSupplier(supplier);
-        }
-
-        public ISupplierView GetSupplierByPrimaryKey(int primaryKey)
-        {
-          return Service.SupplierByPrimaryKey(primaryKey);
-        }
-
-        public IOfferView ByPrimaryKey()
-        {
-            throw new NotImplementedException();
+            Service.AddQuattro(order);
         }
 
         public IList<IOfferView> AllQuattros()
         {
-            throw new NotImplementedException();
+            PagedResult<IOfferView> resultSet = Service.AllQuattros();
+            return resultSet.Rows.ToList();
         }
 
-        public void AddQuattro(IOfferView view)
+        public void AddQuattro(IOrderView view)
         {
-            throw new NotImplementedException();
+            Service.AddQuattro(view);
         }
 
         public void AddPosition(ISalesItem item)
         {
+            Service.AddPosition(item);
+        }
+
+        /*
+        public IList<IOrderView> GetAllOrders()
+        {
+            PagedResult<IOrderView> resultSet = Service.AllOrder();
+             return resultSet.Rows.ToList();
+        }
+        */
+        
+        /*
+        public void DeleteOrder(IOrderView order)
+        {
+            Service.DeleteOrder(order);
+        }
+        */
+
+        /*
+        public void UpdateQuattro(IOrderView order)
+        {
+            Service.UpdateQuattro(order);
+        }
+        */
+
+        /*
+        public IOrderView GetOrderByPrimaryKey(int primaryKey)
+        {
+          return Service.OrderByPrimaryKey(primaryKey);
+        }
+        */
+
+        /*
+        public IOrderview ByPrimaryKey()
+        {
             throw new NotImplementedException();
         }
+        */
     }
 }

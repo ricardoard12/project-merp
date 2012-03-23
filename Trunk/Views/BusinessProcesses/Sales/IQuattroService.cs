@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
+using Views.BusinessProcesses.Sales.Offer;
 using Views.BusinessProcesses.Sales.Order;
 
 namespace Views.BusinessProcesses.Sales
@@ -21,5 +22,6 @@ namespace Views.BusinessProcesses.Sales
 
         [OperationContract]
         IList<IOrderView> BySpecifiedType();
+
     }
 }
