@@ -96,9 +96,7 @@ namespace Views.Stammdaten.Supplier
         {
             if (IsStringMissing(Convert.ToString(SupIsCompany)))
                 return "Missing Supplier type";
-            else if (!IsStringMissing(Convert.ToString(this.SupIsCompany)))
-                return "Invalid Supplier type";
-
+        
             return null;
         }
 
@@ -106,9 +104,7 @@ namespace Views.Stammdaten.Supplier
         {
             if (IsStringMissing(Convert.ToString(this.SupUsrId)))
                 return "Missing Contact Name";
-            else if (!IsStringMissing(Convert.ToString(this.SupUsrId)))
-                return "Invalid Contact Name";
-
+         
             return null;
         }
 
@@ -116,8 +112,7 @@ namespace Views.Stammdaten.Supplier
         {
             if (IsStringMissing(Convert.ToString(this.SupNumber)))
                 return "Missing Supplier Number";
-            else if (!IsStringMissing(Convert.ToString(this.SupNumber)))
-                return "Invalid Supplier Number";
+       
 
             return null;
         }
@@ -126,8 +121,7 @@ namespace Views.Stammdaten.Supplier
         {
             if (IsStringMissing(this.SupContactname))
                 return "Missing Contact Name";
-            else if (!IsStringMissing(this.SupContactname))
-                return "Invalid Contact Name";
+
 
             return null;
         }
@@ -136,8 +130,7 @@ namespace Views.Stammdaten.Supplier
         {
             if (IsStringMissing(this.SupLastname))
                 return "Missing Last Name";
-            else if (!IsStringMissing(this.SupLastname))
-                return "Invalid Last Name";
+         
 
             return null;
         }
@@ -146,8 +139,7 @@ namespace Views.Stammdaten.Supplier
         {
             if (IsStringMissing(this.SupFirstname))
                 return "Missing First Name";
-            else if (!IsStringMissing(this.SupFirstname))
-                return "Invalid First Name";
+         
 
             return null;
         }

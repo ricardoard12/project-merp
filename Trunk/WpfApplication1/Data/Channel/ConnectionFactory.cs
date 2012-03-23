@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.ServiceModel.Security;
-using BL.Service;
-using BL.Service.Stammdaten.User;
 using Views;
 using Views.Security.Connection;
-using FrontEnd.ViewModel.Security;
 
 namespace FrontEnd.Data.Channel
 {
