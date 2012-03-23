@@ -6,17 +6,20 @@ using Views;
 using Views.Stammdaten.Product;
 
 namespace BL.Service {
-    public partial class RootService : IProductService {
-        
-        public void AddProduct(IProductView product) {
+    public partial class RootService : IProductService
+    {
+
+        public void AddProduct(IProductView product)
+        {
             ProductDataFactory.AddProduct(product);
         }
 
-        public PagedResult<IProductView> GetProducts(int Prdcat, int Anzahl, int Start) {
-            PagedResult<IProductView> resultSet  = new PagedResult<IProductView>();
+        public PagedResult<IProductView> GetProducts(int Prdcat, int Anzahl, int Start)
+        {
+            PagedResult<IProductView> resultSet = new PagedResult<IProductView>();
             resultSet.Rows = ProductDataFactory.GetProducts(Prdcat, Anzahl, Start);
             resultSet.Total = resultSet.Rows.Count;
-            
+
             return resultSet;
         }
 
@@ -28,5 +31,27 @@ namespace BL.Service {
 
             return resultSet;
         }
-    }               
-}
+
+        public PagedResult<IPrdcatView> AllProductCategorys()
+        {
+            var resultSet = new PagedResult<IPrdcatView>
+                                {
+                                    Rows = ProductDataFactory.AllProductsCategorys().ToList(),
+                                };
+            resultSet.Total = resultSet.Rows.Count;
+
+            return resultSet;
+        }
+
+        public void AddPrdcat(IPrdcatView productCat)
+        {
+            ProductDataFactory.AddPrdcat(productCat);
+        }
+
+        public IPrdcatView GetPrdcatByPrimaryKey(int prdcatId)
+        {
+            return ProductDataFactory.GetPrdcatByPrimaryKey(prdcatId);
+        }
+    }
+}               
+

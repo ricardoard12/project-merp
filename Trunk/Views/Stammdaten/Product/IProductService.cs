@@ -9,6 +9,7 @@ namespace Views.Stammdaten.Product
    
         [ServiceContract]
         [ServiceKnownType(typeof(ProductView))]
+        [ServiceKnownType(typeof(PrdcatView))]
         public interface IProductService
         {
             [OperationContract]
@@ -20,6 +21,15 @@ namespace Views.Stammdaten.Product
             [OperationContract]
             PagedResult<IProductView> AllProducts();
 
-        
-    }
+            [OperationContract]
+            PagedResult<IPrdcatView> AllProductCategorys();
+
+            [OperationContract]
+            void AddPrdcat(IPrdcatView productCat);
+
+            [OperationContract]
+            IPrdcatView GetPrdcatByPrimaryKey(int prdcatId);
+
+
+        }
 }

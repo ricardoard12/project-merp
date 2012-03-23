@@ -66,8 +66,10 @@
     <Compile Include="Session.cs" />
     <Compile Include="Stammdaten\Customer\CustomerFactory.cs" />
     <Compile Include="Stammdaten\Customer\ICustomerView.cs" />
+    <Compile Include="Stammdaten\Product\IPrdcatView.cs" />
     <Compile Include="Stammdaten\Product\IProductService.cs" />
     <Compile Include="Stammdaten\Product\IProductView.cs" />
+    <Compile Include="Stammdaten\Product\PrdcatView.cs" />
     <Compile Include="Stammdaten\Product\ProductFactory.cs" />
     <Compile Include="Stammdaten\Product\ProductView.cs" />
     <Compile Include="Stammdaten\Customer\CustomerView.cs" />

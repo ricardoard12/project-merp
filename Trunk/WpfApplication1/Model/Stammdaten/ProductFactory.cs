@@ -15,6 +15,8 @@ namespace FrontEnd.Model.Stammdaten {
             return new ProductView();
         }
 
+       
+
         public static ProductView CreateProduct(string name, string ean, double pricePurchase, double priceSale)
         {
             return new ProductView
