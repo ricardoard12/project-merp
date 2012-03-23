@@ -7,8 +7,6 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
 {
     public class OrderViewModel
     {
-
-
         public OrderViewModel()
         {
 
