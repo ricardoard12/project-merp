@@ -76,6 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\BusinessProcesses\Sales\Offer\IOfferRepository.cs" />
+    <Compile Include="DataAccess\BusinessProcesses\Sales\Offer\OfferRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\Repository.cs" />
     <Compile Include="DataAccess\Stammdaten\Customer\CustomerRepository.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
+    <Compile Include="ViewModel\BusinessProcesses\Sales\Offer\OfferViewModel.cs" />
     <Compile Include="ViewModel\NavCommands\TreeViewCommandCategory.cs" />
     <Compile Include="ViewModel\Security\ILoginViewModel.cs" />
     <Compile Include="ViewModel\Security\LoginViewModel.cs" />
@@ -212,6 +215,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -245,10 +249,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\BusinessProcesses\Purchase\" />
-    <Folder Include="DataAccess\BusinessProcesses\Sales\Offer\" />
     <Folder Include="Guis\BusinessProcesses\Purchase\" />
     <Folder Include="ViewModel\BusinessProcesses\Purchase\" />
-    <Folder Include="ViewModel\BusinessProcesses\Sales\Offer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
