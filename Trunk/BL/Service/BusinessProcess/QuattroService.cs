@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DAL.Selections.Stammdaten.Quattro;
 using Views.BusinessProcesses.Sales;
 using Views.BusinessProcesses.Sales.Offer;
 
@@ -7,19 +8,24 @@ namespace BL.Service
 {
     public partial class RootService : IQuattroService 
     {
-        public void AddQuattro(ISalesHeaderView view)
+        public void AddHeaderSales(ISalesHeaderView view)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.AddSalesHeader(view);
+        }
+
+        public void UpdateHeaderSales(ISalesHeaderView view)
+        {
+            QuattroDataFactory.UpdateSalesHeader(view);
         }
 
         public void AddSalesPosition(ISalesItem item)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.AddPosition(item);
         }
 
         public ISalesHeaderView QuattroByPrimaryKey(int primaryKey)
         {
-            throw new System.NotImplementedException();
+           return QuattroDataFactory.LoadBySalesHeader(primaryKey);
         }
 
         public IList<ISalesHeaderView> AllQuattros()

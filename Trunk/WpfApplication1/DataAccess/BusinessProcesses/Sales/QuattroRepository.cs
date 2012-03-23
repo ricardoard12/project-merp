@@ -49,7 +49,7 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 
         public void AddOrder(ISalesHeaderView salesHeaderView)
         {
-            Service.AddQuattro(salesHeaderView);
+            Service.AddHeaderSales(salesHeaderView);
         }
 
         public ISalesHeaderView ByPrimaryKey()
@@ -65,7 +65,7 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 
         public void AddQuattro(ISalesHeaderView salesHeaderView)
         {
-            Service.AddQuattro(salesHeaderView);
+            Service.AddHeaderSales(salesHeaderView);
         }
 
         public void AddPosition(ISalesItem item)

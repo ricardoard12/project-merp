@@ -60,7 +60,7 @@
           <Key>
             <PropertyRef Name="Cus#" />
           </Key>
-          <Property Name="Cus#" Type="int" Nullable="false" />
+          <Property Name="Cus#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CusNumber" Type="int" />
           <Property Name="CusFirstname" Type="varchar" MaxLength="75" />
           <Property Name="CusLastname" Type="varchar" MaxLength="75" />
@@ -72,7 +72,7 @@
           <Key>
             <PropertyRef Name="Prd#" />
           </Key>
-          <Property Name="Prd#" Type="int" Nullable="false" />
+          <Property Name="Prd#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PrdNumber" Type="int" />
           <Property Name="PrdName" Type="varchar" MaxLength="30" />
           <Property Name="PrdEAN" Type="varchar" MaxLength="13" />
@@ -85,7 +85,7 @@
           <Key>
             <PropertyRef Name="Prdcat#" />
           </Key>
-          <Property Name="Prdcat#" Type="int" Nullable="false" />
+          <Property Name="Prdcat#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PrdcatNumber" Type="int" />
           <Property Name="PrdcatName" Type="varchar" MaxLength="30" />
         </EntityType>
@@ -93,7 +93,7 @@
           <Key>
             <PropertyRef Name="Puh#" />
           </Key>
-          <Property Name="Puh#" Type="int" Nullable="false" />
+          <Property Name="Puh#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PuhNumber" Type="int" />
           <Property Name="PuhSup#" Type="int" />
           <Property Name="PuhCreatedate" Type="datetime" />
@@ -102,7 +102,7 @@
           <Key>
             <PropertyRef Name="Pui#" />
           </Key>
-          <Property Name="Pui#" Type="int" Nullable="false" />
+          <Property Name="Pui#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PuiNumber" Type="int" />
           <Property Name="PuiPuh#" Type="int" />
           <Property Name="PuiPrd#" Type="int" />
@@ -113,7 +113,7 @@
           <Key>
             <PropertyRef Name="Sah#" />
           </Key>
-          <Property Name="Sah#" Type="int" Nullable="false" />
+          <Property Name="Sah#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SahNumber" Type="int" />
           <Property Name="SahCus#" Type="int" />
           <Property Name="SahCreatedate" Type="datetime" />
@@ -122,7 +122,7 @@
           <Key>
             <PropertyRef Name="Sai#" />
           </Key>
-          <Property Name="Sai#" Type="int" Nullable="false" />
+          <Property Name="Sai#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SaiNumber" Type="int" />
           <Property Name="SaiSah#" Type="int" />
           <Property Name="SaiPrd#" Type="int" />
@@ -133,7 +133,7 @@
           <Key>
             <PropertyRef Name="Sup#" />
           </Key>
-          <Property Name="Sup#" Type="int" Nullable="false" />
+          <Property Name="Sup#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SupNumber" Type="int" />
           <Property Name="SupFirstname" Type="varchar" MaxLength="75" />
           <Property Name="SupLastname" Type="varchar" MaxLength="75" />
@@ -145,7 +145,7 @@
           <Key>
             <PropertyRef Name="Usr#" />
           </Key>
-          <Property Name="Usr#" Type="int" Nullable="false" />
+          <Property Name="Usr#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="UsrNumber" Type="int" Nullable="false" />
           <Property Name="UsrIdent" Type="varchar" Nullable="false" MaxLength="3" />
           <Property Name="UsrName" Type="varchar" Nullable="false" MaxLength="30" />

@@ -8,7 +8,7 @@ namespace Views.BusinessProcesses.Sales
     public interface IQuattroService
     {
         [OperationContract]
-        void AddQuattro(ISalesHeaderView view);
+        void AddHeaderSales(ISalesHeaderView view);
 
         [OperationContract]
         void AddSalesPosition(ISalesItem item);

@@ -12,8 +12,7 @@ namespace DAL.Selections.Stammdaten.Supplier
        public static void AddSupplier(ISupplierView supplierView)
        {
            var supplier = new tbl_Sup
-           {
-               Sup_ = supplierView.SupId,
+           { 
                SupLastname = supplierView.SupLastname,
                SupFirstname = supplierView.SupFirstname,
                SupUsr_ = supplierView.SupUsrId,
@@ -21,6 +20,8 @@ namespace DAL.Selections.Stammdaten.Supplier
                SupContactname = supplierView.SupContactname,
                SupIscompany = supplierView.SupIsCompany
            };
+
+           
            MerpDatabase().tbl_Sup.AddObject(supplier);
            MerpDatabase().SaveChanges();
        }
