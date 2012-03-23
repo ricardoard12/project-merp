@@ -57,9 +57,9 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             Service.AddQuattro(order);
         }
 
-        public IList<IOfferView> AllQuattros()
+        public IList<ISalesHeaderView> AllQuattros()
         {
-            PagedResult<IOfferView> resultSet = Service.AllQuattros();
+            PagedResult<ISalesHeaderView> resultSet = Service.AllQuattros();
             return resultSet.Rows.ToList();
         }
 

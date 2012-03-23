@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Views.BusinessProcesses.Sales.Offer
 {
-    public interface IOfferView
+    public interface ISalesHeaderView
     {
         int OfferId { get; set; }
         int OfferNumber { get; set; }

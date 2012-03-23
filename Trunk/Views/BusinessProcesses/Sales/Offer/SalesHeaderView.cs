@@ -6,14 +6,14 @@ using System.Text;
 namespace Views.BusinessProcesses.Sales.Offer
 {
     [Serializable]
-    class OfferView : IOfferView
+    class SalesHeaderView : ISalesHeaderView
     {
 
-        public OfferView()
+        public SalesHeaderView()
         {
         }
 
-        public OfferView(int offerId, int offerNumber, int offerCustomer, DateTime offerCreateDate)
+        public SalesHeaderView(int offerId, int offerNumber, int offerCustomer, DateTime offerCreateDate)
         {
             this.OfferId = offerId;
             this.OfferNumber = offerNumber;
