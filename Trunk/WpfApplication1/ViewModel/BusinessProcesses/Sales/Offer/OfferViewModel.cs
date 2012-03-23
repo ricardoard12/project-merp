@@ -12,27 +12,27 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
     public class OfferViewModel : WorkspaceViewModel
     {
         private IOfferRepository offerRepository;
-        private IOfferView offerView;
+        private ISalesHeaderView _salesHeaderView;
         private string[] typeOptions;
         private bool isSelected;
 
         public OfferViewModel(IOfferRepository offerRepository)
         {
             this.offerRepository = offerRepository;
-            this.offerView = OfferFactory.createNew();
+            this._salesHeaderView = SalesFactory.createNew();
         }
 
         #region Constructors
         
-        public OfferViewModel(IOfferView offerView, IOfferRepository offerRepository)
+        public OfferViewModel(ISalesHeaderView _salesHeaderView, IOfferRepository offerRepository)
         {
-            if (offerView == null)
-                throw new ArgumentNullException("offerView");
+            if (_salesHeaderView == null)
+                throw new ArgumentNullException("_salesHeaderView");
 
             if (offerRepository == null)
                 throw new ArgumentNullException("offerRepository");
 
-            this.offerView = offerView;
+            this._salesHeaderView = _salesHeaderView;
             this.offerRepository = offerRepository;
         }
 
@@ -42,26 +42,26 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 
         public int OfferNumber
         {
-            get { return offerView.OfferNumber; }
+            get { return _salesHeaderView.OfferNumber; }
             set
             {
-                if (value == offerView.OfferNumber)
+                if (value == _salesHeaderView.OfferNumber)
                     return;
 
-                offerView.OfferNumber = value;
+                _salesHeaderView.OfferNumber = value;
                 base.OnPropertyChanged("OfferNumber");
             }
         }
 
         public int OfferCustomer
         {
-            get { return offerView.OfferCustomer; }
+            get { return _salesHeaderView.OfferCustomer; }
             set
             {
-                if (value == offerView.OfferCustomer)
+                if (value == _salesHeaderView.OfferCustomer)
                     return;
 
-                offerView.OfferCustomer = value;
+                _salesHeaderView.OfferCustomer = value;
                 base.OnPropertyChanged("OfferCustomer");
             }
         }
