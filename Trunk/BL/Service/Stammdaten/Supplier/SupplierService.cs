@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BL.Service.Stammdaten.Supplier;
+﻿using System.Collections.Generic;
 using DAL.Selections.Stammdaten.Supplier;
 using Views;
 using Views.Stammdaten.Supplier;
-using ISupplierService = BL.Service.Stammdaten.Supplier.ISupplierService;
+
 
 namespace BL.Service
 {
