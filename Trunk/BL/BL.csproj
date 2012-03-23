@@ -82,6 +82,7 @@
     <Compile Include="MerpBLManager.cs" />
     <Compile Include="PasswordValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BusinessProcess\QuattroService.cs" />
     <Compile Include="Service\RootService.cs" />
     <Compile Include="Service\Stammdaten\Customer\CustomerService.cs" />
     <Compile Include="Service\Stammdaten\Customer\ICustomerService.cs" />

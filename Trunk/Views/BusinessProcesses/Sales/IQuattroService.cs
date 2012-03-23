@@ -8,22 +8,18 @@ using Views.BusinessProcesses.Sales.Order;
 namespace Views.BusinessProcesses.Sales
 {
     [ServiceContract]
-    [ServiceKnownType(typeof(OrderView))]
-    public class IQuattroService
+    public interface IQuattroService
     {
         [OperationContract]
-        void DeleteSupplier(IOrderView order);
+        void AddQuattro(IOrderView view);
 
         [OperationContract]
-        void AddSupplier(IOrderView order);
+        IOrderView QuattroByPrimaryKey(int primaryKey);
 
         [OperationContract]
-        PagedResult<IOrderView> AllOrder();
+        IList<IOrderView> AllQuattros();
 
         [OperationContract]
-        IOrderView OrderByPrimaryKey(int primaryKey);
-
-        [OperationContract]
-        void UpdateOrder(IOrderView order);
+        IList<IOrderView> BySpecifiedType();
     }
 }
