@@ -86,8 +86,8 @@
     <Compile Include="Data\Channel\ConnectionFactory.cs" />
     <Compile Include="DI\DIContainer.cs" />
     <Compile Include="Events\BooleanEventArg.cs" />
-    <Compile Include="Guis\BusinessProcesses\Sales\offer.xaml.cs">
-      <DependentUpon>offer.xaml</DependentUpon>
+    <Compile Include="Guis\BusinessProcesses\Sales\Offer\Offer.xaml.cs">
+      <DependentUpon>Offer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Guis\Security\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -137,7 +137,7 @@
     <Compile Include="Guis\Stammdaten\Customer\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Guis\BusinessProcesses\Sales\offer.xaml">
+    <Page Include="Guis\BusinessProcesses\Sales\Offer\Offer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
