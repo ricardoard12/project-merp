@@ -99,11 +99,13 @@ namespace Views.Stammdaten.Supplier
                 case "SupContactName":
                     error = this.ValidateSupContactName();
                     break;
+
                 case "SelectedUser":
                     break;
 
                 case "SupplierType":
                     break;
+
                 default:
                     Debug.Fail("Unexpected property being validated on Customer: " + propertyName);
                     break;
