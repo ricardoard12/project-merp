@@ -22,7 +22,9 @@ using WpfApplication1;
 using WpfApplication1.DI;
 using WpfApplication1.Events;
 using WpfApplication1.Guis.Security;
+using WpfApplication1.Properties;
 using WpfApplication1.ViewModel.Security;
+using WpfApplication1.ViewModel.Stammdaten.Supplier;
 using bbv.Common.EventBroker;
 using bbv.Common.EventBroker.Handlers;
 
@@ -170,7 +172,9 @@ namespace FrontEnd.ViewModel {
                 new CommandViewModel("Show All Customers" , new RelayCommand(param => CreateGuiByOnce(new AllCustomersViewModel(_customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
                 new CommandViewModel("Show all Products", new RelayCommand(param => CreateGuiAndSetActive(new AllProductsViewModel())), Resources.StringStammdaten, Resources.StringProduct),
                 new CommandViewModel("Show all Users", new RelayCommand(param => CreateGuiAndSetActive(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
-                new CommandViewModel("Create New Product", new RelayCommand(param => CreateGuiAndSetActive(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct )
+                new CommandViewModel("Create New Product", new RelayCommand(param => CreateGuiAndSetActive(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct),
+                new CommandViewModel("Create Supplier", new RelayCommand(param => CreateGuiAndSetActive(new SupplierViewModel())), Resources.StringStammdaten, Resources.StringSupplier  )
+                
             };
         }
 

@@ -16,24 +16,16 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
         private string[] typeOptions;
         private bool isSelected;
 
-        public SupplierViewModel(ISupplierRepository supplierRepository)
-        {
-            this.supplierRepository = supplierRepository;
-            this.supplierView = SupplierFactory.createNew();
-        }
 
         #region Constructors
-        public SupplierViewModel(ISupplierView supplierView, ISupplierRepository supplierRepository)
+
+        public SupplierViewModel()
         {
-            if (supplierView == null)
-                throw new ArgumentNullException("supplierView");
-
-            if (supplierRepository == null)
-                throw new ArgumentNullException("supplierRepository");
-
-            this.supplierView = supplierView;
-            this.supplierRepository = supplierRepository;
+            this.supplierRepository = new SupplierRepository();
+            this.supplierView = SupplierFactory.createNew();
+            
         }
+
         #endregion Constructors
 
 

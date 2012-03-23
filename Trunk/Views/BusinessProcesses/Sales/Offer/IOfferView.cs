@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Views.BusinessProcesses.Sales.Offer
 {
-    interface IOfferView
+    public interface IOfferView
     {
+        int OfferId { get; set; }
+        int OfferNumber { get; set; }
+        int OfferCustomer { get; set; }
+        DateTime OfferCreateDate { get; set; }
     }
 }

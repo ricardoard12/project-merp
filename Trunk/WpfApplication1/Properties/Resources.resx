@@ -129,4 +129,7 @@
   <data name="StringUsers" xml:space="preserve">
     <value>"Users"</value>
   </data>
+  <data name="StringSupplier" xml:space="preserve">
+    <value>"Supplier"</value>
+  </data>
 </root>
