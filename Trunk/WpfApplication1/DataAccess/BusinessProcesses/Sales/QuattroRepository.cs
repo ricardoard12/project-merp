@@ -62,9 +62,9 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             return resultSet.Rows.ToList();
         }
 
-        public void AddQuattro(IOrderView view)
+        public void AddQuattro(ISalesHeaderView salesHeaderView)
         {
-            Service.AddQuattro(view);
+            Service.AddQuattro(salesHeaderView);
         }
 
         public void AddPosition(ISalesItem item)
