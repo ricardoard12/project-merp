@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
+using Views.Stammdaten.Product;
 using Views.Stammdaten.User;
 
 namespace Views

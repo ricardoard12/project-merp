@@ -40,10 +40,21 @@ namespace DAL.Selections.Stammdaten.Product {
 
         public  static  IList<IProductView> AllProducts()
         {
-            return (from c in MerpDatabase().tbl_Prd
+            List<IProductView> resultSet = new List<IProductView>();
+
+            foreach (var productView in MerpDatabase().tbl_Prd)
+            {
+                resultSet.Add(ProductFactory.createProduct(productView.Prd_, productView.PrdNumber, productView.PrdName,
+                                                           productView.PrdEAN, productView.PrdPricePurchase,
+                                                           productView.PrdPriceSale, productView.PrdPrdcat_,
+                                                           productView.PrdSup_));
+            }
+
+            return resultSet;
+            /*return (from c in MerpDatabase().tbl_Prd
                     select
                         ProductFactory.createProduct(c.Prd_, c.PrdNumber, c.PrdName, c.PrdEAN, c.PrdPricePurchase,
-                                                  c.PrdPriceSale, c.PrdPrdcat_, c.PrdSup_)).ToList();
+                                                  c.PrdPriceSale, c.PrdPrdcat_, c.PrdSup_)).ToList();*/
         } 
     }
 }

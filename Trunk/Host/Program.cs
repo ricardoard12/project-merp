@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel.Description;
 using System.ServiceModel.Security;
-using System.Text;
 using System.ServiceModel;
 using BL;
 using BL.Service;
-using BL.Service.Stammdaten.Product;
 using BL.Service.Stammdaten.Supplier;
 using BL.Service.Stammdaten.User;
+using Views.Stammdaten.Product;
 
 
 namespace Host
