@@ -8,6 +8,7 @@ namespace Views.Stammdaten.Product
 {
    
         [ServiceContract]
+        [ServiceKnownType(typeof(ProductView))]
         public interface IProductService
         {
             [OperationContract]

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using BL.Service.Stammdaten.Product;
+﻿using System.ServiceModel;
 using FrontEnd.Data.Channel;
 using Views;
 using Views.Security.Connection;

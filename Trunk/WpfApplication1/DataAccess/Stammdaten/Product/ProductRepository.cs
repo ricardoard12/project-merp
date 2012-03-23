@@ -1,14 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
-using BL.Service.Stammdaten.Product;
-using BL.Service.Stammdaten.User;
 using FrontEnd.Data.Channel;
 using Views;
 using Views.Security.Connection;
 using Views.Stammdaten.Product;
-using BL.Service;
-using IProductService = Views.Stammdaten.Product.IProductService;
 
 namespace FrontEnd.DataAccess.Stammdaten.Product
 {
@@ -30,8 +26,9 @@ namespace FrontEnd.DataAccess.Stammdaten.Product
         }
 
         public List<IProductView> ProductsList {
-            get {
-                _productsView = Service.GetProducts(1, 1, 0);
+            get
+            {
+                _productsView = Service.AllProducts();
                 return _productsView.Rows.ToList();
             }
         }
@@ -41,7 +38,7 @@ namespace FrontEnd.DataAccess.Stammdaten.Product
                 if (_productServiceConnection == null) {
                     _productServiceConnection =
                     ConnectionFactory<IProductService>.CreateConnection("ProductService",
-                                                                           "net.tcp://10.12.10.150:2526/Service/Stammdaten/Product");
+                                                                           "net.tcp://10.12.10.150:2526/Service/ProductService");
                 }
                 if (_productServiceConnection.ChannelFactory.Credentials != null) {
                     _productServiceConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
