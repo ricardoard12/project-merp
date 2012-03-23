@@ -84,6 +84,10 @@ namespace Views.Stammdaten.Supplier
                     error = this.ValidateSupIsCompany();
                     break;
 
+                case "SupContactName":
+                    error = this.ValidateSupContactName();
+                    break;
+
                 default:
                     Debug.Fail("Unexpected property being validated on Customer: " + propertyName);
                     break;
@@ -140,6 +144,15 @@ namespace Views.Stammdaten.Supplier
             if (IsStringMissing(this.SupFirstname))
                 return "Missing First Name";
          
+
+            return null;
+        }
+
+        private string ValidateSupContactName()
+        {
+            if (IsStringMissing(this.SupContactname))
+                return "Missing Contact name";
+
 
             return null;
         }
