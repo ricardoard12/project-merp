@@ -54,11 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessProcesses\Sales\IQuattroService.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\IOfferService.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\IOfferView.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesItem.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\OfferFactory.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\OfferView.cs" />
+    <Compile Include="BusinessProcesses\Sales\Order\IOrderView.cs" />
+    <Compile Include="BusinessProcesses\Sales\Order\OrderFactory.cs" />
+    <Compile Include="BusinessProcesses\Sales\Order\OrderView.cs" />
     <Compile Include="PagedResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Connection\Connection.cs" />
