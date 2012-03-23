@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="WpfApplication1.Guis.Stammdaten.Supplier.SuppliersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="400" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Margin="4">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="6" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />            
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type ValidationError}">
+                <TextBlock 
+          FontStyle="Italic"
+          Foreground="Red"
+          HorizontalAlignment="Right"
+          Margin="0,1"
+          Text="{Binding Path=ErrorContent}" 
+          />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <!-- SUPPLIER TYPE -->
+        <Label 
+      Grid.Row="0" Grid.Column="0" 
+      Content="Supplier _type:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=supplierTypeCmb}" 
+      />
+       
+        <ComboBox 
+      x:Name="supplierTypeCmb"
+      Grid.Row="0" Grid.Column="2" 
+      ItemsSource="{Binding Path=SupplierTypeOptions, Mode=OneTime}"
+      SelectedItem="{Binding Path=SupplierType, ValidatesOnDataErrors=True}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="1" Grid.Column="2"
+      Content="{Binding ElementName=supplierTypeCmb, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- COMPANY NAME-->
+        <Label 
+      Grid.Row="2" Grid.Column="0" 
+      Content="Company _name:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=companyNameTxt}"
+      />
+        <TextBox 
+      x:Name="companyNameTxt"
+      Grid.Row="2" Grid.Column="2" 
+      Text="{Binding Path=CompanyName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="3" Grid.Column="2"
+      Content="{Binding ElementName=companyNameTxt, Path=(Validation.Errors).CurrentItem}"
+      />        
+        
+        <!-- FIRST NAME-->
+        <Label 
+      Grid.Row="4" Grid.Column="0" 
+      Content="First _name:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=firstNameTxt}"
+      />
+        <TextBox 
+      x:Name="firstNameTxt"
+      Grid.Row="4" Grid.Column="2" 
+      Text="{Binding Path=FirstName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="5" Grid.Column="2"
+      Content="{Binding ElementName=firstNameTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- LAST NAME-->
+        <Label 
+      Grid.Row="6" Grid.Column="0" 
+      Content="_Last name:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=lastNameTxt}" 
+      />
+        <TextBox 
+      x:Name="lastNameTxt"
+      Grid.Row="6" Grid.Column="2" 
+      Text="{Binding Path=LastName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="7" Grid.Column="2"
+      Content="{Binding ElementName=lastNameTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- ADDRESS-->
+        <Label 
+      Grid.Row="8" Grid.Column="0" 
+      Content="_Address:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=addressTxt}" 
+      />
+        <TextBox 
+      x:Name="addressTxt"
+      Grid.Row="8" Grid.Column="2" 
+      Text="{Binding Path=addressName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="9" Grid.Column="2"
+      Content="{Binding ElementName=addressTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- ZIP CODE / LOCALE -->
+        <Label 
+      Grid.Row="10" Grid.Column="0" 
+      Content="_ZIP Code / Locale:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=zipcodeTxt}" 
+      />
+        <TextBox 
+      x:Name="zipcodeTxt"
+      Grid.Row="10" Grid.Column="2" 
+      Text="{Binding Path=zipcodeName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}" Margin="0,0,194,0" />
+        <ContentPresenter 
+      Grid.Row="11" Grid.Column="2"
+      Content="{Binding ElementName=zipcodeTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+       
+        <TextBox 
+      x:Name="localeTxt"
+      Grid.Row="10" Grid.Column="2" 
+      Text="{Binding Path=localeName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}" Margin="109,0,0,0" />
+        <ContentPresenter 
+      Grid.Row="11" Grid.Column="2"
+      Content="{Binding ElementName=localeTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- E-MAIL-->
+        <Label 
+      Grid.Row="12" Grid.Column="0" 
+      Content="E-_mail:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=emailTxt}" 
+      />
+        <TextBox 
+      x:Name="emailTxt"
+      Grid.Row="12" Grid.Column="2" 
+      Text="{Binding Path=Email, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="13" Grid.Column="2"
+      Content="{Binding ElementName=emailTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
+        <!-- PHONE NO.-->
+        <Label 
+      Grid.Row="14" Grid.Column="0" 
+      Content="Phone No.:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=phoneTxt}" 
+      />
+        <TextBox 
+      x:Name="phoneTxt"
+      Grid.Row="14" Grid.Column="2" 
+      Text="{Binding Path=Phone, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="15" Grid.Column="2"
+      Content="{Binding ElementName=phoneTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+        
+        <!-- SAVE BUTTON -->
+        <Button 
+      Grid.Row="16" Grid.Column="2"
+      Command="{Binding Path=SaveCommand}"
+      Content="_Save"
+      HorizontalAlignment="Right"
+      Margin="4,2" 
+      MinWidth="60"
+      />
+
+    </Grid>
+</UserControl>
