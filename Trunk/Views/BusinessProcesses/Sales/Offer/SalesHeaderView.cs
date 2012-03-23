@@ -13,7 +13,7 @@ namespace Views.BusinessProcesses.Sales.Offer
         {
         }
 
-        public SalesHeaderView(int offerId, int offerNumber, int offerCustomer, DateTime offerCreateDate)
+        public SalesHeaderView(int offerId, int? offerNumber, int? offerCustomer, DateTime? offerCreateDate)
         {
             this.OfferId = offerId;
             this.OfferNumber = offerNumber;
@@ -23,9 +23,9 @@ namespace Views.BusinessProcesses.Sales.Offer
 
 
         public int OfferId { get; set; }
-        public int OfferNumber { get; set; }
-        public int OfferCustomer { get; set; }
-        public DateTime OfferCreateDate { get; set; }
+        public int? OfferNumber { get; set; }
+        public int? OfferCustomer { get; set; }
+        public DateTime? OfferCreateDate { get; set; }
     }
 
 

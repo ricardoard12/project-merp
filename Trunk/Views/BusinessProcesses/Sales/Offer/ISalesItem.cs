@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Views.BusinessProcesses.Sales.Offer
 {
-   public  interface ISalesItem
-    {
-
-    }
+   public  interface ISalesItem : ISerializable 
+   {
+       int SaiId { get; set; }
+       int SaiNumber { get; set; }
+       int SaiSahId { get; set; }
+       int SaiPrdId { get; set; }
+       float Saivat { get; set; }
+       float SaiDiscount { get; set; }
+   }
 }

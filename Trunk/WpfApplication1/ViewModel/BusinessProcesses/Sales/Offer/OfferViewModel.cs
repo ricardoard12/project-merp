@@ -41,7 +41,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 
         #region Offer Properties
 
-        public int OfferNumber
+        public int? OfferNumber
         {
             get { return _salesHeaderView.OfferNumber; }
             set
@@ -54,7 +54,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
             }
         }
 
-        public int OfferCustomer
+        public int? OfferCustomer
         {
             get { return _salesHeaderView.OfferCustomer; }
             set
