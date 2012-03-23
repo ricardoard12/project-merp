@@ -9,37 +9,37 @@ namespace BL.Service
 {
     public partial class RootService : IQuattroService 
     {
-        public void AddQuattro(IOrderView view)
-        {
-            QuattroDataFactory.
-        }
-
-        public IOrderView QuattroByPrimaryKey(int primaryKey)
-        {
-            
-        }
-
-        public IList<IOrderView> AllQuattros()
+        public void AddQuattro(ISalesHeaderView view)
         {
             throw new System.NotImplementedException();
         }
 
-        public IList<IOrderView> BySpecifiedType(int type)
+        public void AddSalesPosition(ISalesItem item)
         {
             throw new System.NotImplementedException();
         }
 
-        public void DeleteQuattro(IOrderView view)
+        public ISalesHeaderView QuattroByPrimaryKey(int primaryKey)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IList<ISalesHeaderView> AllQuattros()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IList<ISalesHeaderView> BySpecifiedType(int type)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteQuattro(ISalesHeaderView view)
         {
             throw new System.NotImplementedException();
         }
 
         public void DeletePosition(ISalesItem item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IList<IOrderView> BySpecifiedType()
         {
             throw new System.NotImplementedException();
         }

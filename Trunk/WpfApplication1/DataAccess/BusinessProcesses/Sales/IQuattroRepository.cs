@@ -9,11 +9,11 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 {
     public interface IQuattroRepository
     {
-        IOrderView ByPrimaryKey();
+        ISalesHeaderView ByPrimaryKey();
 
-        IList<IOrderView> AllQuattros();
+        IList<ISalesHeaderView> AllQuattros();
 
-        void AddQuattro(IOrderView view);
+        void AddQuattro(ISalesHeaderView view);
 
         void AddPosition(ISalesItem item);
         

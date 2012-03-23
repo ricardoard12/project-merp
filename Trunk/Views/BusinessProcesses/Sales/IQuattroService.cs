@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using Views.BusinessProcesses.Sales.Offer;
-using Views.BusinessProcesses.Sales.Order;
 
 namespace Views.BusinessProcesses.Sales
 {
