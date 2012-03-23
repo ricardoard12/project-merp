@@ -18,11 +18,11 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
     {
         private IConnection<IQuattroService> quattroServiceConnection;
         private IQuattroService quattroService;
-        private IOrderView order; 
+        private ISalesHeaderView salesHeaderView; 
         
         public QuattroRepository()
         {
-            order = OrderFactory.createNew();
+            salesHeaderView = SalesFactory.createNew();
         }
 
         public IConnection<IQuattroService> Connection
@@ -51,10 +51,9 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             get { return quattroService ?? (quattroService = Connection.ChannelFactory.CreateChannel()); }
         }
 
-
-        public void AddOrder(IOrderView order)
+        public void AddOrder(ISalesHeaderView salesHeaderView)
         {
-            Service.AddQuattro(order);
+            Service.AddQuattro(salesHeaderView);
         }
 
         public IList<ISalesHeaderView> AllQuattros()
