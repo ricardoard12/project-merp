@@ -11,7 +11,6 @@ namespace DAL.Selections.Stammdaten.Quattro {
             MerpDatabase().tbl_Puh.AddObject(header);
         }
 
-        public static 
 
     }
 }

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Views.BusinessProcesses.Sales;
 using System.ServiceModel;
 using FrontEnd.Data.Channel;
 using Views;
 using Views.BusinessProcesses.Sales.Offer;
 using Views.Security.Connection;
-using Views.BusinessProcesses.Sales.Order;
-using Views.Stammdaten.Supplier;
 
 
 namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
@@ -56,10 +52,15 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             Service.AddQuattro(salesHeaderView);
         }
 
+        public ISalesHeaderView ByPrimaryKey()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IList<ISalesHeaderView> AllQuattros()
         {
-            PagedResult<ISalesHeaderView> resultSet = Service.AllQuattros();
-            return resultSet.Rows.ToList();
+            IList<ISalesHeaderView> resultSet = Service.AllQuattros();
+            return resultSet.ToList();
         }
 
         public void AddQuattro(ISalesHeaderView salesHeaderView)
