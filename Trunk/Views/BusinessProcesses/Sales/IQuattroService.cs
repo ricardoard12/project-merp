@@ -15,13 +15,24 @@ namespace Views.BusinessProcesses.Sales
         void AddQuattro(IOrderView view);
 
         [OperationContract]
+        void AddSalesPosition(ISalesItem item);
+        
+        [OperationContract]
         IOrderView QuattroByPrimaryKey(int primaryKey);
 
         [OperationContract]
         IList<IOrderView> AllQuattros();
 
         [OperationContract]
-        IList<IOrderView> BySpecifiedType();
+        IList<IOrderView> BySpecifiedType(int type);
+
+        [OperationContract]
+        void DeleteQuattro(IOrderView view);
+
+        [OperationContract]
+        void DeletePosition(ISalesItem item);
+
+
 
     }
 }
