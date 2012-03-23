@@ -35,21 +35,11 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
             get { return _usrService ?? (_usrService = Connection.ChannelFactory.CreateChannel()); }
         }
 
-        // Funktioniert noch nicht. Bin gerade am Versuch Async umzusetzen. 
-        public List<UserView> GetAllUsers {
+        public List<IUserView> GetAllUsers {
             get { return Service.AllUsers().Rows; }
+
         }
-            /*    UserFunction = () => _userList = _usrServiceConnection.AllUsers().Rows;
-
-            AsyncCallback getUserEndedAsyncEnd = (result) => {
-                                                     if (result != null && !result.IsCompleted)
-                                                         throw new Exception("getUserEndedAsyncEnd" + result.ToString());
-                                                     
-                                                 };
-
-           UserFunction.BeginInvoke(getUserEndedAsyncEnd, null);
-            
-            return _userList;*/
+          
 
         
 

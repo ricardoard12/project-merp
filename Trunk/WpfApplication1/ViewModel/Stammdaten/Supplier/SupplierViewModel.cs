@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using FrontEnd;
+using FrontEnd.DataAccess.Stammdaten.User;
 using FrontEnd.ViewModel;
 using Views.Stammdaten.Supplier;
+using Views.Stammdaten.User;
 using WpfApplication1.DataAccess.Stammdaten.Supplier;
 
 namespace WpfApplication1.ViewModel.Stammdaten.Supplier
@@ -14,12 +17,14 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
     public class SupplierViewModel : WorkspaceViewModel, IDataErrorInfo 
     {
         private ISupplierRepository supplierRepository;
+        private UserRepository userRepository;
         private ISupplierView supplierView;
         private ICommand saveCommand;
         private string supplierType;
         private string[] typeOptions;
         private bool isSelected;
-
+        private ObservableCollection<IUserView> allUsers;
+        private IUserView selectedUser;
 
         #region Constructors
 
@@ -27,8 +32,9 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
         {
             this.supplierRepository = new SupplierRepository();
             this.supplierView = SupplierFactory.createNew();
-       
-            
+            this.userRepository = new UserRepository();
+            selectedUser = UserFactory.CreateNewUser();
+
         }
 
         #endregion Constructors
@@ -157,6 +163,23 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
             }
         }
 
+
+        public IUserView SelectedUser
+        {
+            get { return selectedUser; }
+            set
+            {
+                if (value == selectedUser || value == null)
+                {
+                    return;
+                }
+                selectedUser = value;
+                supplierView.SupUsrId = selectedUser.UsrId;
+
+                base.OnPropertyChanged("SelectedUser");
+            }
+        }
+
         public string[] SupplierTypeOptions
         {
             get
@@ -188,6 +211,12 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
                 base.OnPropertyChanged("IsSelected");
             }
         }
+
+        public ObservableCollection<IUserView> AllUsers
+        {
+            get { return this.allUsers ?? (allUsers = new ObservableCollection<IUserView>(userRepository.GetAllUsers)); }
+        } 
+
         #endregion Presentation Properties
 
         #region IDataErrors
@@ -224,6 +253,8 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
                 return error;
             }
         }
+
+       
 
         string ValidateSupplierType()
         {

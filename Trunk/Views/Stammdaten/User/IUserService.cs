@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
 using Views.Security.ErrorException;
 
 namespace Views.Stammdaten.User
 {
     
-         [ServiceContract]
+    [ServiceContract]
+    [ServiceKnownType(typeof(UserView))]
     public interface IUserService 
     {
         [OperationContract]
         void AddUser(IUserView usr);
 
         [OperationContract]
-        PagedResult<UserView> AllUsers();
+        PagedResult<IUserView> AllUsers();
 
         [OperationContract]
-        PagedResult<IUserView> UsersByIdent();
+        IUserView UsersByIdent(string ident);
 
         [OperationContract]
         [FaultContract(typeof(LoginError))]

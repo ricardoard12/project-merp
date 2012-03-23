@@ -27,7 +27,7 @@ namespace WpfApplication1.DataAccess.Stammdaten.Supplier
                 {
                     supplierServiceConnection =
                     ConnectionFactory<ISupplierService>.CreateConnection("SupplierService",
-                                                                           "net.tcp://10.12.10.150:2526/Service/Stammdaten/Supplier");
+                                                                           "net.tcp://10.12.10.150:2526/Service/SupplierService");
                 }
                 if (supplierServiceConnection.ChannelFactory.Credentials != null)
                 {

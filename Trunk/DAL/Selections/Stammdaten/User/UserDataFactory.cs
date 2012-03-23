@@ -56,8 +56,8 @@ namespace DAL.Selections.Stammdaten.User
             tbl_Usr usre = query.FirstOrDefault();
 
             if (usre != null) {
-                IUserView Userli2 = UserFactory.CreateUser(usre.Usr_, usre.UsrName, usre.UsrIdent, usre.UsrIsEmployer,
-                                                           usre.UsrPassword);
+                IUserView Userli2 = UserFactory.CreateUser(usre.Usr_,usre.UsrNumber, usre.UsrName, usre.UsrIdent, usre.UsrIsEmployer,
+                                                           usre.UsrPassword, usre.UsrLogedin);
                 return Userli2;
             }
             return null;
