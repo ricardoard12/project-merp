@@ -6,7 +6,7 @@
             xmlns:vw="clr-namespace:FrontEnd.Guis.Stammdaten.Customer"
   HorizontalAlignment="Center"
   VerticalAlignment="Center"  
-  Width="619" mc:Ignorable="d" d:DesignHeight="504" Height="504">
+  Width="609" mc:Ignorable="d" d:DesignHeight="504" Height="463">
     <Grid Margin="4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -22,9 +22,11 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="174" />
-            <RowDefinition Height="34" />
-            <RowDefinition Height="128*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.Resources>
@@ -39,134 +41,129 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <!-- CUSTOMER TYPE -->
+        <!-- CUSTOMER-->
         <Label 
-      Grid.Row="0" Grid.Column="0" 
-      Content="Customer:" 
-      HorizontalAlignment="Right"
-      Target="{Binding ElementName=customerTxt}" 
-      />
+          Grid.Row="0" Grid.Column="0" 
+          Content="Customer:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=customerTxt}"
+        />
         <TextBox 
-      x:Name="customerTxt"
-      Grid.Row="0" Grid.Column="2" 
-      Text="{Binding Path=customerTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
-      Validation.ErrorTemplate="{x:Null}"
-      />
+          x:Name="customerTxt"
+          Grid.Row="0" Grid.Column="2" 
+          Text="{Binding Path=customerTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Validation.ErrorTemplate="{x:Null}"
+        />
         <ContentPresenter 
-      Grid.Row="1" Grid.Column="2"
-      Content="{Binding ElementName=customerTxt, Path=(Validation.Errors).CurrentItem}"
-      />
+          Grid.Row="1" Grid.Column="2"
+          Content="{Binding ElementName=customerTxt, Path=(Validation.Errors).CurrentItem}"
+        />
 
-        <!-- FIRST NAME-->
+        <!-- OrderNumber-->
         <Label 
-      Grid.Row="2" Grid.Column="0" 
-      Content="Ordernumber:" 
-      HorizontalAlignment="Right"
-      Target="{Binding ElementName=orderNumberTxt}"
-      />
+          Grid.Row="2" Grid.Column="0" 
+          Content="Ordernumber:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=orderNumberTxt}"
+         />
         <TextBox 
-      x:Name="orderNumberTxt"
-      Grid.Row="2" Grid.Column="2" 
-      Text="{Binding Path=OrderNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
-      Validation.ErrorTemplate="{x:Null}"
-      />
+          x:Name="orderNumberTxt"
+          Grid.Row="2" Grid.Column="2" 
+          Text="{Binding Path=OrderNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Validation.ErrorTemplate="{x:Null}"
+         />
         <ContentPresenter 
-      Grid.Row="3" Grid.Column="2"
-      Content="{Binding ElementName=orderNumberTxt, Path=(Validation.Errors).CurrentItem}"
-      />
+          Grid.Row="3" Grid.Column="2"
+          Content="{Binding ElementName=orderNumberTxt, Path=(Validation.Errors).CurrentItem}"
+        />
 
-        <!-- LAST NAME-->
+        <!-- Creation Date-->
         <Label 
-      Grid.Row="4" Grid.Column="0" 
-      Content="Creation date:" 
-      HorizontalAlignment="Right"
-      Target="{Binding ElementName=creaDate}" 
-      />
+          Grid.Row="4" Grid.Column="0" 
+          Content="Creation date:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=creaDate}" 
+         />
+         <DatePicker 
+             Grid.Column="2"
+             Grid.Row="4"
+             HorizontalAlignment="Left"
+             Name="creaDate"
+             VerticalAlignment="Top" Height="23" Width="174" />
+         <ContentPresenter
+              Grid.Row="5" Grid.Column="2"
+              Content="{Binding ElementName=creaDate, Path=(Validation.Errors).CurrentItem}"
+         />
 
-      <DatePicker 
-      Grid.Column="2"
-      Grid.Row="4"
-      HorizontalAlignment="Left"
-      Name="creaDate"
-      VerticalAlignment="Top" Height="23" Width="174" />
-
-        <ContentPresenter 
-      Grid.Row="5" Grid.Column="2"
-      Content="{Binding ElementName=creaDate, Path=(Validation.Errors).CurrentItem}"
-      />
-
-        <!-- E-MAIL-->
-        <DataGrid 
-            AutoGenerateColumns="False" 
-            Grid.Row="7" Height="174" 
-            HorizontalAlignment="Left" Name="positionsGrid" 
-            VerticalAlignment="Top" 
-            Width="609" Grid.ColumnSpan="3" />
-        <Label Content="Product:" 
-               Grid.Row="9" 
-               Height="25" 
-               HorizontalAlignment="Right" 
-               Margin="0,0,0,103" 
-               Name="productLbl" 
-               VerticalAlignment="Bottom" 
-               Width="51" />
-        <ComboBox 
-            Grid.Column="2" 
-            Grid.Row="9" 
-            HorizontalAlignment="Left" 
-            Margin="1,0,0,103" 
-            Name="productCmb"
-            VerticalAlignment="Bottom" Width="225" Height="21" />
-        <Label Content="Amount:"
-               Grid.Row="9" Height="28"
+        <!-- Grid-->
+        <DataGrid
+            AutoGenerateColumns="True"
+            Grid.Row="6" 
+            Grid.Column="2"
+            Height="175" Name="orderPositionsGrid" 
+            VerticalAlignment="Top" />
+        <!--Add Positions-->
+        <Label Content="Add Positions:" 
+               Grid.Row="7"
+               FontSize="14"
                HorizontalAlignment="Left"
-               Margin="28,33,0,0"
+               Name="addPosLbl"
+               VerticalAlignment="Top"
+               Width="100" />
+        <!-- Product-->
+        <Label Content="Product:"
+               Grid.Row="8"
+               HorizontalAlignment="Right"
+               Name="productLbl" 
+               VerticalAlignment="Top" 
+               Target="{Binding ElementName=productCmb}"
+               />
+        <ComboBox 
+            x:Name="productCmb"
+            Grid.Column="2" 
+            Grid.Row="8" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding Path=Product, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="23" Width="250" />
+        <!-- Amount-->
+        <Label Content="Amount:"
+               Grid.Row="9"
+               HorizontalAlignment="Right"
                Name="amountLbl"
                VerticalAlignment="Top"
-               Width="51" />
-        <TextBox 
+               Target="{Binding ElementName=amountTxt}"/>
+        <TextBox
+            x:Name="amountTxt"
             Grid.Row="9"
-            HorizontalAlignment="Left" Name="amountTxt" 
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Grid.Column="2" Width="62" 
-            Text="{Binding Path=Amount, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="1,35,0,0" />
+            Grid.Column="2"
+            Text="{Binding Path=Amount, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="23" Width="50" />
+        <!--Price-->
+        <Label Content="Price:"
+               Grid.Row="10"
+               HorizontalAlignment="Right"
+               Name="lblPrice"
+               VerticalAlignment="Top" 
+               Target="{Binding ElementName=priceTxt}"/>
+        <TextBox 
+            x:Name="priceTxt"
+            Grid.Column="2"
+            Grid.Row="10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" Height="23" Width="90" />
+        <!--Buttons-->
         <Button 
-          Grid.Row="9" Grid.Column="2"
+          Grid.Row="11" Grid.Column="2"
           Command="{Binding Path=SaveCommand}"
           Content="_Add"
-          HorizontalAlignment="Right"
-          Margin="0,0,448,1" 
-          MinWidth="60" Height="30" VerticalAlignment="Bottom" Width="77" />
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top"/>
         <Button 
-          Grid.Row="9" Grid.Column="2"
+          Grid.Row="11" Grid.Column="2"
           Command="{Binding Path=SaveCommand}"
           Content="_Create Order"
           HorizontalAlignment="Right"
-          Margin="0,0,1,0" 
-          MinWidth="60" Height="31" VerticalAlignment="Bottom" Width="80" />
-        <Label Content="Price:"
-               Grid.Row="9"
-               Height="28"
-               HorizontalAlignment="Left"
-               Margin="43,57,0,0"
-               Name="lblPrice"
-               VerticalAlignment="Top"
-               Width="36" />
-        <TextBox 
-            Grid.Column="2"
-            Grid.Row="9"
-            Height="23"
-            HorizontalAlignment="Left"
-            Margin="1,59,0,0"
-            Name="priceTxt"
-            VerticalAlignment="Top"
-            Width="101" />
-        <Label Content="Add Positions:" 
-               Grid.Row="8" Height="28"
-               HorizontalAlignment="Left"
-               Margin="0,6,0,0" 
-               Name="addPosLbl"
-               VerticalAlignment="Top"
-               Width="79" />
+          VerticalAlignment="Top" />
     </Grid>
 </UserControl>
