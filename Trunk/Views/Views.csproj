@@ -55,10 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessProcesses\Sales\IQuattroService.cs" />
-    <Compile Include="BusinessProcesses\Sales\Offer\IOfferService.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesHeaderView.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesItem.cs" />
-    <Compile Include="BusinessProcesses\Sales\Offer\OfferFactory.cs" />
+    <Compile Include="BusinessProcesses\Sales\Offer\SalesFactory.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\SalesHeaderView.cs" />
     <Compile Include="BusinessProcesses\Sales\Order\IOrderView.cs" />
     <Compile Include="BusinessProcesses\Sales\Order\OrderFactory.cs" />
