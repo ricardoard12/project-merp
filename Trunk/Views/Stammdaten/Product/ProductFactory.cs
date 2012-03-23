@@ -16,6 +16,17 @@ namespace Views.Stammdaten.Product {
             return  new ProductView(id, ProductNumber, ProductName, Ean, PricePurchase, PriceSsale,produktCategory, ProductSup);
         }
 
+        public static  IPrdcatView createPrdcat (int id , int? ProductNumber, string ProductName)
+        {
+            return new PrdcatView(id, ProductNumber, ProductName);
+        }
+
+        public static IPrdcatView createNewPrdcat()
+        {
+            return new PrdcatView();
+        }
+
+       
 
     }
 }
