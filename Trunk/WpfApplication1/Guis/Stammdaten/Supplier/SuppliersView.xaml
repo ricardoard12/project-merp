@@ -151,7 +151,7 @@
             HorizontalAlignment="Left" 
             Name="userIdCmb" 
             VerticalAlignment="Top" 
-            Width="300" 
+            Width="280" 
             Text="{Binding Path=UserId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
             Validation.ErrorTemplate="{x:Null}"
             />
