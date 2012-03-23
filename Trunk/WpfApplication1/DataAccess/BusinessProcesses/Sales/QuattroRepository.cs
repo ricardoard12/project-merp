@@ -70,7 +70,7 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 
         public void AddPosition(ISalesItem item)
         {
-            Service.AddPosition(item);
+            Service.AddSalesPosition(item);
         }
 
         /*

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Views.BusinessProcesses.Sales.Offer;
+using Views.BusinessProcesses.Sales.Order;
 
 namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 {
     public interface IQuattroRepository
     {
-        IOfferView ByPrimaryKey();
+        IOrderView ByPrimaryKey();
 
-        IList<IOfferView> AllQuattros();
+        IList<IOrderView> AllQuattros();
 
-        void AddQuattro(IOfferView view);
+        void AddQuattro(IOrderView view);
 
         void AddPosition(ISalesItem item);
         
