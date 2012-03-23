@@ -1,9 +1,10 @@
 using System;
+using System.Runtime.Serialization;
 
 
 namespace Views.Stammdaten.User
 {
-    public interface IUserView
+    public interface IUserView : ISerializable 
     { 
         
           int UsrId { get; set; }

@@ -27,24 +27,36 @@ namespace Views.Stammdaten.Supplier
 
         public SupplierView(int supId, int? supNumber, string supFirstname, string supLastname, string supContactname, int? supUsrId, bool? supIsCompany)
         {
-            this.SupId = supId;
-            this.SupNumber = supNumber;
-            this.SupFirstname = supFirstname;
-            this.SupLastname = supLastname;
-            this.SupContactname = supContactname;
-            this.SupUsrId = supUsrId;
-            this.SupIsCompany = supIsCompany;
+            SupId = supId;
+            SupNumber = supNumber;
+            SupFirstname = supFirstname;
+            SupLastname = supLastname;
+            SupContactname = supContactname;
+            SupUsrId = supUsrId;
+            SupIsCompany = supIsCompany;
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("SupId", SupId);
+            info.AddValue("SupNumber", SupNumber);
+            info.AddValue("SupFirstname", SupFirstname);
+            info.AddValue("SupLastname", SupLastname);
+            info.AddValue("Supcontactname", SupContactname);
+            info.AddValue("SupUserId", SupUsrId);
+            info.AddValue("SupIsCompany", SupIsCompany);
+
         }
 
         protected SupplierView(SerializationInfo info, StreamingContext context)
         {
-            this.SupId = (int)info.GetValue("SupId", typeof(int));
-            this.SupNumber = (int)info.GetValue("SupId", typeof(int));
-            this.SupFirstname = (string)info.GetValue("SupId", typeof(string));
-            this.SupLastname = (string)info.GetValue("SupId", typeof(string));
-            this.SupContactname = (string)info.GetValue("SupId", typeof(string));
-            this.SupUsrId = (int)info.GetValue("SupId", typeof(int));
-            this.SupIsCompany = (bool)info.GetValue("SupId", typeof(bool));
+            SupId = (int)info.GetValue("SupId", typeof(int));
+            SupNumber = (int)info.GetValue("SupNumber", typeof(int));
+            SupFirstname = (string)info.GetValue("SupFirstname", typeof(string));
+            SupLastname = (string)info.GetValue("SupLastname", typeof(string));
+            SupContactname = (string)info.GetValue("Supcontactname", typeof(string));
+            SupUsrId = (int)info.GetValue("SupUserId", typeof(int));
+            SupIsCompany = (bool)info.GetValue("SupIsCompany", typeof(bool));
         }
 
         string IDataErrorInfo.Error { get { return null; } }
@@ -87,7 +99,11 @@ namespace Views.Stammdaten.Supplier
                 case "SupContactName":
                     error = this.ValidateSupContactName();
                     break;
+                case "SelectedUser":
+                    break;
 
+                case "SupplierType":
+                    break;
                 default:
                     Debug.Fail("Unexpected property being validated on Customer: " + propertyName);
                     break;
@@ -186,16 +202,6 @@ namespace Views.Stammdaten.Supplier
             }
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("SupId", SupId);
-            info.AddValue("SupNumber" , SupNumber);
-            info.AddValue("SupFirstname", SupFirstname);
-            info.AddValue("SupLastname", SupLastname);
-            info.AddValue("Supcontactname", SupContactname);
-            info.AddValue("supUserId", SupUsrId);
-            info.AddValue("SupIsCompany", SupIsCompany);
 
-        }
     }
 }

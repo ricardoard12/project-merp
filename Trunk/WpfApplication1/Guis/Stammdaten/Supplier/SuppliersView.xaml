@@ -129,7 +129,7 @@
         <TextBox 
       x:Name="contactNameTxt"
       Grid.Row="8" Grid.Column="2" 
-      Text="{Binding Path=SupContactName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Text="{Binding Path=SupContactname, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
@@ -152,7 +152,8 @@
             Name="userIdCmb" 
             VerticalAlignment="Top" 
             Width="280" 
-            Text="{Binding Path=UserId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Path=AllUsers, Mode=OneTime}"
+            SelectedItem="{Binding Path=SelectedUser, ValidatesOnDataErrors=True}"
             Validation.ErrorTemplate="{x:Null}"
             />
         <ContentPresenter 
