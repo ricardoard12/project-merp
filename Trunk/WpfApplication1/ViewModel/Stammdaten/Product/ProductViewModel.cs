@@ -22,10 +22,13 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
         public  ProductViewModel() {
             _productView = ProductFactory.createNewProduct();
             _productRepository = new ProductRepository();
-
+            fillCategory();
         }
 
-
+        private void fillCategory()
+        {
+            this._productView.ProductCategory = 1;
+        }
 
         public int? ProductNumber {
             get { return _productView.ProductNumber; }
@@ -58,6 +61,19 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
                 _productView.Ean = value;
 
                 base.OnPropertyChanged("Ean");
+            }
+        }
+
+        public int? ProductCategory
+        {
+            get { return _productView.ProductCategory; }
+            set
+            {
+                if (value == _productView.ProductCategory)
+                    return;
+
+                _productView.ProductCategory = value;
+                base.OnPropertyChanged("ProductCategory");
             }
         }
 
