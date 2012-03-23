@@ -12,22 +12,22 @@ namespace Views.BusinessProcesses.Sales
     public interface IQuattroService
     {
         [OperationContract]
-        void AddQuattro(IOrderView view);
+        void AddQuattro(ISalesHeaderView view);
 
         [OperationContract]
         void AddSalesPosition(ISalesItem item);
         
         [OperationContract]
-        IOrderView QuattroByPrimaryKey(int primaryKey);
+        ISalesHeaderView QuattroByPrimaryKey(int primaryKey);
 
         [OperationContract]
-        IList<IOrderView> AllQuattros();
+        IList<ISalesHeaderView> AllQuattros();
 
         [OperationContract]
-        IList<IOrderView> BySpecifiedType(int type);
+        IList<ISalesHeaderView> BySpecifiedType(int type);
 
         [OperationContract]
-        void DeleteQuattro(IOrderView view);
+        void DeleteQuattro(ISalesHeaderView view);
 
         [OperationContract]
         void DeletePosition(ISalesItem item);
