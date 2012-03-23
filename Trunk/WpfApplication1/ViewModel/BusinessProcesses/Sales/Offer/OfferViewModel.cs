@@ -5,35 +5,36 @@ using System.Linq;
 using System.Text;
 using FrontEnd.ViewModel;
 using Views.BusinessProcesses.Sales.Offer;
+using WpfApplication1.DataAccess.BusinessProcesses.Sales;
 using WpfApplication1.DataAccess.BusinessProcesses.Sales.Offer;
 
 namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 {
     public class OfferViewModel : WorkspaceViewModel
     {
-        private IOfferRepository offerRepository;
+        private IQuattroRepository quattroRepository;
         private ISalesHeaderView _salesHeaderView;
         private string[] typeOptions;
         private bool isSelected;
 
         public OfferViewModel(IOfferRepository offerRepository)
         {
-            this.offerRepository = offerRepository;
+            this.quattroRepository = quattroRepository;
             this._salesHeaderView = SalesFactory.createNew();
         }
 
         #region Constructors
         
-        public OfferViewModel(ISalesHeaderView _salesHeaderView, IOfferRepository offerRepository)
+        public OfferViewModel(ISalesHeaderView _salesHeaderView, IQuattroRepository quattroRepository)
         {
             if (_salesHeaderView == null)
                 throw new ArgumentNullException("_salesHeaderView");
 
-            if (offerRepository == null)
+            if (quattroRepository == null)
                 throw new ArgumentNullException("offerRepository");
 
             this._salesHeaderView = _salesHeaderView;
-            this.offerRepository = offerRepository;
+            this.quattroRepository = quattroRepository;
         }
 
         #endregion Constructors
