@@ -103,8 +103,7 @@
           x:Name="purchaseHeaderTypeTxt"
           Grid.Row="6" Grid.Column="2" 
           Text="{Binding Path=PurchaseHeaderType, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
-          Validation.ErrorTemplate="{x:Null}"
-          />
+          Validation.ErrorTemplate="{x:Null}" IsReadOnly="True" />
         <ContentPresenter 
           Grid.Row="7" Grid.Column="2"
           Content="{Binding ElementName=purchaseHeaderTypeTxt, Path=(Validation.Errors).CurrentItem}"
