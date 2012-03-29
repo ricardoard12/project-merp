@@ -6,6 +6,7 @@ using System.ServiceModel.Security;
 using System.ServiceModel;
 using BL;
 using BL.Service;
+using Views.BusinessProcesses.Sales;
 using Views.Stammdaten.Product;
 using Views.Stammdaten.Supplier;
 using Views.Stammdaten.User;
@@ -63,6 +64,9 @@ namespace Host
                                                "net.tcp://localhost:2526/Service/ProductService");
                 MERPService.AddServiceEndpoint(typeof (ISupplierService), bindingConfiguration,
                                                "net.tcp://localhost:2526/Service/SupplierService");
+                MERPService.AddServiceEndpoint(typeof (IQuattroService), bindingConfiguration,
+                                               "net.tcp://localhost:2526/Service/QuattroService");
+               
 
                 Console.Write("MerpService wird gestartet...  :D :D :D\n");
                 Console.WriteLine("--------------------------------Endpoints--------------------------------\n\n");

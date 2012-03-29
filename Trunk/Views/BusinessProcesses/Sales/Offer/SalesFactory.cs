@@ -8,14 +8,24 @@ namespace Views.BusinessProcesses.Sales.Offer
 {
     public class SalesFactory
     {
-        public static ISalesHeaderView createNew()
+        public static ISalesHeaderView createNewSalesHeader()
         {
             return new SalesHeaderView();
         }
 
-        public static ISalesHeaderView createNew(int offerId, int? offerNumber, int? offerCustomer, DateTime? offerCreateDate, int? salestype)
+        public static ISalesHeaderView createNewSalesHeader(int offerId, int? offerNumber, int? offerCustomer, DateTime? offerCreateDate, int? salestype)
         {
             return new SalesHeaderView(offerId, offerNumber, offerCustomer, offerCreateDate, salestype);
+        }
+
+        public static ISalesItem createNewSalesItem(int id, int Number, int SahId, int PrdId, float vat, float discount)
+        {
+            return new SalesItem(id, Number, SahId, PrdId, vat, discount);
+        }
+
+        public static ISalesItem createNewSalesItem()
+        {
+            return new SalesItem();
         }
     }
 }

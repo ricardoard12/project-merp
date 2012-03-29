@@ -53,18 +53,18 @@ namespace DAL.Selections.BusinessProcess.Quattro {
         public static tbl_Sah CreateSalesHeader(ISalesHeaderView view)
         {
             tbl_Sah sah = new tbl_Sah();
-            sah.SahNumber = view.OfferNumber;
-            sah.SahCus_ = view.OfferCustomer;
-            sah.SahCreatedate = view.OfferCreateDate;
+            sah.SahNumber = view.SalesHeaderNumber;
+            sah.SahCus_ = view.SalesHeaderCustomer;
+            sah.SahCreatedate = view.SalesHeaderCreateDate;
             return sah;
         }
 
         private static tbl_Sah LoadBySalesHeader(ISalesHeaderView view)
         {
-            tbl_Sah sah = (from S in MerpDatabase().tbl_Sah where S.Sah_ == view.OfferId select S).First();
-            sah.SahNumber = view.OfferNumber;
-            sah.SahCus_ = view.OfferCustomer;
-            sah.SahCreatedate = view.OfferCreateDate;
+            tbl_Sah sah = (from S in MerpDatabase().tbl_Sah where S.Sah_ == view.SalesHeaderId select S).First();
+            sah.SahNumber = view.SalesHeaderNumber;
+            sah.SahCus_ = view.SalesHeaderCustomer;
+            sah.SahCreatedate = view.SalesHeaderCreateDate;
             return sah;
         }
 
@@ -93,7 +93,7 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         public static ISalesHeaderView CreateSalesHeader(tbl_Sah sah)
         {
-            ISalesHeaderView header = SalesFactory.createNew(sah.Sah_, sah.SahNumber, sah.SahCus_, sah.SahCreatedate, sah.SahType);
+            ISalesHeaderView header = SalesFactory.createNewSalesHeader(sah.Sah_, sah.SahNumber, sah.SahCus_, sah.SahCreatedate, sah.SahType);
             return header;
         }
 
