@@ -38,12 +38,12 @@ namespace BL.Service
             return QuattroDataFactory.BySpecifiedType(type);
         }
 
-        public void DeleteQuattro(ISalesHeaderView view)
+        public void DeleteSalesHeader(ISalesHeaderView view)
         {
             QuattroDataFactory.DeleteHeader(view);
         }
 
-        public void DeletePosition(ISalesItem item)
+        public void DeleteSalesPosition(ISalesItem item)
         {
             QuattroDataFactory.DeleteSalesItem(item);
         }
