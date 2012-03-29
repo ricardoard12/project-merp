@@ -29,7 +29,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
         public OfferViewModel(ISalesHeaderView salesHeaderView, IQuattroRepository quattroRepository)
         {
             if (salesHeaderView == null)
-                throw new ArgumentNullException("_salesHeaderView");
+                throw new ArgumentNullException("salesHeaderView");
 
             if (quattroRepository == null)
                 throw new ArgumentNullException("quattroRepository");
