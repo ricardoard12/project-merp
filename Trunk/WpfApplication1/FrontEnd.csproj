@@ -91,6 +91,9 @@
     <Compile Include="Data\Channel\ConnectionFactory.cs" />
     <Compile Include="DI\DIContainer.cs" />
     <Compile Include="Events\BooleanEventArg.cs" />
+    <Compile Include="Guis\BusinessProcesses\Distribution\AllDistributionView.xaml.cs">
+      <DependentUpon>AllDistributionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guis\BusinessProcesses\Distribution\Distribution.xaml.cs">
       <DependentUpon>Distribution.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,7 @@
     <Compile Include="Model\Stammdaten\CustomerModel.cs" />
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
+    <Compile Include="ViewModel\BusinessProcesses\Distribution\AllDistributionViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Distribution\DistributionViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Purchase\PurchaseHeaderViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Offer\OfferViewModel.cs" />
@@ -158,6 +162,10 @@
     <Compile Include="Guis\Stammdaten\Customer\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Guis\BusinessProcesses\Distribution\AllDistributionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Guis\BusinessProcesses\Distribution\Distribution.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
