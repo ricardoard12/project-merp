@@ -53,6 +53,19 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         #region HelperMethod
 
+        private static tbl_Puh LoadPurchaseHeader(IPurchaseHeaderView view)
+        {
+            return (from c in MerpDatabase().tbl_Puh where view.PurchaseHeaderId == c.Puh_ select c).First();
+        }
+
+        private static tbl_Pui LoadPurchaseItem(IPurchaseItem item)
+        {
+            return (from c in MerpDatabase().tbl_Pui where item.PuiId == c.Pui_ select c).First();
+        }
+
+       
+
+
         private static tbl_Puh CreatePurchaseHeader(IPurchaseHeaderView header)
         {
             tbl_Puh puh = new tbl_Puh();
@@ -164,6 +177,22 @@ namespace DAL.Selections.BusinessProcess.Quattro {
         public static IList<ISalesItem>  AllSalesItemsByHeaderKey(int primaryKey)
         {
            return (from s in MerpDatabase().tbl_Sai where s.SaiSah_ == primaryKey select CreateSalesItem(s)).ToList();
+        }
+
+        public static void AddPurchaseItem(IPurchaseItem item)
+        {
+            MerpDatabase().tbl_Pui.AddObject(CreatePurchaseItem(item));
+        }
+
+        public static void DeletePurchaseHeader(IPurchaseHeaderView view)
+        {
+           MerpDatabase().tbl_Puh.DeleteObject(LoadPurchaseHeader(view));
+        }
+
+
+        public static void DeletePurchaseItem(IPurchaseItem item)
+        {
+            MerpDatabase().tbl_Pui.DeleteObject(LoadPurchaseItem(item));
         }
     }
 }

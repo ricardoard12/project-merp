@@ -136,11 +136,12 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
             }
         }
 
-        public string this[string columnName]
+        public string Error
         {
             get { throw new NotImplementedException(); }
         }
 
+    
         #endregion 
     }
 }

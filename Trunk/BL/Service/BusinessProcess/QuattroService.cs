@@ -51,17 +51,17 @@ namespace BL.Service
 
         public void AddPuchaseItem(IPurchaseItem item)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.AddPurchaseItem(item);
         }
 
         public void DeletePurchaseHeader(IPurchaseHeaderView view)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.DeletePurchaseHeader(view);
         }
 
         public void DeletePurchaseItem(IPurchaseItem item)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.DeletePurchaseItem(item);
         }
 
         public IPurchaseHeaderView QuattroPurchaseByPrimaryKey(int primaryKey)
