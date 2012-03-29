@@ -6,12 +6,9 @@ using System.Linq;
 using System.Windows;
 using FrontEnd.DataAccess.Stammdaten.Customer;
 using FrontEnd.Model.Stammdaten;
-using FrontEnd.Properties;
-using FrontEnd.ViewModel.Security;
 using FrontEnd.ViewModel.Stammdaten.Customer;
 using FrontEnd.ViewModel.Stammdaten.Product;
 using FrontEnd.ViewModel.Stammdaten.User;
-using FrontEnd.DataAccess;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Data;
@@ -21,13 +18,12 @@ using Views;
 using WpfApplication1;
 using WpfApplication1.DI;
 using WpfApplication1.Events;
-using WpfApplication1.Guis.Security;
 using WpfApplication1.Properties;
-using WpfApplication1.ViewModel.BusinessProcesses.Sales.Order;
 using WpfApplication1.ViewModel.Security;
 using WpfApplication1.ViewModel.Stammdaten.Supplier;
 using bbv.Common.EventBroker;
 using bbv.Common.EventBroker.Handlers;
+using WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer;
 
 
 namespace FrontEnd.ViewModel {
