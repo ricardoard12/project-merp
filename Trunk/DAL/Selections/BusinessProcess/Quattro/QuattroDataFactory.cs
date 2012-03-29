@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Database;
@@ -5,14 +6,16 @@ using Views.BusinessProcesses.Purchase;
 using Views.BusinessProcesses.Sales.Offer;
 
 namespace DAL.Selections.BusinessProcess.Quattro {
-    public class QuattroDataFactory : ASelection {
+    public class QuattroDataFactory : ASelection
+    {
 
-        public static void AddPurchaseHeader(IPurchaseHeaderView header) {
+        public static void AddPurchaseHeader(IPurchaseHeaderView header)
+        {
 
             MerpDatabase().tbl_Puh.AddObject(CreatePurchaseHeader(header));
         }
 
-   
+
 
         public static void AddSalesHeader(ISalesHeaderView view)
         {
@@ -33,7 +36,7 @@ namespace DAL.Selections.BusinessProcess.Quattro {
             MerpDatabase().SaveChanges();
         }
 
-        
+
 
         public static void AddPosition(ISalesItem item)
         {
@@ -44,8 +47,14 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         public static IList<ISalesHeaderView> AllSalesHeader()
         {
-            IList<ISalesHeaderView> resultSet = (from s in MerpDatabase().tbl_Sah select CreateSalesHeader(s)).ToList();
-            return resultSet;
+            var resultSet = (from s in MerpDatabase().tbl_Sah select s);
+            IList<ISalesHeaderView> sales = new List<ISalesHeaderView>();
+            foreach (var tblSah in resultSet)
+            {
+                sales.Add(CreateSalesHeader(tblSah));
+            }
+
+            return sales;
         }
 
 
@@ -69,7 +78,7 @@ namespace DAL.Selections.BusinessProcess.Quattro {
             return (from c in MerpDatabase().tbl_Pui where item.PuiId == c.Pui_ select c).First();
         }
 
-       
+
 
 
         private static tbl_Puh CreatePurchaseHeader(IPurchaseHeaderView header)
@@ -83,8 +92,9 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         private static IPurchaseHeaderView CreatePurchaseHeader(tbl_Puh header)
         {
-          return  PurchaseFactory.createNewPurchaseHeader(header.Puh_, header.PuhNumber, header.PuhSup_, header.PuhCreatedate,
-                                                    header.SahType);
+            return PurchaseFactory.createNewPurchaseHeader(header.Puh_, header.PuhNumber, header.PuhSup_,
+                                                           header.PuhCreatedate,
+                                                           header.SahType);
         }
 
         public static tbl_Pui CreatePurchaseItem(IPurchaseItem item)
@@ -148,7 +158,8 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         public static ISalesHeaderView CreateSalesHeader(tbl_Sah sah)
         {
-            ISalesHeaderView header = SalesFactory.createNewSalesHeader(sah.Sah_, sah.SahNumber, sah.SahCus_, sah.SahCreatedate, sah.SahType);
+            ISalesHeaderView header = SalesFactory.createNewSalesHeader(sah.Sah_, sah.SahNumber, sah.SahCus_,
+                                                                        sah.SahCreatedate, sah.SahType);
             return header;
         }
 
@@ -165,13 +176,21 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         public static IList<ISalesHeaderView> BySpecifiedType(int? type)
         {
-            IList<ISalesHeaderView> resultSet = (from s in MerpDatabase().tbl_Sah where type == s.SahType select CreateSalesHeader(s)).ToList();
-            return resultSet;
+            var query = (from s in MerpDatabase().tbl_Sah where type == s.SahType select s).ToList();
+
+            IList<ISalesHeaderView> salesheader = new List<ISalesHeaderView>();
+
+            foreach (var sah in query)
+            {
+                salesheader.Add(CreateSalesHeader(sah));
+            }
+
+            return salesheader;
         }
 
         public static void DeleteHeader(ISalesHeaderView view)
         {
-           MerpDatabase().tbl_Sah.DeleteObject(LoadBySalesHeader(view));
+            MerpDatabase().tbl_Sah.DeleteObject(LoadBySalesHeader(view));
         }
 
         public static void DeleteSalesItem(ISalesItem item)
@@ -180,9 +199,17 @@ namespace DAL.Selections.BusinessProcess.Quattro {
         }
 
 
-        public static IList<ISalesItem>  AllSalesItemsByHeaderKey(int primaryKey)
+        public static IList<ISalesItem> AllSalesItemsByHeaderKey(int primaryKey)
         {
-           return (from s in MerpDatabase().tbl_Sai where s.SaiSah_ == primaryKey select CreateSalesItem(s)).ToList();
+            var query = (from s in MerpDatabase().tbl_Sai where s.SaiSah_ == primaryKey select s).ToList();
+            IList<ISalesItem> salesItems = new List<ISalesItem>();
+
+            foreach (var tblSai in query)
+            {
+                salesItems.Add(CreateSalesItem(tblSai));
+            }
+
+            return salesItems;
         }
 
         public static void AddPurchaseItem(IPurchaseItem item)
@@ -192,7 +219,7 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         public static void DeletePurchaseHeader(IPurchaseHeaderView view)
         {
-           MerpDatabase().tbl_Puh.DeleteObject(LoadPurchaseHeader(view));
+            MerpDatabase().tbl_Puh.DeleteObject(LoadPurchaseHeader(view));
         }
 
 
@@ -208,18 +235,39 @@ namespace DAL.Selections.BusinessProcess.Quattro {
 
         public static IList<IPurchaseHeaderView> AllPurchaseHeader()
         {
-            return (from c in MerpDatabase().tbl_Puh select CreatePurchaseHeader(c)).ToList();
+            IList<IPurchaseHeaderView> resultset = new List<IPurchaseHeaderView>();
+            var query = (from c in MerpDatabase().tbl_Puh select c).ToList();
+
+            foreach (var tblPuh in query)
+            {
+                resultset.Add(CreatePurchaseHeader(tblPuh));
+            }
+
+            return resultset;
         }
 
         public static IList<IPurchaseHeaderView> AllPurchasHeaderBySpecifiedtype(int? type)
         {
-            return (from c in MerpDatabase().tbl_Puh where type == c.SahType select CreatePurchaseHeader(c)).ToList();
+            IList<IPurchaseHeaderView> resultset = new List<IPurchaseHeaderView>();
+            var query = (from c in MerpDatabase().tbl_Puh where type == c.SahType select c).ToList();
+            foreach (var tblPuh in query)
+            {
+                resultset.Add(CreatePurchaseHeader(tblPuh));
+            }
+
+            return resultset;
         }
 
         public static IList<IPurchaseItem> AllPurchaseHeaderByHeaderKey(int primaryKey)
         {
-            return
-                (from c in MerpDatabase().tbl_Pui where primaryKey == c.PuiPuh_ select CreatePurchaseItem(c)).ToList();
+            IList<IPurchaseItem> resultset = new List<IPurchaseItem>();
+            var query = (from c in MerpDatabase().tbl_Pui where primaryKey == c.PuiPuh_ select c).ToList();
+            foreach (var tblPui in query)
+            {
+                resultset.Add(CreatePurchaseItem(tblPui));
+            }
+
+            return resultset;
         }
     }
 }

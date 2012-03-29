@@ -215,7 +215,10 @@ namespace Views.Stammdaten.Customer
 
         #endregion // Validation
 
-
+        public override string ToString()
+        {
+            return String.Format("Nummer: {0}, Name: {1} ", this.CusNumber, this.CusLastname);
+        }
 
     }
 }
