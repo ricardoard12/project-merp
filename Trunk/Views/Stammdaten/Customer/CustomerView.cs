@@ -8,7 +8,8 @@ using System.Text.RegularExpressions;
 
 namespace Views.Stammdaten.Customer
 {
-    internal class CustomerView : ICustomerView, IDataErrorInfo
+    [Serializable]
+    class CustomerView : ICustomerView, IDataErrorInfo
     {
         public int CusId { get; set; }
         public int? CusNumber { get; set; }
