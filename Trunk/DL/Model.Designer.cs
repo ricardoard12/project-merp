@@ -1164,6 +1164,30 @@ namespace Database
         private Nullable<global::System.DateTime> _PuhCreatedate;
         partial void OnPuhCreatedateChanging(Nullable<global::System.DateTime> value);
         partial void OnPuhCreatedateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SahType
+        {
+            get
+            {
+                return _SahType;
+            }
+            set
+            {
+                OnSahTypeChanging(value);
+                ReportPropertyChanging("SahType");
+                _SahType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SahType");
+                OnSahTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SahType;
+        partial void OnSahTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnSahTypeChanged();
 
         #endregion
     
@@ -1608,6 +1632,30 @@ namespace Database
         private Nullable<global::System.DateTime> _SahCreatedate;
         partial void OnSahCreatedateChanging(Nullable<global::System.DateTime> value);
         partial void OnSahCreatedateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SahType
+        {
+            get
+            {
+                return _SahType;
+            }
+            set
+            {
+                OnSahTypeChanging(value);
+                ReportPropertyChanging("SahType");
+                _SahType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SahType");
+                OnSahTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SahType;
+        partial void OnSahTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnSahTypeChanged();
 
         #endregion
     

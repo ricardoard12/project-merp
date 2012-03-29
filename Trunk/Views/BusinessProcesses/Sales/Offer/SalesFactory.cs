@@ -13,9 +13,9 @@ namespace Views.BusinessProcesses.Sales.Offer
             return new SalesHeaderView();
         }
 
-        public static ISalesHeaderView createNew(int offerId, int? offerNumber, int? offerCustomer, DateTime? offerCreateDate)
+        public static ISalesHeaderView createNew(int offerId, int? offerNumber, int? offerCustomer, DateTime? offerCreateDate, int? salestype)
         {
-            return new SalesHeaderView(offerId, offerNumber, offerCustomer, offerCreateDate);
+            return new SalesHeaderView(offerId, offerNumber, offerCustomer, offerCreateDate, salestype);
         }
     }
 }

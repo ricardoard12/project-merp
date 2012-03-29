@@ -23,29 +23,29 @@ namespace BL.Service
             QuattroDataFactory.AddPosition(item);
         }
 
-        public ISalesHeaderView QuattroByPrimaryKey(int primaryKey)
+        public ISalesHeaderView QuattroSalesByPrimaryKey(int primaryKey)
         {
            return QuattroDataFactory.LoadBySalesHeader(primaryKey);
         }
 
-        public IList<ISalesHeaderView> AllQuattros()
+        public IList<ISalesHeaderView> AllSales()
         {
-            throw new System.NotImplementedException();
+            return QuattroDataFactory.AllSalesHeader();
         }
 
-        public IList<ISalesHeaderView> BySpecifiedType(int type)
+        public IList<ISalesHeaderView> BySpecifiedType(int? type)
         {
-            throw new System.NotImplementedException();
+            return QuattroDataFactory.BySpecifiedType(type);
         }
 
         public void DeleteQuattro(ISalesHeaderView view)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.DeleteHeader(view);
         }
 
         public void DeletePosition(ISalesItem item)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.DeleteSalesItem(item);
         }
     }
 }
