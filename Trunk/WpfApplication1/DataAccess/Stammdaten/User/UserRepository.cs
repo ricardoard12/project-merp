@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using FrontEnd.Data.Channel;
+using Views;
 using Views.Security.Connection;
 using Views.Security.ErrorException;
 using Views.Stammdaten.User;
@@ -57,8 +58,10 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
             }
         }
 
-        public void OnGetAllUsers() {
-             
+        public IList<IUserView> OnGetAllUsers()
+        {
+            PagedResult<IUserView> resultSet =   Service.AllUsers();
+            return resultSet.Rows;
         }
 
 
