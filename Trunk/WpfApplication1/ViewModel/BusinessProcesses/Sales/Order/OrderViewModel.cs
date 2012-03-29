@@ -2,6 +2,14 @@
 using FrontEnd.ViewModel;
 using Views.BusinessProcesses.Sales.Offer;
 using WpfApplication1.DataAccess.BusinessProcesses.Sales;
+using WpfApplication1.DataAccess.Stammdaten.Customer;
+using Views.Stammdaten.Customer;
+using System.Collections.Generic;
+using System.Text;
+using Views.Stammdaten.User;
+using System.Collections.ObjectModel;
+using Views.Stammdaten.Customer;
+using Views.Stammdaten;
 
 namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
 {
@@ -9,13 +17,20 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
     {
         private IQuattroRepository quattroRepository;
         private ISalesHeaderView _salesHeaderView;
+        private ObservableCollection<ICustomerView> allCustomers;
+        private CustomerRepository customerRepository;
+        private ICustomerView selectedCustomer;
+
+
         private string[] typeOptions;
         private bool isSelected;
 
         public OrderViewModel()
         {
             this.quattroRepository = quattroRepository;
+            this.customerRepository = new CustomerRepository();
             this._salesHeaderView = SalesFactory.createNewSalesHeader();
+            selectedCustomer = CustomerFactory.createNew();
         }
 
         #region Constructors
@@ -59,6 +74,36 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
 
                 _salesHeaderView.SalesHeaderCustomer = value;
                 base.OnPropertyChanged("SalesHeaderCustomer");
+            }
+        }
+
+
+
+        public ObservableCollection<ICustomerView> GetCustomers
+        {
+            get
+            {
+                return allCustomers ?? (allCustomers = new ObservableCollection<ICustomerView>(customerRepository.AllCustomers()));
+              
+            }
+
+        }
+
+        public ICustomerView SelectedCustomer
+        {
+            get
+            {
+                return selectedCustomer;
+            }
+            set
+            {
+                if (value != selectedCustomer)
+                {
+                    selectedCustomer = value;
+                   _salesHeaderView.SalesHeaderCustomer = value.CusId;
+                   OnPropertyChanged("SelectedCustomer");
+                }
+                
             }
         }
 
