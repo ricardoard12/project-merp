@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
+using Views.BusinessProcesses.Purchase;
 using Views.BusinessProcesses.Sales.Offer;
 
 namespace Views.BusinessProcesses.Sales
@@ -30,6 +31,12 @@ namespace Views.BusinessProcesses.Sales
 
         [OperationContract]
         IList<ISalesItem> AllSalesItemsBySalesHeader(int primaryKey);
+
+        [OperationContract]
+        void AddPurchaseHeader(IPurchaseHeaderView view);
+
+        [OperationContract]
+        void AddPuchaseItem(IPurchaseItem item);
 
 
 
