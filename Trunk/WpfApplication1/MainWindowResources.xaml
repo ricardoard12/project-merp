@@ -11,6 +11,8 @@
                     xmlns:Product="clr-namespace:WpfApplication1.Guis.Stammdaten.Product"
                     xmlns:Supplier="clr-namespace:WpfApplication1.ViewModel.Stammdaten.Supplier"
                     xmlns:SupplierGui="clr-namespace:WpfApplication1.Guis.Stammdaten.Supplier"
+                    xmlns:OrderGui="clr-namespace:WpfApplication1.Guis.BusinessProcesses.Sales.Orders"
+                    xmlns:OrderVM="clr-namespace:WpfApplication1.ViewModel.BusinessProcesses.Sales.Order"
                     xmlns:Offer="clr-namespace:WpfApplication1.Guis.BusinessProcesses.Sales.Offer"
                     xmlns:OfferVm="clr-namespace:WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer"
                     xmlns:Distribution="clr-namespace:WpfApplication1.Guis.BusinessProcesses.Distribution"
@@ -19,7 +21,10 @@
                     xmlns:PurchaseHeaderVm="clr-namespace:WpfApplication1.ViewModel.BusinessProcesses.Purchase"
                     x:Class="FrontEnd.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
 
-
+    
+    <DataTemplate DataType="{x:Type OrderVM:OrderViewModel}">
+        <OrderGui:OrdersView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type PurchaseHeaderVm:PurchaseHeaderViewModel}">
         <PurchaseHeader:PurchaseHeader />
     </DataTemplate>
