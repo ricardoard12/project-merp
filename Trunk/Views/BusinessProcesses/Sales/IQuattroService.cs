@@ -38,8 +38,25 @@ namespace Views.BusinessProcesses.Sales
         [OperationContract]
         void AddPuchaseItem(IPurchaseItem item);
 
+        [OperationContract]
+        void DeletePurchaseHeader(IPurchaseHeaderView view);
 
+        [OperationContract]
+        void DeletePurchaseItem(IPurchaseItem item);
 
+        [OperationContract]
+        IPurchaseHeaderView QuattroPurchaseByPrimaryKey(int primaryKey);
+
+        [OperationContract]
+        IList<IPurchaseHeaderView> AllPurchaseHeader();
+
+        [OperationContract]
+        IList<IPurchaseHeaderView> AllPurchaseHeaderBySpecifiedType(int? type);
+
+        [OperationContract]
+        IList<IPurchaseItem> AllPurchaseItemsByHeaderPrimaryKey(int primaryKey);
+
+     
 
 
     }

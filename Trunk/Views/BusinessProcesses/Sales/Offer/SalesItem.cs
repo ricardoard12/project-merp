@@ -14,7 +14,7 @@ namespace Views.BusinessProcesses.Sales.Offer
         {
         }
 
-        public SalesItem(int id, int Number, int SahId, int PrdId, float vat, float discount)
+        public SalesItem(int id, int? Number, int? SahId, int? PrdId, double? vat, double? discount)
         {
             this.SaiId = id;
             this.SaiNumber = Number;
@@ -45,10 +45,10 @@ namespace Views.BusinessProcesses.Sales.Offer
         }
 
         public int SaiId { get; set; }
-        public int SaiNumber { get; set; }
-        public int SaiSahId { get; set; }
-        public int SaiPrdId { get; set; }
-        public float Saivat { get; set; }
-        public float SaiDiscount { get; set; }
+        public int? SaiNumber { get; set; }
+        public int? SaiSahId { get; set; }
+        public int? SaiPrdId { get; set; }
+        public double? Saivat { get; set; }
+        public double? SaiDiscount { get; set; }
     }
 }

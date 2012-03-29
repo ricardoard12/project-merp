@@ -18,7 +18,7 @@ namespace Views.BusinessProcesses.Sales.Offer
             return new SalesHeaderView(offerId, offerNumber, offerCustomer, offerCreateDate, salestype);
         }
 
-        public static ISalesItem createNewSalesItem(int id, int Number, int SahId, int PrdId, float vat, float discount)
+        public static ISalesItem createNewSalesItem(int id, int? Number, int? SahId, int? PrdId, double? vat, double? discount)
         {
             return new SalesItem(id, Number, SahId, PrdId, vat, discount);
         }

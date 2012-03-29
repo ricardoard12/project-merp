@@ -6,7 +6,7 @@ namespace Views.BusinessProcesses.Purchase
     {
         int PuiId { get; set; }
         int PuiNumber { get; set; }
-        int PuiSahId { get; set; }
+        int PuiPuhId { get; set; }
         int PuiPrdId { get; set; }
         float Puivat { get; set; }
         float PuiDiscount { get; set; }

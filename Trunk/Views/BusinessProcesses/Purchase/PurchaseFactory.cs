@@ -23,7 +23,7 @@ namespace Views.BusinessProcesses.Purchase
             return new PurchaseItem();
         }
 
-        public  static IPurchaseItem createNewPruchaseItem(int id, int number, int SahId, int PrdId, float vat, float discount)
+        public  static IPurchaseItem createNewPruchaseItem(int id, int? number, int? SahId, int? PrdId, double? vat, double? discount)
         {
             return  new PurchaseItem(id, number, SahId, PrdId, vat, discount);
         }
