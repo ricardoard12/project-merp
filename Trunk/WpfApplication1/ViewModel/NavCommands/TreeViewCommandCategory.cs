@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 using System.Windows.Input;
 using FrontEnd.Properties;
 using FrontEnd.Model.Stammdaten;
@@ -18,5 +19,6 @@ namespace FrontEnd.ViewModel.NavCommands {
         public TreeViewCommandCategory(string name) {
             Name = name;
         }
+
     }
 }

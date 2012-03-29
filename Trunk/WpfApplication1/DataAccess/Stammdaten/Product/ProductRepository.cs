@@ -33,6 +33,12 @@ namespace FrontEnd.DataAccess.Stammdaten.Product
             }
         }
 
+        public List<IPrdcatView> ProductCategoryList
+        {
+            get { return Service.AllProductCategorys().Rows; }
+
+        }
+
         public IConnection<IProductService> Connection {
             get {
                 if (_productServiceConnection == null) {

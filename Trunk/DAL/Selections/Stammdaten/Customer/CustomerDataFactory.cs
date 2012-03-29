@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Database;
 using Views.Stammdaten;
@@ -13,22 +14,23 @@ namespace DAL.Selections.Stammdaten.Customer
         public static void AddCustomer(ICustomerView customerView)
         {   
             MerpDatabase().tbl_Cus.AddObject(CreateCustomer(customerView));
+            MerpDatabase().SaveChanges();
         }
 
         public static IList<ICustomerView> GetAllCustomers()
         {
-
-            return (from c in MerpDatabase().tbl_Cus
-                    select
-                        CustomerFactory.createNew(c.Cus_, c.CusNumber, c.CusFirstname, c.CusLastname, c.CusContactname,
-                                                  c.CusUsr_, c.CusIscompany)).ToList();
-        }  
+            IList<ICustomerView> customers = new List<ICustomerView>();
+            foreach (var currentCus in MerpDatabase().tbl_Cus)
+            {
+                customers.Add(CreateCustomer(currentCus));
+            }
+            return customers;
+        }
 
         public static ICustomerView ByPrimaryKey(int primryKey)
         {
-            return (from c in MerpDatabase().tbl_Cus 
-                        where c.Cus_ == primryKey
-                        select CreateCustomer(c)).First();
+                var cus = MerpDatabase().tbl_Cus.First(c => c.Cus_ == primryKey);
+                return CreateCustomer(cus);
         }
 
         public static ICustomerView CreateCustomer(tbl_Cus cus)

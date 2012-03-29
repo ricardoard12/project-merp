@@ -7,8 +7,6 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="Verdana"
         >
-        
-   
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml" />
     </Window.Resources>
