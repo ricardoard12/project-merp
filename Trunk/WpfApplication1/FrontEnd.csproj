@@ -100,6 +100,12 @@
     <Compile Include="Guis\BusinessProcesses\Sales\Offer\Offer.xaml.cs">
       <DependentUpon>Offer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Guis\BusinessProcesses\Sales\Orders\AllOrdersView.xaml.cs">
+      <DependentUpon>AllOrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\BusinessProcesses\Sales\Orders\OrdersView.xaml.cs">
+      <DependentUpon>OrdersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guis\Security\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -161,6 +167,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Guis\BusinessProcesses\Sales\Offer\Offer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guis\BusinessProcesses\Sales\Orders\AllOrdersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guis\BusinessProcesses\Sales\Orders\OrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
