@@ -1,31 +1,33 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 using FrontEnd;
 using FrontEnd.ViewModel;
 using Views.BusinessProcesses.Sales.Offer;
+using Views.Stammdaten.User;
 using WpfApplication1.DataAccess.BusinessProcesses.Sales;
 
 namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 {
-    public class OfferViewModel : WorkspaceViewModel
+    public class OfferViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         private IQuattroRepository quattroRepository;
         private ISalesHeaderView salesHeaderView;
         private string[] typeOptions;
         private bool isSelected;
         private ICommand saveCommand;
+        private string offerType;
+        
+
+        #region Constructors
 
         public OfferViewModel()
         {
             this.quattroRepository = quattroRepository;
-
             this.salesHeaderView = SalesFactory.createNewSalesHeader();
+        }
 
-           
-       }
-
-        #region Constructors
-        
         public OfferViewModel(ISalesHeaderView salesHeaderView, IQuattroRepository quattroRepository)
         {
             if (salesHeaderView == null)
@@ -120,5 +122,15 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
         }
 
         #endregion Commands
+       
+
+        #region IDataErrors
+
+        string IDataErrorInfo.Error
+        {
+            get { return (salesHeaderView as IDataErrorInfo).Error; }
+        }
+
+        #endregion 
     }
 }
