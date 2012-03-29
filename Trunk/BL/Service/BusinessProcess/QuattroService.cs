@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DAL.Selections.Stammdaten.Quattro;
+using DAL.Selections.BusinessProcess.Quattro;
 using Views.BusinessProcesses.Sales;
 using Views.BusinessProcesses.Sales.Offer;
 
