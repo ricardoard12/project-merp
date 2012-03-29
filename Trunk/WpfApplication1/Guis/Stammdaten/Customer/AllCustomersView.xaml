@@ -81,8 +81,11 @@
             </ListView.GroupStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=DisplayName}"  />
+                    <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Path=CusNumber}" />
+                    <GridViewColumn Header="Firstname" DisplayMemberBinding="{Binding Path=CusFirstname}" />
+                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=CusLastname}"  />
                     <GridViewColumn Header="E-mail" DisplayMemberBinding="{Binding Path=Email}" />
+                    <GridViewColumn Header="Company" DisplayMemberBinding="{Binding Path=CusIsCompany}" />
                     <GridViewColumn Header="Total Sales">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

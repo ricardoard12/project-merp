@@ -29,6 +29,19 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         #endregion Constructors
 
         #region Customer Properties
+        public int? Number
+        {
+            get { return customer.CusNumber; }
+            set
+            {
+                if (value == customer.CusNumber)
+                    return;
+
+                customer.CusNumber = value;
+                base.OnPropertyChanged("Number");
+            }
+        }
+
         public string Email {
             get { return customer.Email; }
             set {

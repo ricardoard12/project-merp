@@ -24,6 +24,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.Resources>
@@ -43,10 +45,10 @@
       Grid.Row="0" Grid.Column="0" 
       Content="Customer _type:" 
       HorizontalAlignment="Right"
-      Target="{Binding ElementName=customerTypeCmb}" 
+      Target="{Binding ElementName=customerTypeTxt}" 
       />
         <ComboBox 
-      x:Name="customerTypeCmb"
+      x:Name="customerTypeTxt"
       Grid.Row="0" Grid.Column="2" 
       ItemsSource="{Binding Path=CustomerTypeOptions, Mode=OneTime}"
       SelectedItem="{Binding Path=CustomerType, ValidatesOnDataErrors=True}"
@@ -54,66 +56,84 @@
       />
         <ContentPresenter 
       Grid.Row="1" Grid.Column="2"
-      Content="{Binding ElementName=customerTypeCmb, Path=(Validation.Errors).CurrentItem}"
+      Content="{Binding ElementName=customerTypeTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
-        <!-- FIRST NAME-->
+        <!-- NUMBER -->
         <Label 
       Grid.Row="2" Grid.Column="0" 
+      Content="Number:" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=numberTxt}"
+      />
+        <TextBox 
+      x:Name="numberTxt"
+      Grid.Row="2" Grid.Column="2" 
+      Text="{Binding Path=Number, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="3" Grid.Column="2"
+      Content="{Binding ElementName=numberTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+        
+        <!-- FIRST NAME-->
+        <Label 
+      Grid.Row="4" Grid.Column="0" 
       Content="First _name:" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=firstNameTxt}"
       />
         <TextBox 
       x:Name="firstNameTxt"
-      Grid.Row="2" Grid.Column="2" 
+      Grid.Row="4" Grid.Column="2" 
       Text="{Binding Path=FirstName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="3" Grid.Column="2"
+      Grid.Row="5" Grid.Column="2"
       Content="{Binding ElementName=firstNameTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
         <!-- LAST NAME-->
         <Label 
-      Grid.Row="4" Grid.Column="0" 
+      Grid.Row="6" Grid.Column="0" 
       Content="_Last name:" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=lastNameTxt}" 
       />
         <TextBox 
       x:Name="lastNameTxt"
-      Grid.Row="4" Grid.Column="2" 
+      Grid.Row="6" Grid.Column="2" 
       Text="{Binding Path=LastName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="5" Grid.Column="2"
+      Grid.Row="7" Grid.Column="2"
       Content="{Binding ElementName=lastNameTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
         <!-- E-MAIL-->
         <Label 
-      Grid.Row="6" Grid.Column="0" 
+      Grid.Row="8" Grid.Column="0" 
       Content="E-_mail:" 
       HorizontalAlignment="Right"
       Target="{Binding ElementName=emailTxt}" 
       />
         <TextBox 
       x:Name="emailTxt"
-      Grid.Row="6" Grid.Column="2" 
+      Grid.Row="8" Grid.Column="2" 
       Text="{Binding Path=Email, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 
-      Grid.Row="7" Grid.Column="2"
+      Grid.Row="9" Grid.Column="2"
       Content="{Binding ElementName=emailTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
         <!-- SAVE BUTTON -->
       <Button 
-      Grid.Row="8" Grid.Column="2"
+      Grid.Row="10" Grid.Column="2"
       Command="{Binding Path=SaveCommand}"
       Content="_Save"
       HorizontalAlignment="Right"
