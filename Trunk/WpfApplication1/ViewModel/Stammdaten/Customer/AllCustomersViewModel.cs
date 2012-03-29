@@ -29,7 +29,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
 
         private void CreateAllCustomers() {
             List<CustomerViewModel> all = (from cust in _customerRepository.GetCustomers()
-                                           select new CustomerViewModel(cust, _customerRepository)).ToList();
+                                           select new CustomerViewModel()).ToList();
 
             foreach (CustomerViewModel cvm in all)
                 cvm.PropertyChanged += this.OnCustomerViewModelPropertyChanged;
@@ -41,8 +41,8 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         //Berechnet die Summe aller selektierter Kunden
         public double TotalSelectedSales {
             get {
-                return this.AllCustomers.Sum(
-                    custVM => custVM.IsSelected ? custVM.TotalSales : 0.0);
+                return  new double();
+              
             }
         }
 
@@ -80,7 +80,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         }
 
         void OnCustomerAddedToRepository(object sender, CustomerAddedEventArgs e) {
-            var viewModel = new CustomerViewModel(e.NewCustomerModel, _customerRepository);
+            var viewModel = new CustomerViewModel();
             this.AllCustomers.Add(viewModel);
         }
     }

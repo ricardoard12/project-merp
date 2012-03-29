@@ -166,7 +166,7 @@ namespace FrontEnd.ViewModel {
 
         protected List<CommandViewModel> CreateCommandsForNav() {
             return new List<CommandViewModel> {
-                new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateGuiByOnce(new CustomerViewModel(CustomerModel.CreateNewCustomer(), _customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
+                new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateGuiByOnce(new CustomerViewModel())), Resources.StringStammdaten, Resources.StringCustomer),
                 new CommandViewModel("Show All Customers" , new RelayCommand(param => CreateGuiByOnce(new AllCustomersViewModel(_customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
                 new CommandViewModel("Show all Products", new RelayCommand(param => CreateGuiAndSetActive(new AllProductsViewModel())), Resources.StringStammdaten, Resources.StringProduct),
                 new CommandViewModel("Show all Users", new RelayCommand(param => CreateGuiAndSetActive(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
@@ -229,7 +229,7 @@ namespace FrontEnd.ViewModel {
 
         protected void CreateNewCustomer() {
             CustomerModel newCustomerModel = CustomerModel.CreateNewCustomer();
-            CustomerViewModel workspace = new CustomerViewModel(newCustomerModel, _customerRepository);
+            CustomerViewModel workspace = new CustomerViewModel();
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }

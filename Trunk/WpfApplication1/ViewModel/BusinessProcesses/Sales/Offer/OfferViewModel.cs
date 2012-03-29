@@ -113,7 +113,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 
         private void Save()
         {
-            this.quattroRepository.AddQuattro(salesHeaderView);
+            this.quattroRepository.AddHeaderSales(salesHeaderView);
         }
 
         private bool CanSave

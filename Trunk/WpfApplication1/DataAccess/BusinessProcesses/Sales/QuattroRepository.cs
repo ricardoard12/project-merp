@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Views.BusinessProcesses.Purchase;
 using Views.BusinessProcesses.Sales;
 using System.ServiceModel;
 using FrontEnd.Data.Channel;
@@ -73,40 +74,91 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
             Service.AddSalesPosition(item);
         }
 
-        /*
-        public IList<IOrderView> GetAllOrders()
+      
+        public void AddHeaderSales(ISalesHeaderView view)
         {
-            PagedResult<IOrderView> resultSet = Service.AllOrder();
-             return resultSet.Rows.ToList();
+            Service.AddHeaderSales(view);
         }
-        */
-        
-        /*
-        public void DeleteOrder(IOrderView order)
-        {
-            Service.DeleteOrder(order);
-        }
-        */
 
-        /*
-        public void UpdateQuattro(IOrderView order)
+        public void DeleteSalesHeader(ISalesHeaderView view)
         {
-            Service.UpdateQuattro(order);
+            Service.DeleteSalesHeader(view);
         }
-        */
 
-        /*
-        public IOrderView GetOrderByPrimaryKey(int primaryKey)
+        public void AddSalesPosition(ISalesItem item)
         {
-          return Service.OrderByPrimaryKey(primaryKey);
+           Service.AddSalesPosition(item);
         }
-        */
 
-        /*
-        public IOrderview ByPrimaryKey()
+        public void DeleteSalesPosition(ISalesItem item)
         {
-            throw new NotImplementedException();
+           Service.DeleteSalesPosition(item);
         }
-        */
+
+        public ISalesHeaderView QuattroSalesByPrimaryKey(int primaryKey)
+        {
+            return Service.QuattroSalesByPrimaryKey(primaryKey);
+        }
+
+        public IList<ISalesHeaderView> AllSales()
+        {
+           return Service.AllSales();
+        }
+
+        public IList<ISalesHeaderView> BySpecifiedType(int? type)
+        {
+            return Service.BySpecifiedType(type);
+        }
+
+        public IList<ISalesItem> AllSalesItemsBySalesHeader(int primaryKey)
+        {
+            return Service.AllSalesItemsBySalesHeader(primaryKey);
+        }
+
+        public void AddPurchaseHeader(IPurchaseHeaderView view)
+        {
+           Service.AddPurchaseHeader(view);   
+        }
+
+        public void AddPuchaseItem(IPurchaseItem item)
+        {
+            Service.AddPuchaseItem(item);
+        }
+
+        public void DeletePurchaseHeader(IPurchaseHeaderView view)
+        {
+           
+            Service.DeletePurchaseHeader(view);
+        }
+
+        public void DeletePurchaseItem(IPurchaseItem item)
+        {
+           Service.DeletePurchaseItem(item);
+        }
+
+        public IPurchaseHeaderView QuattroPurchaseByPrimaryKey(int primaryKey)
+        {
+           return Service.QuattroPurchaseByPrimaryKey(primaryKey);
+        }
+
+        public IList<IPurchaseHeaderView> AllPurchaseHeader()
+        {
+            return Service.AllPurchaseHeader();
+        }
+
+        public IList<IPurchaseHeaderView> AllPurchaseHeaderBySpecifiedType(int? type)
+        {
+            return Service.AllPurchaseHeaderBySpecifiedType(type);
+        }
+
+        public IList<IPurchaseItem> AllPurchaseItemsByHeaderPrimaryKey(int primaryKey)
+        {
+            return Service.AllPurchaseItemsByHeaderPrimaryKey(primaryKey);
+        }
+
+        public void UpdatePurchaseHeader(IPurchaseHeaderView purchaseHeader)
+        {
+            Service.UpdatePurchaseHeader(purchaseHeader);
+        }
     }
 }
