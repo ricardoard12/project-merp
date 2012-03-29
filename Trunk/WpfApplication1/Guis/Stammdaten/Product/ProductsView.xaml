@@ -12,7 +12,7 @@
             <ColumnDefinition Width="250" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="6" />
-            <ColumnDefinition Width="93*" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="235" />
         </Grid.ColumnDefinitions>
 
@@ -42,6 +42,42 @@
             </DataTemplate>
         </Grid.Resources>
 
+        <!-- Product Number-->
+        <Label 
+      Grid.Row="0" Grid.Column="0" 
+      Content="Product Number" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=prdNumberTxt}" 
+      />
+        <TextBox 
+      x:Name="productNumber"
+      Grid.Row="0" Grid.Column="2" 
+      Text="{Binding Path=numberTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="1" Grid.Column="2" 
+      Content="{Binding ElementName=productNumber, Path=(Validation.Errors).CurrentItem}"
+      />
+        
+        <!-- Product NAME-->
+        <Label 
+      Grid.Row="0" Grid.Column="5" 
+      Content="Product Name" 
+      HorizontalAlignment="Right"
+      Target="{Binding ElementName=productNameTxt}"
+      />
+        <TextBox 
+      x:Name="productNameTxt"
+      Grid.Row="0" Grid.Column="6" 
+      Text="{Binding Path=ProductName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+      Validation.ErrorTemplate="{x:Null}"
+      />
+        <ContentPresenter 
+      Grid.Row="1" Grid.Column="6"
+      Content="{Binding ElementName=productNameTxt, Path=(Validation.Errors).CurrentItem}"
+      />
+
         <!-- Product TYPE -->
         <Label 
       Grid.Row="2" Grid.Column="0" 
@@ -61,25 +97,7 @@
       Content="{Binding ElementName=productTypeCmb, Path=(Validation.Errors).CurrentItem}"
       />
 
-        <!-- Product NAME-->
-        <Label 
-      Grid.Row="0" Grid.Column="5" 
-      Content="Product Name" 
-      HorizontalAlignment="Right"
-      Target="{Binding ElementName=productNameTxt}"
-      />
-        <TextBox 
-      x:Name="productNameTxt"
-      Grid.Row="0" Grid.Column="6" 
-      Text="{Binding Path=ProductName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
-      Validation.ErrorTemplate="{x:Null}"
-      />
-        <ContentPresenter 
-      Grid.Row="1" Grid.Column="6"
-      Content="{Binding ElementName=productNameTxt, Path=(Validation.Errors).CurrentItem}"
-      />
-
-        <!-- LAST NAME-->
+        <!-- EAN-->
         <Label 
       Grid.Row="4" Grid.Column="0" 
       Content="EAN" 
@@ -87,7 +105,7 @@
       Target="{Binding ElementName=eanTxt}" 
       />
         <TextBox 
-      x:Name="lastNameTxt"
+      x:Name="eanTxt"
       Grid.Row="4" Grid.Column="2" 
       Text="{Binding Path=Ean, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
       Validation.ErrorTemplate="{x:Null}"
@@ -133,31 +151,12 @@
       Content="{Binding ElementName=salePriceTxt, Path=(Validation.Errors).CurrentItem}"
       />
 
-        <!-- Product Number-->
-        <Label 
-      Grid.Row="0" Grid.Column="0" 
-      Content="Product Number" 
-      HorizontalAlignment="Right"
-      Target="{Binding ElementName=prdNumberTxt}" 
-      />
-        <TextBox 
-      x:Name="productNumber"
-      Grid.Row="0" Grid.Column="2" 
-      Text="{Binding Path=numberTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-      Validation.ErrorTemplate="{x:Null}"
-      />
-        <ContentPresenter 
-      Grid.Row="1" Grid.Column="2" 
-      Content="{Binding ElementName=salePriceTxt, Path=(Validation.Errors).CurrentItem}"
-      />
-
         <!-- SAVE BUTTON -->
         <Button 
-      Grid.Row="10" Grid.Column="6"
+      Grid.Row="8" Grid.Column="6"
       Command="{Binding Path=SaveCommand}"
       Content="_Save"
       HorizontalAlignment="Right"
-      Margin="0,3,0,0" 
       MinWidth="60" Width="126" />
     </Grid>
 </UserControl>
