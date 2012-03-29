@@ -20,7 +20,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -48,7 +48,7 @@
           HorizontalAlignment="Right"
           Target="{Binding ElementName=customerTxt}"
         />
-        <TextBox 
+        <ComboBox 
           x:Name="customerTxt"
           Grid.Row="0" Grid.Column="2" 
           Text="{Binding Path=customerTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
@@ -96,12 +96,21 @@
          />
 
         <!-- Grid-->
-        <DataGrid
-            AutoGenerateColumns="True"
-            Grid.Row="6" 
+        <ListView
+            Grid.Row="5"
             Grid.Column="2"
-            Height="175" Name="orderPositionsGrid" 
-            VerticalAlignment="Top" />
+            MinHeight="125"
+            Margin="0,10,0,10"
+            AlternationCount="2"
+            ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Product"/>
+                    <GridViewColumn Header="Amount" />
+                    <GridViewColumn Header="Price"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <!--Add Positions-->
         <Label Content="Add Positions:" 
                Grid.Row="7"
