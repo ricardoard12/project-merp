@@ -72,6 +72,7 @@
     <Compile Include="Security\ErrorException\LoginError.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Stammdaten\Customer\CustomerFactory.cs" />
+    <Compile Include="Stammdaten\Customer\ICustomerService.cs" />
     <Compile Include="Stammdaten\Customer\ICustomerView.cs" />
     <Compile Include="Stammdaten\Product\IPrdcatView.cs" />
     <Compile Include="Stammdaten\Product\IProductService.cs" />

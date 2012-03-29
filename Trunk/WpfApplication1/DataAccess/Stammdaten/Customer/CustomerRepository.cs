@@ -1,82 +1,59 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Windows;
-using System.Windows.Resources;
-using System.Xml;
-using System.Xml.Linq;
-using FrontEnd.Model.Stammdaten;
+using System.ServiceModel;
+using FrontEnd.Data.Channel;
+using FrontEnd.DataAccess.Stammdaten.Customer;
+using Views;
+using Views.Security.Connection;
+using Views.Stammdaten;
+using Views.Stammdaten.Customer;
+using Views.Stammdaten.Product;
 
-namespace FrontEnd.DataAccess.Stammdaten.Customer {
-    public class CustomerRepository {
-        #region Fields
+namespace WpfApplication1.DataAccess.Stammdaten.Customer
+{
+    public class CustomerRepository : ICustomerService
+    {
+        private IConnection<ICustomerService> _customerConnection;
+        private ICustomerService _service;
 
-        readonly List<CustomerModel> _customers;
-
-        #endregion
-
-        #region Constructor
-
-        public CustomerRepository(string customerDataFile) {
-            _customers = LoadCustomers(customerDataFile);
-        }
-
-        #endregion constructors
-
-        #region Public Interface
-        //tritt auf wenn ein Customer in der Repo hinzugefügt wird
-        public event EventHandler<CustomerAddedEventArgs> CustomerAdded;
-
-        public void AddCustomer(CustomerModel customerModel) {
-            if (customerModel == null)
-                throw new ArgumentNullException("customerModel");
-            if (!_customers.Contains(customerModel)) {
-                _customers.Add(customerModel);
-
-                if (this.CustomerAdded != null)
-                    this.CustomerAdded(this, new CustomerAddedEventArgs(customerModel));
+        public IConnection<ICustomerService> Connection
+        {
+            get
+            {
+                if (_customerConnection == null)
+                {
+                    _customerConnection =
+                    ConnectionFactory<ICustomerService>.CreateConnection("CustomerService",
+                                                                           "net.tcp://10.12.10.150:2526/Service/CustomerService");
+                }
+                if (_customerConnection.ChannelFactory.Credentials != null)
+                {
+                    _customerConnection.ChannelFactory.Credentials.UserName.UserName = Session.Username;
+                    _customerConnection.ChannelFactory.Credentials.UserName.Password = Session.Password;
+                }
+                if (_customerConnection.ChannelFactory.State != CommunicationState.Opened)
+                    _customerConnection.ChannelFactory.Open();
+                return _customerConnection;
             }
         }
 
-        public bool ContainsCustomer(CustomerModel customerModel) {
-            if (customerModel == null)
-                throw new ArgumentNullException("customerModel");
-            return _customers.Contains(customerModel);
+        public void AddCustomer(ICustomerView customer)
+        {
+            Service.AddCustomer(customer);
         }
 
-        public List<CustomerModel> GetCustomers() {
-            return new List<CustomerModel>(_customers);
+        public IList<ICustomerView> AllCustomers()
+        {
+            return Service.AllCustomers();
         }
 
-        static List<CustomerModel> LoadCustomers(string customerDataFile) {
-            // In a real application, the data would come from an external source,
-            // but for this demo let's keep things simple and use a resource file.
-            using (Stream stream = GetResourceStream(customerDataFile))
-            using (XmlReader xmlRdr = new XmlTextReader(stream))
-                return
-                    (from customerElem in XDocument.Load(xmlRdr).Element("customers").Elements("customer")
-                     select CustomerModel.CreateCustomer(
-                        (double)customerElem.Attribute("totalSales"),
-                        (string)customerElem.Attribute("firstName"),
-                        (string)customerElem.Attribute("lastName"),
-                        (bool)customerElem.Attribute("isCompany"),
-                        (string)customerElem.Attribute("email")
-                         )).ToList();
+        public ICustomerView GetCustomerByPrimaryKey(int primaryKey)
+        {
+            return Service.GetCustomerByPrimaryKey(primaryKey);
         }
 
-        static Stream GetResourceStream(string resourceFile) {
-            Uri uri = new Uri(resourceFile, UriKind.RelativeOrAbsolute);
-
-            StreamResourceInfo info = Application.GetResourceStream(uri);
-            if (info == null || info.Stream == null)
-                throw new ApplicationException("Missing resource file: " + resourceFile);
-
-            return info.Stream;
+        public ICustomerService Service
+        {
+            get { return _service ?? (_service = Connection.CreateService); } 
         }
-
-        #endregion // Private Helpers
     }
-
-
 }
