@@ -46,17 +46,17 @@
           Grid.Row="0" Grid.Column="0" 
           Content="Customer:" 
           HorizontalAlignment="Right"
-          Target="{Binding ElementName=customerTxt}"
+          Target="{Binding ElementName=SalesHeaderCustomer}"
         />
         <ComboBox 
           x:Name="customerTxt"
           Grid.Row="0" Grid.Column="2" 
-          Text="{Binding Path=customerTxt, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Text="{Binding Path=SalesHeaderCustomer, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
         />
         <ContentPresenter 
           Grid.Row="1" Grid.Column="2"
-          Content="{Binding ElementName=customerTxt, Path=(Validation.Errors).CurrentItem}"
+          Content="{Binding ElementName=SalesHeaderCustomer, Path=(Validation.Errors).CurrentItem}"
         />
 
         <!-- OrderNumber-->
@@ -64,23 +64,23 @@
           Grid.Row="2" Grid.Column="0" 
           Content="Ordernumber:" 
           HorizontalAlignment="Right"
-          Target="{Binding ElementName=orderNumberTxt}"
+          Target="{Binding ElementName=SalesHeaderNumber}"
          />
         <TextBox 
-          x:Name="orderNumberTxt"
+          x:Name="SalesHeaderNumber"
           Grid.Row="2" Grid.Column="2" 
           Text="{Binding Path=OrderNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
          />
         <ContentPresenter 
           Grid.Row="3" Grid.Column="2"
-          Content="{Binding ElementName=orderNumberTxt, Path=(Validation.Errors).CurrentItem}"
+          Content="{Binding ElementName=SalesHeaderNumber, Path=(Validation.Errors).CurrentItem}"
         />
 
         <!-- Creation Date-->
         <Label 
           Grid.Row="4" Grid.Column="0" 
-          Content="Creation date:" 
+          Content="Delivery date:" 
           HorizontalAlignment="Right"
           Target="{Binding ElementName=creaDate}" 
          />
@@ -88,11 +88,11 @@
              Grid.Column="2"
              Grid.Row="4"
              HorizontalAlignment="Left"
-             Name="creaDate"
+             x:Name="deliveryDate"
              VerticalAlignment="Top" Height="23" Width="174" />
         <ContentPresenter
               Grid.Row="5" Grid.Column="2"
-              Content="{Binding ElementName=creaDate, Path=(Validation.Errors).CurrentItem}"
+              Content="{Binding ElementName=deliveryDate, Path=(Validation.Errors).CurrentItem}"
          />
 
         <!-- Grid-->
