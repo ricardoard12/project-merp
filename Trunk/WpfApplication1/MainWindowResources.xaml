@@ -15,9 +15,14 @@
                     xmlns:OfferVm="clr-namespace:WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer"
                     xmlns:Distribution="clr-namespace:WpfApplication1.Guis.BusinessProcesses.Distribution"
                     xmlns:DistributionVm="clr-namespace:WpfApplication1.ViewModel.BusinessProcesses.Distribution"
+                    xmlns:PurchaseHeader="clr-namespace:WpfApplication1.Guis.BusinessProcesses.Purchase"
+                    xmlns:PurchaseHeaderVm="clr-namespace:WpfApplication1.ViewModel.BusinessProcesses.Purchase"
                     x:Class="FrontEnd.c__projekte_projectmerp_wpfapplication1_mainwindowresources_xaml">
 
 
+    <DataTemplate DataType="{x:Type PurchaseHeaderVm:PurchaseHeaderViewModel}">
+        <PurchaseHeader:PurchaseHeader />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type DistributionVm:DistributionViewModel}">
         <Distribution:Distribution />
     </DataTemplate>
