@@ -82,6 +82,7 @@
     <Compile Include="DataAccess\BusinessProcesses\Sales\QuattroRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="DataAccess\Stammdaten\Customer\CustomerRepositoryOld.cs" />
     <Compile Include="DataAccess\Stammdaten\Customer\CustomerRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\Product\ProductRepository.cs" />
     <Compile Include="DataAccess\Stammdaten\Supplier\ISupplierRepository.cs" />
