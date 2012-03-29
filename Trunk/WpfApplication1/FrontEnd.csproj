@@ -76,8 +76,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataAccess\BusinessProcesses\Distribution\DistributionRepository.cs" />
-    <Compile Include="DataAccess\BusinessProcesses\Distribution\IDistributionRepository.cs" />
     <Compile Include="DataAccess\BusinessProcesses\Sales\IQuattroRepository.cs" />
     <Compile Include="DataAccess\BusinessProcesses\Sales\QuattroRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
@@ -121,7 +119,9 @@
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Distribution\DistributionViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Offer\OfferViewModel.cs" />
-    <Compile Include="ViewModel\BusinessProcesses\Sales\Order\OrderViewModel.cs" />
+    <Compile Include="ViewModel\BusinessProcesses\Sales\Order\OrderViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ViewModel\NavCommands\TreeViewCommandCategory.cs" />
     <Compile Include="ViewModel\Security\ILoginViewModel.cs" />
     <Compile Include="ViewModel\Security\LoginViewModel.cs" />

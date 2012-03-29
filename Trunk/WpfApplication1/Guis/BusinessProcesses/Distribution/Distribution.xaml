@@ -4,8 +4,100 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignWidth="300">
+    <Grid Margin="4">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="6" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type ValidationError}">
+                <TextBlock 
+                  FontStyle="Italic"
+                  Foreground="Red"
+                  HorizontalAlignment="Right"
+                  Margin="0,1"
+                  Text="{Binding Path=ErrorContent}" 
+                  />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <!-- Distribution Number -->
+        <Label 
+          Grid.Row="0" Grid.Column="0" 
+          Content="Distribution _number:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=distributionNumberTxt}" 
+          />
+
+        <TextBox 
+          x:Name="distributionNumberTxt"
+          Grid.Row="0" Grid.Column="2" 
+          Text="{Binding Path=DistributionNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Validation.ErrorTemplate="{x:Null}"
+          />
+        <ContentPresenter 
+            Grid.Row="1" Grid.Column="2"
+            Content="{Binding ElementName=distributionNumberTxt, Path=(Validation.Errors).CurrentItem}"
+            />
+
+        <!-- Customer Number-->
+        <Label 
+          Grid.Row="2" Grid.Column="0" 
+          Content="Customer _number:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=customerNumberTxt}"
+          />
+        <TextBox 
+          x:Name="customerNumberTxt"
+          Grid.Row="2" Grid.Column="2" 
+          Text="{Binding Path=DistributionCustomer, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Validation.ErrorTemplate="{x:Null}"
+          />
+        <ContentPresenter 
+          Grid.Row="3" Grid.Column="2"
+          Content="{Binding ElementName=customerNumberTxt, Path=(Validation.Errors).CurrentItem}"
+          />
+
+        <!-- Create Date -->
+        <Label 
+          Grid.Row="4" Grid.Column="0" 
+          Content="Create _date:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=createDateTxt}"
+          />
+        <TextBox 
+          x:Name="createDateTxt"
+          Grid.Row="4" Grid.Column="2" 
+          Text="{Binding Path=CreateDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Validation.ErrorTemplate="{x:Null}"
+          />
+        <ContentPresenter 
+          Grid.Row="5" Grid.Column="2"
+          Content="{Binding ElementName=createDateTxt, Path=(Validation.Errors).CurrentItem}"
+          />
+
+        <!-- SAVE BUTTON -->
+        <Button 
+          Grid.Row="6" Grid.Column="2"
+          Command="{Binding Path=SaveCommand}"
+          Content="_Save"
+          HorizontalAlignment="Right"
+          Margin="4,2" 
+          MinWidth="60"
+          />
     </Grid>
 </UserControl>
