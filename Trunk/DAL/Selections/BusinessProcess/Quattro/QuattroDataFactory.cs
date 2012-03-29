@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Database;
 using Views.BusinessProcesses.Sales.Offer;
 
-namespace DAL.Selections.Stammdaten.Quattro {
+namespace DAL.Selections.BusinessProcess.Quattro {
     public class QuattroDataFactory : ASelection {
 
         public static void AddPurchaseHeader(tbl_Puh header) {
