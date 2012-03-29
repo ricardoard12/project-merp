@@ -86,10 +86,10 @@
       Target="{Binding ElementName=productTypeCmb}" 
       />
         <ComboBox 
-      x:Name="customerTypeCmb"
+      x:Name="productTypeCmb"
       Grid.Row="2" Grid.Column="2" 
       ItemsSource="{Binding Path=ProductTypeOptions, Mode=OneTime}"
-      SelectedItem="{Binding Path=ProductType, ValidatesOnDataErrors=True}"
+      SelectedItem="{Binding Path=SelectedProductType, ValidatesOnDataErrors=True}"
       Validation.ErrorTemplate="{x:Null}"
       />
         <ContentPresenter 

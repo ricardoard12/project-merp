@@ -6,15 +6,18 @@ using FrontEnd.DataAccess;
 using Views.Stammdaten.Product;
 using WpfApplication1.ViewModel.Stammdaten.Product;
 using ProductFactory = Views.Stammdaten.Product.ProductFactory;
+using Views.BusinessProcesses.Sales.Offer;
+using System.Collections.ObjectModel;
 
 namespace FrontEnd.ViewModel.Stammdaten.Product {
     public class ProductViewModel : WorkspaceViewModel, IProductViewModel
     {
         readonly IProductView _productView;
         private readonly ProductRepository _productRepository;
+        private ObservableCollection<IPrdcatView> productTypes;
 
       //  string _productType;
-       // string[] _productTypeOptions;
+        string[] _productTypeOptions;
         bool _isSelected;
         RelayCommand _saveCommand;
        
@@ -22,14 +25,8 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
         public  ProductViewModel() {
             _productView = ProductFactory.createNewProduct();
             _productRepository = new ProductRepository();
-            fillCategory();
         }
-
-        private void fillCategory()
-        {
-            this._productView.ProductCategory = 1;
-        }
-
+        
         public int? ProductNumber {
             get { return _productView.ProductNumber; }
             set {
@@ -86,6 +83,18 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
                 _productView.PricePurchase = value;
 
                 base.OnPropertyChanged("PricePurchase");
+            }
+        }
+
+        public ObservableCollection<IPrdcatView> ProductTypeOptions
+        {
+            get
+            {
+                if (productTypes == null || productTypes.Count == 0)
+                {
+                    productTypes = new ObservableCollection<IPrdcatView>(_productRepository.ProductCategoryList);
+                }
+                return productTypes;
             }
         }
 

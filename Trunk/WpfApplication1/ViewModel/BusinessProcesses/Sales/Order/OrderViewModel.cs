@@ -20,6 +20,8 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
         private ObservableCollection<ICustomerView> allCustomers;
         private CustomerRepository customerRepository;
         private ICustomerView selectedCustomer;
+        private ISalesItem salesItem;
+        private ObservableCollection<ISalesItem> positions;
 
 
         private string[] typeOptions;
@@ -27,7 +29,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
 
         public OrderViewModel()
         {
-            this.quattroRepository = quattroRepository;
+            this.quattroRepository = new QuattroRepository();
             this.customerRepository = new CustomerRepository();
             this._salesHeaderView = SalesFactory.createNewSalesHeader();
             selectedCustomer = CustomerFactory.createNew();
@@ -78,15 +80,12 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
         }
 
 
-
         public ObservableCollection<ICustomerView> GetCustomers
         {
             get
             {
                 return allCustomers ?? (allCustomers = new ObservableCollection<ICustomerView>(customerRepository.AllCustomers()));
-              
             }
-
         }
 
         public ICustomerView SelectedCustomer
@@ -104,6 +103,18 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
                    OnPropertyChanged("SelectedCustomer");
                 }
                 
+            }
+        }
+
+        public ObservableCollection<ISalesItem> Positions
+        {
+            get
+            {
+                if (positions == null || positions.Count == 0)
+                {
+                    positions = new ObservableCollection<ISalesItem>(quattroRepository.AllSalesItemsBySalesHeader(_salesHeaderView.SalesHeaderId));
+                }
+                return positions;
             }
         }
 

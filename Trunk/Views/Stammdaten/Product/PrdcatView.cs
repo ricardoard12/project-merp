@@ -12,7 +12,7 @@ namespace Views.Stammdaten.Product
         protected PrdcatView(SerializationInfo info, StreamingContext contect)
         {
             PrdcatId = (int)info.GetValue("PrdcatId", typeof(int));
-            PrdcatNumber = (int) info.GetValue("PrdcatNumber", typeof (int));
+            PrdcatNumber = (int?) info.GetValue("PrdcatNumber", typeof (int));
             PrdcatName = (string) info.GetValue("PrdcatName", typeof (string));
         }
 
@@ -39,5 +39,10 @@ namespace Views.Stammdaten.Product
         public int PrdcatId { get; set; }
         public int? PrdcatNumber { get; set; }
         public string PrdcatName { get; set; }
+
+        public override string ToString()
+        {
+            return (PrdcatNumber+"; "+PrdcatName).ToString();
+        }
     }
 }
