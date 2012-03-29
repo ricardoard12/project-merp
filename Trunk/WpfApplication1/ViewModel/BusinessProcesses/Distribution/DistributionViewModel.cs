@@ -136,12 +136,8 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
             }
         }
 
-        public string Error
-        {
-            get { throw new NotImplementedException(); }
-        }
+        string IDataErrorInfo.Error { get { return null; } }
 
-    
         #endregion 
     }
 }
