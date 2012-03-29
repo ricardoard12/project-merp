@@ -4,21 +4,13 @@
   xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
   >
     <UserControl.Resources>
-        <CollectionViewSource x:Key="CustomerGroups"  Source="{Binding Path=AllCustomers}" >
+        <CollectionViewSource x:Key="OrderGroups"  Source="{Binding Path=AllOrders}" >
             <CollectionViewSource.GroupDescriptions>
-                <PropertyGroupDescription PropertyName="IsCompany" />
+                <PropertyGroupDescription PropertyName="IsOrder" />
             </CollectionViewSource.GroupDescriptions>
-            <CollectionViewSource.SortDescriptions>
-                <!-- 
-        Sort descending by IsCompany so that the 'True' values appear first,
-        which means that companies will always be listed before people.
-        -->
-                <scm:SortDescription PropertyName="IsCompany" Direction="Descending" />
-                <scm:SortDescription PropertyName="DisplayName" Direction="Ascending" />
-            </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
 
-        <GroupStyle x:Key="CustomerGroupStyle">
+        <GroupStyle x:Key="OrderGroupStyle">
             <GroupStyle.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock  x:Name="txt" 
@@ -27,18 +19,18 @@
                         Foreground="White"
                         Margin="1"
                         Padding="4,2,0,2"
-                        Text="People" 
+                        Text="Orders" 
                         />
                     <DataTemplate.Triggers>
-                        <DataTrigger Binding="{Binding Path=IsCompany}" Value="True">
-                            <Setter TargetName="txt" Property="Text" Value="Companies" />
+                        <DataTrigger Binding="{Binding Path=IsOrder}" Value="True">
+                            <Setter TargetName="txt" Property="Text" Value="Orders" />
                         </DataTrigger>
                     </DataTemplate.Triggers>
                 </DataTemplate>
             </GroupStyle.HeaderTemplate>
         </GroupStyle>
 
-        <Style x:Key="CustomerItemStyle" TargetType="{x:Type ListViewItem}">
+        <Style x:Key="OrderItemStyle" TargetType="{x:Type ListViewItem}">
             <!-- 
       Stretch the content of each cell so that we can 
       right-align text in the Total Sales column. 
@@ -74,18 +66,15 @@
             </StackPanel>
         </Grid>
 
-        <ListView  AlternationCount="2"   DataContext="{StaticResource CustomerGroups}"   ItemContainerStyle="{StaticResource CustomerItemStyle}"   ItemsSource="{Binding}">
-            <ListView.GroupStyle>
-                <StaticResourceExtension ResourceKey="CustomerGroupStyle"/>
-            </ListView.GroupStyle>
+        <ListView  AlternationCount="2"   DataContext="{StaticResource OrderGroups}"   ItemContainerStyle="{StaticResource OrderItemStyle}"   ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=DisplayName}"  />
-                    <GridViewColumn Header="E-mail" DisplayMemberBinding="{Binding Path=Email}" />
-                    <GridViewColumn Header="Total Sales">
+                    <GridViewColumn Header="Customer"  DisplayMemberBinding="{Binding Path=Customer}"  />
+                    <GridViewColumn Header="Ordernumber" DisplayMemberBinding="{Binding Path=Ordernumber}" />
+                    <GridViewColumn Header="Total Positions">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <ContentPresenter Content="{Binding Path=TotalSales}"  ContentStringFormat="c" HorizontalAlignment="Right" />
+                                <ContentPresenter Content="{Binding Path=TotalPositions}"  ContentStringFormat="c" HorizontalAlignment="Right" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
