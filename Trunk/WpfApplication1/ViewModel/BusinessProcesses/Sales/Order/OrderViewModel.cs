@@ -6,6 +6,7 @@ using System.Text;
 using FrontEnd.ViewModel;
 using Views.BusinessProcesses.Sales.Offer;
 using FrontEnd.DataAccess.
+using WpfApplication1.DataAccess.BusinessProcesses.Sales;
 
 namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
 {
@@ -16,7 +17,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
         private string[] typeOptions;
         private bool isSelected;
 
-        public OrderViewModel(IOfferRepository offerRepository)
+        public OrderViewModel(IQuattroRepository offerRepository)
         {
             this.quattroRepository = quattroRepository;
             this._salesHeaderView = SalesFactory.createNew();
