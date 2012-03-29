@@ -92,6 +92,8 @@ namespace Views.Stammdaten.Customer
                 "Email",
                 "FirstName",
                 "LastName",
+                "Number",
+                "CustomerType"
             };
 
         private string GetValidationError(string propertyName)
@@ -115,12 +117,28 @@ namespace Views.Stammdaten.Customer
                     error = this.ValidateLastName();
                     break;
 
+                case "Number":
+                    error = this.ValidateNumber();
+                    break;
+
+                case "CustomerType":
+                    break;
+
                 default:
                     Debug.Fail("Unexpected property being validated on Customer: " + propertyName);
                     break;
             }
 
             return error;
+        }
+
+        private string ValidateNumber()
+        {
+            if (IsStringMissing(Convert.ToString(this.CusNumber)))
+            {
+                return "Missing Number";
+            }
+            return null;
         }
 
         private string ValidateEmail()
@@ -165,6 +183,22 @@ namespace Views.Stammdaten.Customer
             return
                 String.IsNullOrEmpty(value) ||
                 value.Trim() == String.Empty;
+        }
+
+        private static bool? IsValidNumber(int input)
+        {
+            if (IsStringMissing(input.ToString()))
+                return false;
+
+            try
+            {
+                int res = int.Parse(input.ToString());
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private static bool IsValidEmailAddress(string email)
