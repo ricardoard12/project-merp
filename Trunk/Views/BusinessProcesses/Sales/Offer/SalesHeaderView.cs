@@ -118,13 +118,7 @@ namespace Views.BusinessProcesses.Sales.Offer
         public bool IsValid
         {
             get
-            {
-                foreach (string property in ValidatedProperties)
-                    if (GetValidationError(property) != null)
-                        return false;
-
-                return true;
-            }
+            { return ValidatedProperties.All(property => GetValidationError(property) == null); }
         }
     }
 
