@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -7,7 +9,7 @@ using System.Text;
 namespace Views.BusinessProcesses.Sales.Offer
 {
     [Serializable]
-    class SalesHeaderView : ISalesHeaderView
+    class SalesHeaderView : ISalesHeaderView, IDataErrorInfo
     {
 
         public SalesHeaderView()
@@ -42,6 +44,88 @@ namespace Views.BusinessProcesses.Sales.Offer
         }
 
 
+        string IDataErrorInfo.Error { get { return null; } }
+
+        string IDataErrorInfo.this[string propertyName]
+        {
+            get { return this.GetValidationError(propertyName); }
+        }
+
+        private string GetValidationError(string propertyName)
+        {
+            string error = null;
+
+            switch (propertyName)
+            {
+                case "OfferNumber":
+                    error = this.ValidateOfferNumber();
+                    break;
+
+                case "OfferCustomer":
+                    error = this.ValidateOfferCustomer();
+                    break;
+
+                case "OfferCreateDate":
+                    error = this.ValidateOfferCreateDate();
+                    break;
+
+                default:
+                    Debug.Fail("Unexpected property being validated on Offer: " + propertyName);
+                    break;
+            }
+
+            return error;
+        }
+
+        private string ValidateOfferNumber()
+        {
+            if (IsStringMissing(Convert.ToString(OfferNumber)))
+                return "Missing Offer Number";
+
+            return null;
+        }
+
+        private string ValidateOfferCustomer()
+        {
+            if (IsStringMissing(Convert.ToString(OfferCustomer)))
+                return "Missing Offer Customer";
+
+            return null;
+        }
+
+        private string ValidateOfferCreateDate()
+        {
+            if (IsStringMissing(Convert.ToString(OfferCreateDate)))
+                return "Missing Offer create date";
+
+            return null;
+        }
+
+        static bool IsStringMissing(string value)
+        {
+            return
+                String.IsNullOrEmpty(value) ||
+                value.Trim() == String.Empty;
+        }
+
+        static readonly string[] ValidatedProperties = 
+        { 
+            "OfferNumber", 
+            "OfferCustomer", 
+            "OfferCreateDate"
+        };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (string property in ValidatedProperties)
+                    if (GetValidationError(property) != null)
+                        return false;
+
+                return true;
+            }
+        }
     }
 
 

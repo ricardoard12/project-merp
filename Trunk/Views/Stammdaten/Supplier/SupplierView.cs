@@ -45,7 +45,6 @@ namespace Views.Stammdaten.Supplier
             info.AddValue("Supcontactname", SupContactname);
             info.AddValue("SupUserId", SupUsrId);
             info.AddValue("SupIsCompany", SupIsCompany);
-
         }
 
         protected SupplierView(SerializationInfo info, StreamingContext context)

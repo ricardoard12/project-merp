@@ -122,7 +122,11 @@ namespace WpfApplication1.ViewModel.Stammdaten.Supplier
 
         public ICommand SaveCommand
         {
-            get { return saveCommand ?? (saveCommand = new RelayCommand(param => Save(), param=>  CanSave)); } }
+            get 
+            { 
+                return saveCommand ?? (saveCommand = new RelayCommand(param => Save(), param=>  CanSave));
+            } 
+        }
 
         private void Save()
         {

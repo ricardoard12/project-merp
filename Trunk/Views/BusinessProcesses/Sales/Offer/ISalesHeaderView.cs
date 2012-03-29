@@ -13,5 +13,6 @@ namespace Views.BusinessProcesses.Sales.Offer
         int? OfferCustomer { get; set; }
         DateTime? OfferCreateDate { get; set; }
         int? SalesType { get; set; }
+        bool IsValid { get; }
     }
 }
