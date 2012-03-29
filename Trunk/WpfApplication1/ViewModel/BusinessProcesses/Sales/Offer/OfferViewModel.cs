@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using FrontEnd;
 using FrontEnd.ViewModel;
 using Views.BusinessProcesses.Sales.Offer;
 using WpfApplication1.DataAccess.BusinessProcesses.Sales;
-using WpfApplication1.DataAccess.BusinessProcesses.Sales.Offer;
 
 namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 {
@@ -20,7 +15,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
         private bool isSelected;
         private ICommand saveCommand;
 
-        public OfferViewModel(IOfferRepository offerRepository)
+        public OfferViewModel()
         {
             this.quattroRepository = quattroRepository;
 
