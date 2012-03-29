@@ -1,17 +1,12 @@
 ﻿using System.Collections.Generic;
+using Views.BusinessProcesses.Sales;
 using Views.BusinessProcesses.Sales.Offer;
 
 namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 {
-    public interface IQuattroRepository
+    public interface IQuattroRepository : IQuattroService 
     {
-        ISalesHeaderView ByPrimaryKey();
-
-        IList<ISalesHeaderView> AllQuattros();
-
-        void AddQuattro(ISalesHeaderView view);
-
-        void AddPosition(ISalesItem item);
+        
         
     }
 }

@@ -85,6 +85,11 @@ namespace BL.Service
 
         }
 
+        public void UpdatePurchaseHeader(IPurchaseHeaderView purchaseHeader)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void DeleteSalesHeader(ISalesHeaderView view)
         {
             QuattroDataFactory.DeleteHeader(view);

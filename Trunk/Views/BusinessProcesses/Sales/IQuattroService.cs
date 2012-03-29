@@ -56,8 +56,7 @@ namespace Views.BusinessProcesses.Sales
         [OperationContract]
         IList<IPurchaseItem> AllPurchaseItemsByHeaderPrimaryKey(int primaryKey);
 
-     
-
-
+        [OperationContract]
+        void UpdatePurchaseHeader(IPurchaseHeaderView purchaseHeader);
     }
 }

@@ -17,6 +17,7 @@ namespace Views.Stammdaten
         string Email { get; set; }
         int? CusUsrId { get; set; }
         bool? CusIsCompany { get; set; }
+        bool IsValid { get; }
 
     }
 }

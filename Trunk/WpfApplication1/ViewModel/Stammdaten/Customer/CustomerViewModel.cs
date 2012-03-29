@@ -1,97 +1,92 @@
 ﻿using System;
 using System.ComponentModel;
 using FrontEnd.DataAccess.Stammdaten.Customer;
-using FrontEnd.DataAccess;
 using System.Windows.Input;
-using WpfApplication1.ViewModel.Stammdaten.Customer;
+using Views.Stammdaten;
+using Views.Stammdaten.Customer;
+using WpfApplication1.DataAccess.Stammdaten.Customer;
 
 namespace FrontEnd.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {
         #region Fields
-        readonly Model.Stammdaten.CustomerModel _customerModel;
-        readonly CustomerRepositoryDB _customerRepository;
-        string _customerType;
-        string[] _customerTypeOptions;
+
+        private ICustomerView customer;
+        readonly CustomerRepository customerRepository;
+        string customerType;
+        string[] customerTypeOptions;
         bool _isSelected;
         RelayCommand _saveCommand;
 
         #endregion Fields
 
         #region Constructors
-        public CustomerViewModel(Model.Stammdaten.CustomerModel customerModel, CustomerRepositoryOld customerRepository) {
-            if (customerModel == null)
-                throw new ArgumentNullException("customerModel");
-
-            if (customerRepository == null)
-                throw new ArgumentNullException("customerRepository");
-
-            _customerModel = customerModel;
-            _customerRepository = customerRepository;
-            _customerType = "NotSpecified";
+        public CustomerViewModel() {
+            customer = CustomerFactory.createNew();
+            customerRepository = new CustomerRepository();
+            customerType = "NotSpecified";
         }  
 
         #endregion Constructors
 
         #region Customer Properties
         public string Email {
-            get { return _customerModel.Email; }
+            get { return customer.Email; }
             set {
-                if (value == _customerModel.Email)
+                if (value == customer.Email)
                     return;
 
-                _customerModel.Email = value;
+                customer.Email = value;
                 base.OnPropertyChanged("Email");
             }
         }
 
         public string FirstName {
-            get { return _customerModel.FirstName; }
+            get { return customer.CusFirstname; }
             set {
-                if (value == _customerModel.FirstName)
+                if (value == customer.CusFirstname)
                     return;
-
-                _customerModel.FirstName = value;
-
+                customer.CusFirstname = value;
                 base.OnPropertyChanged("FirstName");
             }
         }
 
-        public bool IsCompany {
-            get { return _customerModel.IsCompany; }
+        public bool? IsCompany {
+            get { return customer.CusIsCompany; }
         }
 
         public string LastName {
-            get { return _customerModel.LastName; }
+            get { return customer.CusLastname; }
             set {
-                if (value == _customerModel.LastName)
+                if (value == customer.CusLastname)
                     return;
-
-                _customerModel.LastName = value;
+                customer.CusLastname = value;
 
                 base.OnPropertyChanged("LastName");
             }
         }
 
+        /*
         public double TotalSales {
-            get { return _customerModel.TotalSales; }
+            get { return customer.; }
         }
+         */
 
         #endregion Customer Properties
 
         #region Presentation properties
 
         public string CustomerType {
-            get { return _customerType; }
+            get { return customerType; }
             set {
-                if (value == _customerType || String.IsNullOrEmpty(value))
+                if (value == customerType || String.IsNullOrEmpty(value))
                     return;
 
-                _customerType = value;
+                customerType = value;
 
-                if (_customerType == "Company") {
-                    _customerModel.IsCompany = true;
-                } else if (_customerType == "Person") {
-                    _customerModel.IsCompany = false;
+                if (customerType == "Company") {
+                    customer.CusIsCompany = true;
+                } else if (customerType == "Person") {
+                    customer.CusIsCompany = false;
                 }
 
                 base.OnPropertyChanged("CustomerType");
@@ -106,26 +101,26 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         /// </summary>
         public string[] CustomerTypeOptions {
             get {
-                if (_customerTypeOptions == null) {
-                    _customerTypeOptions = new string[]
+                if (customerTypeOptions == null) {
+                    customerTypeOptions = new string[]
                     {
                         "NotSpecified",
                         "Person",
                         "Company"
                     };
                 }
-                return _customerTypeOptions;
+                return customerTypeOptions;
             }
         }
 
         public override string DisplayName {
             get {
-                if (this.IsNewCustomer) {
+                if (this.customer.CusId <= 0) {
                     return "Display Name";
-                } else if (_customerModel.IsCompany) {
-                    return _customerModel.FirstName;
+                } else if (customer.CusIsCompany == true) {
+                    return customer.CusLastname;
                 } else {
-                    return String.Format("{0}, {1}", _customerModel.LastName, _customerModel.FirstName);
+                    return String.Format("{0}, {1}", customer.CusLastname, customer.CusFirstname);
                 }
             }
         }
@@ -159,35 +154,23 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         /// <summary>
         /// Saves the customer to the repository.  This method is invoked by the SaveCommand.
         /// </summary>
+        
+        
         public void Save() {
-            if (!_customerModel.IsValid)
-                throw new InvalidOperationException("Customer is not valid");
-
-            if (this.IsNewCustomer)
-                _customerRepository.AddCustomer(_customerModel);
-
+            customerRepository.AddCustomer(customer);
             base.OnPropertyChanged("DisplayName");
         }
-
+        
                 /// <summary>
         /// Returns true if the customer is valid and can be saved.
         /// </summary>
         bool CanSave {
-            get { return String.IsNullOrEmpty(this.ValidateCustomerType()) && _customerModel.IsValid; }
+            get { return String.IsNullOrEmpty(this.ValidateCustomerType()) && customer.IsValid; }
         }
-
+        
         #endregion public methods
 
         #region Private Helpers
-
-        /// <summary>
-        /// Returns true if this customer was created by the user and it has not yet
-        /// been saved to the customer repository.
-        /// </summary>
-        bool IsNewCustomer {
-            get { return !_customerRepository.ContainsCustomer(_customerModel); }
-        }
-
 
 
         #endregion // Private Helpers
@@ -195,7 +178,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         #region IDataErrorInfo Members
 
         string IDataErrorInfo.Error {
-            get { return (_customerModel as IDataErrorInfo).Error; }
+            get { return (customer as IDataErrorInfo).Error; }
         }
 
         string IDataErrorInfo.this[string propertyName] {
@@ -209,7 +192,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
                     // class handles this mapping and validation.
                     error = this.ValidateCustomerType();
                 } else {
-                    error = (_customerModel as IDataErrorInfo)[propertyName];
+                    error = (customer as IDataErrorInfo)[propertyName];
                 }
 
                 // Dirty the commands registered with CommandManager,
