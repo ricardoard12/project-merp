@@ -77,8 +77,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\BusinessProcesses\Sales\IQuattroRepository.cs" />
-    <Compile Include="DataAccess\BusinessProcesses\Sales\Offer\IOfferRepository.cs" />
-    <Compile Include="DataAccess\BusinessProcesses\Sales\Offer\OfferRepository.cs" />
     <Compile Include="DataAccess\BusinessProcesses\Sales\QuattroRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\Repository.cs" />
