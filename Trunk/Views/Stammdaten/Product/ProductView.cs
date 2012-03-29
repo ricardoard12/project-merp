@@ -33,10 +33,10 @@ namespace Views.Stammdaten.Product {
             ProductNumber = (int?)info.GetValue("ProductNumber", typeof(int));
             ProductName = (string)info.GetValue("ProductName", typeof(string));
             Ean = (string)info.GetValue("Ean", typeof(string));
-            PricePurchase = (double?)info.GetValue("PricePurchase", typeof(double?));
+            PricePurchase = (double?)info.GetValue("PricePurchase", typeof(double));
             PriceSale = (double?)info.GetValue("PriceSale", typeof(double?)); 
-            ProductCategory = (int)info.GetValue("ProductCategory", typeof(int)); 
-            ProductSupplier = (int)info.GetValue("ProductSupplier", typeof(int));
+            ProductCategory = (int?)info.GetValue("ProductCategory", typeof(int)); 
+            ProductSupplier = (int?)info.GetValue("ProductSupplier", typeof(int));
             
         }
 

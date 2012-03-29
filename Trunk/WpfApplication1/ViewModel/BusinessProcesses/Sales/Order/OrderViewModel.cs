@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using FrontEnd.ViewModel;
 using Views.BusinessProcesses.Sales.Offer;
-using FrontEnd.DataAccess.
 using WpfApplication1.DataAccess.BusinessProcesses.Sales;
 
 namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
@@ -17,10 +12,10 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
         private string[] typeOptions;
         private bool isSelected;
 
-        public OrderViewModel(IQuattroRepository offerRepository)
+        public OrderViewModel()
         {
             this.quattroRepository = quattroRepository;
-            this._salesHeaderView = SalesFactory.createNew();
+            this._salesHeaderView = SalesFactory.createNewSalesHeader();
         }
 
         #region Constructors
@@ -43,27 +38,27 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Order
 
         public int? OfferNumber
         {
-            get { return _salesHeaderView.OfferNumber; }
+            get { return _salesHeaderView.SalesHeaderNumber; }
             set
             {
-                if (value == _salesHeaderView.OfferNumber)
+                if (value == _salesHeaderView.SalesHeaderNumber)
                     return;
 
-                _salesHeaderView.OfferNumber = value;
-                base.OnPropertyChanged("OrderNumber");
+                _salesHeaderView.SalesHeaderNumber = value;
+                base.OnPropertyChanged("SalesHeaderNumber");
             }
         }
 
         public int? OfferCustomer
         {
-            get { return _salesHeaderView.OfferCustomer; }
+            get { return _salesHeaderView.SalesHeaderCustomer; }
             set
             {
-                if (value == _salesHeaderView.OfferCustomer)
+                if (value == _salesHeaderView.SalesHeaderCustomer)
                     return;
 
-                _salesHeaderView.OfferCustomer = value;
-                base.OnPropertyChanged("OrderCustomer");
+                _salesHeaderView.SalesHeaderCustomer = value;
+                base.OnPropertyChanged("SalesHeaderCustomer");
             }
         }
 

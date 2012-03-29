@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DAL.Selections.BusinessProcess.Quattro;
+using Views.BusinessProcesses.Purchase;
 using Views.BusinessProcesses.Sales;
 using Views.BusinessProcesses.Sales.Offer;
 
@@ -36,6 +37,21 @@ namespace BL.Service
         public IList<ISalesHeaderView> BySpecifiedType(int? type)
         {
             return QuattroDataFactory.BySpecifiedType(type);
+        }
+
+        public IList<ISalesItem> AllSalesItemsBySalesHeader(int primaryKey)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void AddPurchaseHeader(IPurchaseHeaderView view)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void AddPuchaseItem(IPurchaseItem item)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void DeleteSalesHeader(ISalesHeaderView view)
