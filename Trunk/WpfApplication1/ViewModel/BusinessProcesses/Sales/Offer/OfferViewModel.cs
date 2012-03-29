@@ -126,6 +126,17 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 
         #region IDataErrors
 
+        string IDataErrorInfo.this[string propertyName]
+        {
+            get 
+            { 
+                string error = null;
+                error = (salesHeaderView as IDataErrorInfo)[propertyName];
+                CommandManager.InvalidateRequerySuggested();
+                return error;
+            }
+        }
+
         string IDataErrorInfo.Error
         {
             get { return (salesHeaderView as IDataErrorInfo).Error; }

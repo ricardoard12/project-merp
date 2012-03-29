@@ -124,6 +124,22 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
 
         #region IDataErrors
 
+        string IDataErrorInfo.this[string propertyName]
+        {
+            get
+            {
+                string error = null;
+                error = (salesHeaderView as IDataErrorInfo)[propertyName];
+                CommandManager.InvalidateRequerySuggested();
+                return error;
+            }
+        }
+
+        public string this[string columnName]
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         string IDataErrorInfo.Error
         {
             get { return (salesHeaderView as IDataErrorInfo).Error; }

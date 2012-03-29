@@ -119,9 +119,6 @@
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Distribution\DistributionViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Offer\OfferViewModel.cs" />
-    <Compile Include="ViewModel\BusinessProcesses\Sales\Order\OrderViewModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ViewModel\NavCommands\TreeViewCommandCategory.cs" />
     <Compile Include="ViewModel\Security\ILoginViewModel.cs" />
     <Compile Include="ViewModel\Security\LoginViewModel.cs" />
@@ -258,6 +255,7 @@
     <Folder Include="DataAccess\BusinessProcesses\Purchase\" />
     <Folder Include="Guis\BusinessProcesses\Purchase\" />
     <Folder Include="ViewModel\BusinessProcesses\Purchase\" />
+    <Folder Include="ViewModel\BusinessProcesses\Sales\Order\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
