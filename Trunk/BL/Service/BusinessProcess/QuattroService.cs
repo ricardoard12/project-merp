@@ -66,7 +66,7 @@ namespace BL.Service
 
         public IPurchaseHeaderView QuattroPurchaseByPrimaryKey(int primaryKey)
         {
-            QuattroDataFactory.GetPurchaseHeaderByPrimaryKey(primaryKey);
+           return QuattroDataFactory.GetPurchaseHeaderByPrimaryKey(primaryKey);
         }
 
         public IList<IPurchaseHeaderView> AllPurchaseHeader()
