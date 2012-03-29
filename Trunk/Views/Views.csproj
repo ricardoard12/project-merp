@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessProcesses\Distribution\DistributionFactory.cs" />
+    <Compile Include="BusinessProcesses\Distribution\DistributionView.cs" />
+    <Compile Include="BusinessProcesses\Distribution\IDistributionService.cs" />
+    <Compile Include="BusinessProcesses\Distribution\IDistributionView.cs" />
     <Compile Include="BusinessProcesses\Sales\IQuattroService.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesHeaderView.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesItem.cs" />
