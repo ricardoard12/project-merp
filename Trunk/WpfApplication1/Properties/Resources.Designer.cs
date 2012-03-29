@@ -86,6 +86,17 @@ namespace WpfApplication1.Properties {
                 return ResourceManager.GetString("StringStammdaten", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;BusinessProcesses&quot;.
+        /// </summary>
+        internal static string StringBusinessProcesses
+        {
+            get
+            {
+                return ResourceManager.GetString("StringBusinessProcesses", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to &quot;Supplier&quot;.
@@ -93,6 +104,17 @@ namespace WpfApplication1.Properties {
         internal static string StringSupplier {
             get {
                 return ResourceManager.GetString("StringSupplier", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Order&quot;.
+        /// </summary>
+        internal static string StringOrder
+        {
+            get
+            {
+                return ResourceManager.GetString("StringOrder", resourceCulture);
             }
         }
         

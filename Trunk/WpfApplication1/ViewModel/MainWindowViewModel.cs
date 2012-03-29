@@ -24,6 +24,7 @@ using WpfApplication1.ViewModel.Stammdaten.Supplier;
 using bbv.Common.EventBroker;
 using bbv.Common.EventBroker.Handlers;
 using WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer;
+using WpfApplication1.ViewModel.BusinessProcesses.Sales.Order;
 
 
 namespace FrontEnd.ViewModel {
@@ -171,6 +172,7 @@ namespace FrontEnd.ViewModel {
                 new CommandViewModel("Show all Users", new RelayCommand(param => CreateGuiAndSetActive(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
                 new CommandViewModel("Create New Product", new RelayCommand(param => CreateGuiAndSetActive(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct),
                 new CommandViewModel("Create Supplier", new RelayCommand(param => CreateGuiAndSetActive(new SupplierViewModel())), Resources.StringStammdaten, Resources.StringSupplier  ),
+                new CommandViewModel("Create Order", new RelayCommand(param => CreateGuiAndSetActive(new OrderViewModel())), Resources.StringBusinessProcesses, Resources.StringOrder  )
 
             };
         }
