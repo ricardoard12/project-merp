@@ -51,6 +51,8 @@
         <ComboBox 
           x:Name="customerTxt"
           Grid.Row="0" Grid.Column="2" 
+          ItemsSource="{Binding Path=GetCustomers, Mode=OneTime}"
+          SelectedItem="{Binding Path=SelectedCustomer, ValidatesOnDataErrors=True}"
           Text="{Binding Path=SalesHeaderCustomer, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
         />
