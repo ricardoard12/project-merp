@@ -76,6 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\BusinessProcesses\Purchase\IPurchaseHeaderRepository.cs" />
+    <Compile Include="DataAccess\BusinessProcesses\Purchase\PurchaseHeaderRepository.cs" />
     <Compile Include="DataAccess\BusinessProcesses\Sales\IQuattroRepository.cs" />
     <Compile Include="DataAccess\BusinessProcesses\Sales\QuattroRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
@@ -90,6 +92,9 @@
     <Compile Include="Events\BooleanEventArg.cs" />
     <Compile Include="Guis\BusinessProcesses\Distribution\Distribution.xaml.cs">
       <DependentUpon>Distribution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\BusinessProcesses\Purchase\PurchaseHeader.xaml.cs">
+      <DependentUpon>PurchaseHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Guis\BusinessProcesses\Sales\Offer\Offer.xaml.cs">
       <DependentUpon>Offer.xaml</DependentUpon>
@@ -118,6 +123,7 @@
     <Compile Include="Model\Stammdaten\ProductFactory.cs" />
     <Compile Include="Model\Stammdaten\UserFactory.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Distribution\DistributionViewModel.cs" />
+    <Compile Include="ViewModel\BusinessProcesses\Purchase\PurchaseHeaderViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Offer\OfferViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Order\OrderViewModel.cs" />
     <Compile Include="ViewModel\NavCommands\TreeViewCommandCategory.cs" />
@@ -146,6 +152,10 @@
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
     <Page Include="Guis\BusinessProcesses\Distribution\Distribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guis\BusinessProcesses\Purchase\PurchaseHeader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,9 +263,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAccess\BusinessProcesses\Purchase\" />
-    <Folder Include="Guis\BusinessProcesses\Purchase\" />
-    <Folder Include="ViewModel\BusinessProcesses\Purchase\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
