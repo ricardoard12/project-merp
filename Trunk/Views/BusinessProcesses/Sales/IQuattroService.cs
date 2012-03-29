@@ -9,9 +9,15 @@ namespace Views.BusinessProcesses.Sales
     {
         [OperationContract]
         void AddHeaderSales(ISalesHeaderView view);
-
+    
+        [OperationContract]
+        void DeleteSalesHeader(ISalesHeaderView view);        
+        
         [OperationContract]
         void AddSalesPosition(ISalesItem item);
+        
+        [OperationContract]
+        void DeleteSalesPosition(ISalesItem item);
         
         [OperationContract]
         ISalesHeaderView QuattroSalesByPrimaryKey(int primaryKey);
@@ -23,10 +29,9 @@ namespace Views.BusinessProcesses.Sales
         IList<ISalesHeaderView> BySpecifiedType(int? type);
 
         [OperationContract]
-        void DeleteQuattro(ISalesHeaderView view);
+        IList<ISalesItem> AllSalesItemsBySalesHeader(int primaryKey);
 
-        [OperationContract]
-        void DeletePosition(ISalesItem item);
+
 
 
 

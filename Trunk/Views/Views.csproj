@@ -54,6 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessProcesses\Purchase\IPurchaseHeaderView.cs" />
+    <Compile Include="BusinessProcesses\Purchase\IPurchaseItem.cs" />
+    <Compile Include="BusinessProcesses\Purchase\PurchaseFactory.cs" />
+    <Compile Include="BusinessProcesses\Purchase\PurchaseHeaderView.cs" />
+    <Compile Include="BusinessProcesses\Purchase\PurchaseItem.cs" />
     <Compile Include="BusinessProcesses\Sales\IQuattroService.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesHeaderView.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesItem.cs" />
@@ -84,9 +89,7 @@
     <Compile Include="Stammdaten\User\UserFactory.cs" />
     <Compile Include="Stammdaten\User\UserView.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessProcesses\Purchase\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
