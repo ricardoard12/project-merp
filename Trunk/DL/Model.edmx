@@ -97,6 +97,7 @@
           <Property Name="PuhNumber" Type="int" />
           <Property Name="PuhSup#" Type="int" />
           <Property Name="PuhCreatedate" Type="datetime" />
+          <Property Name="SahType" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Pui">
           <Key>
@@ -117,6 +118,7 @@
           <Property Name="SahNumber" Type="int" />
           <Property Name="SahCus#" Type="int" />
           <Property Name="SahCreatedate" Type="datetime" />
+          <Property Name="SahType" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Sai">
           <Key>
@@ -378,6 +380,7 @@
           <Property Type="DateTime" Name="PuhCreatedate" />
           <NavigationProperty Name="tbl_Sup" Relationship="db_MERPModel.FK__tbl_Puh__PuhSup___24927208" FromRole="tbl_Puh" ToRole="tbl_Sup" />
           <NavigationProperty Name="tbl_Pui" Relationship="db_MERPModel.FK__tbl_Pui__PuiPuh___25869641" FromRole="tbl_Puh" ToRole="tbl_Pui" />
+          <Property Type="Int32" Name="SahType" />
         </EntityType>
         <EntityType Name="tbl_Pui">
           <Key>
@@ -402,6 +405,7 @@
           <Property Type="DateTime" Name="SahCreatedate" />
           <NavigationProperty Name="tbl_Cus" Relationship="db_MERPModel.FK__tbl_Sah__SahCus___239E4DCF" FromRole="tbl_Sah" ToRole="tbl_Cus" />
           <NavigationProperty Name="tbl_Sai" Relationship="db_MERPModel.FK__tbl_Sai__SaiSah___276EDEB3" FromRole="tbl_Sah" ToRole="tbl_Sai" />
+          <Property Type="Int32" Name="SahType" />
         </EntityType>
         <EntityType Name="tbl_Sai">
           <Key>
@@ -610,6 +614,7 @@
           <EntitySetMapping Name="tbl_Puh">
             <EntityTypeMapping TypeName="db_MERPModel.tbl_Puh">
               <MappingFragment StoreEntitySet="tbl_Puh">
+                <ScalarProperty Name="SahType" ColumnName="SahType" />
                 <ScalarProperty Name="PuhCreatedate" ColumnName="PuhCreatedate" />
                 <ScalarProperty Name="PuhSup_" ColumnName="PuhSup#" />
                 <ScalarProperty Name="PuhNumber" ColumnName="PuhNumber" />
@@ -632,6 +637,7 @@
           <EntitySetMapping Name="tbl_Sah">
             <EntityTypeMapping TypeName="db_MERPModel.tbl_Sah">
               <MappingFragment StoreEntitySet="tbl_Sah">
+                <ScalarProperty Name="SahType" ColumnName="SahType" />
                 <ScalarProperty Name="SahCreatedate" ColumnName="SahCreatedate" />
                 <ScalarProperty Name="SahCus_" ColumnName="SahCus#" />
                 <ScalarProperty Name="SahNumber" ColumnName="SahNumber" />

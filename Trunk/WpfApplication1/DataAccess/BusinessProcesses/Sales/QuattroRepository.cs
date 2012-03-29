@@ -59,7 +59,7 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
 
         public IList<ISalesHeaderView> AllQuattros()
         {
-            IList<ISalesHeaderView> resultSet = Service.AllQuattros();
+            IList<ISalesHeaderView> resultSet = Service.AllSales();
             return resultSet.ToList();
         }
 

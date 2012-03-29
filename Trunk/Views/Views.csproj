@@ -59,6 +59,7 @@
     <Compile Include="BusinessProcesses\Sales\Offer\ISalesItem.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\SalesFactory.cs" />
     <Compile Include="BusinessProcesses\Sales\Offer\SalesHeaderView.cs" />
+    <Compile Include="BusinessProcesses\Sales\Offer\SalesItem.cs" />
     <Compile Include="PagedResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Connection\Connection.cs" />

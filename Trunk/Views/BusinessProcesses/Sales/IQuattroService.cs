@@ -14,13 +14,13 @@ namespace Views.BusinessProcesses.Sales
         void AddSalesPosition(ISalesItem item);
         
         [OperationContract]
-        ISalesHeaderView QuattroByPrimaryKey(int primaryKey);
+        ISalesHeaderView QuattroSalesByPrimaryKey(int primaryKey);
 
         [OperationContract]
-        IList<ISalesHeaderView> AllQuattros();
+        IList<ISalesHeaderView> AllSales();
 
         [OperationContract]
-        IList<ISalesHeaderView> BySpecifiedType(int type);
+        IList<ISalesHeaderView> BySpecifiedType(int? type);
 
         [OperationContract]
         void DeleteQuattro(ISalesHeaderView view);
