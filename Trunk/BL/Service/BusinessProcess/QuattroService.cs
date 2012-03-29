@@ -66,22 +66,23 @@ namespace BL.Service
 
         public IPurchaseHeaderView QuattroPurchaseByPrimaryKey(int primaryKey)
         {
-            throw new System.NotImplementedException();
+            QuattroDataFactory.GetPurchaseHeaderByPrimaryKey(primaryKey);
         }
 
         public IList<IPurchaseHeaderView> AllPurchaseHeader()
         {
-            throw new System.NotImplementedException();
+            return QuattroDataFactory.AllPurchaseHeader();
         }
 
         public IList<IPurchaseHeaderView> AllPurchaseHeaderBySpecifiedType(int? type)
         {
-            throw new System.NotImplementedException();
+            return QuattroDataFactory.AllPurchasHeaderBySpecifiedtype(type);
         }
 
         public IList<IPurchaseItem> AllPurchaseItemsByHeaderPrimaryKey(int primaryKey)
         {
-            throw new System.NotImplementedException();
+            return QuattroDataFactory.AllPurchaseHeaderByHeaderKey(primaryKey);
+
         }
 
         public void DeleteSalesHeader(ISalesHeaderView view)
