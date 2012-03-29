@@ -126,6 +126,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 
         #region IDataErrors
 
+
         string IDataErrorInfo.this[string propertyName]
         {
             get 

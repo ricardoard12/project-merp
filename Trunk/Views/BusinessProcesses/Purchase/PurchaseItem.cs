@@ -12,7 +12,7 @@ namespace Views.BusinessProcesses.Purchase
 
         public int PuiId { get; set; }
         public int PuiNumber { get; set; }
-        public int PuiSahId { get; set; }
+        public int PuiPuhId { get; set; }
         public int PuiPrdId { get; set; }
         public float Puivat { get; set; }
         public float PuiDiscount { get; set; }
@@ -26,7 +26,7 @@ namespace Views.BusinessProcesses.Purchase
         {
             this.PuiId = id;
             this.PuiNumber = Number;
-            this.PuiSahId = SahId;
+            this.PuiPuhId = SahId;
             this.Puivat = vat;
             this.PuiPrdId = PrdId;
             this.PuiDiscount = discount;
@@ -36,7 +36,7 @@ namespace Views.BusinessProcesses.Purchase
         {
             PuiId = (int) info.GetValue("PuiId", typeof (int));
             PuiNumber = (int) info.GetValue("PuiNumber", typeof (int));
-            PuiSahId = (int) info.GetValue("PuiSahId", typeof (int));
+            PuiPuhId = (int) info.GetValue("PuiPuhId", typeof (int));
             PuiPrdId = (int) info.GetValue("PuiPrdId", typeof (int));
             Puivat = (float) info.GetValue("Puivat", typeof (float));
             PuiDiscount = (float) info.GetValue("PuiDiscount", typeof (float));
@@ -46,7 +46,7 @@ namespace Views.BusinessProcesses.Purchase
         {
             info.AddValue("PuiId", PuiId);
             info.AddValue("PuiNumber", PuiNumber);
-            info.AddValue("PuiSahId", PuiSahId);
+            info.AddValue("PuiPuhId", PuiPuhId);
             info.AddValue("PuiPrdId", PuiPrdId);
             info.AddValue("Puivat", Puivat);
             info.AddValue("PuiDiscount", PuiDiscount);

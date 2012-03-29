@@ -9,10 +9,10 @@ namespace Views.BusinessProcesses.Sales.Offer
    public  interface ISalesItem : ISerializable 
    {
        int SaiId { get; set; }
-       int SaiNumber { get; set; }
-       int SaiSahId { get; set; }
-       int SaiPrdId { get; set; }
-       float Saivat { get; set; }
-       float SaiDiscount { get; set; }
+       int? SaiNumber { get; set; }
+       int? SaiSahId { get; set; }
+       int? SaiPrdId { get; set; }
+       double? Saivat { get; set; }
+       double? SaiDiscount { get; set; }
    }
 }

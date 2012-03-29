@@ -124,6 +124,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
 
         #region IDataErrors
 
+
         string IDataErrorInfo.this[string propertyName]
         {
             get
@@ -138,11 +139,6 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
         public string this[string columnName]
         {
             get { throw new NotImplementedException(); }
-        }
-
-        string IDataErrorInfo.Error
-        {
-            get { return (salesHeaderView as IDataErrorInfo).Error; }
         }
 
         #endregion 
