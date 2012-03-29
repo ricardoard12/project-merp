@@ -32,7 +32,7 @@ namespace FrontEnd.ViewModel {
 
     public class MainWindowViewModel : WorkspaceViewModel {
 
-        protected readonly CustomerRepository _customerRepository;
+        protected readonly CustomerRepositoryOld _customerRepository;
         ObservableCollection<CommandViewModel> _commands;
         ObservableCollection<IWorkspaceViewModel> _workspaces;
         private ObservableCollection<TreeViewCommandCategory> _commandsTreeView;
@@ -52,7 +52,7 @@ namespace FrontEnd.ViewModel {
             VsbDirectory = Visibility.Hidden;
             _eventBroker = Session.EventBroker();
             _eventBroker.Register(this);
-     this._customerRepository = new CustomerRepository(customerDataFile);
+     this._customerRepository = new CustomerRepositoryOld(customerDataFile);
           
             _commands = CommandsForNav;
             _workspaces = Workspaces;

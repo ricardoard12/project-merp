@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using BL.Service.Stammdaten.Customer;
 using DAL.Selections.Stammdaten.Customer;
 using Views;
 using Views.Stammdaten;
+using Views.Stammdaten.Customer;
 
 //HBS
 
@@ -10,20 +10,19 @@ namespace BL.Service
 {
     public partial class RootService: ICustomerService
     {
+        public void AddCustomer(ICustomerView customer)
+        {
+            CustomerDataFactory.AddCustomer(customer);
+        }
+
         public IList<ICustomerView> AllCustomers()
         {
-            return CustomerDataFactory.GetAllCustomers();
+           return CustomerDataFactory.GetAllCustomers();
         }
 
-        public ICustomerView By()
+        public ICustomerView GetCustomerByPrimaryKey(int primaryKey)
         {
-            throw new System.NotImplementedException();
-        }
-
-
-        PagedResult<ICustomerView> ICustomerService.AllCustomers()
-        {
-            throw new System.NotImplementedException();
+            return CustomerDataFactory.ByPrimaryKey(primaryKey);
         }
     }
 }

@@ -85,7 +85,6 @@
     <Compile Include="Service\BusinessProcess\QuattroService.cs" />
     <Compile Include="Service\RootService.cs" />
     <Compile Include="Service\Stammdaten\Customer\CustomerService.cs" />
-    <Compile Include="Service\Stammdaten\Customer\ICustomerService.cs" />
     <Compile Include="Service\Stammdaten\Product\ProductService.cs" />
     <Compile Include="Service\Stammdaten\Supplier\SupplierService.cs" />
     <Compile Include="Service\Stammdaten\User\UserService.cs" />

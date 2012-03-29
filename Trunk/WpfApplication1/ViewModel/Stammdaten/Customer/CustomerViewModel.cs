@@ -3,12 +3,13 @@ using System.ComponentModel;
 using FrontEnd.DataAccess.Stammdaten.Customer;
 using FrontEnd.DataAccess;
 using System.Windows.Input;
+using WpfApplication1.ViewModel.Stammdaten.Customer;
 
 namespace FrontEnd.ViewModel.Stammdaten.Customer {
     class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo {
         #region Fields
         readonly Model.Stammdaten.CustomerModel _customerModel;
-        readonly CustomerRepository _customerRepository;
+        readonly CustomerRepositoryDB _customerRepository;
         string _customerType;
         string[] _customerTypeOptions;
         bool _isSelected;
@@ -17,7 +18,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Customer {
         #endregion Fields
 
         #region Constructors
-        public CustomerViewModel(Model.Stammdaten.CustomerModel customerModel, CustomerRepository customerRepository) {
+        public CustomerViewModel(Model.Stammdaten.CustomerModel customerModel, CustomerRepositoryOld customerRepository) {
             if (customerModel == null)
                 throw new ArgumentNullException("customerModel");
 

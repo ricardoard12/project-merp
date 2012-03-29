@@ -10,10 +10,10 @@ using System.Collections.Specialized;
 namespace FrontEnd.ViewModel.Stammdaten.Customer {
     class AllCustomersViewModel : WorkspaceViewModel {
 
-        readonly CustomerRepository _customerRepository;
+        readonly CustomerRepositoryOld _customerRepository;
         public ObservableCollection<CustomerViewModel> AllCustomers { get; private set; }
 
-        public AllCustomersViewModel(CustomerRepository customerRepository) {
+        public AllCustomersViewModel(CustomerRepositoryOld customerRepository) {
             if (customerRepository == null)
                 throw new ArgumentNullException("customerRepository");
 

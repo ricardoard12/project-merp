@@ -11,18 +11,8 @@ namespace DAL.Selections.Stammdaten.Customer
     public class CustomerDataFactory : ASelection
     {
         public static void AddCustomer(ICustomerView customerView)
-        {
-            var customer = new tbl_Cus
-                                   {
-                                       Cus_ = customerView.CusId,
-                                       CusLastname = customerView.CusLastname,
-                                       CusFirstname = customerView.CusFirstname,
-                                       CusUsr_ = customerView.CusUsrId,
-                                       CusNumber = customerView.CusNumber,
-                                       CusContactname = customerView.CusContactname,
-                                       CusIscompany = customerView.CusIsCompany
-                                   };
-            MerpDatabase().tbl_Cus.AddObject(customer);
+        {   
+            MerpDatabase().tbl_Cus.AddObject(CreateCustomer(customerView));
         }
 
         public static IList<ICustomerView> GetAllCustomers()
@@ -38,9 +28,29 @@ namespace DAL.Selections.Stammdaten.Customer
         {
             return (from c in MerpDatabase().tbl_Cus 
                         where c.Cus_ == primryKey
-                        select 
-            CustomerFactory.createNew(c.Cus_, c.CusNumber, c.CusFirstname, c.CusLastname, c.CusContactname,
-                                      c.CusUsr_, c.CusIscompany)).First();
+                        select CreateCustomer(c)).First();
+        }
+
+        public static ICustomerView CreateCustomer(tbl_Cus cus)
+        {
+            return CustomerFactory.createNew(cus.Cus_, cus.CusNumber, cus.CusFirstname, cus.CusLastname,
+                                             cus.CusContactname,
+                                             cus.CusUsr_, cus.CusIscompany);
+        }
+
+        public  static tbl_Cus CreateCustomer(ICustomerView cus)
+        {
+            var customer = new tbl_Cus
+                               {
+                                   Cus_ = cus.CusId,
+                                   CusLastname = cus.CusLastname,
+                                   CusFirstname = cus.CusFirstname,
+                                   CusUsr_ = cus.CusUsrId,
+                                   CusNumber = cus.CusNumber,
+                                   CusContactname = cus.Email,
+                                   CusIscompany = cus.CusIsCompany
+                               };
+            return customer;
         }
     }
 }
