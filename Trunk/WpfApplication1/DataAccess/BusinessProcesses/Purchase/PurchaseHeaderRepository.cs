@@ -56,23 +56,23 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Purchase
 
         public IList<IPurchaseHeaderView> GetAllPurchaseHeader()
         {
-            //PagedResult<IPurchaseHeaderView> resultSet = Service.AllSales();
-            //return resultSet.Rows.ToList();
+            IList<IPurchaseHeaderView> resultSet = Service.AllPurchaseHeader();
+            return resultSet.ToList();
         }
 
         public void DeletePurchaseHeader(IPurchaseHeaderView purchaseHeader)
         {
-            Service.r(supplier);
+            Service.DeletePurchaseHeader(purchaseHeader);
         }
 
         public void UpdatePurchaseHeader(IPurchaseHeaderView purchaseHeader)
         {
-            throw new NotImplementedException();
+            Service.UpdatePurchaseHeader(purchaseHeader);
         }
 
         public IPurchaseHeaderView GetPurchaseHeaderByPrimaryKey(int primaryKey)
         {
-            throw new NotImplementedException();
+            return Service.QuattroPurchaseByPrimaryKey(primaryKey);
         }
     }
 }
