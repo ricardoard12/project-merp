@@ -18,7 +18,7 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Sales
         
         public QuattroRepository()
         {
-            salesHeaderView = SalesFactory.createNew();
+            salesHeaderView = SalesFactory.createNewSalesHeader();
         }
 
         public IConnection<IQuattroService> Connection

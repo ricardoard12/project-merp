@@ -23,8 +23,11 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
         public OfferViewModel(IOfferRepository offerRepository)
         {
             this.quattroRepository = quattroRepository;
-            this.salesHeaderView = SalesFactory.createNew();
-        }
+
+            this.salesHeaderView = SalesFactory.createNewSalesHeader();
+
+           
+       }
 
         #region Constructors
         
@@ -46,53 +49,56 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Sales.Offer
 
         public int OfferId
         {
-            get { return salesHeaderView.OfferId; }
+            get { return salesHeaderView.SalesHeaderId; }
             set
             {
-                if (value == salesHeaderView.OfferId)
+                if (value == salesHeaderView.SalesHeaderId)
                     return;
 
-                salesHeaderView.OfferId = value;
-                base.OnPropertyChanged("OfferId");
+                salesHeaderView.SalesHeaderId = value;
+                base.OnPropertyChanged("SalesHeaderId");
             }
         }
 
         public int? OfferNumber
         {
-            get { return salesHeaderView.OfferNumber; }
+
+            get { return salesHeaderView.SalesHeaderNumber; }
+ 
             set
             {
-                if (value == salesHeaderView.OfferNumber)
-                    return;
-
-                salesHeaderView.OfferNumber = value;
-                base.OnPropertyChanged("OfferNumber");
+                if (value == salesHeaderView.SalesHeaderNumber)
+                   return;
+                salesHeaderView.SalesHeaderNumber = value;
+                base.OnPropertyChanged("SalesHeaderNumber");
             }
         }
 
         public int? OfferCustomer
         {
-            get { return salesHeaderView.OfferCustomer; }
+
+            get { return salesHeaderView.SalesHeaderCustomer; }
+
             set
             {
-                if (value == salesHeaderView.OfferCustomer)
+                if (value == salesHeaderView.SalesHeaderCustomer)
                     return;
+                salesHeaderView.SalesHeaderCustomer = value;
+                base.OnPropertyChanged("SalesHeaderCustomer");
 
-                salesHeaderView.OfferCustomer = value;
-                base.OnPropertyChanged("OfferCustomer");
             }
         }
 
         public DateTime? OfferCreateDate
         {
-            get { return salesHeaderView.OfferCreateDate; }
+            get { return salesHeaderView.SalesHeaderCreateDate; }
             set
             {
-                if (value == salesHeaderView.OfferCreateDate)
+                if (value == salesHeaderView.SalesHeaderCreateDate)
                     return;
 
-                salesHeaderView.OfferCreateDate = value;
-                base.OnPropertyChanged("OfferCreateDate");
+                salesHeaderView.SalesHeaderCreateDate = value;
+                base.OnPropertyChanged("SalesHeaderCreateDate");
             }
         }
 

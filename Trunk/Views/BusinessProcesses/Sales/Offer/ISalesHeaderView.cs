@@ -8,11 +8,11 @@ namespace Views.BusinessProcesses.Sales.Offer
 {
     public interface ISalesHeaderView : ISerializable
     {
-        int OfferId { get; set; }
-        int? OfferNumber { get; set; }
-        int? OfferCustomer { get; set; }
-        DateTime? OfferCreateDate { get; set; }
-        int? SalesType { get; set; }
+        int SalesHeaderId { get; set; }
+        int? SalesHeaderNumber { get; set; }
+        int? SalesHeaderCustomer { get; set; }
+        DateTime? SalesHeaderCreateDate { get; set; }
+        int? SalesHeaderType { get; set; }
         bool IsValid { get; }
     }
 }

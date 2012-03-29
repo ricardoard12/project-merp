@@ -18,29 +18,38 @@ namespace Views.BusinessProcesses.Sales.Offer
 
         public SalesHeaderView(int offerId, int? offerNumber, int? offerCustomer, DateTime? offerCreateDate, int? salestype)
         {
-            this.OfferId = offerId;
-            this.OfferNumber = offerNumber;
-            this.OfferCustomer = offerCustomer;
-            this.OfferCreateDate = offerCreateDate;
-            this.SalesType = salestype;
+            this.SalesHeaderId = offerId;
+            this.SalesHeaderNumber = offerNumber;
+            this.SalesHeaderCustomer = offerCustomer;
+            this.SalesHeaderCreateDate = offerCreateDate;
+            this.SalesHeaderType = salestype;
         }
 
 
-        public int OfferId { get; set; }
-        public int? OfferNumber { get; set; }
-        public int? OfferCustomer { get; set; }
-        public DateTime? OfferCreateDate { get; set; }
-        public int? SalesType { get; set; }
+        public int SalesHeaderId { get; set; }
+        public int? SalesHeaderNumber { get; set; }
+        public int? SalesHeaderCustomer { get; set; }
+        public DateTime? SalesHeaderCreateDate { get; set; }
+        public int? SalesHeaderType { get; set; }
 
 
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("OfferId", OfferId);
-            info.AddValue("OfferNumber", OfferNumber);
-            info.AddValue("OfferCustomer", OfferCustomer);
-            info.AddValue("OfferCreateDate", OfferCreateDate);
-            info.AddValue("SalesType", SalesType);
+            info.AddValue("SalesHeaderId", SalesHeaderId);
+            info.AddValue("SalesHeaderNumber", SalesHeaderNumber);
+            info.AddValue("SalesHeaderCustomer", SalesHeaderCustomer);
+            info.AddValue("SalesHeaderCreateDate", SalesHeaderCreateDate);
+            info.AddValue("SalesHeaderType", SalesHeaderType);
+        }
+
+        protected SalesHeaderView(SerializationInfo info,StreamingContext context)
+        {
+            SalesHeaderId = (int)info.GetValue("SalesHeaderId", typeof(int));
+            SalesHeaderNumber = (int?)info.GetValue("SalesHeaderNumber", typeof(int));
+            SalesHeaderCustomer = (int?)info.GetValue("SalesHeaderCustomer", typeof(int?));
+            SalesHeaderCreateDate = (DateTime?)info.GetValue("SalesHeaderCreateDate", typeof(DateTime?));
+            SalesHeaderType = (int?)info.GetValue("SalesHeaderType", typeof(int?));
         }
 
 
@@ -57,15 +66,15 @@ namespace Views.BusinessProcesses.Sales.Offer
 
             switch (propertyName)
             {
-                case "OfferNumber":
+                case "SalesHeaderNumber":
                     error = this.ValidateOfferNumber();
                     break;
 
-                case "OfferCustomer":
+                case "SalesHeaderCustomer":
                     error = this.ValidateOfferCustomer();
                     break;
 
-                case "OfferCreateDate":
+                case "SalesHeaderCreateDate":
                     error = this.ValidateOfferCreateDate();
                     break;
 
@@ -79,7 +88,7 @@ namespace Views.BusinessProcesses.Sales.Offer
 
         private string ValidateOfferNumber()
         {
-            if (IsStringMissing(Convert.ToString(OfferNumber)))
+            if (IsStringMissing(Convert.ToString(SalesHeaderNumber)))
                 return "Missing Offer Number";
 
             return null;
@@ -87,7 +96,7 @@ namespace Views.BusinessProcesses.Sales.Offer
 
         private string ValidateOfferCustomer()
         {
-            if (IsStringMissing(Convert.ToString(OfferCustomer)))
+            if (IsStringMissing(Convert.ToString(SalesHeaderCustomer)))
                 return "Missing Offer Customer";
 
             return null;
@@ -95,7 +104,7 @@ namespace Views.BusinessProcesses.Sales.Offer
 
         private string ValidateOfferCreateDate()
         {
-            if (IsStringMissing(Convert.ToString(OfferCreateDate)))
+            if (IsStringMissing(Convert.ToString(SalesHeaderCreateDate)))
                 return "Missing Offer create date";
 
             return null;
@@ -110,9 +119,9 @@ namespace Views.BusinessProcesses.Sales.Offer
 
         static readonly string[] ValidatedProperties = 
         { 
-            "OfferNumber", 
-            "OfferCustomer", 
-            "OfferCreateDate"
+            "SalesHeaderNumber", 
+            "SalesHeaderCustomer", 
+            "SalesHeaderCreateDate"
         };
 
         public bool IsValid
@@ -120,6 +129,7 @@ namespace Views.BusinessProcesses.Sales.Offer
             get
             { return ValidatedProperties.All(property => GetValidationError(property) == null); }
         }
+
     }
 
 

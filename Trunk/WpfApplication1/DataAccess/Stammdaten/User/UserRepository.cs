@@ -41,8 +41,6 @@ namespace FrontEnd.DataAccess.Stammdaten.User {
         }
           
 
-        
-
         public IUserView AddUser {
             set { Service.AddUser(value); }
         }
