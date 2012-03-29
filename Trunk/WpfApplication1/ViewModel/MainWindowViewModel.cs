@@ -57,7 +57,7 @@ namespace FrontEnd.ViewModel {
             _commands = CommandsForNav;
             _workspaces = Workspaces;
             InitializeLogin();
-            VsbDirectory = Visibility.Visible;
+           
 
         }
 
