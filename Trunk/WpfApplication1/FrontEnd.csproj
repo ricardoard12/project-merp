@@ -128,6 +128,9 @@
     <Compile Include="Guis\Stammdaten\Product\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Guis\Stammdaten\Supplier\AllSuppliersView.xaml.cs">
+      <DependentUpon>AllSuppliersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guis\Stammdaten\Supplier\SuppliersView.xaml.cs">
       <DependentUpon>SuppliersView.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Guis\Stammdaten\Product\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guis\Stammdaten\Supplier\AllSuppliersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
