@@ -37,6 +37,9 @@
     <DataTemplate DataType="{x:Type OfferVm:OfferViewModel}" >
         <Offer:Offer />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type OfferVm:AllOfferViewModel}" >
+        <Offer:AllOfferView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type OrderVM:OrderViewModel}">
         <OrderGui:OrdersView/>
     </DataTemplate>
@@ -60,6 +63,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type Supplier:SupplierViewModel}">
         <SupplierGui:SuppliersView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type Supplier:AllSupplierViewModel}">
+        <SupplierGui:AllSuppliersView />
     </DataTemplate>
     
     <!---->
