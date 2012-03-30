@@ -25,8 +25,14 @@
     <DataTemplate DataType="{x:Type PurchaseHeaderVm:PurchaseHeaderViewModel}" >
         <Purchase:PurchaseHeader />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type PurchaseHeaderVm:AllPurchaseHeaderViewModel}" >
+        <Purchase:AllPurchaseHeaderView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type DistributionVm:DistributionViewModel}" >
         <Distribution:Distribution />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type DistributionVm:AllDistributionViewModel}" >
+        <Distribution:AllDistributionView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type OfferVm:OfferViewModel}" >
         <Offer:Offer />
