@@ -52,7 +52,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                     return;
 
                 salesHeaderView.SalesHeaderId = value;
-                base.OnPropertyChanged("SalesHeaderId");
+                base.OnPropertyChanged("DistributionId");
             }
         }
 
@@ -66,7 +66,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                 if (value == salesHeaderView.SalesHeaderNumber)
                     return;
                 salesHeaderView.SalesHeaderNumber = value;
-                base.OnPropertyChanged("SalesHeaderNumber");
+                base.OnPropertyChanged("DistributionNumber");
             }
         }
 
@@ -80,7 +80,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                 if (value == salesHeaderView.SalesHeaderCustomer)
                     return;
                 salesHeaderView.SalesHeaderCustomer = value;
-                base.OnPropertyChanged("SalesHeaderCustomer");
+                base.OnPropertyChanged("DistributionCustomer");
 
             }
         }
@@ -94,7 +94,20 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                     return;
 
                 salesHeaderView.SalesHeaderCreateDate = value;
-                base.OnPropertyChanged("SalesHeaderCreateDate");
+                base.OnPropertyChanged("DistributionCreateDate");
+            }
+        }
+
+        public int? DistributionType
+        {
+            get { return salesHeaderView.SalesHeaderType; }
+            set
+            {
+                if (value == salesHeaderView.SalesHeaderType)
+                    return;
+
+                salesHeaderView.SalesHeaderType = value;
+                base.OnPropertyChanged("DistributionType");
             }
         }
 
