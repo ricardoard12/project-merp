@@ -135,6 +135,8 @@
     <Compile Include="ViewModel\BusinessProcesses\Distribution\AllDistributionViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Distribution\DistributionViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Distribution\IAllDistributionViewModel.cs" />
+    <Compile Include="ViewModel\BusinessProcesses\Purchase\AllPurchaseHeaderViewModel.cs" />
+    <Compile Include="ViewModel\BusinessProcesses\Purchase\IAllPurchaseHeaderViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Purchase\PurchaseHeaderViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Offer\OfferViewModel.cs" />
     <Compile Include="ViewModel\BusinessProcesses\Sales\Order\OrderViewModel.cs" />
