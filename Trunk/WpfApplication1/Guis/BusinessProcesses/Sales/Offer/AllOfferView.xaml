@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="WpfApplication1.Guis.BusinessProcesses.Sales.Offer.AllOfferView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="300">
+    
+<UserControl.Resources>
+        <CollectionViewSource x:Key="OfferGroups"  Source="{Binding Path=AllOffer}" >
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="IsOffer" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+
+        <Style x:Key="OfferItemStyle" TargetType="{x:Type ListViewItem}">
+            <!-- 
+      Stretch the content of each cell so that we can 
+      right-align text in the Total Sales column. 
+      -->
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <!-- 
+      Bind the IsSelected property of a ListViewItem to the 
+      IsSelected property of a CustomerViewModel object.
+      -->
+            <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+            <Style.Triggers>
+
+                <MultiTrigger>
+
+                    <!-- Zu überwachende Eigenschaften-->
+                    <MultiTrigger.Conditions>
+                        <Condition Property="ItemsControl.AlternationIndex" Value="1" />
+                        <Condition Property="IsSelected" Value="False" />
+                        <Condition Property="IsMouseOver" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <!-- Wenn der Eigenschaftswert zutrifft zu setzende Eigenschaft-->
+                    <Setter Property="Background" Value="#EEEEEEEE" />
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom" Margin="0,2,4,2">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Total selected offers: " />
+                <ContentPresenter  Content="{Binding Path=TotalSelectedOffers}" ContentStringFormat="c"  />
+            </StackPanel>
+        </Grid>
+
+        <ListView  AlternationCount="2"   DataContext="{StaticResource OfferGroups}"   ItemContainerStyle="{StaticResource OfferItemStyle}"   ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Number"  DisplayMemberBinding="{Binding Path=OfferNumber}"  />
+                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding Path=OfferCustomer}" />
+                    <GridViewColumn Header="create date" DisplayMemberBinding="{Binding Path=OfferCreateDate}" />
+                    <GridViewColumn Header="Total Positions">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentPresenter Content="{Binding Path=TotalPositions}"  ContentStringFormat="c" HorizontalAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</UserControl>
