@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Views.BusinessProcesses.Purchase
 {
-    internal class PurchaseHeaderView : IPurchaseHeaderView
+    public class PurchaseHeaderView : IPurchaseHeaderView
     {
 
         public PurchaseHeaderView()

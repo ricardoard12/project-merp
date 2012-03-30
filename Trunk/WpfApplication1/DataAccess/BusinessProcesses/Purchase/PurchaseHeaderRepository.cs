@@ -8,6 +8,7 @@ using Views;
 using Views.BusinessProcesses.Purchase;
 using Views.BusinessProcesses.Sales;
 using Views.Security.Connection;
+using Views.Stammdaten.Product;
 using Views.Stammdaten.Supplier;
 
 namespace WpfApplication1.DataAccess.BusinessProcesses.Purchase
@@ -15,12 +16,15 @@ namespace WpfApplication1.DataAccess.BusinessProcesses.Purchase
     class PurchaseHeaderRepository : IPurchaseHeaderRepository
     {
         private IConnection<IQuattroService> quattroServiceConnection;
+        private PagedResult<IPurchaseHeaderView> purchaseHeaderView;
         private IQuattroService quattroService;
         private IPurchaseHeaderView purchaseHeader;
+        private readonly List<PurchaseHeaderView> purchaseHeaders;
 
         public PurchaseHeaderRepository()
         {
             purchaseHeader = PurchaseFactory.createNewPurchaseHeader();
+            purchaseHeaders = new List<PurchaseHeaderView>();
         }
 
         public IConnection<IQuattroService> Connection
