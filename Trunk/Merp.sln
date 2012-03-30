@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{EF1590CA-F038-485C-A124-38FD4D5CAE76}"
 EndProject
 Global
@@ -82,16 +80,6 @@ Global
 		{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}.Release|x86.ActiveCfg = Release|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}.Release|x86.ActiveCfg = Release|Any CPU
 		{EF1590CA-F038-485C-A124-38FD4D5CAE76}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{EF1590CA-F038-485C-A124-38FD4D5CAE76}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{EF1590CA-F038-485C-A124-38FD4D5CAE76}.Debug|Mixed Platforms.Build.0 = Debug|x86
