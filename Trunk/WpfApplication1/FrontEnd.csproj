@@ -97,6 +97,9 @@
     <Compile Include="Guis\BusinessProcesses\Distribution\Distribution.xaml.cs">
       <DependentUpon>Distribution.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Guis\BusinessProcesses\Purchase\AllPurchaseHeaderView.xaml.cs">
+      <DependentUpon>AllPurchaseHeaderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guis\BusinessProcesses\Purchase\PurchaseHeader.xaml.cs">
       <DependentUpon>PurchaseHeader.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Guis\BusinessProcesses\Distribution\Distribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guis\BusinessProcesses\Purchase\AllPurchaseHeaderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
