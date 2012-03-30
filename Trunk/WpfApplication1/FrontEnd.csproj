@@ -276,10 +276,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controls\Controls.csproj">
-      <Project>{F4A8BCBF-9532-4EEF-9D2E-46026E2A5B46}</Project>
-      <Name>Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Views\Views.csproj">
       <Project>{95F11D33-0FC5-4175-A9A0-20F7B1CC7083}</Project>
       <Name>Views</Name>

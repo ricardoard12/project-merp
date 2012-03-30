@@ -32,14 +32,8 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
         }
 
         private void CreateAllCustomers() {
-            List<CustomerViewModel> all = (from cust in _customerRepository.GetCustomers()
-                                           select new CustomerViewModel()).ToList();
-
-            foreach (CustomerViewModel cvm in all)
-                cvm.PropertyChanged += this.OnCustomerViewModelPropertyChanged;
-
-            this.AllDistribution = new ObservableCollection<CustomerViewModel>(all);
-            this.AllDistribution.CollectionChanged += this.OnCollectionChanged;
+           
+        
         }
 
         //Berechnet die Summe aller selektierter Kunden
