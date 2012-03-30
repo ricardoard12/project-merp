@@ -50,10 +50,10 @@
         <ListView  AlternationCount="2"   DataContext="{StaticResource DistributionGroups}"   ItemContainerStyle="{StaticResource DistributionItemStyle}"   ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Number"  DisplayMemberBinding="{Binding Path=Number}"  />
-                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding Path=Customer}" />
-                    <GridViewColumn Header="create date" DisplayMemberBinding="{Binding Path=CreateDate}" />
-                    <GridViewColumn Header="Distribution Type" DisplayMemberBinding="{Binding Path=Type}" />
+                    <GridViewColumn Header="Number"  DisplayMemberBinding="{Binding Path=DistributionNumber}"  />
+                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding Path=DistributionCustomer}" />
+                    <GridViewColumn Header="create date" DisplayMemberBinding="{Binding Path=DistributionCreateDate}" />
+                    <GridViewColumn Header="Distribution Type" DisplayMemberBinding="{Binding Path=DistributionType}" />
                     <GridViewColumn Header="Total Positions">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
