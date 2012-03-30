@@ -23,7 +23,7 @@ namespace FrontEnd.ViewModel.Stammdaten.Product {
        
 
         public  ProductViewModel() {
-            _productView = ProductFactory.createNewProduct();
+            _productView = ProductFactory.createProduct();
             _productRepository = new ProductRepository();
         }
         

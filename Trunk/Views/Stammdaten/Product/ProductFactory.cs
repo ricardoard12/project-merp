@@ -7,7 +7,7 @@ namespace Views.Stammdaten.Product {
     public class ProductFactory
     {
 
-        public static IProductView createNewProduct() {
+        public static IProductView createProduct() {
             return new ProductView();
         }
 

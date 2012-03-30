@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using Views.Stammdaten.Product;
 
 namespace Views.BusinessProcesses.Sales.Offer
 {
     [Serializable]
     class SalesItem : ISalesItem
     {
-
+        
         public SalesItem()
         {
         }
@@ -50,5 +51,7 @@ namespace Views.BusinessProcesses.Sales.Offer
         public int? SaiPrdId { get; set; }
         public double? Saivat { get; set; }
         public double? SaiDiscount { get; set; }
+
+      
     }
 }
