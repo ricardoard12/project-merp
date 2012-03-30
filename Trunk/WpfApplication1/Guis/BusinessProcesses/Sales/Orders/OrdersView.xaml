@@ -56,13 +56,10 @@
           Grid.Row="0" Grid.Column="2" 
           ItemsSource="{Binding Path=GetCustomers, Mode=OneTime}"
           SelectedItem="{Binding Path=SelectedCustomer, ValidatesOnDataErrors=True}"
-          Text="{Binding Path=SalesHeaderCustomer, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Text="{Binding Path=SalesHeaderCustomer, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
         />
-        <ContentPresenter 
-          Grid.Row="1" Grid.Column="2"
-          Content="{Binding ElementName=SalesHeaderCustomer, Path=(Validation.Errors).CurrentItem}"
-        />
+
 
         <!-- OrderNumber-->
         <Label 
@@ -77,10 +74,7 @@
           Text="{Binding Path=OrderNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
          />
-        <ContentPresenter 
-          Grid.Row="3" Grid.Column="2"
-          Content="{Binding ElementName=SalesHeaderNumber, Path=(Validation.Errors).CurrentItem}"
-        />
+       
 
         <!-- Creation Date-->
         <Label 
@@ -94,6 +88,7 @@
              Grid.Row="4"
              HorizontalAlignment="Left"
              x:Name="deliveryDate"
+             SelectedDate="{Binding Path=SelectedDate}"
              VerticalAlignment="Top" Height="23" Width="174" />
         <ContentPresenter
               Grid.Row="5" Grid.Column="2"
@@ -111,9 +106,10 @@
             ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Product" DisplayMemberBinding="{Binding Path=Product}" />
-                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Path=Amount}" />
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=Price}" />
+                    <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Path=SaiNumber}" />
+                    <GridViewColumn Header="Product" DisplayMemberBinding="{Binding Path=SaiPrdId}" />
+                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Path=Saivat}" />
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=SaiDiscount}" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -139,6 +135,8 @@
             Grid.Row="8" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            ItemsSource="{Binding Path=Products}"
+            SelectedItem="{Binding Path=SelectedProduct}"
             Text="{Binding Path=Product, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="23" Width="250" />
         <!-- Amount-->
         <Label Content="Amount:"

@@ -118,33 +118,42 @@ namespace FrontEnd.ViewModel {
             }
         }
 
-        private void CreateCommandsForTree() {
-            TreeViewCommandCategory Customers = new TreeViewCommandCategory(Resources.StringCustomer) {
-                Commands =
-                                                                      new List
-                                                                      <
-                                                                      CommandViewModel
-                                                                      >(
-                                                                      CommandsForNav
-                                                                          .Where
-                                                                          (c =>
-                                                                           c.
-                                                                               Hirarchi2 ==
-                                                                           Resources
-                                                                               .
-                                                                               StringCustomer))
-            };
-            TreeViewCommandCategory Products = new TreeViewCommandCategory(Resources.StringProduct) {
-                    Commands = new List<CommandViewModel>(CommandsForNav.Where(c => c.Hirarchi2 == Resources.StringProduct))
-                                                                                                    };
-            TreeViewCommandCategory Users = new TreeViewCommandCategory(Resources.StringUsers) {
-                Commands = new List<CommandViewModel>(CommandsForNav.Where(c => c.Hirarchi2 == Resources.StringUsers))
-            };
+        private void CreateCommandsForTree()
+        {
+            TreeViewCommandCategory Customers = new TreeViewCommandCategory(Resources.StringCustomer)
+                                                    {
+                                                        Commands =
+                                                            new List
+                                                            <
+                                                            CommandViewModel
+                                                            >(
+                                                            CommandsForNav
+                                                                .Where
+                                                                (c =>
+                                                                 c.
+                                                                     Hirarchi2 ==
+                                                                 Resources
+                                                                     .
+                                                                     StringCustomer))
+                                                    };
+            TreeViewCommandCategory Products = new TreeViewCommandCategory(Resources.StringProduct)
+                                                   {
+                                                       Commands =
+                                                           new List<CommandViewModel>(
+                                                           CommandsForNav.Where(
+                                                               c => c.Hirarchi2 == Resources.StringProduct))
+                                                   };
+            TreeViewCommandCategory Users = new TreeViewCommandCategory(Resources.StringUsers)
+                                                {
+                                                    Commands =
+                                                        new List<CommandViewModel>(
+                                                        CommandsForNav.Where(c => c.Hirarchi2 == Resources.StringUsers))
+                                                };
 
             _commandsTreeView.Add(Customers);
             _commandsTreeView.Add(Products);
             _commandsTreeView.Add(Users);
-        
+
         }
 
 
@@ -169,7 +178,7 @@ namespace FrontEnd.ViewModel {
         protected List<CommandViewModel> CreateCommandsForNav() {
             return new List<CommandViewModel> {
                 new CommandViewModel("Create New Customer" , new RelayCommand(param =>CreateGuiByOnce(new CustomerViewModel())), Resources.StringStammdaten, Resources.StringCustomer),
-                new CommandViewModel("Show All Customers" , new RelayCommand(param => CreateGuiByOnce(new AllCustomersViewModel(_customerRepository))), Resources.StringStammdaten, Resources.StringCustomer),
+                new CommandViewModel("Show All Customers" , new RelayCommand(param => CreateGuiByOnce(new AllCustomersViewModel())), Resources.StringStammdaten, Resources.StringCustomer),
                 new CommandViewModel("Show all Products", new RelayCommand(param => CreateGuiAndSetActive(new AllProductsViewModel())), Resources.StringStammdaten, Resources.StringProduct),
                 new CommandViewModel("Show all Users", new RelayCommand(param => CreateGuiAndSetActive(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
                 new CommandViewModel("Create New Product", new RelayCommand(param => CreateGuiAndSetActive(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct),
@@ -213,7 +222,7 @@ namespace FrontEnd.ViewModel {
                 as AllCustomersViewModel;
 
             if (workspace == null) {
-                workspace = new AllCustomersViewModel(_customerRepository);
+                workspace = new AllCustomersViewModel();
                 this.Workspaces.Add(workspace);
             }
 
