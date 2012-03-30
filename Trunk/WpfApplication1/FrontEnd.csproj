@@ -153,6 +153,8 @@
     <Compile Include="ViewModel\Stammdaten\Product\IAllProductsViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\IProductViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Product\ProductViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\Supplier\AllSupplierViewModel.cs" />
+    <Compile Include="ViewModel\Stammdaten\Supplier\IAllSupplierViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Stammdaten\User\IAllUsersViewModel.cs" />
