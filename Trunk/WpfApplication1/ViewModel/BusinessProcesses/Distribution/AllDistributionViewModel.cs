@@ -37,7 +37,6 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                     salesHeaderView = new ObservableCollection<ISalesHeaderView>(quattroRepository.BySpecifiedType(2));
                 }
                 return salesHeaderView;
-
             }
         }
     }
