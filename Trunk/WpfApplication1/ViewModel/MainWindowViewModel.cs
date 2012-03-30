@@ -19,6 +19,8 @@ using WpfApplication1;
 using WpfApplication1.DI;
 using WpfApplication1.Events;
 using WpfApplication1.Properties;
+using WpfApplication1.ViewModel.BusinessProcesses.Distribution;
+using WpfApplication1.ViewModel.BusinessProcesses.Purchase;
 using WpfApplication1.ViewModel.Security;
 using WpfApplication1.ViewModel.Stammdaten.Supplier;
 using bbv.Common.EventBroker;
@@ -172,8 +174,14 @@ namespace FrontEnd.ViewModel {
                 new CommandViewModel("Show all Users", new RelayCommand(param => CreateGuiAndSetActive(new AllUsersViewModel())), Resources.StringStammdaten, Resources.StringUsers ),
                 new CommandViewModel("Create New Product", new RelayCommand(param => CreateGuiAndSetActive(new ProductViewModel())), Resources.StringStammdaten, Resources.StringProduct),
                 new CommandViewModel("Create Supplier", new RelayCommand(param => CreateGuiAndSetActive(new SupplierViewModel())), Resources.StringStammdaten, Resources.StringSupplier  ),
-                new CommandViewModel("Create Order", new RelayCommand(param => CreateGuiAndSetActive(new OrderViewModel())), Resources.StringBusinessProcesses, Resources.StringOrder  )
-
+                new CommandViewModel("All Supplier", new RelayCommand(param => CreateGuiAndSetActive(new AllSupplierViewModel())), Resources.StringStammdaten, Resources.StringSupplier  ),
+                new CommandViewModel("Create Order", new RelayCommand(param => CreateGuiAndSetActive(new OrderViewModel())), Resources.StringBusinessProcesses, Resources.StringOrder  ),
+                new CommandViewModel("All Distribution", new RelayCommand(param => CreateGuiAndSetActive(new AllDistributionViewModel())), Resources.StringBusinessProcesses, Resources.StringDistribution  ),
+                new CommandViewModel("Create Distribution", new RelayCommand(param => CreateGuiAndSetActive(new DistributionViewModel())), Resources.StringBusinessProcesses, Resources.StringDistribution  ),
+                new CommandViewModel("All Purchase", new RelayCommand(param => CreateGuiAndSetActive(new AllPurchaseHeaderViewModel())), Resources.StringBusinessProcesses, Resources.StringPurchase  ),
+                new CommandViewModel("Create Purchase", new RelayCommand(param => CreateGuiAndSetActive(new PurchaseHeaderViewModel())), Resources.StringBusinessProcesses, Resources.StringPurchase  ),
+                new CommandViewModel("All Offer", new RelayCommand(param => CreateGuiAndSetActive(new AllOfferViewModel())), Resources.StringBusinessProcesses, Resources.StringOffer  ),
+                new CommandViewModel("Create Offer", new RelayCommand(param => CreateGuiAndSetActive(new OfferViewModel())), Resources.StringBusinessProcesses, Resources.StringOffer  )
             };
         }
 

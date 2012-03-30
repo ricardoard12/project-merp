@@ -132,4 +132,22 @@
   <data name="StringSupplier" xml:space="preserve">
     <value>"Supplier"</value>
   </data>
+  <data name="StringDistribution" xml:space="preserve">
+    <value>"Distribution"</value>
+  </data>
+  <data name="StringPurchase" xml:space="preserve">
+    <value>"Purchase"</value>
+  </data>
+  <data name="StringOffer" xml:space="preserve">
+    <value>"Offer"</value>
+  </data>
+  <data name="StringBusinessProcesses" xml:space="preserve">
+    <value>"BusinessProcesses"</value>
+  </data>
+  <data name="StringOrder" xml:space="preserve">
+    <value>"Order"</value>
+  </data>
+  <data name="StringSales" xml:space="preserve">
+    <value>"Sales"</value>
+  </data>
 </root>
