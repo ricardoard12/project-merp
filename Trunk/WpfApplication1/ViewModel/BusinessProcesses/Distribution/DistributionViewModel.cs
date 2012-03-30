@@ -43,7 +43,7 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
 
         #region distribution properties
 
-        public int DistributionId
+        public int SalesHeaderID
         {
             get { return salesHeaderView.SalesHeaderId; }
             set
@@ -52,11 +52,11 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                     return;
 
                 salesHeaderView.SalesHeaderId = value;
-                base.OnPropertyChanged("DistributionId");
+                base.OnPropertyChanged("SalesHeaderID");
             }
         }
 
-        public int? DistributionNumber
+        public int? SalesHeaderNumber
         {
 
             get { return salesHeaderView.SalesHeaderNumber; }
@@ -66,11 +66,11 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                 if (value == salesHeaderView.SalesHeaderNumber)
                     return;
                 salesHeaderView.SalesHeaderNumber = value;
-                base.OnPropertyChanged("DistributionNumber");
+                base.OnPropertyChanged("SalesHeaderNumber");
             }
         }
 
-        public int? DistributionCustomer
+        public int? SalesHeaderCustomer
         {
 
             get { return salesHeaderView.SalesHeaderCustomer; }
@@ -80,12 +80,12 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                 if (value == salesHeaderView.SalesHeaderCustomer)
                     return;
                 salesHeaderView.SalesHeaderCustomer = value;
-                base.OnPropertyChanged("DistributionCustomer");
+                base.OnPropertyChanged("SalesHeaderCustomer");
 
             }
         }
 
-        public DateTime? DistributionCreateDate
+        public DateTime? SalesHeaderCreateDate
         {
             get { return salesHeaderView.SalesHeaderCreateDate; }
             set
@@ -94,20 +94,21 @@ namespace WpfApplication1.ViewModel.BusinessProcesses.Distribution
                     return;
 
                 salesHeaderView.SalesHeaderCreateDate = value;
-                base.OnPropertyChanged("DistributionCreateDate");
+                base.OnPropertyChanged("SalesHeaderCreateDate");
             }
         }
 
-        public int? DistributionType
+        public int? SalesHeaderType
         {
             get { return salesHeaderView.SalesHeaderType; }
             set
-            {
+            {                
                 if (value == salesHeaderView.SalesHeaderType)
                     return;
+                
 
-                salesHeaderView.SalesHeaderType = value;
-                base.OnPropertyChanged("DistributionType");
+                salesHeaderView.SalesHeaderType = 1;
+                base.OnPropertyChanged("SalesHeaderType");
             }
         }
 

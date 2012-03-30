@@ -67,15 +67,19 @@ namespace Views.BusinessProcesses.Sales.Offer
             switch (propertyName)
             {
                 case "SalesHeaderNumber":
-                    error = this.ValidateOfferNumber();
+                    error = this.ValidateSalesHeaderNumber();
                     break;
 
                 case "SalesHeaderCustomer":
-                    error = this.ValidateOfferCustomer();
+                    error = this.ValidateSalesHeaderCustomer();
                     break;
 
                 case "SalesHeaderCreateDate":
-                    error = this.ValidateOfferCreateDate();
+                    error = this.ValidateSalesHeaderCreateDate();
+                    break;
+
+                case "SalesHeaderType":
+                    error = this.ValidateSalesHeaderType();
                     break;
 
                 default:
@@ -86,26 +90,34 @@ namespace Views.BusinessProcesses.Sales.Offer
             return error;
         }
 
-        private string ValidateOfferNumber()
+        private string ValidateSalesHeaderNumber()
         {
             if (IsStringMissing(Convert.ToString(SalesHeaderNumber)))
-                return "Missing Offer Number";
+                return "Missing Sales Header Number";
 
             return null;
         }
 
-        private string ValidateOfferCustomer()
+        private string ValidateSalesHeaderCustomer()
         {
             if (IsStringMissing(Convert.ToString(SalesHeaderCustomer)))
-                return "Missing Offer Customer";
+                return "Missing Sales Header Customer";
 
             return null;
         }
 
-        private string ValidateOfferCreateDate()
+        private string ValidateSalesHeaderCreateDate()
         {
             if (IsStringMissing(Convert.ToString(SalesHeaderCreateDate)))
-                return "Missing Offer create date";
+                return "Missing Sales Header Create Date";
+
+            return null;
+        }
+
+        private string ValidateSalesHeaderType()
+        {
+            if (IsStringMissing(Convert.ToString(SalesHeaderType)))
+                return "Missing Sales Header Type";
 
             return null;
         }
@@ -121,7 +133,8 @@ namespace Views.BusinessProcesses.Sales.Offer
         { 
             "SalesHeaderNumber", 
             "SalesHeaderCustomer", 
-            "SalesHeaderCreateDate"
+            "SalesHeaderCreateDate",
+            "SalesHeaderType"
         };
 
         public bool IsValid

@@ -21,6 +21,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.Resources>
@@ -46,7 +48,7 @@
         <TextBox 
           x:Name="distributionNumberTxt"
           Grid.Row="0" Grid.Column="2" 
-          Text="{Binding Path=DistributionNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Text="{Binding Path=SalesHeaderNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
           />
         <ContentPresenter 
@@ -64,7 +66,7 @@
         <TextBox 
           x:Name="customerNumberTxt"
           Grid.Row="2" Grid.Column="2" 
-          Text="{Binding Path=DistributionCustomer, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Text="{Binding Path=SalesHeaderCustomer, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
           />
         <ContentPresenter 
@@ -82,7 +84,7 @@
         <TextBox 
           x:Name="createDateTxt"
           Grid.Row="4" Grid.Column="2" 
-          Text="{Binding Path=CreateDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Text="{Binding Path=SalesHeaderCreateDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
           Validation.ErrorTemplate="{x:Null}"
           />
         <ContentPresenter 
@@ -90,9 +92,27 @@
           Content="{Binding ElementName=createDateTxt, Path=(Validation.Errors).CurrentItem}"
           />
 
+        <!-- Type -->
+        <Label 
+          Grid.Row="6" Grid.Column="0" 
+          Content="Type:" 
+          HorizontalAlignment="Right"
+          Target="{Binding ElementName=typeTxt}"
+          />
+        <TextBox 
+          x:Name="typeTxt"
+          Grid.Row="6" Grid.Column="2" 
+          Text="{Binding Path=SalesHeaderType, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+          Validation.ErrorTemplate="{x:Null}"
+          />
+        <ContentPresenter 
+          Grid.Row="7" Grid.Column="2"
+          Content="{Binding ElementName=typeTxt, Path=(Validation.Errors).CurrentItem}"
+          />
+
         <!-- SAVE BUTTON -->
         <Button 
-          Grid.Row="6" Grid.Column="2"
+          Grid.Row="8" Grid.Column="2"
           Command="{Binding Path=SaveCommand}"
           Content="_Save"
           HorizontalAlignment="Right"
