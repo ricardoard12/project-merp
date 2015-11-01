@@ -1,0 +1,1 @@
+A little mini ERP - System with 1 Sale process and 1 Purchase process and little master - data handling
